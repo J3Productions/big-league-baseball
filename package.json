@@ -1,0 +1,24 @@
+{
+  "name": "big-league-baseball",
+  "version": "1.0.0",
+  "description": "A port of the 3M Sports board game",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/J3Productions/big-league-baseball.git"
+  },
+  "author": "J3Productions",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/J3Productions/big-league-baseball/issues"
+  },
+  "homepage": "https://github.com/J3Productions/big-league-baseball#readme",
+  "dependencies": {
+    "esdoc": "^1.1.0",
+    "express": "^4.16.4",
+    "socket.io": "^2.1.1"
+  }
+}
