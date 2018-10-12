@@ -8,4 +8,10 @@ Port of the 3M Sports board game written in Javascript using Express.
 
 ### Run the Server
 
-`node app.js` or `npm run test`
+`npm run test`
+
+To view the server, view `localhost:3000` in your favorite browser.
+
+### Generate Documentation
+
+`npm run doc`

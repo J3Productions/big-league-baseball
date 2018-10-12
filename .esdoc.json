@@ -1,0 +1,16 @@
+{
+  "source": "./src",
+  "destination": "./docs",
+  "plugins": [
+    {
+      "name": "esdoc-standard-plugin",
+      "option": {
+        "brand": {
+          "title": "Big League Baseball",
+          "repository": "https://github.com/J3Productions/big-league-baseball",
+          "author": "https://github.com/J3Productions"
+        }
+      }
+    }
+  ]
+}
