@@ -7,49 +7,65 @@ export class Player {
 	/**
 	* Constructor creates a player that stores there name, pitcher or position player, whether the player is on a team yet, hitting stats, pitching stats.
 	* POSTCONDITION: inLineup, adjNum, flagged, and revealed, all now have set values.
-	*/
-	constructor(name, position, strengths) {
+		* @param {string} name Name of baseball player.
+		* @param {string} position Position the baseball player holds in the game.
+		* @param {array} batStrengths The type of pitches the batter hits best.
+		*/
+	constructor(name, position, batStrengths) {
 		/**
-		* Player name.
+		* Baseball player name.
      	* @type {string}
      	*/
-		this.playerName = name;
+		this.playerName = String(name);
 		/**
 		* Position player or pitcher.
      	* @type {string}
      	*/
-		this.position = position;
+		this.position = String(position);
         /**
-		*Player strengths.
-     	* @type {string}
+		*Hitters batting strengths.
+     	* @type {array}
      	*/
-		this.strengths = strengths;
+		this.batStrengths = Array[batStrengths];
         /**
         * Is available to be selected or not.
         * @type {boolean}
         */
         this.inLineup = false;
-		/**
-		* Hitting stats of the player.
-     	* @type {number}
-     	*/
-		this.hitStats = -1;
-		/**
-		* Revealed status of the player.
-     	* @type {number}
-     	*/
-		this.pitchStats = -1;
 	}
-
+	/**
+	* Gets the baseball players name.
+	* @return {string} name
+	*/
     getPlayerName(){
         return this.playerName;
     }
+	/**
+	* Gets the baseball players position in the game.
+	* @return {string} position
+	*/
     getPosition(){
         return this.position;
     }
-    getStrengths(){
-        return this.strengths;
+	/**
+	* Gets if pitch thrown is batters strength.
+	* @return {array}
+	*/TODO//Gets if pitch thrown is batters strength, hit action, or just a boolean?*************
+    getBatStrengths(pitch){
+		for(let i= 0; i<this.batStrengths.length; i++){
+			if(pitch == this.batStrengths[i]){
+				return true;
+			}
+			else{
+				return false;
+			}
+		}
+		return this.batStrengths[i];
     }
+	/**
+	* Gets whether the player has already been chosen by a team or not.
+	* @return {boolean} chosen
+	*/
     getInLineup(){
         return this.inLineup;
     }
