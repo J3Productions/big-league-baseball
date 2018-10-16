@@ -26,7 +26,7 @@ export class Player {
 		*Hitters batting strengths.
      	* @type {array}
      	*/
-		this.batStrengths = Array[batStrengths];
+		this.batStrengths = Array(batStrengths);
         /**
         * Is available to be selected or not.
         * @type {boolean}
@@ -49,8 +49,10 @@ export class Player {
     }
 	/**
 	* Gets if pitch thrown is batters strength.
-	* @return {array}
-	*/TODO//Gets if pitch thrown is batters strength, hit action, or just a boolean?*************
+	* @return {array} batStrengths
+	*/
+
+	//@TODO//Gets if pitch thrown is batters strength, hit action, or just a boolean?*************
     getBatStrengths(pitch){
 		for(let i= 0; i<this.batStrengths.length; i++){
 			if(pitch == this.batStrengths[i]){
@@ -64,7 +66,7 @@ export class Player {
     }
 	/**
 	* Gets whether the player has already been chosen by a team or not.
-	* @return {boolean} chosen
+	* @return {boolean} chosen?
 	*/
     getInLineup(){
         return this.inLineup;
