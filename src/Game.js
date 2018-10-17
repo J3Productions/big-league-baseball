@@ -25,6 +25,25 @@ export class Game {
 		this.blueAB = 1;
 	}
 
+	/*
+	 * ss = Slow Straight
+	 * si = Slow Inside
+	 * sh = Slow High
+	 * sl = Slow Low
+	 * fs = Fastball Straigh
+	 * fi = Fastball Inside
+	 * fh = Fastball High
+	 * fl = Fastball Low
+	 * co = Curveball Outside
+	 * ci = Curveball Inside
+	 * ch = Curveball High
+	 * cl = Curveball Low
+	 */
+
+	/**
+	 *
+	 * @param batter
+	 */
 	ssPitch(batter) {
 		if (batter === "ss") {
 			this.hit6();
@@ -47,7 +66,7 @@ export class Game {
 		else if (batter === "sh" || batter === "fh" || batter === "fl") {
 			this.foul();
 		}
-		else if (batter === "ch" || batter === "cl") {
+		else if (batter === "ch" || batter === "cl" || batter === "take") {
 			this.strike();
 		}
 	}
