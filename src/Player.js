@@ -5,7 +5,7 @@
  */
 export class Player {
 	/**
-	* Constructor creates a player that stores there name, pitcher or position player, hitting stats, baserunning speed and whether the player is on a team.
+	* Constructor creates a player that stores there name, position, hitting stats, baserunning speed and whether the player is on a team.
 	* POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values.
 		* @param {string} name Name of baseball player.
 		* @param {string} position Position the baseball player holds in the game.
@@ -57,8 +57,6 @@ export class Player {
 	* Gets if pitch thrown is batters strength.
 	* @return {array} battStrengths
 	*/
-
-	//@TODO//Gets if pitch thrown is batters strength, hit action, or just a boolean?*************
     getBattStrengths(pitch){
 		return this.battStrengths;
     }

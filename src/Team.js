@@ -1,0 +1,54 @@
+'use strict';
+/**
+ *Team class creates teams
+ */
+import { Pitcher } from './Pitcher.js';
+import { PositionPlayer } from './PositionPlayer.js';
+/**
+ * Team
+ */
+export class Team {
+    /**
+    * Constructor creates a team that stores players in an array.
+
+    there name,position( pitcher or position team), hitting stats, baserunning speed and whether the team is on a team using functions inherited from the team class. Also, type of pitcher they are, types of pitches they throw.
+    * POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values,  pitcher type and the pitcher arsenal all now have set values.
+        *
+        * @param {string} team of baseball players
+        */
+    constructor(team){
+     	/**
+		* Baseball team(home or visitor).
+     	* @type {string}
+     	*/
+        this.team = team;
+        /**
+		* Baseball player name.
+     	* @type {array}
+     	*/
+        this.arrOfPlayers = [];
+        createPlayers();
+    }
+    /**
+	* This function returns a team of players in an array.
+	* POSTCONDITION: Returns array of team
+	*/
+    getTeam(){
+        return this.arrOfPlayers;
+    }
+    /**
+    * This function buildes players and puts them into the arrOfPlayers.
+    * POSTCONDITION: No return.
+    */
+    createPlayers(){
+        this.arrOfPlayers[0]= new PositionPlayer("Jielong GoLong", "catcher", ["co", "ch"], false);
+        this.arrOfPlayers[1]= new PositionPlayer("Jacob \"The Bull\" Parnell", "1base", ["fs", "fl"], true);
+        this.arrOfPlayers[2]= new PositionPlayer("Rocco Manzeene", "short", ["ci"], false);
+        this.arrOfPlayers[3]= new PositionPlayer("Larry Smerts", "2base", ["fs", "fl"], true);
+        this.arrOfPlayers[4]= new PositionPlayer("Johnny Demp", "3base", ["ss", "sl"], true);
+        this.arrOfPlayers[5]= new PositionPlayer("Ray Cobb", "left", ["fs", "fi"], false);
+        this.arrOfPlayers[6]= new PositionPlayer("Mike Gibbons", "center", ["si", "ci"], true);
+        this.arrOfPlayers[7]= new PositionPlayer("Sammy Chambers", "right", ["co"], false);
+        this.arrOfPlayers[8]= new PositionPlayer("Boom Mannski", "pitcher", [], false);
+    }
+}
