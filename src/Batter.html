@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html>
+<body onload="init()">
+
+    <div style="position: absolute; left: 0; bottom: 0;">
+        <table border ="1" style="width: 75%; table-layout: fixed; word-break: break-all;">
+            <tr>
+                <td>
+                    <table style="font-size: 17pt;">
+                        <tr>
+                            <td><button onclick="seeFiled()">Do nothing</button></td>
+                        </tr>
+                        <tr>
+                            <td><button onclick="seeFiled()">Swing</button></td>
+                        </tr>
+                        <tr>
+                            <td><button onclick="seeFiled()">Bunt</button></td>
+                        </tr>
+                        <tr>
+                            <td>d</td>
+                        </tr>
+                        <tr>
+                            <td>e</td>
+                        </tr>
+                        <tr>
+                            <td>f</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <div>             
+        <table align="right" border ="1" style="width: 25%; table-layout: fixed; word-break: break-all;">
+            <tr>
+                <td>
+                    <table style="font-size: 17pt;">
+                        <tr>
+                            <td>Ball</td>
+                            <td>0</td>
+                            <td>&nbsp Strike</td>
+                            <td>0</td>
+                            <td>&nbsp Out</td>
+                            <td>0</td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <table style="font-size: 14pt;">
+                        <tr>
+                            <td>round</td>
+                            <td>&nbsp 1</td>
+                            <td>&nbsp 2</td>
+                            <td>&nbsp 3</td>
+                            <td>&nbsp 4</td>
+                            <td>&nbsp 5</td>
+                            <td>&nbsp 6</td>
+                            <td>&nbsp 7</td>
+                            <td>&nbsp 8</td>
+                            <td>&nbsp 9</td>
+                            <td>&nbsp Total</td>
+                        </tr>
+                        <tr>
+                            <td>Visitor</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp &nbsp 0</td>
+                        </tr>
+                        <tr>
+                            <td>Home</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp 0</td>
+                            <td>&nbsp &nbsp 0</td>
+                        </tr>
+                        <tr>
+                            <td>&nbsp </td>
+                        </tr>
+                    </table>
+
+                    <table style="font-size: 21pt;">
+                        <tr>
+                            <td>a</td>
+                        </tr>
+                        <tr>
+                            <td>b</td>
+                        </tr>
+                        <tr>
+                            <td>c</td>
+                        </tr>
+                        <tr>
+                            <td>d</td>
+                        </tr>
+                        <tr>
+                            <td>e</td>
+                        </tr>
+                        <tr>
+                            <td>f</td>
+                        </tr>
+                        <tr>
+                            <td>a</td>
+                        </tr>
+                        <tr>
+                            <td>b</td>
+                        </tr>
+                        <tr>
+                            <td>c</td>
+                        </tr>
+                        <tr>
+                            <td>d</td>
+                        </tr>
+                        <tr>
+                            <td>e</td>
+                        </tr>
+                        <tr>
+                            <td>f</td>
+                        </tr>
+                        <tr>
+                            <td>a</td>
+                        </tr>
+                        <tr>
+                            <td>b</td>
+                        </tr>
+                        <tr>
+                            <td>c</td>
+                        </tr>
+                        <tr>
+                            <td>d</td>
+                        </tr>
+                        <tr>
+                            <td>e</td>
+                        </tr>
+                    </table>
+                 </td>
+            </tr>
+        </table>
+
+    </div>
+
+    <div align="left">
+        <canvas id="batterView" style="border:1px solid #d3d3d3;">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+        <img id="viewPic" src="./assets/batterView.jpg" style="display: none;">
+    </div>
+
+      <div align="left">
+        <canvas id="filedView" style="border:1px solid #d3d3d3; display: none;">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+        <img id="filedPic" src="./assets/filedView.jpg" style="display: none;">
+    </div>
+       <script>
+
+           var state = false; //After the javascript method complete, change the condition.
+
+            function init()
+            {
+                screenWidth = document.documentElement.clientWidth;
+                screenHeight = document.documentElement.clientHeight;
+                var a = document.getElementById("batterView");
+                a.width = (screenWidth * 0.74);
+                a.height = (screenHeight * 0.73);
+
+                var ctx = a.getContext("2d");
+                var img = document.getElementById("viewPic");
+                ctx.drawImage(img,10,10);
+            }
+
+           function seeFiled()
+           {
+                if(state == false)
+                {
+                    screenWidth = document.documentElement.clientWidth;
+                    screenHeight = document.documentElement.clientHeight;
+                    var a = document.getElementById("filedView");
+                    var b = document.getElementById("batterView");
+                    b.style.display = "none";
+                    a.style.display = "block";
+                    a.width = (screenWidth * 0.74);
+                    a.height = (screenHeight * 0.73);
+
+                    var ctx = a.getContext("2d");
+                    var img = document.getElementById("filedPic");
+                    ctx.drawImage(img,10,10);
+                    
+                    state = true;
+                }
+                else if(state == true)
+                {
+                    var a = document.getElementById("filedView");
+                    var b = document.getElementById("batterView");
+                    a.style.display = "none";
+                    b.style.display = "block";
+                    state = false;
+                }
+
+           }
+        </script>
+
+</body>
+</html>

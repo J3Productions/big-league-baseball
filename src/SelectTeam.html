@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<body onload="init()">
+
+    <div>
+
+    <canvas id="SelectMember" style="border:1px solid #d3d3d3;">
+            Your browser does not support the HTML5 canvas tag.
+    </canvas>
+
+    <img id="SelectPic" src="./assets/SelectView.jpg" style="display: none;">
+
+    <a href="Batter.html">
+        <button id="startMatch" style="position:absolute;">Lets start match!</button>
+    </a>
+
+    </div>
+
+    <script>
+        function init()
+            {
+                screenWidth = document.documentElement.clientWidth;
+                screenHeight = document.documentElement.clientHeight;
+                var a = document.getElementById("SelectMember");
+                a.width = (screenWidth * 0.99);
+                a.height = (screenHeight * 0.97);
+
+                var ctx = a.getContext("2d");
+                ctx.font = "30px Arial";
+                ctx.fillText("Select your Team member!",10,50);
+                var img = document.getElementById("SelectPic");
+                ctx.drawImage(img,0,0, screenWidth, screenHeight);
+
+                var button = document.getElementById("startMatch");
+                button.style.left = String(screenWidth * 0.45) + "px";
+                button.style.top = String(screenHeight * 0.8) + "px";
+            }
+    </script>
+
+</body>
+</html>
