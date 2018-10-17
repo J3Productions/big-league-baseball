@@ -1,4 +1,5 @@
 'use strict';
+import { Team } from "./Team.js";
 
 /**
  * Game class - makes decisions and stores the game status based on player/user actions.
@@ -12,17 +13,14 @@ export class Game {
 		this.outs = 0;
 		this.balls = 0;
 		this.strikes = 0;
-		this.redScore = 0;
-		this.blueScore = 0;
 		this.first = false;
 		this.second = false;
 		this.third = false;
 
-		this.redTeam = new Team();
 		this.blueTeam = new Team();
 
-		this.redAB = 1;
-		this.blueAB = 1;
+		this.redAB = 0;
+		this.blueAB = 0;
 	}
 
 	/*
@@ -70,6 +68,324 @@ export class Game {
 			this.strike();
 		}
 	}
+
+	/**
+	 *
+	 * @param batter
+	 */
+	shPitch(batter) {
+		if (batter === "sh") {
+			this.hit6();
+		}
+		else if (batter === "sh") {
+			this.hit3();
+		}
+		else if (batter === "fh") {
+			this.hit2();
+		}
+		else if (batter === "si" || batter === "fs" || batter === "ch") {
+			this.hit1();
+		}
+		else if (batter === "ss" || batter === "fi" || batter === "ci") {
+			this.foul();
+		}
+		else if (batter === "sl" || batter === "fl" || batter === "co" || batter === "cl") {
+			this.strike();
+		}
+		else if (batter === "take") {
+			this.ball();
+		}
+	}
+
+	/**
+	 *
+	 * @param batter
+	 */
+	slPitch(batter) {
+		if (batter === "sl") {
+			this.hit6();
+		}
+		else if (batter === "sl") {
+			this.hit3();
+		}
+		else if (batter === "ss" || batter === "fl") {
+			this.hit2();
+		}
+		else if (batter === "co" || batter === "cl") {
+			this.hit1();
+		}
+		else if (batter === "si" || batter === "fs" || batter === "fi") {
+			this.foul();
+		}
+		else if (batter === "sh" || batter === "fh" || batter === "ch" || batter === "ci") {
+			this.strike();
+		}
+		else if (batter === "take") {
+			this.ball();
+		}
+	}
+
+	/**
+	 *
+	 * @param batter
+	 */
+	siPitch(batter) {
+		if (batter === "si") {
+			this.hit6();
+		}
+		else if (batter === "si") {
+			this.hit5();
+		}
+		else if (batter === "ss") {
+			this.hit4();
+		}
+		else if (batter === "fi" || batter === "ci") {
+			this.hit3();
+		}
+		else if (batter === "sh" || batter === "sl" || batter === "fs") {
+			this.hit2();
+		}
+		else if (batter === "fh" || batter === "fl" || batter === "co" || batter === "ch") {
+			this.foul();
+		}
+		else if (batter === "cl" || batter === "take") {
+			this.strike();
+		}
+	}
+
+	/**
+	 *
+	 * @param batter
+	 */
+	fsPitch(batter) {
+		if (batter === "fs") {
+			this.hit6();
+		}
+		else if (batter === "fs") {
+			this.hit5();
+		}
+		else if (batter === "fi") {
+			this.hit4();
+		}
+		else if (batter === "ss" || batter === "fh" || batter === "ci") {
+			this.hit3();
+		}
+		else if (batter === "co") {
+			this.hit2();
+		}
+		else if (batter === "si") {
+			this.hit1();
+		}
+		else if (batter === "sh" || batter === "sl" || batter === "fl") {
+			this.foul();
+		}
+		else if (batter === "ch" || batter === "cl" || batter === "take") {
+			this.strike();
+		}
+	}
+
+	/**
+	 *
+	 * @param batter
+	 */
+	fhPitch(batter) {
+		if (batter === "fh") {
+			this.hit6();
+		}
+		else if (batter === "fh") {
+			this.hit3();
+		}
+		else if (batter === "fi") {
+			this.hit2();
+		}
+		else if (batter === "sh" || batter === "ch" || batter === "ci") {
+			this.hit1();
+		}
+		else if (batter === "si" || batter === "fs" || batter === "co") {
+			this.foul();
+		}
+		else if (batter === "ss" || batter === "sl" || batter === "fl" || batter === "cl") {
+			this.strike();
+		}
+		else if (batter === "take") {
+			this.ball();
+		}
+	}
+
+	/**
+	 *
+	 * @param batter
+	 */
+	flPitch(batter) {
+		if (batter === "fl") {
+			this.hit6();
+		}
+		else if (batter === "fl") {
+			this.hit3();
+		}
+		else if (batter === "fs") {
+			this.hit2();
+		}
+		else if (batter === "sl" || batter === "co" || batter === "cl") {
+			this.hit1();
+		}
+		else if (batter === "ss" || batter === "si" || batter === "fi") {
+			this.foul();
+		}
+		else if (batter === "sh" || batter === "fh" || batter === "ch" || batter === "ci") {
+			this.strike();
+		}
+		else if (batter === "take") {
+			this.ball();
+		}
+	}
+
+	/**
+	 *
+	 * @param batter
+	 */
+	fiPitch(batter) {
+		if (batter === "fi") {
+			this.hit6();
+		}
+		else if (batter === "fi") {
+			this.hit5();
+		}
+		else if (batter === "fs") {
+			this.hit4();
+		}
+		else if (batter === "si" || batter === "ci") {
+			this.hit3();
+		}
+		else if (batter === "fl") {
+			this.hit2();
+		}
+		else if (batter === "ss" || batter === "ch") {
+			this.hit1();
+		}
+		else if (batter === "sh" || batter === "fh" || batter === "co" || batter === "cl") {
+			this.foul();
+		}
+		else if (batter === "sl" || batter === "take") {
+			this.strike();
+		}
+	}
+
+	/**
+	 *
+	 * @param batter
+	 */
+	coPitch(batter) {
+		if (batter === "co") {
+			this.hit6();
+		}
+		else if (batter === "co") {
+			this.hit5();
+		}
+		else if (batter === "fs") {
+			this.hit4();
+		}
+		else if (batter === "ss") {
+			this.hit3();
+		}
+		else if (batter === "ch") {
+			this.hit2();
+		}
+		else if (batter === "fl" || batter === "fi" || batter === "cl") {
+			this.hit1();
+		}
+		else if (batter === "sh" || batter === "sl") {
+			this.foul();
+		}
+		else if (batter === "si" || batter === "fh" || batter === "ci" || batter === "take") {
+			this.strike();
+		}
+	}
+
+	/**
+	 *
+	 * @param batter
+	 */
+	chPitch(batter) {
+		if (batter === "ch") {
+			this.hit6();
+		}
+		else if (batter === "ch") {
+			this.hit3();
+		}
+		else if (batter === "ss" || batter === "sh" || batter === "si" || batter === "fh" || batter === "co") {
+			this.hit1();
+		}
+		else if (batter === "fs" || batter === "ci") {
+			this.foul();
+		}
+		else if (batter === "sl" || batter === "fl" || batter === "fi" || batter === "cl") {
+			this.strike();
+		}
+		else if (batter === "take") {
+			this.ball();
+		}
+	}
+
+	/**
+	 *
+	 * @param batter
+	 */
+	clPitch(batter) {
+		if (batter === "cl") {
+			this.hit6();
+		}
+		else if (batter === "cl") {
+			this.hit3();
+		}
+		else if (batter === "co" || batter === "ci") {
+			this.hit2();
+		}
+		else if (batter === "sl" || batter === "fl") {
+			this.hit1();
+		}
+		else if (batter === "ss" || batter === "si" || batter === "fi") {
+			this.foul();
+		}
+		else if (batter === "sh" || batter === "fs" || batter === "fh" || batter === "ch") {
+			this.strike();
+		}
+		else if (batter === "take") {
+			this.ball();
+		}
+	}
+
+	/**
+	 *
+	 * @param batter
+	 */
+	ciPitch(batter) {
+		if (batter === "ci") {
+			this.hit6();
+		}
+		else if (batter === "ci") {
+			this.hit5();
+		}
+		else if (batter === "fi") {
+			this.hit4();
+		}
+		else if (batter === "si" || batter === "fs") {
+			this.hit3();
+		}
+		else if (batter === "ss" || batter === "cl") {
+			this.hit2();
+		}
+		else if (batter === "sh") {
+			this.hit1();
+		}
+		else if (batter === "sl" || batter === "fh" || batter === "co" || batter === "ch") {
+			this.foul();
+		}
+		else if (batter === "fl" || batter === "take") {
+			this.strike();
+		}
+	}
+
 
 	/**
 	 * Hit chart 1: Infield balls
@@ -597,5 +913,39 @@ export class Game {
 			this.third = true;
 		}
 		this.second = true;
+	}
+
+	foul() {
+		if (this.strikes < 2) {
+			this.strikes++;
+		}
+	}
+
+	strike() {
+		this.strikes++;
+		if (this.strikes === 3) {
+			this.strikes = 0;
+			this.outs++;
+		}
+	}
+
+	ball() {
+		this.balls++;
+		if (this.balls === 4) {
+			this.balls = 0;
+			if (this.third && this.second && this.first) {
+				this.third = false;
+				this.runs++;
+			}
+			if (this.second && this.first) {
+				this.second = false;
+				this.third = true;
+			}
+			if (this.first) {
+				this.first = false;
+				this.second = true;
+			}
+			this.first = true;
+		}
 	}
 }

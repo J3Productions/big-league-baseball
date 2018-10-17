@@ -9,10 +9,10 @@ export class Player {
 	* POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values.
 		* @param {string} name Name of baseball player.
 		* @param {string} position Position the baseball player holds in the game.
-		* @param {array} battStrengths The type of pitches the batter hits best.
-		* @param {string} baseSpeed The players baserunning speed
+		* @param {string[]} batStrengths The type of pitches the batter hits best.
+		* @param {boolean} baseSpeed The players baserunning speed
 		*/
-	constructor(name, position, battStrengths, baseSpeed) {
+	constructor(name, position, batStrengths, baseSpeed) {
 		/**
 		* Baseball player name.
      	* @type {string}
@@ -25,12 +25,12 @@ export class Player {
 		this.position = String(position);
         /**
 		*Hitters batting strengths.
-     	* @type {array}
+     	* @type {string[]}
      	*/
 		this.battStrengths = battStrengths;
 		/**
-		* Player baserunning speed.
-		* @type {string}
+		* Player baserunning speed - true if fast runner, false if not fast.
+		* @type {boolean}
 		*/
 		this.baseSpeed = baseSpeed;
         /**
@@ -64,7 +64,7 @@ export class Player {
     }
 	/**
 	* Gets the baseball players baserunning speed.
-	* @return {string}  baseSpeed
+	* @return {boolean}  baseSpeed
 	*/
     getBaseSpeed(){
         return this.baseSpeed;

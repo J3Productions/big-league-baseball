@@ -26,7 +26,7 @@ export class Pitcher extends Player {
         this.pitcherType = pitcher;
         /**
 		* Pitches thrown by this picture.
-     	* @type {array}
+     	* @type {string[]}
      	*/
         this.arsenal = pitches;
     }
@@ -42,7 +42,7 @@ export class Pitcher extends Player {
 	* @return {array} arsenal
 	*/
     //TODO//What do we want this class to do?
-    getAsenal(){
+    getArsenal(){
         return this.arsenal;
     }
 }
