@@ -13,11 +13,11 @@ export class PositionPlayer extends Player {
         * @extends {PlayerClass}This class is a child of the player class.
         * @param {string} positionType The players position
         */
-    constructor(name, position, batStrengths, baseSpeed, positionPlayer){
+    constructor(name, position, battStrengths, baseSpeed, positionPlayer){
         /**
         * @extends {PlayerClass}
         */
-        super(name,position, batStrengths);
+        super(name,position, battStrengths);
         /**
         * .Position player position."catcher, "leftField..."
         * @type {string}

@@ -8,17 +8,17 @@ import { Player } from './Player.js';
  */
 export class Pitcher extends Player {
     /**
-    * Constructor creates a player that stores there name, pitcher or position player, hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also, type of pitcher they are, types of pitches they throw.
+    * Constructor creates a player that stores there name,position( pitcher or position player), hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also, type of pitcher they are, types of pitches they throw.
     * POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values,  pitcher type and the pitcher arsenal all now have set values.
         * @extends {PlayerClass}This class is a child of the player class.
         * @param {string} pitcherType Type of pitcher.
         * @param {array} arsenal The type of pitches the batter hits best.
         */
-    constructor(name, position, batStrengths, pitcher, pitches){
+    constructor(name, position, battStrengths, pitcher, pitches){
         /**
         * @extends {PlayerClass}
         */
-        super(name,position, batStrengths);
+        super(name, position, battStrengths);
         /**
 		* Pitcher is starter or reliever.
      	* @type {string}
