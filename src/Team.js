@@ -49,6 +49,6 @@ export class Team {
         this.arrOfPlayers[5]= new PositionPlayer("Ray Cobb", "left", ["fs", "fi"], false);
         this.arrOfPlayers[6]= new PositionPlayer("Mike Gibbons", "center", ["si", "ci"], true);
         this.arrOfPlayers[7]= new PositionPlayer("Sammy Chambers", "right", ["co"], false);
-        this.arrOfPlayers[8]= new PositionPlayer("Boom Mannski", "pitcher", [], false);
+        this.arrOfPlayers[8]= new Pitcher("Boom Mannski", "pitcher", [], false, ["fs","ss","ch","fl"]);
     }
 }
