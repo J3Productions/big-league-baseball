@@ -24,10 +24,15 @@ export class Team {
         this.team = team;
         /**
 		* Baseball player name.
-     	* @type {array}
+     	* @type {Player[]}
      	*/
         this.arrOfPlayers = [];
-        createPlayers();
+	    /**
+	     * Number of runs scored by the team
+	     * @type {number}
+	     */
+        this.runs = 0;
+	    createPlayers();
     }
     /**
 	* This function returns a team of players in an array.
@@ -47,8 +52,16 @@ export class Team {
         this.arrOfPlayers[3]= new PositionPlayer("Larry Smerts", "2base", ["fs", "fl"], true);
         this.arrOfPlayers[4]= new PositionPlayer("Johnny Demp", "3base", ["ss", "sl"], true);
         this.arrOfPlayers[5]= new PositionPlayer("Ray Cobb", "left", ["fs", "fi"], false);
-        this.arrOfPlayers[6]= new PositionPlayer("Mike Gibbons", "center", ["si", "ci"], true);
-        this.arrOfPlayers[7]= new PositionPlayer("Sammy Chambers", "right", ["co"], false);
+        this.arrOfPlayers[6]= new PositionPlayer("Mike Truk", "center", ["si", "ci"], true);
+        this.arrOfPlayers[7]= new PositionPlayer("Mickel J-Rod", "right", ["co"], false);
         this.arrOfPlayers[8]= new Pitcher("Boom Mannski", "pitcher", [], false, ["fs","ss","ch","fl"]);
+    }
+
+	/**
+	 * Add runs to the team's score
+	 * @param {number} r The number of runs scored on the play
+	 */
+	score(r) {
+    	this.runs += r;
     }
 }

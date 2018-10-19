@@ -63,6 +63,17 @@ export class Game {
 		 */
 		this.visitAB = 1;
 
+		/**
+		 * Inning number - this.inningSide denotes the top or the bottom of the inning
+		 * @type {number}
+		 */
+		this.inning = 1
+
+		/**
+		 * Top or the bottom of the inning - false denotes the top, true denotes the bottom.
+		 * @type {boolean}
+		 */
+		this.inningSide = false
 	}
 
 	/*
@@ -634,85 +645,98 @@ export class Game {
 	 * Home run - clears the bases and adds one run for every runner
 	 */
 	homeRun() {
+		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
-			this.runs++;
+			numRuns++;
 		}
 		if (this.second) {
 			this.second = false;
-			this.runs++;
+			numRuns++;
 		}
 		if (this.first) {
 			this.first = false;
-			this.runs++;
+			numRuns++;
 		}
-		this.runs++;
+		numRuns++;
+		this.homeTeam.score(numRuns);
+		this.newAB();
 	}
 
 	/**
 	 * Triple - clears the bases and batter ends up at third
 	 */
 	triple() {
+		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
-			this.runs++;
+			numRuns++;
 		}
 		if (this.second) {
 			this.second = false;
-			this.runs++;
+			numRuns++;
 		}
 		if (this.first) {
 			this.first = false;
-			this.runs++;
+			numRuns++;
 		}
 		this.third = true;
+		this.homeTeam.score(numRuns);
+		this.newAB();
 	}
 
 	/**
 	 * Bases-clearing double - clears the bases (runner at first scores) and batter ends up at second
 	 */
 	doubleClear() {
+		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
-			this.runs++;
+			numRuns++;
 		}
 		if (this.second) {
 			this.second = false;
-			this.runs++;
+			numRuns++;
 		}
 		if (this.first) {
 			this.first = false;
-			this.runs++;
+			numRuns++;
 		}
 		this.second = true;
+		this.homeTeam.score(numRuns);
+		this.newAB();
 	}
 
 	/**
 	 * Double - runners at third and second score, runner at first goes to third, batter ends up at second
 	 */
 	double() {
+		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
-			this.runs++;
+			numRuns++;
 		}
 		if (this.second) {
 			this.second = false;
-			this.runs++;
+			numRuns++;
 		}
 		if (this.first) {
 			this.first = false;
 			this.third = true;
 		}
 		this.second = true;
+		this.homeTeam.score(numRuns);
+		this.newAB();
 	}
 
 	/**
 	 * Single - all runners advance one base, batter ends up at first
 	 */
 	single() {
+		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
-			this.runs++;
+			numRuns++;
 		}
 		if (this.second) {
 			this.second = false;
@@ -723,53 +747,62 @@ export class Game {
 			this.second = true;
 		}
 		this.first = true;
+		this.homeTeam.score(numRuns);
+		this.newAB();
 	}
 
 	/**
 	 * Single that scores runners in scoring postion - runners at third and second score, runner at first goes to second, batter ends up at first
 	 */
 	singleRISP() {
+		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
-			this.runs++;
+			numRuns++;
 		}
 		if (this.second) {
 			this.second = false;
-			this.runs++;
+			numRuns++;
 		}
 		if (this.first) {
 			this.first = false;
 			this.second = true;
 		}
 		this.first = true;
+		this.homeTeam.score(numRuns);
+		this.newAB();
 	}
 
 	/**
 	 * Single that allows runner at first to go to third - runners at third and second score, runner at first goes to third, batter ends up at first
 	 */
 	singleAdvance() {
+		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
-			this.runs++;
+			numRuns++;
 		}
 		if (this.second) {
 			this.second = false;
-			this.runs++;
+			numRuns++;
 		}
 		if (this.first) {
 			this.first = false;
 			this.third = true;
 		}
 		this.first = true;
+		this.homeTeam.score(numRuns);
+		this.newAB();
 	}
 
 	/**
 	 * Error - All runners move up a base, batter is safe at first in play that should've resulted in an out
 	 */
 	error() {
+		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
-			this.runs++;
+			numRuns++;
 		}
 		if (this.second) {
 			this.second = false;
@@ -780,30 +813,35 @@ export class Game {
 			this.second = true;
 		}
 		this.first = true;
+		this.homeTeam.score(numRuns);
+		this.newAB();
 	}
 
 	/**
 	 * Batter pops out in foul territory - All runners hold
 	 */
 	foulout() {
-		this.out();
+		this.out(1);
+		this.newAB();
 	}
 
 	/**
 	 * Batter pops out - All runners hold
 	 */
 	flyout() {
-		this.out();
+		this.out(1);
+		this.newAB();
 	}
 
 	/**
 	 * Batter pops out - All runners advance one base
 	 */
 	flyoutAdv() {
+		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
 			if (this.outs < 2)
-				this.runs++;
+				numRuns++;
 		}
 		if (this.second) {
 			this.second = false;
@@ -813,33 +851,39 @@ export class Game {
 			this.first = false;
 			this.second = true;
 		}
-		this.out();
+		this.out(1);
+		this.homeTeam.score(numRuns);
+		this.newAB();
 	}
 
 	/**
 	 * Batter pops out - All runners (except runner at first) advance one base
 	 */
 	flyoutNoAdv1st() {
+		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
 			if (this.outs < 2)
-				this.runs++;
+				numRuns++;
 		}
 		if (this.second) {
 			this.second = false;
 			this.third = true;
 		}
-		this.out();
+		this.out(1);
+		this.homeTeam.score(numRuns);
+		this.newAB();
 	}
 
 	/**
 	 * Batter grounds out - All runners advance one base
 	 */
 	groundout() {
+		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
 			if (this.outs < 2)
-				this.runs++;
+				numRuns++;
 		}
 		if (this.second) {
 			this.second = false;
@@ -849,17 +893,20 @@ export class Game {
 			this.first = false;
 			this.second = true;
 		}
-		this.out();
+		this.out(1);
+		this.homeTeam.score(numRuns);
+		this.newAB();
 	}
 
 	/**
 	 * Batter grounds out - Runners hold unless they are forced to advance
 	 */
 	groundoutAdvIfForced() {
+		let numRuns = 0;
 		if (this.third && this.second && this.first) {
 			this.third = false;
 			if (this.outs < 2) {
-				this.runs++;
+				numRuns++;
 			}
 		}
 		if (this.second && this.first) {
@@ -870,20 +917,23 @@ export class Game {
 			this.first = false;
 			this.second = true;
 		}
-		this.out();
+		this.out(1);
+		this.homeTeam.score(numRuns);
+		this.newAB();
 	}
 
 	/**
 	 * Double play - Runner at first out and batter out
 	 */
 	groundoutDoublePlay() {
+		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
 			if (this.outs < 1 && !this.first) {
-				this.runs++;
+				numRuns++;
 			}
 			else if (this.outs < 2) {
-				this.runs++;
+				numRuns++;
 			}
 		}
 		if (this.second) {
@@ -892,9 +942,13 @@ export class Game {
 		}
 		if (this.first) {
 			this.first = false;
-			this.out();
+			this.out(2);
 		}
-		this.out();
+		else {
+			this.out(1);
+		}
+		this.homeTeam.score(numRuns);
+		this.newAB();
 	}
 	/**
 	 * Double play - Lead runner and batter out
@@ -902,58 +956,73 @@ export class Game {
 	lineoutDoublePlay() {
 		if (this.third) {
 			this.third = false;
-			this.out();
+			this.out(2);
 		}
 		else if (this.second) {
 			this.second = false;
-			this.out();
+			this.out(2);
 		}
 		else if (this.first) {
 			this.first = false;
-			this.out();
+			this.out(2);
 		}
-		this.out();
+		else {
+			this.out(1);
+		}
+		this.newAB();
 	}
 
 	/**
 	 * Triple play - Runners at first and second and batter out
 	 */
 	triplePlay() {
-		if (this.second) {
+		if (this.second && this.first) {
 			this.second = false;
-			this.out();
-		}
-		if (this.first) {
 			this.first = false;
-			this.out();
+			this.out(3);
 		}
-		this.out();
+		else if (this.second) {
+			this.second = false;
+			this.out(2);
+		}
+		else if (this.first) {
+			this.first = false;
+			this.out(2);
+		}
+		else {
+			this.out(1);
+		}
+		this.newAB();
 	}
 
 	/**
 	 * Fielder's choice - Runner advances only if forced and lead runner is out, batter out and runners hold otherwise
 	 */
 	fieldersChoice() {
-		this.out();
+		this.out(1);
+		this.newAB();
 	}
 
 	/**
 	 * Error - Runners at first and second advance 2 bases and batter ends up at second
 	 */
 	errorSecond() {
+		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
-			this.runs++;
+			numRuns++;
 		}
 		if (this.second) {
 			this.second = false;
-			this.runs++;
+			numRuns++;
 		}
 		if (this.first) {
 			this.first = false;
 			this.third = true;
 		}
 		this.second = true;
+		this.homeTeam.score(numRuns);
+		this.newAB();
 	}
 
 	/**
@@ -972,7 +1041,8 @@ export class Game {
 		this.strikes++;
 		if (this.strikes === 3) {
 			this.strikes = 0;
-			this.out();
+			this.out(1);
+			this.newAB();
 		}
 	}
 
@@ -980,12 +1050,13 @@ export class Game {
 	 * Ball - 4 balls and it's a free pass on base
 	 */
 	ball() {
+		let numRuns = 0;
 		this.balls++;
 		if (this.balls === 4) {
 			this.balls = 0;
 			if (this.third && this.second && this.first) {
 				this.third = false;
-				this.runs++;
+				numRuns++;
 			}
 			if (this.second && this.first) {
 				this.second = false;
@@ -996,21 +1067,15 @@ export class Game {
 				this.second = true;
 			}
 			this.first = true;
+			this.homeTeam.score(numRuns);
+			this.newAB();
 		}
 	}
 
 	/**
 	 * Out - 3 Outs and that's the end of the inning
 	 */
-	out() {
-		this.balls = 0;
-		this.strikes = 0;
-		if (this.homeAB === 9) {
-			this.homeAB = 1;
-		}
-		else{
-			this.homeAB++;
-		}
+	out(num) {
 		if (num === 1) {
 			this.outs++;
 		}
@@ -1025,11 +1090,37 @@ export class Game {
 		else if (num === 3) {
 			this.outs = 3;
 		}
+
 		if (this.outs === 3) {
-			this.first = false;
-			this.second = false;
-			this.third = false;
-			this.outs = 0;
+			this.newInning();
 		}
+	}
+
+	/**
+	 * Resets the game for a new at bat
+	 */
+	newAB() {
+		this.balls = 0;
+		this.strikes = 0;
+		if (this.homeAB === 9) {
+			this.homeAB = 1;
+		}
+		else{
+			this.homeAB++;
+		}
+	}
+
+	/**
+	 * Resets the bases and outs for a new half-inning
+	 */
+	newInning() {
+		this.first = false;
+		this.second = false;
+		this.third = false;
+		this.outs = 0;
+		if (this.inningSide) {
+			this.inning++;
+		}
+		this.inningSide = !this.inningSide;
 	}
 }

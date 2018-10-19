@@ -12,7 +12,7 @@ export class Pitcher extends Player {
     * POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values,  pitcher type and the pitcher arsenal all now have set values.
         * @extends {PlayerClass}This class is a child of the player class.
         * @param {string} pitcherType Type of pitcher.
-        * @param {array} arsenal The type of pitches the batter hits best.
+        * @param {string[]} arsenal The type of pitches the batter hits best.
         */
     constructor(name, position, battStrengths, baseSpeed, pitches){
         /**
@@ -27,7 +27,7 @@ export class Pitcher extends Player {
     }
     /**
 	* Gets the baseball players name.
-	* @return {array} arsenal
+	* @return {string[]} arsenal
 	*/
     //TODO//What do we want this class to do?
     getArsenal(){
