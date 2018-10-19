@@ -3,11 +3,39 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Big League Baseball</title>
-	<link type="text/css" rel="stylesheet" href="/main.css">
 </head>
 <body>
-	<p>Hello cruel world</p>
-	<script src="/socket.io/socket.io.js"></script>
-	<script src="/main.js" type="text/javascript"></script>
+    
+<h1 id="title" style="position:absolute;">Welcome to big league baseball!</h1>
+
+<div>
+    <p id="doc" style="position:absolute;">Please enter your name: </p>
+    <input type="text" id="userName" style="position:absolute;" value="player1" required> <br> 
+    <a href="SelectTeam.html">
+            <button id="startGame" style="position:absolute;">Start Game</button>
+    </a>
+</div>
+
+<div>
+    <canvas id="startPage" style="border:1px solid #d3d3d3;">
+            Your browser does not support the HTML5 canvas tag.
+    </canvas>
+
+    <img id="startPic" src="./assets/Start.jpg" style="display: none;">
+
+</div>
+
+    <script src="/socket.io/socket.io.js"></script>
+	<script src="/main.js" type="module"></script>
+
+    <script type="module">
+        import { startGame, initStartPage } from "./main.js";
+        document.getElementById("startGame").addEventListener("click", startGame);
+        window.addEventListener("load", initStartPage, false);
+    </script>
+
+
 </body>
+
+
 </html>

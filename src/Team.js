@@ -27,7 +27,7 @@ export class Team {
      	* @type {array}
      	*/
         this.arrOfPlayers = [];
-        createPlayers();
+        this.createPlayers();
     }
     /**
 	* This function returns a team of players in an array.

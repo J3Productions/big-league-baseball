@@ -6,24 +6,30 @@
         <table border ="1" style="width: 75%; table-layout: fixed; word-break: break-all;">
             <tr>
                 <td>
-                    <table style="font-size: 17pt;">
+                    <table id="batterAction" style="font-size: 17pt;">
                         <tr>
-                            <td><button onclick="seeFiled()">Do nothing</button></td>
+                            <td>Please select the batter action: (take or swing)</td>
                         </tr>
                         <tr>
-                            <td><button onclick="seeFiled()">Swing</button></td>
+                            <td><button onclick="addLog()">take</button></td>
+                            <td><button onclick="seeFiled()">Slow Straight</button></td>
+                            <td><button onclick="seeFiled()">Slow Inside</button></td>
+                            <td><button onclick="seeFiled()">Slow High</button></td>
+                            <td><button onclick="seeFiled()">Slow Low</button></td>
                         </tr>
                         <tr>
-                            <td><button onclick="seeFiled()">Bunt</button></td>
+                            <td>&nbsp</td>
+                            <td><button onclick="seeFiled()">Fastball Straight</button></td>
+                            <td><button onclick="seeFiled()">Fastball Inside</button></td>
+                            <td><button onclick="seeFiled()">Fastball High</button></td>
+                            <td><button onclick="seeFiled()">Fastball Low</button></td>
                         </tr>
                         <tr>
-                            <td>d</td>
-                        </tr>
-                        <tr>
-                            <td>e</td>
-                        </tr>
-                        <tr>
-                            <td>f</td>
+                            <td>&nbsp</td>
+                            <td><button onclick="seeFiled()">Curveball Outside</button></td>
+                            <td><button onclick="seeFiled()">Curveball Inside</button></td>
+                            <td><button onclick="seeFiled()">Curveball High</button></td>
+                            <td><button onclick="seeFiled()">Curveball Low</button></td>
                         </tr>
                     </table>
                 </td>
@@ -94,59 +100,10 @@
                         </tr>
                     </table>
 
-                    <table style="font-size: 21pt;">
-                        <tr>
-                            <td>a</td>
-                        </tr>
-                        <tr>
-                            <td>b</td>
-                        </tr>
-                        <tr>
-                            <td>c</td>
-                        </tr>
-                        <tr>
-                            <td>d</td>
-                        </tr>
-                        <tr>
-                            <td>e</td>
-                        </tr>
-                        <tr>
-                            <td>f</td>
-                        </tr>
-                        <tr>
-                            <td>a</td>
-                        </tr>
-                        <tr>
-                            <td>b</td>
-                        </tr>
-                        <tr>
-                            <td>c</td>
-                        </tr>
-                        <tr>
-                            <td>d</td>
-                        </tr>
-                        <tr>
-                            <td>e</td>
-                        </tr>
-                        <tr>
-                            <td>f</td>
-                        </tr>
-                        <tr>
-                            <td>a</td>
-                        </tr>
-                        <tr>
-                            <td>b</td>
-                        </tr>
-                        <tr>
-                            <td>c</td>
-                        </tr>
-                        <tr>
-                            <td>d</td>
-                        </tr>
-                        <tr>
-                            <td>e</td>
-                        </tr>
+                    <div id="gameLog" style="overflow: scroll;">
+                    <table id="gameLogTable" style="font-size: 21pt;">
                     </table>
+                    </div>
                  </td>
             </tr>
         </table>
@@ -182,7 +139,17 @@
 
                 var ctx = a.getContext("2d");
                 var img = document.getElementById("viewPic");
-                ctx.drawImage(img,10,10);
+                ctx.drawImage(img, 10, 10);
+
+                var gamelog = document.getElementById("gameLog");
+                gamelog.scrollTop = gamelog.scrollHeight;
+                gamelog.style.height = (screenHeight * 0.792) + "px";
+
+                var action = document.getElementById("batterAction");
+                action.style.height = (screenHeight * 0.245) + "px";
+
+                document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Match start!</td></tr>" + "<tr><td>Pitcher decide action.</td></tr>" + "<tr><td>Decide your batter action.</td></tr>";
+
             }
 
            function seeFiled()
@@ -213,6 +180,11 @@
                     state = false;
                 }
 
+           }
+
+           function addLog()
+           {
+               document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide take!</td></tr>";
            }
         </script>
 
