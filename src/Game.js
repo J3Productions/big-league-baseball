@@ -5,22 +5,64 @@ import { Team } from "./Team.js";
  * Game class - makes decisions and stores the game status based on player/user actions.
  */
 export class Game {
+	/**
+	 * Constructor - creates and instantiates all necessary variables
+	 */
 	constructor() {
 		/**
 		 * Number of outs in the inning
 		 * @type {number}
 		 */
 		this.outs = 0;
+		/**
+		 * Number of balls in the AB
+		 * @type {number}
+		 */
 		this.balls = 0;
+		/**
+		 * Number of strikes in the AB
+		 * @type {number}
+		 */
 		this.strikes = 0;
+		/**
+		 * First base - true if occupied, false otherwise
+		 * @type {boolean}
+		 */
 		this.first = false;
+		/**
+		 * Second base - true if occupied, false otherwise
+		 * @type {boolean}
+		 */
 		this.second = false;
+		/**
+		 * Third base - true if occupied, false otherwise
+		 * @type {boolean}
+		 */
 		this.third = false;
 
-		this.blueTeam = new Team();
+		/**
+		 * Home team object - stores all data for the home team
+		 * @type {Team}
+		 */
+		this.homeTeam = new Team("home");
+		/**
+		 * Visitor team object - stores all data for the visiting team
+		 * @type {Team}
+		 */
+		this.visitTeam = new Team("visit");
 
-		this.redAB = 0;
-		this.blueAB = 0;
+		/**
+		 * Position in the home team lineup that is at bat (or scheduled to bat next)
+		 * @type {number}
+		 */
+		this.homeAB = 1;
+
+		/**
+		 * Position in the visiting team lineup that is at bat (or scheduled to bat next)
+		 * @type {number}
+		 */
+		this.visitAB = 1;
+
 	}
 
 	/*
@@ -43,7 +85,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	ssPitch(batter) {
-		if (batter === "ss") {
+		if (batter === "ss" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("ss")) {
 			this.hit6();
 		}
 		else if (batter === "ss") {
@@ -74,7 +116,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	shPitch(batter) {
-		if (batter === "sh") {
+		if (batter === "sh" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("sh")) {
 			this.hit6();
 		}
 		else if (batter === "sh") {
@@ -102,7 +144,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	slPitch(batter) {
-		if (batter === "sl") {
+		if (batter === "sl" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("sl")) {
 			this.hit6();
 		}
 		else if (batter === "sl") {
@@ -130,7 +172,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	siPitch(batter) {
-		if (batter === "si") {
+		if (batter === "si" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("si")) {
 			this.hit6();
 		}
 		else if (batter === "si") {
@@ -158,7 +200,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	fsPitch(batter) {
-		if (batter === "fs") {
+		if (batter === "fs" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("fs")) {
 			this.hit6();
 		}
 		else if (batter === "fs") {
@@ -189,7 +231,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	fhPitch(batter) {
-		if (batter === "fh") {
+		if (batter === "fh" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("fh")) {
 			this.hit6();
 		}
 		else if (batter === "fh") {
@@ -217,7 +259,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	flPitch(batter) {
-		if (batter === "fl") {
+		if (batter === "fl" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("fl")) {
 			this.hit6();
 		}
 		else if (batter === "fl") {
@@ -245,7 +287,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	fiPitch(batter) {
-		if (batter === "fi") {
+		if (batter === "fi" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("fi")) {
 			this.hit6();
 		}
 		else if (batter === "fi") {
@@ -276,7 +318,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	coPitch(batter) {
-		if (batter === "co") {
+		if (batter === "co" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("co")) {
 			this.hit6();
 		}
 		else if (batter === "co") {
@@ -307,7 +349,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	chPitch(batter) {
-		if (batter === "ch") {
+		if (batter === "ch" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("ch")) {
 			this.hit6();
 		}
 		else if (batter === "ch") {
@@ -332,7 +374,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	clPitch(batter) {
-		if (batter === "cl") {
+		if (batter === "cl" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("cl")) {
 			this.hit6();
 		}
 		else if (batter === "cl") {
@@ -360,7 +402,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	ciPitch(batter) {
-		if (batter === "ci") {
+		if (batter === "ci" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("ci")) {
 			this.hit6();
 		}
 		else if (batter === "ci") {
@@ -744,14 +786,14 @@ export class Game {
 	 * Batter pops out in foul territory - All runners hold
 	 */
 	foulout() {
-		this.outs++;
+		this.out();
 	}
 
 	/**
 	 * Batter pops out - All runners hold
 	 */
 	flyout() {
-		this.outs++;
+		this.out();
 	}
 
 	/**
@@ -771,7 +813,7 @@ export class Game {
 			this.first = false;
 			this.second = true;
 		}
-		this.outs++;
+		this.out();
 	}
 
 	/**
@@ -787,7 +829,7 @@ export class Game {
 			this.second = false;
 			this.third = true;
 		}
-		this.outs++;
+		this.out();
 	}
 
 	/**
@@ -807,7 +849,7 @@ export class Game {
 			this.first = false;
 			this.second = true;
 		}
-		this.outs++;
+		this.out();
 	}
 
 	/**
@@ -828,7 +870,7 @@ export class Game {
 			this.first = false;
 			this.second = true;
 		}
-		this.outs++;
+		this.out();
 	}
 
 	/**
@@ -843,7 +885,6 @@ export class Game {
 			else if (this.outs < 2) {
 				this.runs++;
 			}
-
 		}
 		if (this.second) {
 			this.second = false;
@@ -851,9 +892,9 @@ export class Game {
 		}
 		if (this.first) {
 			this.first = false;
-			this.outs++;
+			this.out();
 		}
-		this.outs++;
+		this.out();
 	}
 	/**
 	 * Double play - Lead runner and batter out
@@ -861,17 +902,17 @@ export class Game {
 	lineoutDoublePlay() {
 		if (this.third) {
 			this.third = false;
-			this.outs++;
+			this.out();
 		}
 		else if (this.second) {
 			this.second = false;
-			this.outs++;
+			this.out();
 		}
 		else if (this.first) {
 			this.first = false;
-			this.outs++;
+			this.out();
 		}
-		this.outs++;
+		this.out();
 	}
 
 	/**
@@ -880,20 +921,20 @@ export class Game {
 	triplePlay() {
 		if (this.second) {
 			this.second = false;
-			this.outs++;
+			this.out();
 		}
 		if (this.first) {
 			this.first = false;
-			this.outs++;
+			this.out();
 		}
-		this.outs++;
+		this.out();
 	}
 
 	/**
 	 * Fielder's choice - Runner advances only if forced and lead runner is out, batter out and runners hold otherwise
 	 */
 	fieldersChoice() {
-		this.outs++;
+		this.out();
 	}
 
 	/**
@@ -915,20 +956,29 @@ export class Game {
 		this.second = true;
 	}
 
+	/**
+	 * Foul ball - only counts as a strike if there are less than 2 strikes
+	 */
 	foul() {
 		if (this.strikes < 2) {
 			this.strikes++;
 		}
 	}
 
+	/**
+	 * Strike - 3 strikes and you're out
+	 */
 	strike() {
 		this.strikes++;
 		if (this.strikes === 3) {
 			this.strikes = 0;
-			this.outs++;
+			this.out();
 		}
 	}
 
+	/**
+	 * Ball - 4 balls and it's a free pass on base
+	 */
 	ball() {
 		this.balls++;
 		if (this.balls === 4) {
@@ -946,6 +996,40 @@ export class Game {
 				this.second = true;
 			}
 			this.first = true;
+		}
+	}
+
+	/**
+	 * Out - 3 Outs and that's the end of the inning
+	 */
+	out() {
+		this.balls = 0;
+		this.strikes = 0;
+		if (this.homeAB === 9) {
+			this.homeAB = 1;
+		}
+		else{
+			this.homeAB++;
+		}
+		if (num === 1) {
+			this.outs++;
+		}
+		else if (num === 2) {
+			if (this.outs < 2) {
+				this.outs += 2;
+			}
+			else {
+				this.outs++;
+			}
+		}
+		else if (num === 3) {
+			this.outs = 3;
+		}
+		if (this.outs === 3) {
+			this.first = false;
+			this.second = false;
+			this.third = false;
+			this.outs = 0;
 		}
 	}
 }

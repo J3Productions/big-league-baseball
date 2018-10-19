@@ -57,7 +57,7 @@ export class Player {
 	* Gets if pitch thrown is batters strength.
 	* @return {array} battStrengths
 	*/
-    getBattStrengths(pitch){
+    getBattStrengths(){
 		return this.battStrengths;
     }
 	/**
