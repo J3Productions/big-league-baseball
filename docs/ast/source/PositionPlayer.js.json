@@ -1,109 +1,111 @@
 {
   "type": "File",
   "start": 0,
-  "end": 184,
+  "end": 1164,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 9,
-      "column": 1
+      "line": 28,
+      "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 184,
+    "end": 1164,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 9,
-        "column": 1
+        "line": 28,
+        "column": 0
       }
     },
     "sourceType": "module",
     "body": [
       {
         "type": "ImportDeclaration",
-        "start": 14,
-        "end": 51,
+        "start": 46,
+        "end": 83,
         "loc": {
           "start": {
-            "line": 2,
+            "line": 5,
             "column": 0
           },
           "end": {
-            "line": 2,
+            "line": 5,
             "column": 37
           }
         },
         "specifiers": [
           {
             "type": "ImportSpecifier",
-            "start": 23,
-            "end": 29,
+            "start": 55,
+            "end": 61,
             "loc": {
               "start": {
-                "line": 2,
+                "line": 5,
                 "column": 9
               },
               "end": {
-                "line": 2,
+                "line": 5,
                 "column": 15
               }
             },
             "imported": {
               "type": "Identifier",
-              "start": 23,
-              "end": 29,
+              "start": 55,
+              "end": 61,
               "loc": {
                 "start": {
-                  "line": 2,
+                  "line": 5,
                   "column": 9
                 },
                 "end": {
-                  "line": 2,
+                  "line": 5,
+                  "column": 15
+                },
+                "identifierName": "Player"
+              },
+              "name": "Player",
+              "leadingComments": null
+            },
+            "local": {
+              "type": "Identifier",
+              "start": 55,
+              "end": 61,
+              "loc": {
+                "start": {
+                  "line": 5,
+                  "column": 9
+                },
+                "end": {
+                  "line": 5,
                   "column": 15
                 },
                 "identifierName": "Player"
               },
               "name": "Player"
             },
-            "local": {
-              "type": "Identifier",
-              "start": 23,
-              "end": 29,
-              "loc": {
-                "start": {
-                  "line": 2,
-                  "column": 9
-                },
-                "end": {
-                  "line": 2,
-                  "column": 15
-                },
-                "identifierName": "Player"
-              },
-              "name": "Player"
-            }
+            "leadingComments": null
           }
         ],
         "source": {
           "type": "StringLiteral",
-          "start": 37,
-          "end": 50,
+          "start": 69,
+          "end": 82,
           "loc": {
             "start": {
-              "line": 2,
+              "line": 5,
               "column": 23
             },
             "end": {
-              "line": 2,
+              "line": 5,
               "column": 36
             }
           },
@@ -113,19 +115,37 @@
           },
           "value": "./Player.js"
         },
-        "trailingComments": [
+        "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n * The class for a player whose only job is to bat (at least in this game).\n ",
-            "start": 53,
-            "end": 136,
+            "value": "*\n *Child of Player class\n ",
+            "start": 14,
+            "end": 45,
             "loc": {
               "start": {
-                "line": 4,
+                "line": 2,
                 "column": 0
               },
               "end": {
+                "line": 4,
+                "column": 3
+              }
+            }
+          }
+        ],
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n * PositionPlayer class - stores information about name, position, batting strength, baserunning speed, whether they have been chosen on a team and position player type.\n ",
+            "start": 84,
+            "end": 261,
+            "loc": {
+              "start": {
                 "line": 6,
+                "column": 0
+              },
+              "end": {
+                "line": 8,
                 "column": 3
               }
             }
@@ -134,15 +154,15 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 137,
-        "end": 184,
+        "start": 262,
+        "end": 1163,
         "loc": {
           "start": {
-            "line": 7,
+            "line": 9,
             "column": 0
           },
           "end": {
-            "line": 9,
+            "line": 27,
             "column": 1
           }
         },
@@ -150,29 +170,29 @@
         "source": null,
         "declaration": {
           "type": "ClassDeclaration",
-          "start": 144,
-          "end": 184,
+          "start": 269,
+          "end": 1163,
           "loc": {
             "start": {
-              "line": 7,
+              "line": 9,
               "column": 7
             },
             "end": {
-              "line": 9,
+              "line": 27,
               "column": 1
             }
           },
           "id": {
             "type": "Identifier",
-            "start": 150,
-            "end": 164,
+            "start": 275,
+            "end": 289,
             "loc": {
               "start": {
-                "line": 7,
+                "line": 9,
                 "column": 13
               },
               "end": {
-                "line": 7,
+                "line": 9,
                 "column": 27
               },
               "identifierName": "PositionPlayer"
@@ -182,15 +202,15 @@
           },
           "superClass": {
             "type": "Identifier",
-            "start": 173,
-            "end": 179,
+            "start": 298,
+            "end": 304,
             "loc": {
               "start": {
-                "line": 7,
+                "line": 9,
                 "column": 36
               },
               "end": {
-                "line": 7,
+                "line": 9,
                 "column": 42
               },
               "identifierName": "Player"
@@ -199,33 +219,450 @@
           },
           "body": {
             "type": "ClassBody",
-            "start": 180,
-            "end": 184,
+            "start": 305,
+            "end": 1163,
             "loc": {
               "start": {
-                "line": 7,
+                "line": 9,
                 "column": 43
               },
               "end": {
-                "line": 9,
+                "line": 27,
                 "column": 1
               }
             },
-            "body": []
+            "body": [
+              {
+                "type": "ClassMethod",
+                "start": 831,
+                "end": 1161,
+                "loc": {
+                  "start": {
+                    "line": 16,
+                    "column": 4
+                  },
+                  "end": {
+                    "line": 26,
+                    "column": 5
+                  }
+                },
+                "static": false,
+                "computed": false,
+                "key": {
+                  "type": "Identifier",
+                  "start": 831,
+                  "end": 842,
+                  "loc": {
+                    "start": {
+                      "line": 16,
+                      "column": 4
+                    },
+                    "end": {
+                      "line": 16,
+                      "column": 15
+                    },
+                    "identifierName": "constructor"
+                  },
+                  "name": "constructor",
+                  "leadingComments": null
+                },
+                "kind": "constructor",
+                "id": null,
+                "generator": false,
+                "expression": false,
+                "async": false,
+                "params": [
+                  {
+                    "type": "Identifier",
+                    "start": 843,
+                    "end": 847,
+                    "loc": {
+                      "start": {
+                        "line": 16,
+                        "column": 16
+                      },
+                      "end": {
+                        "line": 16,
+                        "column": 20
+                      },
+                      "identifierName": "name"
+                    },
+                    "name": "name"
+                  },
+                  {
+                    "type": "Identifier",
+                    "start": 849,
+                    "end": 857,
+                    "loc": {
+                      "start": {
+                        "line": 16,
+                        "column": 22
+                      },
+                      "end": {
+                        "line": 16,
+                        "column": 30
+                      },
+                      "identifierName": "position"
+                    },
+                    "name": "position"
+                  },
+                  {
+                    "type": "Identifier",
+                    "start": 859,
+                    "end": 872,
+                    "loc": {
+                      "start": {
+                        "line": 16,
+                        "column": 32
+                      },
+                      "end": {
+                        "line": 16,
+                        "column": 45
+                      },
+                      "identifierName": "battStrengths"
+                    },
+                    "name": "battStrengths"
+                  },
+                  {
+                    "type": "Identifier",
+                    "start": 874,
+                    "end": 883,
+                    "loc": {
+                      "start": {
+                        "line": 16,
+                        "column": 47
+                      },
+                      "end": {
+                        "line": 16,
+                        "column": 56
+                      },
+                      "identifierName": "baseSpeed"
+                    },
+                    "name": "baseSpeed"
+                  },
+                  {
+                    "type": "Identifier",
+                    "start": 885,
+                    "end": 899,
+                    "loc": {
+                      "start": {
+                        "line": 16,
+                        "column": 58
+                      },
+                      "end": {
+                        "line": 16,
+                        "column": 72
+                      },
+                      "identifierName": "positionPlayer"
+                    },
+                    "name": "positionPlayer"
+                  }
+                ],
+                "body": {
+                  "type": "BlockStatement",
+                  "start": 900,
+                  "end": 1161,
+                  "loc": {
+                    "start": {
+                      "line": 16,
+                      "column": 73
+                    },
+                    "end": {
+                      "line": 26,
+                      "column": 5
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "ExpressionStatement",
+                      "start": 966,
+                      "end": 1002,
+                      "loc": {
+                        "start": {
+                          "line": 20,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 20,
+                          "column": 44
+                        }
+                      },
+                      "expression": {
+                        "type": "CallExpression",
+                        "start": 966,
+                        "end": 1001,
+                        "loc": {
+                          "start": {
+                            "line": 20,
+                            "column": 8
+                          },
+                          "end": {
+                            "line": 20,
+                            "column": 43
+                          }
+                        },
+                        "callee": {
+                          "type": "Super",
+                          "start": 966,
+                          "end": 971,
+                          "loc": {
+                            "start": {
+                              "line": 20,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 20,
+                              "column": 13
+                            }
+                          },
+                          "leadingComments": null
+                        },
+                        "arguments": [
+                          {
+                            "type": "Identifier",
+                            "start": 972,
+                            "end": 976,
+                            "loc": {
+                              "start": {
+                                "line": 20,
+                                "column": 14
+                              },
+                              "end": {
+                                "line": 20,
+                                "column": 18
+                              },
+                              "identifierName": "name"
+                            },
+                            "name": "name"
+                          },
+                          {
+                            "type": "Identifier",
+                            "start": 977,
+                            "end": 985,
+                            "loc": {
+                              "start": {
+                                "line": 20,
+                                "column": 19
+                              },
+                              "end": {
+                                "line": 20,
+                                "column": 27
+                              },
+                              "identifierName": "position"
+                            },
+                            "name": "position"
+                          },
+                          {
+                            "type": "Identifier",
+                            "start": 987,
+                            "end": 1000,
+                            "loc": {
+                              "start": {
+                                "line": 20,
+                                "column": 29
+                              },
+                              "end": {
+                                "line": 20,
+                                "column": 42
+                              },
+                              "identifierName": "battStrengths"
+                            },
+                            "name": "battStrengths"
+                          }
+                        ],
+                        "leadingComments": null
+                      },
+                      "leadingComments": [
+                        {
+                          "type": "CommentBlock",
+                          "value": "*\n        * @extends {PlayerClass}\n        ",
+                          "start": 910,
+                          "end": 957,
+                          "loc": {
+                            "start": {
+                              "line": 17,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 19,
+                              "column": 10
+                            }
+                          }
+                        }
+                      ],
+                      "trailingComments": [
+                        {
+                          "type": "CommentBlock",
+                          "value": "*\n        * .Position player position.\"catcher, \"leftField...\"\n        * @type {string}\n        ",
+                          "start": 1011,
+                          "end": 1111,
+                          "loc": {
+                            "start": {
+                              "line": 21,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 24,
+                              "column": 10
+                            }
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "type": "ExpressionStatement",
+                      "start": 1120,
+                      "end": 1155,
+                      "loc": {
+                        "start": {
+                          "line": 25,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 25,
+                          "column": 43
+                        }
+                      },
+                      "expression": {
+                        "type": "AssignmentExpression",
+                        "start": 1120,
+                        "end": 1154,
+                        "loc": {
+                          "start": {
+                            "line": 25,
+                            "column": 8
+                          },
+                          "end": {
+                            "line": 25,
+                            "column": 42
+                          }
+                        },
+                        "operator": "=",
+                        "left": {
+                          "type": "MemberExpression",
+                          "start": 1120,
+                          "end": 1137,
+                          "loc": {
+                            "start": {
+                              "line": 25,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 25,
+                              "column": 25
+                            }
+                          },
+                          "object": {
+                            "type": "ThisExpression",
+                            "start": 1120,
+                            "end": 1124,
+                            "loc": {
+                              "start": {
+                                "line": 25,
+                                "column": 8
+                              },
+                              "end": {
+                                "line": 25,
+                                "column": 12
+                              }
+                            },
+                            "leadingComments": null
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 1125,
+                            "end": 1137,
+                            "loc": {
+                              "start": {
+                                "line": 25,
+                                "column": 13
+                              },
+                              "end": {
+                                "line": 25,
+                                "column": 25
+                              },
+                              "identifierName": "positionType"
+                            },
+                            "name": "positionType"
+                          },
+                          "computed": false,
+                          "leadingComments": null
+                        },
+                        "right": {
+                          "type": "Identifier",
+                          "start": 1140,
+                          "end": 1154,
+                          "loc": {
+                            "start": {
+                              "line": 25,
+                              "column": 28
+                            },
+                            "end": {
+                              "line": 25,
+                              "column": 42
+                            },
+                            "identifierName": "positionPlayer"
+                          },
+                          "name": "positionPlayer"
+                        },
+                        "leadingComments": null
+                      },
+                      "leadingComments": [
+                        {
+                          "type": "CommentBlock",
+                          "value": "*\n        * .Position player position.\"catcher, \"leftField...\"\n        * @type {string}\n        ",
+                          "start": 1011,
+                          "end": 1111,
+                          "loc": {
+                            "start": {
+                              "line": 21,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 24,
+                              "column": 10
+                            }
+                          }
+                        }
+                      ]
+                    }
+                  ],
+                  "directives": []
+                },
+                "leadingComments": [
+                  {
+                    "type": "CommentBlock",
+                    "value": "*\n    * * Constructor creates a player that stores there name, pitcher or position player, hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also,type of position player.\n    * POSTCONDITION: name, position, hitting stats, baserunning speed inLineup and position player type all now have set values.\n        * @extends {PlayerClass}This class is a child of the player class.\n        * @param {string} positionType The players position\n        ",
+                    "start": 311,
+                    "end": 826,
+                    "loc": {
+                      "start": {
+                        "line": 10,
+                        "column": 4
+                      },
+                      "end": {
+                        "line": 15,
+                        "column": 10
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
           },
           "leadingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\n * The class for a player whose only job is to bat (at least in this game).\n ",
-              "start": 53,
-              "end": 136,
+              "value": "*\n * PositionPlayer class - stores information about name, position, batting strength, baserunning speed, whether they have been chosen on a team and position player type.\n ",
+              "start": 84,
+              "end": 261,
               "loc": {
                 "start": {
-                  "line": 4,
+                  "line": 6,
                   "column": 0
                 },
                 "end": {
-                  "line": 6,
+                  "line": 8,
                   "column": 3
                 }
               }
@@ -236,16 +673,16 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n * The class for a player whose only job is to bat (at least in this game).\n ",
-            "start": 53,
-            "end": 136,
+            "value": "*\n * PositionPlayer class - stores information about name, position, batting strength, baserunning speed, whether they have been chosen on a team and position player type.\n ",
+            "start": 84,
+            "end": 261,
             "loc": {
               "start": {
-                "line": 4,
+                "line": 6,
                 "column": 0
               },
               "end": {
-                "line": 6,
+                "line": 8,
                 "column": 3
               }
             }
@@ -286,25 +723,108 @@
           "extra": {
             "raw": "'use strict'",
             "rawValue": "use strict"
+          },
+          "trailingComments": null
+        },
+        "trailingComments": [
+          {
+            "type": "CommentBlock",
+            "value": "*\n *Child of Player class\n ",
+            "start": 14,
+            "end": 45,
+            "loc": {
+              "start": {
+                "line": 2,
+                "column": 0
+              },
+              "end": {
+                "line": 4,
+                "column": 3
+              }
+            }
           }
-        }
+        ]
       }
     ]
   },
   "comments": [
     {
       "type": "CommentBlock",
-      "value": "*\n * The class for a player whose only job is to bat (at least in this game).\n ",
-      "start": 53,
-      "end": 136,
+      "value": "*\n *Child of Player class\n ",
+      "start": 14,
+      "end": 45,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 2,
           "column": 0
         },
         "end": {
-          "line": 6,
+          "line": 4,
           "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n * PositionPlayer class - stores information about name, position, batting strength, baserunning speed, whether they have been chosen on a team and position player type.\n ",
+      "start": 84,
+      "end": 261,
+      "loc": {
+        "start": {
+          "line": 6,
+          "column": 0
+        },
+        "end": {
+          "line": 8,
+          "column": 3
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n    * * Constructor creates a player that stores there name, pitcher or position player, hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also,type of position player.\n    * POSTCONDITION: name, position, hitting stats, baserunning speed inLineup and position player type all now have set values.\n        * @extends {PlayerClass}This class is a child of the player class.\n        * @param {string} positionType The players position\n        ",
+      "start": 311,
+      "end": 826,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 4
+        },
+        "end": {
+          "line": 15,
+          "column": 10
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n        * @extends {PlayerClass}\n        ",
+      "start": 910,
+      "end": 957,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 8
+        },
+        "end": {
+          "line": 19,
+          "column": 10
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n        * .Position player position.\"catcher, \"leftField...\"\n        * @type {string}\n        ",
+      "start": 1011,
+      "end": 1111,
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 8
+        },
+        "end": {
+          "line": 24,
+          "column": 10
         }
       }
     }
@@ -364,6 +884,22 @@
       }
     },
     {
+      "type": "CommentBlock",
+      "value": "*\n *Child of Player class\n ",
+      "start": 14,
+      "end": 45,
+      "loc": {
+        "start": {
+          "line": 2,
+          "column": 0
+        },
+        "end": {
+          "line": 4,
+          "column": 3
+        }
+      }
+    },
+    {
       "type": {
         "label": "import",
         "keyword": "import",
@@ -378,15 +914,15 @@
         "updateContext": null
       },
       "value": "import",
-      "start": 14,
-      "end": 20,
+      "start": 46,
+      "end": 52,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 5,
           "column": 0
         },
         "end": {
-          "line": 2,
+          "line": 5,
           "column": 6
         }
       }
@@ -403,15 +939,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 21,
-      "end": 22,
+      "start": 53,
+      "end": 54,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 5,
           "column": 7
         },
         "end": {
-          "line": 2,
+          "line": 5,
           "column": 8
         }
       }
@@ -429,15 +965,15 @@
         "binop": null
       },
       "value": "Player",
-      "start": 23,
-      "end": 29,
+      "start": 55,
+      "end": 61,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 5,
           "column": 9
         },
         "end": {
-          "line": 2,
+          "line": 5,
           "column": 15
         }
       }
@@ -454,15 +990,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 30,
-      "end": 31,
+      "start": 62,
+      "end": 63,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 5,
           "column": 16
         },
         "end": {
-          "line": 2,
+          "line": 5,
           "column": 17
         }
       }
@@ -480,15 +1016,15 @@
         "binop": null
       },
       "value": "from",
-      "start": 32,
-      "end": 36,
+      "start": 64,
+      "end": 68,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 5,
           "column": 18
         },
         "end": {
-          "line": 2,
+          "line": 5,
           "column": 22
         }
       }
@@ -507,15 +1043,15 @@
         "updateContext": null
       },
       "value": "./Player.js",
-      "start": 37,
-      "end": 50,
+      "start": 69,
+      "end": 82,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 5,
           "column": 23
         },
         "end": {
-          "line": 2,
+          "line": 5,
           "column": 36
         }
       }
@@ -533,31 +1069,31 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 50,
-      "end": 51,
+      "start": 82,
+      "end": 83,
       "loc": {
         "start": {
-          "line": 2,
+          "line": 5,
           "column": 36
         },
         "end": {
-          "line": 2,
+          "line": 5,
           "column": 37
         }
       }
     },
     {
       "type": "CommentBlock",
-      "value": "*\n * The class for a player whose only job is to bat (at least in this game).\n ",
-      "start": 53,
-      "end": 136,
+      "value": "*\n * PositionPlayer class - stores information about name, position, batting strength, baserunning speed, whether they have been chosen on a team and position player type.\n ",
+      "start": 84,
+      "end": 261,
       "loc": {
         "start": {
-          "line": 4,
+          "line": 6,
           "column": 0
         },
         "end": {
-          "line": 6,
+          "line": 8,
           "column": 3
         }
       }
@@ -577,15 +1113,15 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 137,
-      "end": 143,
+      "start": 262,
+      "end": 268,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 9,
           "column": 0
         },
         "end": {
-          "line": 7,
+          "line": 9,
           "column": 6
         }
       }
@@ -605,15 +1141,15 @@
         "updateContext": null
       },
       "value": "class",
-      "start": 144,
-      "end": 149,
+      "start": 269,
+      "end": 274,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 9,
           "column": 7
         },
         "end": {
-          "line": 7,
+          "line": 9,
           "column": 12
         }
       }
@@ -631,15 +1167,15 @@
         "binop": null
       },
       "value": "PositionPlayer",
-      "start": 150,
-      "end": 164,
+      "start": 275,
+      "end": 289,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 9,
           "column": 13
         },
         "end": {
-          "line": 7,
+          "line": 9,
           "column": 27
         }
       }
@@ -659,15 +1195,15 @@
         "updateContext": null
       },
       "value": "extends",
-      "start": 165,
-      "end": 172,
+      "start": 290,
+      "end": 297,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 9,
           "column": 28
         },
         "end": {
-          "line": 7,
+          "line": 9,
           "column": 35
         }
       }
@@ -685,15 +1221,15 @@
         "binop": null
       },
       "value": "Player",
-      "start": 173,
-      "end": 179,
+      "start": 298,
+      "end": 304,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 9,
           "column": 36
         },
         "end": {
-          "line": 7,
+          "line": 9,
           "column": 42
         }
       }
@@ -710,16 +1246,792 @@
         "postfix": false,
         "binop": null
       },
-      "start": 180,
-      "end": 181,
+      "start": 305,
+      "end": 306,
       "loc": {
         "start": {
-          "line": 7,
+          "line": 9,
           "column": 43
         },
         "end": {
-          "line": 7,
+          "line": 9,
           "column": 44
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n    * * Constructor creates a player that stores there name, pitcher or position player, hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also,type of position player.\n    * POSTCONDITION: name, position, hitting stats, baserunning speed inLineup and position player type all now have set values.\n        * @extends {PlayerClass}This class is a child of the player class.\n        * @param {string} positionType The players position\n        ",
+      "start": 311,
+      "end": 826,
+      "loc": {
+        "start": {
+          "line": 10,
+          "column": 4
+        },
+        "end": {
+          "line": 15,
+          "column": 10
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "constructor",
+      "start": 831,
+      "end": 842,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 4
+        },
+        "end": {
+          "line": 16,
+          "column": 15
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 842,
+      "end": 843,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 15
+        },
+        "end": {
+          "line": 16,
+          "column": 16
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "name",
+      "start": 843,
+      "end": 847,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 16
+        },
+        "end": {
+          "line": 16,
+          "column": 20
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 847,
+      "end": 848,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 20
+        },
+        "end": {
+          "line": 16,
+          "column": 21
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "position",
+      "start": 849,
+      "end": 857,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 22
+        },
+        "end": {
+          "line": 16,
+          "column": 30
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 857,
+      "end": 858,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 30
+        },
+        "end": {
+          "line": 16,
+          "column": 31
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "battStrengths",
+      "start": 859,
+      "end": 872,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 32
+        },
+        "end": {
+          "line": 16,
+          "column": 45
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 872,
+      "end": 873,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 45
+        },
+        "end": {
+          "line": 16,
+          "column": 46
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "baseSpeed",
+      "start": 874,
+      "end": 883,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 47
+        },
+        "end": {
+          "line": 16,
+          "column": 56
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 883,
+      "end": 884,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 56
+        },
+        "end": {
+          "line": 16,
+          "column": 57
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "positionPlayer",
+      "start": 885,
+      "end": 899,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 58
+        },
+        "end": {
+          "line": 16,
+          "column": 72
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 899,
+      "end": 900,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 72
+        },
+        "end": {
+          "line": 16,
+          "column": 73
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 900,
+      "end": 901,
+      "loc": {
+        "start": {
+          "line": 16,
+          "column": 73
+        },
+        "end": {
+          "line": 16,
+          "column": 74
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n        * @extends {PlayerClass}\n        ",
+      "start": 910,
+      "end": 957,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 8
+        },
+        "end": {
+          "line": 19,
+          "column": 10
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "super",
+        "keyword": "super",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "super",
+      "start": 966,
+      "end": 971,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 8
+        },
+        "end": {
+          "line": 20,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 971,
+      "end": 972,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 13
+        },
+        "end": {
+          "line": 20,
+          "column": 14
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "name",
+      "start": 972,
+      "end": 976,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 14
+        },
+        "end": {
+          "line": 20,
+          "column": 18
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 976,
+      "end": 977,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 18
+        },
+        "end": {
+          "line": 20,
+          "column": 19
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "position",
+      "start": 977,
+      "end": 985,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 19
+        },
+        "end": {
+          "line": 20,
+          "column": 27
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 985,
+      "end": 986,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 27
+        },
+        "end": {
+          "line": 20,
+          "column": 28
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "battStrengths",
+      "start": 987,
+      "end": 1000,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 29
+        },
+        "end": {
+          "line": 20,
+          "column": 42
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 1000,
+      "end": 1001,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 42
+        },
+        "end": {
+          "line": 20,
+          "column": 43
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 1001,
+      "end": 1002,
+      "loc": {
+        "start": {
+          "line": 20,
+          "column": 43
+        },
+        "end": {
+          "line": 20,
+          "column": 44
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n        * .Position player position.\"catcher, \"leftField...\"\n        * @type {string}\n        ",
+      "start": 1011,
+      "end": 1111,
+      "loc": {
+        "start": {
+          "line": 21,
+          "column": 8
+        },
+        "end": {
+          "line": 24,
+          "column": 10
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "this",
+        "keyword": "this",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "this",
+      "start": 1120,
+      "end": 1124,
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 8
+        },
+        "end": {
+          "line": 25,
+          "column": 12
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ".",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 1124,
+      "end": 1125,
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 12
+        },
+        "end": {
+          "line": 25,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "positionType",
+      "start": 1125,
+      "end": 1137,
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 13
+        },
+        "end": {
+          "line": 25,
+          "column": 25
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "=",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": true,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "=",
+      "start": 1138,
+      "end": 1139,
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 26
+        },
+        "end": {
+          "line": 25,
+          "column": 27
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "positionPlayer",
+      "start": 1140,
+      "end": 1154,
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 28
+        },
+        "end": {
+          "line": 25,
+          "column": 42
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 1154,
+      "end": 1155,
+      "loc": {
+        "start": {
+          "line": 25,
+          "column": 42
+        },
+        "end": {
+          "line": 25,
+          "column": 43
         }
       }
     },
@@ -735,15 +2047,40 @@
         "postfix": false,
         "binop": null
       },
-      "start": 183,
-      "end": 184,
+      "start": 1160,
+      "end": 1161,
       "loc": {
         "start": {
-          "line": 9,
+          "line": 26,
+          "column": 4
+        },
+        "end": {
+          "line": 26,
+          "column": 5
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 1162,
+      "end": 1163,
+      "loc": {
+        "start": {
+          "line": 27,
           "column": 0
         },
         "end": {
-          "line": 9,
+          "line": 27,
           "column": 1
         }
       }
@@ -761,16 +2098,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 184,
-      "end": 184,
+      "start": 1164,
+      "end": 1164,
       "loc": {
         "start": {
-          "line": 9,
-          "column": 1
+          "line": 28,
+          "column": 0
         },
         "end": {
-          "line": 9,
-          "column": 1
+          "line": 28,
+          "column": 0
         }
       }
     }

@@ -29,7 +29,8 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Pitcher.js~Pitcher.html">Pitcher</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Game.js~Game.html">Game</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Pitcher.js~Pitcher.html">Pitcher</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Player.js~Player.html">Player</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/PositionPlayer.js~PositionPlayer.html">PositionPlayer</a></span></span></li>
 </ul>
@@ -38,14 +39,54 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/Pitcher.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
-import { Player } from &apos;./Player.js&apos;;
-
 /**
- * The class for a pitcher - in addition to batting, the pitcher class also keeps track of the pitches he can throw and pitcher-specific stats.
+ *Child of Player class
+ */
+import { Player } from &apos;./Player.js&apos;;
+/**
+ * Pitcher class - stores information about name, position, batting strength, baserunning speed,whether they have been chosen on a team,pitcher type and pitching arsenal
  */
 export class Pitcher extends Player {
-
-}</code></pre>
+    /**
+    * Constructor creates a player that stores there name,position( pitcher or position player), hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also, type of pitcher they are, types of pitches they throw.
+    * POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values,  pitcher type and the pitcher arsenal all now have set values.
+        * @extends {PlayerClass}This class is a child of the player class.
+        * @param {string} pitcherType Type of pitcher.
+        * @param {array} arsenal The type of pitches the batter hits best.
+        */
+    constructor(name, position, battStrengths, pitcher, pitches){
+        /**
+        * @extends {PlayerClass}
+        */
+        super(name, position, battStrengths);
+        /**
+		* Pitcher is starter or reliever.
+     	* @type {string}
+     	*/
+        this.pitcherType = pitcher;
+        /**
+		* Pitches thrown by this picture.
+     	* @type {string[]}
+     	*/
+        this.arsenal = pitches;
+    }
+    /**
+	* Gets the type of pitcher they are &quot;starter or reliever&quot;.
+	* @return {string} pitcherType
+	*/
+    getPitcherType(){
+        return this.pitcherType;
+    }
+    /**
+	* Gets the baseball players name.
+	* @return {array} arsenal
+	*/
+    //TODO//What do we want this class to do?
+    getArsenal(){
+        return this.arsenal;
+    }
+}
+</code></pre>
 
 </div>
 

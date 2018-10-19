@@ -567,7 +567,7 @@
     "__docId__": 48,
     "kind": "file",
     "name": "src/Game.js",
-    "content": "",
+    "content": "'use strict';\nimport { Team } from \"./Team.js\";\n\n/**\n * Game class - makes decisions and stores the game status based on player/user actions.\n */\nexport class Game {\n\tconstructor() {\n\t\t/**\n\t\t * Number of outs in the inning\n\t\t * @type {number}\n\t\t */\n\t\tthis.outs = 0;\n\t\tthis.balls = 0;\n\t\tthis.strikes = 0;\n\t\tthis.first = false;\n\t\tthis.second = false;\n\t\tthis.third = false;\n\n\t\tthis.blueTeam = new Team();\n\n\t\tthis.redAB = 0;\n\t\tthis.blueAB = 0;\n\t}\n\n\t/*\n\t * ss = Slow Straight\n\t * si = Slow Inside\n\t * sh = Slow High\n\t * sl = Slow Low\n\t * fs = Fastball Straigh\n\t * fi = Fastball Inside\n\t * fh = Fastball High\n\t * fl = Fastball Low\n\t * co = Curveball Outside\n\t * ci = Curveball Inside\n\t * ch = Curveball High\n\t * cl = Curveball Low\n\t */\n\n\t/**\n\t * Pitcher throws a slowball straight pitch and the outcome is determined by the batter's action\n\t * @param {string} batter The batter's action\n\t */\n\tssPitch(batter) {\n\t\tif (batter === \"ss\") {\n\t\t\tthis.hit6();\n\t\t}\n\t\telse if (batter === \"ss\") {\n\t\t\tthis.hit5();\n\t\t}\n\t\telse if (batter === \"si\") {\n\t\t\tthis.hit4();\n\t\t}\n\t\telse if (batter === \"fs\" || batter === \"co\") {\n\t\t\tthis.hit3();\n\t\t}\n\t\telse if (batter === \"sl\" || batter === \"ci\") {\n\t\t\tthis.hit2();\n\t\t}\n\t\telse if (batter === \"fi\") {\n\t\t\tthis.hit1();\n\t\t}\n\t\telse if (batter === \"sh\" || batter === \"fh\" || batter === \"fl\") {\n\t\t\tthis.foul();\n\t\t}\n\t\telse if (batter === \"ch\" || batter === \"cl\" || batter === \"take\") {\n\t\t\tthis.strike();\n\t\t}\n\t}\n\n\t/**\n\t * Pitcher throws a slowball high pitch and the outcome is determined by the batter's action\n\t * @param {string} batter The batter's action\n\t */\n\tshPitch(batter) {\n\t\tif (batter === \"sh\") {\n\t\t\tthis.hit6();\n\t\t}\n\t\telse if (batter === \"sh\") {\n\t\t\tthis.hit3();\n\t\t}\n\t\telse if (batter === \"fh\") {\n\t\t\tthis.hit2();\n\t\t}\n\t\telse if (batter === \"si\" || batter === \"fs\" || batter === \"ch\") {\n\t\t\tthis.hit1();\n\t\t}\n\t\telse if (batter === \"ss\" || batter === \"fi\" || batter === \"ci\") {\n\t\t\tthis.foul();\n\t\t}\n\t\telse if (batter === \"sl\" || batter === \"fl\" || batter === \"co\" || batter === \"cl\") {\n\t\t\tthis.strike();\n\t\t}\n\t\telse if (batter === \"take\") {\n\t\t\tthis.ball();\n\t\t}\n\t}\n\n\t/**\n\t * Pitcher throws a slowball low pitch and the outcome is determined by the batter's action\n\t * @param {string} batter The batter's action\n\t */\n\tslPitch(batter) {\n\t\tif (batter === \"sl\") {\n\t\t\tthis.hit6();\n\t\t}\n\t\telse if (batter === \"sl\") {\n\t\t\tthis.hit3();\n\t\t}\n\t\telse if (batter === \"ss\" || batter === \"fl\") {\n\t\t\tthis.hit2();\n\t\t}\n\t\telse if (batter === \"co\" || batter === \"cl\") {\n\t\t\tthis.hit1();\n\t\t}\n\t\telse if (batter === \"si\" || batter === \"fs\" || batter === \"fi\") {\n\t\t\tthis.foul();\n\t\t}\n\t\telse if (batter === \"sh\" || batter === \"fh\" || batter === \"ch\" || batter === \"ci\") {\n\t\t\tthis.strike();\n\t\t}\n\t\telse if (batter === \"take\") {\n\t\t\tthis.ball();\n\t\t}\n\t}\n\n\t/**\n\t * Pitcher throws a slowball inside pitch and the outcome is determined by the batter's action\n\t * @param {string} batter The batter's action\n\t */\n\tsiPitch(batter) {\n\t\tif (batter === \"si\") {\n\t\t\tthis.hit6();\n\t\t}\n\t\telse if (batter === \"si\") {\n\t\t\tthis.hit5();\n\t\t}\n\t\telse if (batter === \"ss\") {\n\t\t\tthis.hit4();\n\t\t}\n\t\telse if (batter === \"fi\" || batter === \"ci\") {\n\t\t\tthis.hit3();\n\t\t}\n\t\telse if (batter === \"sh\" || batter === \"sl\" || batter === \"fs\") {\n\t\t\tthis.hit2();\n\t\t}\n\t\telse if (batter === \"fh\" || batter === \"fl\" || batter === \"co\" || batter === \"ch\") {\n\t\t\tthis.foul();\n\t\t}\n\t\telse if (batter === \"cl\" || batter === \"take\") {\n\t\t\tthis.strike();\n\t\t}\n\t}\n\n\t/**\n\t * Pitcher throws a fastball straight pitch and the outcome is determined by the batter's action\n\t * @param {string} batter The batter's action\n\t */\n\tfsPitch(batter) {\n\t\tif (batter === \"fs\") {\n\t\t\tthis.hit6();\n\t\t}\n\t\telse if (batter === \"fs\") {\n\t\t\tthis.hit5();\n\t\t}\n\t\telse if (batter === \"fi\") {\n\t\t\tthis.hit4();\n\t\t}\n\t\telse if (batter === \"ss\" || batter === \"fh\" || batter === \"ci\") {\n\t\t\tthis.hit3();\n\t\t}\n\t\telse if (batter === \"co\") {\n\t\t\tthis.hit2();\n\t\t}\n\t\telse if (batter === \"si\") {\n\t\t\tthis.hit1();\n\t\t}\n\t\telse if (batter === \"sh\" || batter === \"sl\" || batter === \"fl\") {\n\t\t\tthis.foul();\n\t\t}\n\t\telse if (batter === \"ch\" || batter === \"cl\" || batter === \"take\") {\n\t\t\tthis.strike();\n\t\t}\n\t}\n\n\t/**\n\t * Pitcher throws a fastball high pitch and the outcome is determined by the batter's action\n\t * @param {string} batter The batter's action\n\t */\n\tfhPitch(batter) {\n\t\tif (batter === \"fh\") {\n\t\t\tthis.hit6();\n\t\t}\n\t\telse if (batter === \"fh\") {\n\t\t\tthis.hit3();\n\t\t}\n\t\telse if (batter === \"fi\") {\n\t\t\tthis.hit2();\n\t\t}\n\t\telse if (batter === \"sh\" || batter === \"ch\" || batter === \"ci\") {\n\t\t\tthis.hit1();\n\t\t}\n\t\telse if (batter === \"si\" || batter === \"fs\" || batter === \"co\") {\n\t\t\tthis.foul();\n\t\t}\n\t\telse if (batter === \"ss\" || batter === \"sl\" || batter === \"fl\" || batter === \"cl\") {\n\t\t\tthis.strike();\n\t\t}\n\t\telse if (batter === \"take\") {\n\t\t\tthis.ball();\n\t\t}\n\t}\n\n\t/**\n\t * Pitcher throws a fastball low pitch and the outcome is determined by the batter's action\n\t * @param {string} batter The batter's action\n\t */\n\tflPitch(batter) {\n\t\tif (batter === \"fl\") {\n\t\t\tthis.hit6();\n\t\t}\n\t\telse if (batter === \"fl\") {\n\t\t\tthis.hit3();\n\t\t}\n\t\telse if (batter === \"fs\") {\n\t\t\tthis.hit2();\n\t\t}\n\t\telse if (batter === \"sl\" || batter === \"co\" || batter === \"cl\") {\n\t\t\tthis.hit1();\n\t\t}\n\t\telse if (batter === \"ss\" || batter === \"si\" || batter === \"fi\") {\n\t\t\tthis.foul();\n\t\t}\n\t\telse if (batter === \"sh\" || batter === \"fh\" || batter === \"ch\" || batter === \"ci\") {\n\t\t\tthis.strike();\n\t\t}\n\t\telse if (batter === \"take\") {\n\t\t\tthis.ball();\n\t\t}\n\t}\n\n\t/**\n\t * Pitcher throws a fastball inside pitch and the outcome is determined by the batter's action\n\t * @param {string} batter The batter's action\n\t */\n\tfiPitch(batter) {\n\t\tif (batter === \"fi\") {\n\t\t\tthis.hit6();\n\t\t}\n\t\telse if (batter === \"fi\") {\n\t\t\tthis.hit5();\n\t\t}\n\t\telse if (batter === \"fs\") {\n\t\t\tthis.hit4();\n\t\t}\n\t\telse if (batter === \"si\" || batter === \"ci\") {\n\t\t\tthis.hit3();\n\t\t}\n\t\telse if (batter === \"fl\") {\n\t\t\tthis.hit2();\n\t\t}\n\t\telse if (batter === \"ss\" || batter === \"ch\") {\n\t\t\tthis.hit1();\n\t\t}\n\t\telse if (batter === \"sh\" || batter === \"fh\" || batter === \"co\" || batter === \"cl\") {\n\t\t\tthis.foul();\n\t\t}\n\t\telse if (batter === \"sl\" || batter === \"take\") {\n\t\t\tthis.strike();\n\t\t}\n\t}\n\n\t/**\n\t * Pitcher throws a curveball outside pitch and the outcome is determined by the batter's action\n\t * @param {string} batter The batter's action\n\t */\n\tcoPitch(batter) {\n\t\tif (batter === \"co\") {\n\t\t\tthis.hit6();\n\t\t}\n\t\telse if (batter === \"co\") {\n\t\t\tthis.hit5();\n\t\t}\n\t\telse if (batter === \"fs\") {\n\t\t\tthis.hit4();\n\t\t}\n\t\telse if (batter === \"ss\") {\n\t\t\tthis.hit3();\n\t\t}\n\t\telse if (batter === \"ch\") {\n\t\t\tthis.hit2();\n\t\t}\n\t\telse if (batter === \"fl\" || batter === \"fi\" || batter === \"cl\") {\n\t\t\tthis.hit1();\n\t\t}\n\t\telse if (batter === \"sh\" || batter === \"sl\") {\n\t\t\tthis.foul();\n\t\t}\n\t\telse if (batter === \"si\" || batter === \"fh\" || batter === \"ci\" || batter === \"take\") {\n\t\t\tthis.strike();\n\t\t}\n\t}\n\n\t/**\n\t * Pitcher throws a curveball high pitch and the outcome is determined by the batter's action\n\t * @param {string} batter The batter's action\n\t */\n\tchPitch(batter) {\n\t\tif (batter === \"ch\") {\n\t\t\tthis.hit6();\n\t\t}\n\t\telse if (batter === \"ch\") {\n\t\t\tthis.hit3();\n\t\t}\n\t\telse if (batter === \"ss\" || batter === \"sh\" || batter === \"si\" || batter === \"fh\" || batter === \"co\") {\n\t\t\tthis.hit1();\n\t\t}\n\t\telse if (batter === \"fs\" || batter === \"ci\") {\n\t\t\tthis.foul();\n\t\t}\n\t\telse if (batter === \"sl\" || batter === \"fl\" || batter === \"fi\" || batter === \"cl\") {\n\t\t\tthis.strike();\n\t\t}\n\t\telse if (batter === \"take\") {\n\t\t\tthis.ball();\n\t\t}\n\t}\n\n\t/**\n\t * Pitcher throws a curveball low pitch and the outcome is determined by the batter's action\n\t * @param {string} batter The batter's action\n\t */\n\tclPitch(batter) {\n\t\tif (batter === \"cl\") {\n\t\t\tthis.hit6();\n\t\t}\n\t\telse if (batter === \"cl\") {\n\t\t\tthis.hit3();\n\t\t}\n\t\telse if (batter === \"co\" || batter === \"ci\") {\n\t\t\tthis.hit2();\n\t\t}\n\t\telse if (batter === \"sl\" || batter === \"fl\") {\n\t\t\tthis.hit1();\n\t\t}\n\t\telse if (batter === \"ss\" || batter === \"si\" || batter === \"fi\") {\n\t\t\tthis.foul();\n\t\t}\n\t\telse if (batter === \"sh\" || batter === \"fs\" || batter === \"fh\" || batter === \"ch\") {\n\t\t\tthis.strike();\n\t\t}\n\t\telse if (batter === \"take\") {\n\t\t\tthis.ball();\n\t\t}\n\t}\n\n\t/**\n\t * Pitcher throws a curveball inside pitch and the outcome is determined by the batter's action\n\t * @param {string} batter The batter's action\n\t */\n\tciPitch(batter) {\n\t\tif (batter === \"ci\") {\n\t\t\tthis.hit6();\n\t\t}\n\t\telse if (batter === \"ci\") {\n\t\t\tthis.hit5();\n\t\t}\n\t\telse if (batter === \"fi\") {\n\t\t\tthis.hit4();\n\t\t}\n\t\telse if (batter === \"si\" || batter === \"fs\") {\n\t\t\tthis.hit3();\n\t\t}\n\t\telse if (batter === \"ss\" || batter === \"cl\") {\n\t\t\tthis.hit2();\n\t\t}\n\t\telse if (batter === \"sh\") {\n\t\t\tthis.hit1();\n\t\t}\n\t\telse if (batter === \"sl\" || batter === \"fh\" || batter === \"co\" || batter === \"ch\") {\n\t\t\tthis.foul();\n\t\t}\n\t\telse if (batter === \"fl\" || batter === \"take\") {\n\t\t\tthis.strike();\n\t\t}\n\t}\n\n\n\t/**\n\t * Hit chart 1: Infield balls\n\t */\n\thit1() {\n\t\tlet roll = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);\n\t\tif (roll === 2) {\n\t\t\tthis.triplePlay();\n\t\t}\n\t\telse if (roll === 3 || roll === 8) {\n\t\t\tthis.single();\n\t\t}\n\t\telse if (roll === 4 || roll === 7) {\n\t\t\tthis.flyout();\n\t\t}\n\t\telse if (roll === 5) {\n\t\t\tthis.foulout();\n\t\t}\n\t\telse if (roll === 6 || roll === 11) {\n\t\t\tthis.groundoutDoublePlay();\n\t\t}\n\t\telse if (roll === 9) {\n\t\t\tthis.groundout();\n\t\t}\n\t\telse if (roll === 10) {\n\t\t\tthis.fieldersChoice();\n\t\t}\n\t\telse if (roll === 12) {\n\t\t\tthis.error();\n\t\t}\n\t}\n\n\t/**\n\t * Hit chart 2: Hits that fall over the infield, moderately hard hit grounders in the infield and fly balls that infielders go out for and outfielders come in for\n\t */\n\thit2() {\n\t\tlet roll = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);\n\t\tif (roll === 2 || roll === 6) {\n\t\t\tthis.groundoutDoublePlay();\n\t\t}\n\t\telse if (roll === 3 || roll === 8 || roll === 10) {\n\t\t\tthis.flyout();\n\t\t}\n\t\telse if (roll === 4) {\n\t\t\tthis.groundoutAdvIfForced();\n\t\t}\n\t\telse if (roll === 5) {\n\t\t\tthis.foulout();\n\t\t}\n\t\telse if (roll === 7 || roll === 9) {\n\t\t\tthis.single();\n\t\t}\n\t\telse if (roll === 11) {\n\t\t\tthis.groundout();\n\t\t}\n\t\telse if (roll === 12) {\n\t\t\tthis.error();\n\t\t}\n\t}\n\n\t/**\n\t * Hit chart 3: Sharply hit balls through the infield and fly balls and hits to the outfield that go farther than chart 2 balls\n\t */\n\thit3() {\n\t\tlet roll = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);\n\t\tif (roll === 2 || roll == 12) {\n\t\t\tthis.groundoutDoublePlay();\n\t\t}\n\t\telse if (roll === 3) {\n\t\t\tthis.single();\n\t\t}\n\t\telse if (roll === 4) {\n\t\t\tthis.groundoutAdvIfForced();\n\t\t}\n\t\telse if (roll === 5 || roll === 7) {\n\t\t\tthis.flyoutAdv();\n\t\t}\n\t\telse if (roll === 6) {\n\t\t\tthis.singleAdvance();\n\t\t}\n\t\telse if (roll === 8 || roll === 10) {\n\t\t\tthis.singleRISP();\n\t\t}\n\t\telse if (roll === 9) {\n\t\t\tthis.fieldersChoice();\n\t\t}\n\t\telse if (roll === 11) {\n\t\t\tthis.errorSecond();\n\t\t}\n\t}\n\n\t/**\n\t * Hit chart 4: Balls hit down the 1st and 3rd base lines and hard hit balls not going as far as those on chart 5\n\t */\n\thit4() {\n\t\tlet roll = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);\n\t\tif (roll === 2) {\n\t\t\tthis.homeRun();\n\t\t}\n\t\telse if (roll === 3) {\n\t\t\tthis.flyoutAdv();\n\t\t}\n\t\telse if (roll === 4) {\n\t\t\tthis.groundout();\n\t\t}\n\t\telse if (roll === 5) {\n\t\t\tthis.double();\n\t\t}\n\t\telse if (roll === 6 || roll === 8) {\n\t\t\tthis.singleAdvance();\n\t\t}\n\t\telse if (roll === 7) {\n\t\t\tthis.flyoutNoAdv1st();\n\t\t}\n\t\telse if (roll === 9) {\n\t\t\tthis.singleRISP();\n\t\t}\n\t\telse if (roll === 10) {\n\t\t\tthis.groundoutDoublePlay();\n\t\t}\n\t\telse if (roll === 11) {\n\t\t\tthis.flyout();\n\t\t}\n\t\telse if (roll === 12) {\n\t\t\tthis.lineoutDoublePlay();\n\t\t}\n\t}\n\n\t/**\n\t * Hit chart 5: Hard hit balls\n\t */\n\thit5() {\n\t\tlet roll = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);\n\t\tif (roll === 2) {\n\t\t\tthis.error();\n\t\t}\n\t\telse if (roll === 3 || roll === 6) {\n\t\t\tthis.singleAdvance();\n\t\t}\n\t\telse if (roll === 4) {\n\t\t\tthis.double();\n\t\t}\n\t\telse if (roll === 5) {\n\t\t\tthis.flyoutAdv();\n\t\t}\n\t\telse if (roll === 7) {\n\t\t\tthis.flyoutNoAdv1st();\n\t\t}\n\t\telse if (roll === 8) {\n\t\t\tthis.groundout();\n\t\t}\n\t\telse if (roll === 9) {\n\t\t\tthis.homeRun();\n\t\t}\n\t\telse if (roll === 10) {\n\t\t\tthis.doubleClear();\n\t\t}\n\t\telse if (roll === 11) {\n\t\t\tthis.triple();\n\t\t}\n\t\telse if (roll === 12) {\n\t\t\tthis.lineoutDoublePlay();\n\t\t}\n\t}\n\n\t/**\n\t * Hit chart 6: The most solidly hit balls and when hit for extra bases are the longest hit balls\n\t */\n\thit6() {\n\t\tlet roll = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);\n\t\tif (roll === 2) {\n\t\t\tthis.foulout();\n\t\t}\n\t\telse if (roll === 3) {\n\t\t\tthis.flyoutAdv();\n\t\t}\n\t\telse if (roll === 4 || roll === 6) {\n\t\t\tthis.homeRun();\n\t\t}\n\t\telse if (roll === 5) {\n\t\t\tthis.flyoutNoAdv1st();\n\t\t}\n\t\telse if (roll === 7) {\n\t\t\tthis.double();\n\t\t}\n\t\telse if (roll === 8) {\n\t\t\tthis.triple();\n\t\t}\n\t\telse if (roll === 9) {\n\t\t\tthis.singleAdvance();\n\t\t}\n\t\telse if (roll === 10) {\n\t\t\tthis.single();\n\t\t}\n\t\telse if (roll === 11) {\n\t\t\tthis.doubleClear();\n\t\t}\n\t\telse if (roll === 12) {\n\t\t\tthis.groundout();\n\t\t}\n\t}\n\n\t/**\n\t * Home run - clears the bases and adds one run for every runner\n\t */\n\thomeRun() {\n\t\tif (this.third) {\n\t\t\tthis.third = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.second) {\n\t\t\tthis.second = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.first) {\n\t\t\tthis.first = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tthis.runs++;\n\t}\n\n\t/**\n\t * Triple - clears the bases and batter ends up at third\n\t */\n\ttriple() {\n\t\tif (this.third) {\n\t\t\tthis.third = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.second) {\n\t\t\tthis.second = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.first) {\n\t\t\tthis.first = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tthis.third = true;\n\t}\n\n\t/**\n\t * Bases-clearing double - clears the bases (runner at first scores) and batter ends up at second\n\t */\n\tdoubleClear() {\n\t\tif (this.third) {\n\t\t\tthis.third = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.second) {\n\t\t\tthis.second = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.first) {\n\t\t\tthis.first = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tthis.second = true;\n\t}\n\n\t/**\n\t * Double - runners at third and second score, runner at first goes to third, batter ends up at second\n\t */\n\tdouble() {\n\t\tif (this.third) {\n\t\t\tthis.third = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.second) {\n\t\t\tthis.second = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.first) {\n\t\t\tthis.first = false;\n\t\t\tthis.third = true;\n\t\t}\n\t\tthis.second = true;\n\t}\n\n\t/**\n\t * Single - all runners advance one base, batter ends up at first\n\t */\n\tsingle() {\n\t\tif (this.third) {\n\t\t\tthis.third = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.second) {\n\t\t\tthis.second = false;\n\t\t\tthis.third = true;\n\t\t}\n\t\tif (this.first) {\n\t\t\tthis.first = false;\n\t\t\tthis.second = true;\n\t\t}\n\t\tthis.first = true;\n\t}\n\n\t/**\n\t * Single that scores runners in scoring postion - runners at third and second score, runner at first goes to second, batter ends up at first\n\t */\n\tsingleRISP() {\n\t\tif (this.third) {\n\t\t\tthis.third = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.second) {\n\t\t\tthis.second = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.first) {\n\t\t\tthis.first = false;\n\t\t\tthis.second = true;\n\t\t}\n\t\tthis.first = true;\n\t}\n\n\t/**\n\t * Single that allows runner at first to go to third - runners at third and second score, runner at first goes to third, batter ends up at first\n\t */\n\tsingleAdvance() {\n\t\tif (this.third) {\n\t\t\tthis.third = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.second) {\n\t\t\tthis.second = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.first) {\n\t\t\tthis.first = false;\n\t\t\tthis.third = true;\n\t\t}\n\t\tthis.first = true;\n\t}\n\n\t/**\n\t * Error - All runners move up a base, batter is safe at first in play that should've resulted in an out\n\t */\n\terror() {\n\t\tif (this.third) {\n\t\t\tthis.third = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.second) {\n\t\t\tthis.second = false;\n\t\t\tthis.third = true;\n\t\t}\n\t\tif (this.first) {\n\t\t\tthis.first = false;\n\t\t\tthis.second = true;\n\t\t}\n\t\tthis.first = true;\n\t}\n\n\t/**\n\t * Batter pops out in foul territory - All runners hold\n\t */\n\tfoulout() {\n\t\tthis.outs++;\n\t}\n\n\t/**\n\t * Batter pops out - All runners hold\n\t */\n\tflyout() {\n\t\tthis.outs++;\n\t}\n\n\t/**\n\t * Batter pops out - All runners advance one base\n\t */\n\tflyoutAdv() {\n\t\tif (this.third) {\n\t\t\tthis.third = false;\n\t\t\tif (this.outs < 2)\n\t\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.second) {\n\t\t\tthis.second = false;\n\t\t\tthis.third = true;\n\t\t}\n\t\tif (this.first) {\n\t\t\tthis.first = false;\n\t\t\tthis.second = true;\n\t\t}\n\t\tthis.outs++;\n\t}\n\n\t/**\n\t * Batter pops out - All runners (except runner at first) advance one base\n\t */\n\tflyoutNoAdv1st() {\n\t\tif (this.third) {\n\t\t\tthis.third = false;\n\t\t\tif (this.outs < 2)\n\t\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.second) {\n\t\t\tthis.second = false;\n\t\t\tthis.third = true;\n\t\t}\n\t\tthis.outs++;\n\t}\n\n\t/**\n\t * Batter grounds out - All runners advance one base\n\t */\n\tgroundout() {\n\t\tif (this.third) {\n\t\t\tthis.third = false;\n\t\t\tif (this.outs < 2)\n\t\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.second) {\n\t\t\tthis.second = false;\n\t\t\tthis.third = true;\n\t\t}\n\t\tif (this.first) {\n\t\t\tthis.first = false;\n\t\t\tthis.second = true;\n\t\t}\n\t\tthis.outs++;\n\t}\n\n\t/**\n\t * Batter grounds out - Runners hold unless they are forced to advance\n\t */\n\tgroundoutAdvIfForced() {\n\t\tif (this.third && this.second && this.first) {\n\t\t\tthis.third = false;\n\t\t\tif (this.outs < 2) {\n\t\t\t\tthis.runs++;\n\t\t\t}\n\t\t}\n\t\tif (this.second && this.first) {\n\t\t\tthis.second = false;\n\t\t\tthis.third = true;\n\t\t}\n\t\tif (this.first) {\n\t\t\tthis.first = false;\n\t\t\tthis.second = true;\n\t\t}\n\t\tthis.outs++;\n\t}\n\n\t/**\n\t * Double play - Runner at first out and batter out\n\t */\n\tgroundoutDoublePlay() {\n\t\tif (this.third) {\n\t\t\tthis.third = false;\n\t\t\tif (this.outs < 1 && !this.first) {\n\t\t\t\tthis.runs++;\n\t\t\t}\n\t\t\telse if (this.outs < 2) {\n\t\t\t\tthis.runs++;\n\t\t\t}\n\n\t\t}\n\t\tif (this.second) {\n\t\t\tthis.second = false;\n\t\t\tthis.third = true;\n\t\t}\n\t\tif (this.first) {\n\t\t\tthis.first = false;\n\t\t\tthis.outs++;\n\t\t}\n\t\tthis.outs++;\n\t}\n\t/**\n\t * Double play - Lead runner and batter out\n\t */\n\tlineoutDoublePlay() {\n\t\tif (this.third) {\n\t\t\tthis.third = false;\n\t\t\tthis.outs++;\n\t\t}\n\t\telse if (this.second) {\n\t\t\tthis.second = false;\n\t\t\tthis.outs++;\n\t\t}\n\t\telse if (this.first) {\n\t\t\tthis.first = false;\n\t\t\tthis.outs++;\n\t\t}\n\t\tthis.outs++;\n\t}\n\n\t/**\n\t * Triple play - Runners at first and second and batter out\n\t */\n\ttriplePlay() {\n\t\tif (this.second) {\n\t\t\tthis.second = false;\n\t\t\tthis.outs++;\n\t\t}\n\t\tif (this.first) {\n\t\t\tthis.first = false;\n\t\t\tthis.outs++;\n\t\t}\n\t\tthis.outs++;\n\t}\n\n\t/**\n\t * Fielder's choice - Runner advances only if forced and lead runner is out, batter out and runners hold otherwise\n\t */\n\tfieldersChoice() {\n\t\tthis.outs++;\n\t}\n\n\t/**\n\t * Error - Runners at first and second advance 2 bases and batter ends up at second\n\t */\n\terrorSecond() {\n\t\tif (this.third) {\n\t\t\tthis.third = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.second) {\n\t\t\tthis.second = false;\n\t\t\tthis.runs++;\n\t\t}\n\t\tif (this.first) {\n\t\t\tthis.first = false;\n\t\t\tthis.third = true;\n\t\t}\n\t\tthis.second = true;\n\t}\n\n\tfoul() {\n\t\tif (this.strikes < 2) {\n\t\t\tthis.strikes++;\n\t\t}\n\t}\n\n\tstrike() {\n\t\tthis.strikes++;\n\t\tif (this.strikes === 3) {\n\t\t\tthis.strikes = 0;\n\t\t\tthis.outs++;\n\t\t}\n\t}\n\n\tball() {\n\t\tthis.balls++;\n\t\tif (this.balls === 4) {\n\t\t\tthis.balls = 0;\n\t\t\tif (this.third && this.second && this.first) {\n\t\t\t\tthis.third = false;\n\t\t\t\tthis.runs++;\n\t\t\t}\n\t\t\tif (this.second && this.first) {\n\t\t\t\tthis.second = false;\n\t\t\t\tthis.third = true;\n\t\t\t}\n\t\t\tif (this.first) {\n\t\t\t\tthis.first = false;\n\t\t\t\tthis.second = true;\n\t\t\t}\n\t\t\tthis.first = true;\n\t\t}\n\t}\n}",
     "static": true,
     "longname": "/home/jacob/Programming/eecs448/big-league-baseball/src/Game.js",
     "access": "public",
@@ -576,9 +576,928 @@
   },
   {
     "__docId__": 49,
+    "kind": "class",
+    "name": "Game",
+    "memberof": "src/Game.js",
+    "static": true,
+    "longname": "src/Game.js~Game",
+    "access": "public",
+    "export": true,
+    "importPath": "big-league-baseball/src/Game.js",
+    "importStyle": "{Game}",
+    "description": "Game class - makes decisions and stores the game status based on player/user actions.",
+    "lineNumber": 7,
+    "interface": false
+  },
+  {
+    "__docId__": 50,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#constructor",
+    "access": "public",
+    "description": null,
+    "lineNumber": 8,
+    "undocument": true
+  },
+  {
+    "__docId__": 51,
+    "kind": "member",
+    "name": "outs",
+    "memberof": "src/Game.js~Game",
+    "static": false,
+    "longname": "src/Game.js~Game#outs",
+    "access": "public",
+    "description": "Number of outs in the inning",
+    "lineNumber": 13,
+    "type": {
+      "nullable": null,
+      "types": [
+        "number"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 52,
+    "kind": "member",
+    "name": "balls",
+    "memberof": "src/Game.js~Game",
+    "static": false,
+    "longname": "src/Game.js~Game#balls",
+    "access": "public",
+    "description": null,
+    "lineNumber": 14,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 53,
+    "kind": "member",
+    "name": "strikes",
+    "memberof": "src/Game.js~Game",
+    "static": false,
+    "longname": "src/Game.js~Game#strikes",
+    "access": "public",
+    "description": null,
+    "lineNumber": 15,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 54,
+    "kind": "member",
+    "name": "first",
+    "memberof": "src/Game.js~Game",
+    "static": false,
+    "longname": "src/Game.js~Game#first",
+    "access": "public",
+    "description": null,
+    "lineNumber": 16,
+    "undocument": true,
+    "type": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 55,
+    "kind": "member",
+    "name": "second",
+    "memberof": "src/Game.js~Game",
+    "static": false,
+    "longname": "src/Game.js~Game#second",
+    "access": "public",
+    "description": null,
+    "lineNumber": 17,
+    "undocument": true,
+    "type": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 56,
+    "kind": "member",
+    "name": "third",
+    "memberof": "src/Game.js~Game",
+    "static": false,
+    "longname": "src/Game.js~Game#third",
+    "access": "public",
+    "description": null,
+    "lineNumber": 18,
+    "undocument": true,
+    "type": {
+      "types": [
+        "boolean"
+      ]
+    }
+  },
+  {
+    "__docId__": 57,
+    "kind": "member",
+    "name": "blueTeam",
+    "memberof": "src/Game.js~Game",
+    "static": false,
+    "longname": "src/Game.js~Game#blueTeam",
+    "access": "public",
+    "description": null,
+    "lineNumber": 20,
+    "undocument": true,
+    "type": {
+      "types": [
+        "*"
+      ]
+    }
+  },
+  {
+    "__docId__": 58,
+    "kind": "member",
+    "name": "redAB",
+    "memberof": "src/Game.js~Game",
+    "static": false,
+    "longname": "src/Game.js~Game#redAB",
+    "access": "public",
+    "description": null,
+    "lineNumber": 22,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 59,
+    "kind": "member",
+    "name": "blueAB",
+    "memberof": "src/Game.js~Game",
+    "static": false,
+    "longname": "src/Game.js~Game#blueAB",
+    "access": "public",
+    "description": null,
+    "lineNumber": 23,
+    "undocument": true,
+    "type": {
+      "types": [
+        "number"
+      ]
+    }
+  },
+  {
+    "__docId__": 60,
+    "kind": "method",
+    "name": "ssPitch",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#ssPitch",
+    "access": "public",
+    "description": "Pitcher throws a slowball straight pitch and the outcome is determined by the batter's action",
+    "lineNumber": 45,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "batter",
+        "description": "The batter's action"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 61,
+    "kind": "method",
+    "name": "shPitch",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#shPitch",
+    "access": "public",
+    "description": "Pitcher throws a slowball high pitch and the outcome is determined by the batter's action",
+    "lineNumber": 76,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "batter",
+        "description": "The batter's action"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 62,
+    "kind": "method",
+    "name": "slPitch",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#slPitch",
+    "access": "public",
+    "description": "Pitcher throws a slowball low pitch and the outcome is determined by the batter's action",
+    "lineNumber": 104,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "batter",
+        "description": "The batter's action"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 63,
+    "kind": "method",
+    "name": "siPitch",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#siPitch",
+    "access": "public",
+    "description": "Pitcher throws a slowball inside pitch and the outcome is determined by the batter's action",
+    "lineNumber": 132,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "batter",
+        "description": "The batter's action"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 64,
+    "kind": "method",
+    "name": "fsPitch",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#fsPitch",
+    "access": "public",
+    "description": "Pitcher throws a fastball straight pitch and the outcome is determined by the batter's action",
+    "lineNumber": 160,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "batter",
+        "description": "The batter's action"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 65,
+    "kind": "method",
+    "name": "fhPitch",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#fhPitch",
+    "access": "public",
+    "description": "Pitcher throws a fastball high pitch and the outcome is determined by the batter's action",
+    "lineNumber": 191,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "batter",
+        "description": "The batter's action"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 66,
+    "kind": "method",
+    "name": "flPitch",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#flPitch",
+    "access": "public",
+    "description": "Pitcher throws a fastball low pitch and the outcome is determined by the batter's action",
+    "lineNumber": 219,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "batter",
+        "description": "The batter's action"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 67,
+    "kind": "method",
+    "name": "fiPitch",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#fiPitch",
+    "access": "public",
+    "description": "Pitcher throws a fastball inside pitch and the outcome is determined by the batter's action",
+    "lineNumber": 247,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "batter",
+        "description": "The batter's action"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 68,
+    "kind": "method",
+    "name": "coPitch",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#coPitch",
+    "access": "public",
+    "description": "Pitcher throws a curveball outside pitch and the outcome is determined by the batter's action",
+    "lineNumber": 278,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "batter",
+        "description": "The batter's action"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 69,
+    "kind": "method",
+    "name": "chPitch",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#chPitch",
+    "access": "public",
+    "description": "Pitcher throws a curveball high pitch and the outcome is determined by the batter's action",
+    "lineNumber": 309,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "batter",
+        "description": "The batter's action"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 70,
+    "kind": "method",
+    "name": "clPitch",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#clPitch",
+    "access": "public",
+    "description": "Pitcher throws a curveball low pitch and the outcome is determined by the batter's action",
+    "lineNumber": 334,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "batter",
+        "description": "The batter's action"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 71,
+    "kind": "method",
+    "name": "ciPitch",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#ciPitch",
+    "access": "public",
+    "description": "Pitcher throws a curveball inside pitch and the outcome is determined by the batter's action",
+    "lineNumber": 362,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "batter",
+        "description": "The batter's action"
+      }
+    ],
+    "return": null
+  },
+  {
+    "__docId__": 72,
+    "kind": "method",
+    "name": "hit1",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#hit1",
+    "access": "public",
+    "description": "Hit chart 1: Infield balls",
+    "lineNumber": 393,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 73,
+    "kind": "method",
+    "name": "hit2",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#hit2",
+    "access": "public",
+    "description": "Hit chart 2: Hits that fall over the infield, moderately hard hit grounders in the infield and fly balls that infielders go out for and outfielders come in for",
+    "lineNumber": 424,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 74,
+    "kind": "method",
+    "name": "hit3",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#hit3",
+    "access": "public",
+    "description": "Hit chart 3: Sharply hit balls through the infield and fly balls and hits to the outfield that go farther than chart 2 balls",
+    "lineNumber": 452,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 75,
+    "kind": "method",
+    "name": "hit4",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#hit4",
+    "access": "public",
+    "description": "Hit chart 4: Balls hit down the 1st and 3rd base lines and hard hit balls not going as far as those on chart 5",
+    "lineNumber": 483,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 76,
+    "kind": "method",
+    "name": "hit5",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#hit5",
+    "access": "public",
+    "description": "Hit chart 5: Hard hit balls",
+    "lineNumber": 520,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 77,
+    "kind": "method",
+    "name": "hit6",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#hit6",
+    "access": "public",
+    "description": "Hit chart 6: The most solidly hit balls and when hit for extra bases are the longest hit balls",
+    "lineNumber": 557,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 78,
+    "kind": "method",
+    "name": "homeRun",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#homeRun",
+    "access": "public",
+    "description": "Home run - clears the bases and adds one run for every runner",
+    "lineNumber": 594,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 82,
+    "kind": "method",
+    "name": "triple",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#triple",
+    "access": "public",
+    "description": "Triple - clears the bases and batter ends up at third",
+    "lineNumber": 613,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 87,
+    "kind": "method",
+    "name": "doubleClear",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#doubleClear",
+    "access": "public",
+    "description": "Bases-clearing double - clears the bases (runner at first scores) and batter ends up at second",
+    "lineNumber": 632,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 92,
+    "kind": "method",
+    "name": "double",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#double",
+    "access": "public",
+    "description": "Double - runners at third and second score, runner at first goes to third, batter ends up at second",
+    "lineNumber": 651,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 98,
+    "kind": "method",
+    "name": "single",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#single",
+    "access": "public",
+    "description": "Single - all runners advance one base, batter ends up at first",
+    "lineNumber": 670,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 105,
+    "kind": "method",
+    "name": "singleRISP",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#singleRISP",
+    "access": "public",
+    "description": "Single that scores runners in scoring postion - runners at third and second score, runner at first goes to second, batter ends up at first",
+    "lineNumber": 689,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 111,
+    "kind": "method",
+    "name": "singleAdvance",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#singleAdvance",
+    "access": "public",
+    "description": "Single that allows runner at first to go to third - runners at third and second score, runner at first goes to third, batter ends up at first",
+    "lineNumber": 708,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 117,
+    "kind": "method",
+    "name": "error",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#error",
+    "access": "public",
+    "description": "Error - All runners move up a base, batter is safe at first in play that should've resulted in an out",
+    "lineNumber": 727,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 124,
+    "kind": "method",
+    "name": "foulout",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#foulout",
+    "access": "public",
+    "description": "Batter pops out in foul territory - All runners hold",
+    "lineNumber": 746,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 125,
+    "kind": "method",
+    "name": "flyout",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#flyout",
+    "access": "public",
+    "description": "Batter pops out - All runners hold",
+    "lineNumber": 753,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 126,
+    "kind": "method",
+    "name": "flyoutAdv",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#flyoutAdv",
+    "access": "public",
+    "description": "Batter pops out - All runners advance one base",
+    "lineNumber": 760,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 132,
+    "kind": "method",
+    "name": "flyoutNoAdv1st",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#flyoutNoAdv1st",
+    "access": "public",
+    "description": "Batter pops out - All runners (except runner at first) advance one base",
+    "lineNumber": 780,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 136,
+    "kind": "method",
+    "name": "groundout",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#groundout",
+    "access": "public",
+    "description": "Batter grounds out - All runners advance one base",
+    "lineNumber": 796,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 142,
+    "kind": "method",
+    "name": "groundoutAdvIfForced",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#groundoutAdvIfForced",
+    "access": "public",
+    "description": "Batter grounds out - Runners hold unless they are forced to advance",
+    "lineNumber": 816,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 148,
+    "kind": "method",
+    "name": "groundoutDoublePlay",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#groundoutDoublePlay",
+    "access": "public",
+    "description": "Double play - Runner at first out and batter out",
+    "lineNumber": 837,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 153,
+    "kind": "method",
+    "name": "lineoutDoublePlay",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#lineoutDoublePlay",
+    "access": "public",
+    "description": "Double play - Lead runner and batter out",
+    "lineNumber": 861,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 157,
+    "kind": "method",
+    "name": "triplePlay",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#triplePlay",
+    "access": "public",
+    "description": "Triple play - Runners at first and second and batter out",
+    "lineNumber": 880,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 160,
+    "kind": "method",
+    "name": "fieldersChoice",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#fieldersChoice",
+    "access": "public",
+    "description": "Fielder's choice - Runner advances only if forced and lead runner is out, batter out and runners hold otherwise",
+    "lineNumber": 895,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 161,
+    "kind": "method",
+    "name": "errorSecond",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#errorSecond",
+    "access": "public",
+    "description": "Error - Runners at first and second advance 2 bases and batter ends up at second",
+    "lineNumber": 902,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 167,
+    "kind": "method",
+    "name": "foul",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#foul",
+    "access": "public",
+    "description": null,
+    "lineNumber": 918,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 168,
+    "kind": "method",
+    "name": "strike",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#strike",
+    "access": "public",
+    "description": null,
+    "lineNumber": 924,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 170,
+    "kind": "method",
+    "name": "ball",
+    "memberof": "src/Game.js~Game",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Game.js~Game#ball",
+    "access": "public",
+    "description": null,
+    "lineNumber": 932,
+    "undocument": true,
+    "params": [],
+    "return": null
+  },
+  {
+    "__docId__": 178,
     "kind": "file",
     "name": "src/Pitcher.js",
-    "content": "'use strict';\nimport { Player } from './Player.js';\n\n/**\n * The class for a pitcher - in addition to batting, the pitcher class also keeps track of the pitches he can throw and pitcher-specific stats.\n */\nexport class Pitcher extends Player {\n\n}",
+    "content": "'use strict';\n/**\n *Child of Player class\n */\nimport { Player } from './Player.js';\n/**\n * Pitcher class - stores information about name, position, batting strength, baserunning speed,whether they have been chosen on a team,pitcher type and pitching arsenal\n */\nexport class Pitcher extends Player {\n    /**\n    * Constructor creates a player that stores there name,position( pitcher or position player), hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also, type of pitcher they are, types of pitches they throw.\n    * POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values,  pitcher type and the pitcher arsenal all now have set values.\n        * @extends {PlayerClass}This class is a child of the player class.\n        * @param {string} pitcherType Type of pitcher.\n        * @param {array} arsenal The type of pitches the batter hits best.\n        */\n    constructor(name, position, battStrengths, pitcher, pitches){\n        /**\n        * @extends {PlayerClass}\n        */\n        super(name, position, battStrengths);\n        /**\n\t\t* Pitcher is starter or reliever.\n     \t* @type {string}\n     \t*/\n        this.pitcherType = pitcher;\n        /**\n\t\t* Pitches thrown by this picture.\n     \t* @type {string[]}\n     \t*/\n        this.arsenal = pitches;\n    }\n    /**\n\t* Gets the type of pitcher they are \"starter or reliever\".\n\t* @return {string} pitcherType\n\t*/\n    getPitcherType(){\n        return this.pitcherType;\n    }\n    /**\n\t* Gets the baseball players name.\n\t* @return {array} arsenal\n\t*/\n    //TODO//What do we want this class to do?\n    getArsenal(){\n        return this.arsenal;\n    }\n}\n",
     "static": true,
     "longname": "/home/jacob/Programming/eecs448/big-league-baseball/src/Pitcher.js",
     "access": "public",
@@ -586,7 +1505,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 50,
+    "__docId__": 179,
     "kind": "class",
     "name": "Pitcher",
     "memberof": "src/Pitcher.js",
@@ -596,18 +1515,141 @@
     "export": true,
     "importPath": "big-league-baseball/src/Pitcher.js",
     "importStyle": "{Pitcher}",
-    "description": "The class for a pitcher - in addition to batting, the pitcher class also keeps track of the pitches he can throw and pitcher-specific stats.",
-    "lineNumber": 7,
+    "description": "Pitcher class - stores information about name, position, batting strength, baserunning speed,whether they have been chosen on a team,pitcher type and pitching arsenal",
+    "lineNumber": 9,
     "interface": false,
     "extends": [
       "src/Player.js~Player"
     ]
   },
   {
-    "__docId__": 51,
+    "__docId__": 180,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/Pitcher.js~Pitcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Pitcher.js~Pitcher#constructor",
+    "access": "public",
+    "description": "Constructor creates a player that stores there name,position( pitcher or position player), hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also, type of pitcher they are, types of pitches they throw.\nPOSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values,  pitcher type and the pitcher arsenal all now have set values.",
+    "lineNumber": 17,
+    "unknown": [
+      {
+        "tagName": "@extends",
+        "tagValue": "{PlayerClass}This class is a child of the player class."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "pitcherType",
+        "description": "Type of pitcher."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "array"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "arsenal",
+        "description": "The type of pitches the batter hits best."
+      }
+    ]
+  },
+  {
+    "__docId__": 181,
+    "kind": "member",
+    "name": "pitcherType",
+    "memberof": "src/Pitcher.js~Pitcher",
+    "static": false,
+    "longname": "src/Pitcher.js~Pitcher#pitcherType",
+    "access": "public",
+    "description": "Pitcher is starter or reliever.",
+    "lineNumber": 26,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 182,
+    "kind": "member",
+    "name": "arsenal",
+    "memberof": "src/Pitcher.js~Pitcher",
+    "static": false,
+    "longname": "src/Pitcher.js~Pitcher#arsenal",
+    "access": "public",
+    "description": "Pitches thrown by this picture.",
+    "lineNumber": 31,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string[]"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 183,
+    "kind": "method",
+    "name": "getPitcherType",
+    "memberof": "src/Pitcher.js~Pitcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Pitcher.js~Pitcher#getPitcherType",
+    "access": "public",
+    "description": "Gets the type of pitcher they are \"starter or reliever\".",
+    "lineNumber": 37,
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "pitcherType"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 184,
+    "kind": "method",
+    "name": "getArsenal",
+    "memberof": "src/Pitcher.js~Pitcher",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Pitcher.js~Pitcher#getArsenal",
+    "access": "public",
+    "description": "Gets the baseball players name.",
+    "lineNumber": 45,
+    "return": {
+      "nullable": null,
+      "types": [
+        "array"
+      ],
+      "spread": false,
+      "description": "arsenal"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 185,
     "kind": "file",
     "name": "src/Player.js",
-    "content": "'use strict';\n\n/**\n * Basic player class - stores information about name, strengths, and position, but also batting (since this game was made before the DH).\n */\nexport class Player {\n\n}",
+    "content": "'use strict';\n\n/**\n * Basic player class - stores information about name, position, batting strength, baserunning speed and whether they have been chosen on a team.\n */\nexport class Player {\n\t/**\n\t* Constructor creates a player that stores there name, pitcher or position player, hitting stats, baserunning speed and whether the player is on a team.\n\t* POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values.\n\t\t* @param {string} name Name of baseball player.\n\t\t* @param {string} position Position the baseball player holds in the game.\n\t\t* @param {string[]} batStrengths The type of pitches the batter hits best.\n\t\t* @param {boolean} baseSpeed The players baserunning speed\n\t\t*/\n\tconstructor(name, position, batStrengths, baseSpeed) {\n\t\t/**\n\t\t* Baseball player name.\n     \t* @type {string}\n     \t*/\n\t\tthis.playerName = String(name);\n\t\t/**\n\t\t* Position player or pitcher.\n     \t* @type {string}\n     \t*/\n\t\tthis.position = String(position);\n        /**\n\t\t*Hitters batting strengths.\n     \t* @type {string[]}\n     \t*/\n\t\tthis.battStrengths = battStrengths;\n\t\t/**\n\t\t* Player baserunning speed - true if fast runner, false if not fast.\n\t\t* @type {boolean}\n\t\t*/\n\t\tthis.baseSpeed = baseSpeed;\n        /**\n        * Is available to be selected or not.\n        * @type {boolean}\n        */\n        this.inLineup = true;\n\t}\n\t/**\n\t* Gets the baseball players name.\n\t* @return {string} name\n\t*/\n    getPlayerName(){\n        return this.playerName;\n    }\n\t/**\n\t* Gets the baseball players position in the game.\n\t* @return {string} position\n\t*/\n    getPosition(){\n        return this.position;\n    }\n\t/**\n\t* Gets if pitch thrown is batters strength.\n\t* @return {array} battStrengths\n\t*/\n\n\t//@TODO//Gets if pitch thrown is batters strength, hit action, or just a boolean?*************\n    getBattStrengths(pitch){\n\t\treturn this.battStrengths;\n    }\n\t/**\n\t* Gets the baseball players baserunning speed.\n\t* @return {boolean}  baseSpeed\n\t*/\n    getBaseSpeed(){\n        return this.baseSpeed;\n    }\n\t/**\n\t* Gets whether the player has already been chosen by a team or not.\n\t* @return {boolean} true\n\t*/\n    getInLineup(){\n        return this.inLineup;\n    }\n}\n",
     "static": true,
     "longname": "/home/jacob/Programming/eecs448/big-league-baseball/src/Player.js",
     "access": "public",
@@ -615,7 +1657,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 52,
+    "__docId__": 186,
     "kind": "class",
     "name": "Player",
     "memberof": "src/Player.js",
@@ -625,15 +1667,282 @@
     "export": true,
     "importPath": "big-league-baseball/src/Player.js",
     "importStyle": "{Player}",
-    "description": "Basic player class - stores information about name, strengths, and position, but also batting (since this game was made before the DH).",
+    "description": "Basic player class - stores information about name, position, batting strength, baserunning speed and whether they have been chosen on a team.",
     "lineNumber": 6,
     "interface": false
   },
   {
-    "__docId__": 53,
+    "__docId__": 187,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/Player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Player.js~Player#constructor",
+    "access": "public",
+    "description": "Constructor creates a player that stores there name, pitcher or position player, hitting stats, baserunning speed and whether the player is on a team.\nPOSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values.",
+    "lineNumber": 15,
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "name",
+        "description": "Name of baseball player."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "position",
+        "description": "Position the baseball player holds in the game."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "string[]"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "batStrengths",
+        "description": "The type of pitches the batter hits best."
+      },
+      {
+        "nullable": null,
+        "types": [
+          "boolean"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "baseSpeed",
+        "description": "The players baserunning speed"
+      }
+    ]
+  },
+  {
+    "__docId__": 188,
+    "kind": "member",
+    "name": "playerName",
+    "memberof": "src/Player.js~Player",
+    "static": false,
+    "longname": "src/Player.js~Player#playerName",
+    "access": "public",
+    "description": "Baseball player name.",
+    "lineNumber": 20,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 189,
+    "kind": "member",
+    "name": "position",
+    "memberof": "src/Player.js~Player",
+    "static": false,
+    "longname": "src/Player.js~Player#position",
+    "access": "public",
+    "description": "Position player or pitcher.",
+    "lineNumber": 25,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 190,
+    "kind": "member",
+    "name": "battStrengths",
+    "memberof": "src/Player.js~Player",
+    "static": false,
+    "longname": "src/Player.js~Player#battStrengths",
+    "access": "public",
+    "description": "Hitters batting strengths.",
+    "lineNumber": 30,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string[]"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 191,
+    "kind": "member",
+    "name": "baseSpeed",
+    "memberof": "src/Player.js~Player",
+    "static": false,
+    "longname": "src/Player.js~Player#baseSpeed",
+    "access": "public",
+    "description": "Player baserunning speed - true if fast runner, false if not fast.",
+    "lineNumber": 35,
+    "type": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 192,
+    "kind": "member",
+    "name": "inLineup",
+    "memberof": "src/Player.js~Player",
+    "static": false,
+    "longname": "src/Player.js~Player#inLineup",
+    "access": "public",
+    "description": "Is available to be selected or not.",
+    "lineNumber": 40,
+    "type": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 193,
+    "kind": "method",
+    "name": "getPlayerName",
+    "memberof": "src/Player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Player.js~Player#getPlayerName",
+    "access": "public",
+    "description": "Gets the baseball players name.",
+    "lineNumber": 46,
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "name"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 194,
+    "kind": "method",
+    "name": "getPosition",
+    "memberof": "src/Player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Player.js~Player#getPosition",
+    "access": "public",
+    "description": "Gets the baseball players position in the game.",
+    "lineNumber": 53,
+    "return": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": "position"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 195,
+    "kind": "method",
+    "name": "getBattStrengths",
+    "memberof": "src/Player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Player.js~Player#getBattStrengths",
+    "access": "public",
+    "description": "Gets if pitch thrown is batters strength.",
+    "lineNumber": 62,
+    "return": {
+      "nullable": null,
+      "types": [
+        "array"
+      ],
+      "spread": false,
+      "description": "battStrengths"
+    },
+    "params": [
+      {
+        "name": "pitch",
+        "types": [
+          "*"
+        ]
+      }
+    ]
+  },
+  {
+    "__docId__": 196,
+    "kind": "method",
+    "name": "getBaseSpeed",
+    "memberof": "src/Player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Player.js~Player#getBaseSpeed",
+    "access": "public",
+    "description": "Gets the baseball players baserunning speed.",
+    "lineNumber": 69,
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "baseSpeed"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 197,
+    "kind": "method",
+    "name": "getInLineup",
+    "memberof": "src/Player.js~Player",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/Player.js~Player#getInLineup",
+    "access": "public",
+    "description": "Gets whether the player has already been chosen by a team or not.",
+    "lineNumber": 76,
+    "return": {
+      "nullable": null,
+      "types": [
+        "boolean"
+      ],
+      "spread": false,
+      "description": "true"
+    },
+    "params": []
+  },
+  {
+    "__docId__": 198,
     "kind": "file",
     "name": "src/PositionPlayer.js",
-    "content": "'use strict';\nimport { Player } from './Player.js';\n\n/**\n * The class for a player whose only job is to bat (at least in this game).\n */\nexport class PositionPlayer extends Player {\n\n}",
+    "content": "'use strict';\n/**\n *Child of Player class\n */\nimport { Player } from './Player.js';\n/**\n * PositionPlayer class - stores information about name, position, batting strength, baserunning speed, whether they have been chosen on a team and position player type.\n */\nexport class PositionPlayer extends Player {\n    /**\n    * * Constructor creates a player that stores there name, pitcher or position player, hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also,type of position player.\n    * POSTCONDITION: name, position, hitting stats, baserunning speed inLineup and position player type all now have set values.\n        * @extends {PlayerClass}This class is a child of the player class.\n        * @param {string} positionType The players position\n        */\n    constructor(name, position, battStrengths, baseSpeed, positionPlayer){\n        /**\n        * @extends {PlayerClass}\n        */\n        super(name,position, battStrengths);\n        /**\n        * .Position player position.\"catcher, \"leftField...\"\n        * @type {string}\n        */\n        this.positionType = positionPlayer;\n    }\n}\n",
     "static": true,
     "longname": "/home/jacob/Programming/eecs448/big-league-baseball/src/PositionPlayer.js",
     "access": "public",
@@ -641,7 +1950,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 54,
+    "__docId__": 199,
     "kind": "class",
     "name": "PositionPlayer",
     "memberof": "src/PositionPlayer.js",
@@ -651,15 +1960,65 @@
     "export": true,
     "importPath": "big-league-baseball/src/PositionPlayer.js",
     "importStyle": "{PositionPlayer}",
-    "description": "The class for a player whose only job is to bat (at least in this game).",
-    "lineNumber": 7,
+    "description": "PositionPlayer class - stores information about name, position, batting strength, baserunning speed, whether they have been chosen on a team and position player type.",
+    "lineNumber": 9,
     "interface": false,
     "extends": [
       "src/Player.js~Player"
     ]
   },
   {
-    "__docId__": 55,
+    "__docId__": 200,
+    "kind": "constructor",
+    "name": "constructor",
+    "memberof": "src/PositionPlayer.js~PositionPlayer",
+    "generator": false,
+    "async": false,
+    "static": false,
+    "longname": "src/PositionPlayer.js~PositionPlayer#constructor",
+    "access": "public",
+    "description": "* Constructor creates a player that stores there name, pitcher or position player, hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also,type of position player.\nPOSTCONDITION: name, position, hitting stats, baserunning speed inLineup and position player type all now have set values.",
+    "lineNumber": 16,
+    "unknown": [
+      {
+        "tagName": "@extends",
+        "tagValue": "{PlayerClass}This class is a child of the player class."
+      }
+    ],
+    "params": [
+      {
+        "nullable": null,
+        "types": [
+          "string"
+        ],
+        "spread": false,
+        "optional": false,
+        "name": "positionType",
+        "description": "The players position"
+      }
+    ]
+  },
+  {
+    "__docId__": 201,
+    "kind": "member",
+    "name": "positionType",
+    "memberof": "src/PositionPlayer.js~PositionPlayer",
+    "static": false,
+    "longname": "src/PositionPlayer.js~PositionPlayer#positionType",
+    "access": "public",
+    "description": ".Position player position.\"catcher, \"leftField...\"",
+    "lineNumber": 25,
+    "type": {
+      "nullable": null,
+      "types": [
+        "string"
+      ],
+      "spread": false,
+      "description": null
+    }
+  },
+  {
+    "__docId__": 202,
     "kind": "file",
     "name": "src/Team.js",
     "content": "",
@@ -670,10 +2029,10 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 56,
+    "__docId__": 203,
     "kind": "file",
     "name": "src/main.js",
-    "content": "const socket = io();",
+    "content": "const socket = io();\n\nlet ballgame = new Game();\n\nballgame.ssPitch(\"ss\"); //Function = Pitch thrown, Parameter = Batter action",
     "static": true,
     "longname": "/home/jacob/Programming/eecs448/big-league-baseball/src/main.js",
     "access": "public",
@@ -681,7 +2040,7 @@
     "lineNumber": 1
   },
   {
-    "__docId__": 57,
+    "__docId__": 204,
     "kind": "variable",
     "name": "socket",
     "memberof": "src/main.js",
@@ -702,8 +2061,29 @@
     "ignore": true
   },
   {
+    "__docId__": 205,
+    "kind": "variable",
+    "name": "ballgame",
+    "memberof": "src/main.js",
+    "static": true,
+    "longname": "src/main.js~ballgame",
+    "access": "public",
+    "export": false,
+    "importPath": "big-league-baseball/src/main.js",
+    "importStyle": null,
+    "description": null,
+    "lineNumber": 3,
+    "undocument": true,
+    "type": {
+      "types": [
+        "src/Game.js~Game"
+      ]
+    },
+    "ignore": true
+  },
+  {
     "kind": "index",
-    "content": "# Big Leauge Baseball\n\nPort of the 3M Sports board game written in Javascript using Express.\n\n### Install Dependencies\n\n`npm install`\n\n### Run the Server\n\n`node app.js` or `npm run test`",
+    "content": "# Big Leauge Baseball\n\nPort of the 3M Sports board game written in Javascript using Express.\n\n### Install Dependencies\n\n`npm install`\n\n### Run the Server\n\n`npm run test`\n\nTo view the server, view `localhost:3000` in your favorite browser.\n\n### Generate Documentation\n\n`npm run doc`",
     "longname": "/home/jacob/Programming/eecs448/big-league-baseball/README.md",
     "name": "./README.md",
     "static": true,
@@ -711,7 +2091,7 @@
   },
   {
     "kind": "packageJSON",
-    "content": "{\n  \"name\": \"big-league-baseball\",\n  \"version\": \"1.0.0\",\n  \"description\": \"A port of the 3M Sports board game\",\n  \"main\": \"app.js\",\n  \"scripts\": {\n    \"test\": \"node app.js\",\n    \"doc\": \"./node_modules/.bin/esdoc\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+https://github.com/J3Productions/big-league-baseball.git\"\n  },\n  \"author\": \"J3Productions\",\n  \"license\": \"MIT\",\n  \"bugs\": {\n    \"url\": \"https://github.com/J3Productions/big-league-baseball/issues\"\n  },\n  \"homepage\": \"https://github.com/J3Productions/big-league-baseball#readme\",\n  \"dependencies\": {\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\",\n    \"express\": \"^4.16.4\",\n    \"socket.io\": \"^2.1.1\"\n  }\n}\n",
+    "content": "{\n  \"name\": \"big-league-baseball\",\n  \"version\": \"1.0.0\",\n  \"description\": \"A port of the 3M Sports board game\",\n  \"main\": \"app.js\",\n  \"scripts\": {\n    \"test\": \"node app.js\",\n    \"doc\": \"./node_modules/.bin/esdoc\"\n  },\n  \"repository\": {\n    \"type\": \"git\",\n    \"url\": \"git+https://github.com/J3Productions/big-league-baseball.git\"\n  },\n  \"author\": \"J3Productions\",\n  \"license\": \"MIT\",\n  \"bugs\": {\n    \"url\": \"https://github.com/J3Productions/big-league-baseball/issues\"\n  },\n  \"homepage\": \"https://github.com/J3Productions/big-league-baseball#readme\",\n  \"dependencies\": {\n    \"express\": \"^4.16.4\",\n    \"socket.io\": \"^2.1.1\"\n  },\n  \"devDependencies\": {\n    \"esdoc\": \"^1.1.0\",\n    \"esdoc-standard-plugin\": \"^1.0.0\"\n  }\n}\n",
     "longname": "/home/jacob/Programming/eecs448/big-league-baseball/package.json",
     "name": "package.json",
     "static": true,

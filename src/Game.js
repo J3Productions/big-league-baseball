@@ -39,8 +39,8 @@ export class Game {
 	 */
 
 	/**
-	 *
-	 * @param batter
+	 * Pitcher throws a slowball straight pitch and the outcome is determined by the batter's action
+	 * @param {string} batter The batter's action
 	 */
 	ssPitch(batter) {
 		if (batter === "ss") {
@@ -70,8 +70,8 @@ export class Game {
 	}
 
 	/**
-	 *
-	 * @param batter
+	 * Pitcher throws a slowball high pitch and the outcome is determined by the batter's action
+	 * @param {string} batter The batter's action
 	 */
 	shPitch(batter) {
 		if (batter === "sh") {
@@ -98,8 +98,8 @@ export class Game {
 	}
 
 	/**
-	 *
-	 * @param batter
+	 * Pitcher throws a slowball low pitch and the outcome is determined by the batter's action
+	 * @param {string} batter The batter's action
 	 */
 	slPitch(batter) {
 		if (batter === "sl") {
@@ -126,8 +126,8 @@ export class Game {
 	}
 
 	/**
-	 *
-	 * @param batter
+	 * Pitcher throws a slowball inside pitch and the outcome is determined by the batter's action
+	 * @param {string} batter The batter's action
 	 */
 	siPitch(batter) {
 		if (batter === "si") {
@@ -154,8 +154,8 @@ export class Game {
 	}
 
 	/**
-	 *
-	 * @param batter
+	 * Pitcher throws a fastball straight pitch and the outcome is determined by the batter's action
+	 * @param {string} batter The batter's action
 	 */
 	fsPitch(batter) {
 		if (batter === "fs") {
@@ -185,8 +185,8 @@ export class Game {
 	}
 
 	/**
-	 *
-	 * @param batter
+	 * Pitcher throws a fastball high pitch and the outcome is determined by the batter's action
+	 * @param {string} batter The batter's action
 	 */
 	fhPitch(batter) {
 		if (batter === "fh") {
@@ -213,8 +213,8 @@ export class Game {
 	}
 
 	/**
-	 *
-	 * @param batter
+	 * Pitcher throws a fastball low pitch and the outcome is determined by the batter's action
+	 * @param {string} batter The batter's action
 	 */
 	flPitch(batter) {
 		if (batter === "fl") {
@@ -241,8 +241,8 @@ export class Game {
 	}
 
 	/**
-	 *
-	 * @param batter
+	 * Pitcher throws a fastball inside pitch and the outcome is determined by the batter's action
+	 * @param {string} batter The batter's action
 	 */
 	fiPitch(batter) {
 		if (batter === "fi") {
@@ -272,8 +272,8 @@ export class Game {
 	}
 
 	/**
-	 *
-	 * @param batter
+	 * Pitcher throws a curveball outside pitch and the outcome is determined by the batter's action
+	 * @param {string} batter The batter's action
 	 */
 	coPitch(batter) {
 		if (batter === "co") {
@@ -303,8 +303,8 @@ export class Game {
 	}
 
 	/**
-	 *
-	 * @param batter
+	 * Pitcher throws a curveball high pitch and the outcome is determined by the batter's action
+	 * @param {string} batter The batter's action
 	 */
 	chPitch(batter) {
 		if (batter === "ch") {
@@ -328,8 +328,8 @@ export class Game {
 	}
 
 	/**
-	 *
-	 * @param batter
+	 * Pitcher throws a curveball low pitch and the outcome is determined by the batter's action
+	 * @param {string} batter The batter's action
 	 */
 	clPitch(batter) {
 		if (batter === "cl") {
@@ -356,8 +356,8 @@ export class Game {
 	}
 
 	/**
-	 *
-	 * @param batter
+	 * Pitcher throws a curveball inside pitch and the outcome is determined by the batter's action
+	 * @param {string} batter The batter's action
 	 */
 	ciPitch(batter) {
 		if (batter === "ci") {

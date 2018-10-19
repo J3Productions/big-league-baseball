@@ -29,7 +29,8 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Pitcher.js~Pitcher.html">Pitcher</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Game.js~Game.html">Game</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Pitcher.js~Pitcher.html">Pitcher</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Player.js~Player.html">Player</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/PositionPlayer.js~PositionPlayer.html">PositionPlayer</a></span></span></li>
 </ul>
@@ -37,7 +38,11 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/main.js</h1>
-<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const socket = io();</code></pre>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">const socket = io();
+
+let ballgame = new Game();
+
+ballgame.ssPitch(&quot;ss&quot;); //Function = Pitch thrown, Parameter = Batter action</code></pre>
 
 </div>
 

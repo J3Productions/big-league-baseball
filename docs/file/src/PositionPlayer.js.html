@@ -29,7 +29,8 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Pitcher.js~Pitcher.html">Pitcher</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Game.js~Game.html">Game</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Pitcher.js~Pitcher.html">Pitcher</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Player.js~Player.html">Player</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/PositionPlayer.js~PositionPlayer.html">PositionPlayer</a></span></span></li>
 </ul>
@@ -38,14 +39,33 @@
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/PositionPlayer.js</h1>
 <pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
-import { Player } from &apos;./Player.js&apos;;
-
 /**
- * The class for a player whose only job is to bat (at least in this game).
+ *Child of Player class
+ */
+import { Player } from &apos;./Player.js&apos;;
+/**
+ * PositionPlayer class - stores information about name, position, batting strength, baserunning speed, whether they have been chosen on a team and position player type.
  */
 export class PositionPlayer extends Player {
-
-}</code></pre>
+    /**
+    * * Constructor creates a player that stores there name, pitcher or position player, hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also,type of position player.
+    * POSTCONDITION: name, position, hitting stats, baserunning speed inLineup and position player type all now have set values.
+        * @extends {PlayerClass}This class is a child of the player class.
+        * @param {string} positionType The players position
+        */
+    constructor(name, position, battStrengths, baseSpeed, positionPlayer){
+        /**
+        * @extends {PlayerClass}
+        */
+        super(name,position, battStrengths);
+        /**
+        * .Position player position.&quot;catcher, &quot;leftField...&quot;
+        * @type {string}
+        */
+        this.positionType = positionPlayer;
+    }
+}
+</code></pre>
 
 </div>
 

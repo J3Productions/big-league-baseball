@@ -29,7 +29,8 @@
 <nav class="navigation" data-ice="nav"><div>
   <ul>
     
-  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Pitcher.js~Pitcher.html">Pitcher</a></span></span></li>
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Game.js~Game.html">Game</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Pitcher.js~Pitcher.html">Pitcher</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Player.js~Player.html">Player</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/PositionPlayer.js~PositionPlayer.html">PositionPlayer</a></span></span></li>
 </ul>
@@ -37,8 +38,958 @@
 </nav>
 
 <div class="content" data-ice="content"><h1 data-ice="title">src/Game.js</h1>
-<pre class="source-code line-number raw-source-code"></pre>
-<p data-ice="emptySourceCode">Sorry, this documentation does not provide source code.</p>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">&apos;use strict&apos;;
+import { Team } from &quot;./Team.js&quot;;
+
+/**
+ * Game class - makes decisions and stores the game status based on player/user actions.
+ */
+export class Game {
+	constructor() {
+		/**
+		 * Number of outs in the inning
+		 * @type {number}
+		 */
+		this.outs = 0;
+		this.balls = 0;
+		this.strikes = 0;
+		this.first = false;
+		this.second = false;
+		this.third = false;
+
+		this.blueTeam = new Team();
+
+		this.redAB = 0;
+		this.blueAB = 0;
+	}
+
+	/*
+	 * ss = Slow Straight
+	 * si = Slow Inside
+	 * sh = Slow High
+	 * sl = Slow Low
+	 * fs = Fastball Straigh
+	 * fi = Fastball Inside
+	 * fh = Fastball High
+	 * fl = Fastball Low
+	 * co = Curveball Outside
+	 * ci = Curveball Inside
+	 * ch = Curveball High
+	 * cl = Curveball Low
+	 */
+
+	/**
+	 * Pitcher throws a slowball straight pitch and the outcome is determined by the batter&apos;s action
+	 * @param {string} batter The batter&apos;s action
+	 */
+	ssPitch(batter) {
+		if (batter === &quot;ss&quot;) {
+			this.hit6();
+		}
+		else if (batter === &quot;ss&quot;) {
+			this.hit5();
+		}
+		else if (batter === &quot;si&quot;) {
+			this.hit4();
+		}
+		else if (batter === &quot;fs&quot; || batter === &quot;co&quot;) {
+			this.hit3();
+		}
+		else if (batter === &quot;sl&quot; || batter === &quot;ci&quot;) {
+			this.hit2();
+		}
+		else if (batter === &quot;fi&quot;) {
+			this.hit1();
+		}
+		else if (batter === &quot;sh&quot; || batter === &quot;fh&quot; || batter === &quot;fl&quot;) {
+			this.foul();
+		}
+		else if (batter === &quot;ch&quot; || batter === &quot;cl&quot; || batter === &quot;take&quot;) {
+			this.strike();
+		}
+	}
+
+	/**
+	 * Pitcher throws a slowball high pitch and the outcome is determined by the batter&apos;s action
+	 * @param {string} batter The batter&apos;s action
+	 */
+	shPitch(batter) {
+		if (batter === &quot;sh&quot;) {
+			this.hit6();
+		}
+		else if (batter === &quot;sh&quot;) {
+			this.hit3();
+		}
+		else if (batter === &quot;fh&quot;) {
+			this.hit2();
+		}
+		else if (batter === &quot;si&quot; || batter === &quot;fs&quot; || batter === &quot;ch&quot;) {
+			this.hit1();
+		}
+		else if (batter === &quot;ss&quot; || batter === &quot;fi&quot; || batter === &quot;ci&quot;) {
+			this.foul();
+		}
+		else if (batter === &quot;sl&quot; || batter === &quot;fl&quot; || batter === &quot;co&quot; || batter === &quot;cl&quot;) {
+			this.strike();
+		}
+		else if (batter === &quot;take&quot;) {
+			this.ball();
+		}
+	}
+
+	/**
+	 * Pitcher throws a slowball low pitch and the outcome is determined by the batter&apos;s action
+	 * @param {string} batter The batter&apos;s action
+	 */
+	slPitch(batter) {
+		if (batter === &quot;sl&quot;) {
+			this.hit6();
+		}
+		else if (batter === &quot;sl&quot;) {
+			this.hit3();
+		}
+		else if (batter === &quot;ss&quot; || batter === &quot;fl&quot;) {
+			this.hit2();
+		}
+		else if (batter === &quot;co&quot; || batter === &quot;cl&quot;) {
+			this.hit1();
+		}
+		else if (batter === &quot;si&quot; || batter === &quot;fs&quot; || batter === &quot;fi&quot;) {
+			this.foul();
+		}
+		else if (batter === &quot;sh&quot; || batter === &quot;fh&quot; || batter === &quot;ch&quot; || batter === &quot;ci&quot;) {
+			this.strike();
+		}
+		else if (batter === &quot;take&quot;) {
+			this.ball();
+		}
+	}
+
+	/**
+	 * Pitcher throws a slowball inside pitch and the outcome is determined by the batter&apos;s action
+	 * @param {string} batter The batter&apos;s action
+	 */
+	siPitch(batter) {
+		if (batter === &quot;si&quot;) {
+			this.hit6();
+		}
+		else if (batter === &quot;si&quot;) {
+			this.hit5();
+		}
+		else if (batter === &quot;ss&quot;) {
+			this.hit4();
+		}
+		else if (batter === &quot;fi&quot; || batter === &quot;ci&quot;) {
+			this.hit3();
+		}
+		else if (batter === &quot;sh&quot; || batter === &quot;sl&quot; || batter === &quot;fs&quot;) {
+			this.hit2();
+		}
+		else if (batter === &quot;fh&quot; || batter === &quot;fl&quot; || batter === &quot;co&quot; || batter === &quot;ch&quot;) {
+			this.foul();
+		}
+		else if (batter === &quot;cl&quot; || batter === &quot;take&quot;) {
+			this.strike();
+		}
+	}
+
+	/**
+	 * Pitcher throws a fastball straight pitch and the outcome is determined by the batter&apos;s action
+	 * @param {string} batter The batter&apos;s action
+	 */
+	fsPitch(batter) {
+		if (batter === &quot;fs&quot;) {
+			this.hit6();
+		}
+		else if (batter === &quot;fs&quot;) {
+			this.hit5();
+		}
+		else if (batter === &quot;fi&quot;) {
+			this.hit4();
+		}
+		else if (batter === &quot;ss&quot; || batter === &quot;fh&quot; || batter === &quot;ci&quot;) {
+			this.hit3();
+		}
+		else if (batter === &quot;co&quot;) {
+			this.hit2();
+		}
+		else if (batter === &quot;si&quot;) {
+			this.hit1();
+		}
+		else if (batter === &quot;sh&quot; || batter === &quot;sl&quot; || batter === &quot;fl&quot;) {
+			this.foul();
+		}
+		else if (batter === &quot;ch&quot; || batter === &quot;cl&quot; || batter === &quot;take&quot;) {
+			this.strike();
+		}
+	}
+
+	/**
+	 * Pitcher throws a fastball high pitch and the outcome is determined by the batter&apos;s action
+	 * @param {string} batter The batter&apos;s action
+	 */
+	fhPitch(batter) {
+		if (batter === &quot;fh&quot;) {
+			this.hit6();
+		}
+		else if (batter === &quot;fh&quot;) {
+			this.hit3();
+		}
+		else if (batter === &quot;fi&quot;) {
+			this.hit2();
+		}
+		else if (batter === &quot;sh&quot; || batter === &quot;ch&quot; || batter === &quot;ci&quot;) {
+			this.hit1();
+		}
+		else if (batter === &quot;si&quot; || batter === &quot;fs&quot; || batter === &quot;co&quot;) {
+			this.foul();
+		}
+		else if (batter === &quot;ss&quot; || batter === &quot;sl&quot; || batter === &quot;fl&quot; || batter === &quot;cl&quot;) {
+			this.strike();
+		}
+		else if (batter === &quot;take&quot;) {
+			this.ball();
+		}
+	}
+
+	/**
+	 * Pitcher throws a fastball low pitch and the outcome is determined by the batter&apos;s action
+	 * @param {string} batter The batter&apos;s action
+	 */
+	flPitch(batter) {
+		if (batter === &quot;fl&quot;) {
+			this.hit6();
+		}
+		else if (batter === &quot;fl&quot;) {
+			this.hit3();
+		}
+		else if (batter === &quot;fs&quot;) {
+			this.hit2();
+		}
+		else if (batter === &quot;sl&quot; || batter === &quot;co&quot; || batter === &quot;cl&quot;) {
+			this.hit1();
+		}
+		else if (batter === &quot;ss&quot; || batter === &quot;si&quot; || batter === &quot;fi&quot;) {
+			this.foul();
+		}
+		else if (batter === &quot;sh&quot; || batter === &quot;fh&quot; || batter === &quot;ch&quot; || batter === &quot;ci&quot;) {
+			this.strike();
+		}
+		else if (batter === &quot;take&quot;) {
+			this.ball();
+		}
+	}
+
+	/**
+	 * Pitcher throws a fastball inside pitch and the outcome is determined by the batter&apos;s action
+	 * @param {string} batter The batter&apos;s action
+	 */
+	fiPitch(batter) {
+		if (batter === &quot;fi&quot;) {
+			this.hit6();
+		}
+		else if (batter === &quot;fi&quot;) {
+			this.hit5();
+		}
+		else if (batter === &quot;fs&quot;) {
+			this.hit4();
+		}
+		else if (batter === &quot;si&quot; || batter === &quot;ci&quot;) {
+			this.hit3();
+		}
+		else if (batter === &quot;fl&quot;) {
+			this.hit2();
+		}
+		else if (batter === &quot;ss&quot; || batter === &quot;ch&quot;) {
+			this.hit1();
+		}
+		else if (batter === &quot;sh&quot; || batter === &quot;fh&quot; || batter === &quot;co&quot; || batter === &quot;cl&quot;) {
+			this.foul();
+		}
+		else if (batter === &quot;sl&quot; || batter === &quot;take&quot;) {
+			this.strike();
+		}
+	}
+
+	/**
+	 * Pitcher throws a curveball outside pitch and the outcome is determined by the batter&apos;s action
+	 * @param {string} batter The batter&apos;s action
+	 */
+	coPitch(batter) {
+		if (batter === &quot;co&quot;) {
+			this.hit6();
+		}
+		else if (batter === &quot;co&quot;) {
+			this.hit5();
+		}
+		else if (batter === &quot;fs&quot;) {
+			this.hit4();
+		}
+		else if (batter === &quot;ss&quot;) {
+			this.hit3();
+		}
+		else if (batter === &quot;ch&quot;) {
+			this.hit2();
+		}
+		else if (batter === &quot;fl&quot; || batter === &quot;fi&quot; || batter === &quot;cl&quot;) {
+			this.hit1();
+		}
+		else if (batter === &quot;sh&quot; || batter === &quot;sl&quot;) {
+			this.foul();
+		}
+		else if (batter === &quot;si&quot; || batter === &quot;fh&quot; || batter === &quot;ci&quot; || batter === &quot;take&quot;) {
+			this.strike();
+		}
+	}
+
+	/**
+	 * Pitcher throws a curveball high pitch and the outcome is determined by the batter&apos;s action
+	 * @param {string} batter The batter&apos;s action
+	 */
+	chPitch(batter) {
+		if (batter === &quot;ch&quot;) {
+			this.hit6();
+		}
+		else if (batter === &quot;ch&quot;) {
+			this.hit3();
+		}
+		else if (batter === &quot;ss&quot; || batter === &quot;sh&quot; || batter === &quot;si&quot; || batter === &quot;fh&quot; || batter === &quot;co&quot;) {
+			this.hit1();
+		}
+		else if (batter === &quot;fs&quot; || batter === &quot;ci&quot;) {
+			this.foul();
+		}
+		else if (batter === &quot;sl&quot; || batter === &quot;fl&quot; || batter === &quot;fi&quot; || batter === &quot;cl&quot;) {
+			this.strike();
+		}
+		else if (batter === &quot;take&quot;) {
+			this.ball();
+		}
+	}
+
+	/**
+	 * Pitcher throws a curveball low pitch and the outcome is determined by the batter&apos;s action
+	 * @param {string} batter The batter&apos;s action
+	 */
+	clPitch(batter) {
+		if (batter === &quot;cl&quot;) {
+			this.hit6();
+		}
+		else if (batter === &quot;cl&quot;) {
+			this.hit3();
+		}
+		else if (batter === &quot;co&quot; || batter === &quot;ci&quot;) {
+			this.hit2();
+		}
+		else if (batter === &quot;sl&quot; || batter === &quot;fl&quot;) {
+			this.hit1();
+		}
+		else if (batter === &quot;ss&quot; || batter === &quot;si&quot; || batter === &quot;fi&quot;) {
+			this.foul();
+		}
+		else if (batter === &quot;sh&quot; || batter === &quot;fs&quot; || batter === &quot;fh&quot; || batter === &quot;ch&quot;) {
+			this.strike();
+		}
+		else if (batter === &quot;take&quot;) {
+			this.ball();
+		}
+	}
+
+	/**
+	 * Pitcher throws a curveball inside pitch and the outcome is determined by the batter&apos;s action
+	 * @param {string} batter The batter&apos;s action
+	 */
+	ciPitch(batter) {
+		if (batter === &quot;ci&quot;) {
+			this.hit6();
+		}
+		else if (batter === &quot;ci&quot;) {
+			this.hit5();
+		}
+		else if (batter === &quot;fi&quot;) {
+			this.hit4();
+		}
+		else if (batter === &quot;si&quot; || batter === &quot;fs&quot;) {
+			this.hit3();
+		}
+		else if (batter === &quot;ss&quot; || batter === &quot;cl&quot;) {
+			this.hit2();
+		}
+		else if (batter === &quot;sh&quot;) {
+			this.hit1();
+		}
+		else if (batter === &quot;sl&quot; || batter === &quot;fh&quot; || batter === &quot;co&quot; || batter === &quot;ch&quot;) {
+			this.foul();
+		}
+		else if (batter === &quot;fl&quot; || batter === &quot;take&quot;) {
+			this.strike();
+		}
+	}
+
+
+	/**
+	 * Hit chart 1: Infield balls
+	 */
+	hit1() {
+		let roll = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+		if (roll === 2) {
+			this.triplePlay();
+		}
+		else if (roll === 3 || roll === 8) {
+			this.single();
+		}
+		else if (roll === 4 || roll === 7) {
+			this.flyout();
+		}
+		else if (roll === 5) {
+			this.foulout();
+		}
+		else if (roll === 6 || roll === 11) {
+			this.groundoutDoublePlay();
+		}
+		else if (roll === 9) {
+			this.groundout();
+		}
+		else if (roll === 10) {
+			this.fieldersChoice();
+		}
+		else if (roll === 12) {
+			this.error();
+		}
+	}
+
+	/**
+	 * Hit chart 2: Hits that fall over the infield, moderately hard hit grounders in the infield and fly balls that infielders go out for and outfielders come in for
+	 */
+	hit2() {
+		let roll = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+		if (roll === 2 || roll === 6) {
+			this.groundoutDoublePlay();
+		}
+		else if (roll === 3 || roll === 8 || roll === 10) {
+			this.flyout();
+		}
+		else if (roll === 4) {
+			this.groundoutAdvIfForced();
+		}
+		else if (roll === 5) {
+			this.foulout();
+		}
+		else if (roll === 7 || roll === 9) {
+			this.single();
+		}
+		else if (roll === 11) {
+			this.groundout();
+		}
+		else if (roll === 12) {
+			this.error();
+		}
+	}
+
+	/**
+	 * Hit chart 3: Sharply hit balls through the infield and fly balls and hits to the outfield that go farther than chart 2 balls
+	 */
+	hit3() {
+		let roll = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+		if (roll === 2 || roll == 12) {
+			this.groundoutDoublePlay();
+		}
+		else if (roll === 3) {
+			this.single();
+		}
+		else if (roll === 4) {
+			this.groundoutAdvIfForced();
+		}
+		else if (roll === 5 || roll === 7) {
+			this.flyoutAdv();
+		}
+		else if (roll === 6) {
+			this.singleAdvance();
+		}
+		else if (roll === 8 || roll === 10) {
+			this.singleRISP();
+		}
+		else if (roll === 9) {
+			this.fieldersChoice();
+		}
+		else if (roll === 11) {
+			this.errorSecond();
+		}
+	}
+
+	/**
+	 * Hit chart 4: Balls hit down the 1st and 3rd base lines and hard hit balls not going as far as those on chart 5
+	 */
+	hit4() {
+		let roll = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+		if (roll === 2) {
+			this.homeRun();
+		}
+		else if (roll === 3) {
+			this.flyoutAdv();
+		}
+		else if (roll === 4) {
+			this.groundout();
+		}
+		else if (roll === 5) {
+			this.double();
+		}
+		else if (roll === 6 || roll === 8) {
+			this.singleAdvance();
+		}
+		else if (roll === 7) {
+			this.flyoutNoAdv1st();
+		}
+		else if (roll === 9) {
+			this.singleRISP();
+		}
+		else if (roll === 10) {
+			this.groundoutDoublePlay();
+		}
+		else if (roll === 11) {
+			this.flyout();
+		}
+		else if (roll === 12) {
+			this.lineoutDoublePlay();
+		}
+	}
+
+	/**
+	 * Hit chart 5: Hard hit balls
+	 */
+	hit5() {
+		let roll = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+		if (roll === 2) {
+			this.error();
+		}
+		else if (roll === 3 || roll === 6) {
+			this.singleAdvance();
+		}
+		else if (roll === 4) {
+			this.double();
+		}
+		else if (roll === 5) {
+			this.flyoutAdv();
+		}
+		else if (roll === 7) {
+			this.flyoutNoAdv1st();
+		}
+		else if (roll === 8) {
+			this.groundout();
+		}
+		else if (roll === 9) {
+			this.homeRun();
+		}
+		else if (roll === 10) {
+			this.doubleClear();
+		}
+		else if (roll === 11) {
+			this.triple();
+		}
+		else if (roll === 12) {
+			this.lineoutDoublePlay();
+		}
+	}
+
+	/**
+	 * Hit chart 6: The most solidly hit balls and when hit for extra bases are the longest hit balls
+	 */
+	hit6() {
+		let roll = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
+		if (roll === 2) {
+			this.foulout();
+		}
+		else if (roll === 3) {
+			this.flyoutAdv();
+		}
+		else if (roll === 4 || roll === 6) {
+			this.homeRun();
+		}
+		else if (roll === 5) {
+			this.flyoutNoAdv1st();
+		}
+		else if (roll === 7) {
+			this.double();
+		}
+		else if (roll === 8) {
+			this.triple();
+		}
+		else if (roll === 9) {
+			this.singleAdvance();
+		}
+		else if (roll === 10) {
+			this.single();
+		}
+		else if (roll === 11) {
+			this.doubleClear();
+		}
+		else if (roll === 12) {
+			this.groundout();
+		}
+	}
+
+	/**
+	 * Home run - clears the bases and adds one run for every runner
+	 */
+	homeRun() {
+		if (this.third) {
+			this.third = false;
+			this.runs++;
+		}
+		if (this.second) {
+			this.second = false;
+			this.runs++;
+		}
+		if (this.first) {
+			this.first = false;
+			this.runs++;
+		}
+		this.runs++;
+	}
+
+	/**
+	 * Triple - clears the bases and batter ends up at third
+	 */
+	triple() {
+		if (this.third) {
+			this.third = false;
+			this.runs++;
+		}
+		if (this.second) {
+			this.second = false;
+			this.runs++;
+		}
+		if (this.first) {
+			this.first = false;
+			this.runs++;
+		}
+		this.third = true;
+	}
+
+	/**
+	 * Bases-clearing double - clears the bases (runner at first scores) and batter ends up at second
+	 */
+	doubleClear() {
+		if (this.third) {
+			this.third = false;
+			this.runs++;
+		}
+		if (this.second) {
+			this.second = false;
+			this.runs++;
+		}
+		if (this.first) {
+			this.first = false;
+			this.runs++;
+		}
+		this.second = true;
+	}
+
+	/**
+	 * Double - runners at third and second score, runner at first goes to third, batter ends up at second
+	 */
+	double() {
+		if (this.third) {
+			this.third = false;
+			this.runs++;
+		}
+		if (this.second) {
+			this.second = false;
+			this.runs++;
+		}
+		if (this.first) {
+			this.first = false;
+			this.third = true;
+		}
+		this.second = true;
+	}
+
+	/**
+	 * Single - all runners advance one base, batter ends up at first
+	 */
+	single() {
+		if (this.third) {
+			this.third = false;
+			this.runs++;
+		}
+		if (this.second) {
+			this.second = false;
+			this.third = true;
+		}
+		if (this.first) {
+			this.first = false;
+			this.second = true;
+		}
+		this.first = true;
+	}
+
+	/**
+	 * Single that scores runners in scoring postion - runners at third and second score, runner at first goes to second, batter ends up at first
+	 */
+	singleRISP() {
+		if (this.third) {
+			this.third = false;
+			this.runs++;
+		}
+		if (this.second) {
+			this.second = false;
+			this.runs++;
+		}
+		if (this.first) {
+			this.first = false;
+			this.second = true;
+		}
+		this.first = true;
+	}
+
+	/**
+	 * Single that allows runner at first to go to third - runners at third and second score, runner at first goes to third, batter ends up at first
+	 */
+	singleAdvance() {
+		if (this.third) {
+			this.third = false;
+			this.runs++;
+		}
+		if (this.second) {
+			this.second = false;
+			this.runs++;
+		}
+		if (this.first) {
+			this.first = false;
+			this.third = true;
+		}
+		this.first = true;
+	}
+
+	/**
+	 * Error - All runners move up a base, batter is safe at first in play that should&apos;ve resulted in an out
+	 */
+	error() {
+		if (this.third) {
+			this.third = false;
+			this.runs++;
+		}
+		if (this.second) {
+			this.second = false;
+			this.third = true;
+		}
+		if (this.first) {
+			this.first = false;
+			this.second = true;
+		}
+		this.first = true;
+	}
+
+	/**
+	 * Batter pops out in foul territory - All runners hold
+	 */
+	foulout() {
+		this.outs++;
+	}
+
+	/**
+	 * Batter pops out - All runners hold
+	 */
+	flyout() {
+		this.outs++;
+	}
+
+	/**
+	 * Batter pops out - All runners advance one base
+	 */
+	flyoutAdv() {
+		if (this.third) {
+			this.third = false;
+			if (this.outs &lt; 2)
+				this.runs++;
+		}
+		if (this.second) {
+			this.second = false;
+			this.third = true;
+		}
+		if (this.first) {
+			this.first = false;
+			this.second = true;
+		}
+		this.outs++;
+	}
+
+	/**
+	 * Batter pops out - All runners (except runner at first) advance one base
+	 */
+	flyoutNoAdv1st() {
+		if (this.third) {
+			this.third = false;
+			if (this.outs &lt; 2)
+				this.runs++;
+		}
+		if (this.second) {
+			this.second = false;
+			this.third = true;
+		}
+		this.outs++;
+	}
+
+	/**
+	 * Batter grounds out - All runners advance one base
+	 */
+	groundout() {
+		if (this.third) {
+			this.third = false;
+			if (this.outs &lt; 2)
+				this.runs++;
+		}
+		if (this.second) {
+			this.second = false;
+			this.third = true;
+		}
+		if (this.first) {
+			this.first = false;
+			this.second = true;
+		}
+		this.outs++;
+	}
+
+	/**
+	 * Batter grounds out - Runners hold unless they are forced to advance
+	 */
+	groundoutAdvIfForced() {
+		if (this.third &amp;&amp; this.second &amp;&amp; this.first) {
+			this.third = false;
+			if (this.outs &lt; 2) {
+				this.runs++;
+			}
+		}
+		if (this.second &amp;&amp; this.first) {
+			this.second = false;
+			this.third = true;
+		}
+		if (this.first) {
+			this.first = false;
+			this.second = true;
+		}
+		this.outs++;
+	}
+
+	/**
+	 * Double play - Runner at first out and batter out
+	 */
+	groundoutDoublePlay() {
+		if (this.third) {
+			this.third = false;
+			if (this.outs &lt; 1 &amp;&amp; !this.first) {
+				this.runs++;
+			}
+			else if (this.outs &lt; 2) {
+				this.runs++;
+			}
+
+		}
+		if (this.second) {
+			this.second = false;
+			this.third = true;
+		}
+		if (this.first) {
+			this.first = false;
+			this.outs++;
+		}
+		this.outs++;
+	}
+	/**
+	 * Double play - Lead runner and batter out
+	 */
+	lineoutDoublePlay() {
+		if (this.third) {
+			this.third = false;
+			this.outs++;
+		}
+		else if (this.second) {
+			this.second = false;
+			this.outs++;
+		}
+		else if (this.first) {
+			this.first = false;
+			this.outs++;
+		}
+		this.outs++;
+	}
+
+	/**
+	 * Triple play - Runners at first and second and batter out
+	 */
+	triplePlay() {
+		if (this.second) {
+			this.second = false;
+			this.outs++;
+		}
+		if (this.first) {
+			this.first = false;
+			this.outs++;
+		}
+		this.outs++;
+	}
+
+	/**
+	 * Fielder&apos;s choice - Runner advances only if forced and lead runner is out, batter out and runners hold otherwise
+	 */
+	fieldersChoice() {
+		this.outs++;
+	}
+
+	/**
+	 * Error - Runners at first and second advance 2 bases and batter ends up at second
+	 */
+	errorSecond() {
+		if (this.third) {
+			this.third = false;
+			this.runs++;
+		}
+		if (this.second) {
+			this.second = false;
+			this.runs++;
+		}
+		if (this.first) {
+			this.first = false;
+			this.third = true;
+		}
+		this.second = true;
+	}
+
+	foul() {
+		if (this.strikes &lt; 2) {
+			this.strikes++;
+		}
+	}
+
+	strike() {
+		this.strikes++;
+		if (this.strikes === 3) {
+			this.strikes = 0;
+			this.outs++;
+		}
+	}
+
+	ball() {
+		this.balls++;
+		if (this.balls === 4) {
+			this.balls = 0;
+			if (this.third &amp;&amp; this.second &amp;&amp; this.first) {
+				this.third = false;
+				this.runs++;
+			}
+			if (this.second &amp;&amp; this.first) {
+				this.second = false;
+				this.third = true;
+			}
+			if (this.first) {
+				this.first = false;
+				this.second = true;
+			}
+			this.first = true;
+		}
+	}
+}</code></pre>
+
 </div>
 
 <footer class="footer">
