@@ -33,6 +33,7 @@ export class Team {
 	     */
         this.runs = 0;
 	    createPlayers();
+        this.createPlayers();
     }
     /**
 	* This function returns a team of players in an array.
