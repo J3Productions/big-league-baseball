@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<body onload="init()">
+<body>
 
     <div style="position: absolute; left: 0; bottom: 0;">
         <table border ="1" style="width: 75%; table-layout: fixed; word-break: break-all;">
@@ -11,25 +11,25 @@
                             <td>Please select the batter action: (take or swing)</td>
                         </tr>
                         <tr>
-                            <td><button onclick="addLog()">take</button></td>
-                            <td><button onclick="seeFiled()">Slow Straight</button></td>
-                            <td><button onclick="seeFiled()">Slow Inside</button></td>
-                            <td><button onclick="seeFiled()">Slow High</button></td>
-                            <td><button onclick="seeFiled()">Slow Low</button></td>
+                            <td><button id="take">take</button></td>
+                            <td><button id="ss">Slow Straight</button></td>
+                            <td><button id="si">Slow Inside</button></td>
+                            <td><button id="sh">Slow High</button></td>
+                            <td><button id="sl">Slow Low</button></td>
                         </tr>
                         <tr>
                             <td>&nbsp</td>
-                            <td><button onclick="seeFiled()">Fastball Straight</button></td>
-                            <td><button onclick="seeFiled()">Fastball Inside</button></td>
-                            <td><button onclick="seeFiled()">Fastball High</button></td>
-                            <td><button onclick="seeFiled()">Fastball Low</button></td>
+                            <td><button id="fs">Fastball Straight</button></td>
+                            <td><button id="fi">Fastball Inside</button></td>
+                            <td><button id="fh">Fastball High</button></td>
+                            <td><button id="fl">Fastball Low</button></td>
                         </tr>
                         <tr>
                             <td>&nbsp</td>
-                            <td><button onclick="seeFiled()">Curveball Outside</button></td>
-                            <td><button onclick="seeFiled()">Curveball Inside</button></td>
-                            <td><button onclick="seeFiled()">Curveball High</button></td>
-                            <td><button onclick="seeFiled()">Curveball Low</button></td>
+                            <td><button id="co">Curveball Outside</button></td>
+                            <td><button id="ci">Curveball Inside</button></td>
+                            <td><button id="ch">Curveball High</button></td>
+                            <td><button id="cl">Curveball Low</button></td>
                         </tr>
                     </table>
                 </td>
@@ -44,11 +44,11 @@
                     <table style="font-size: 17pt;">
                         <tr>
                             <td>Ball</td>
-                            <td>0</td>
+                            <td id="ball"></td>
                             <td>&nbsp Strike</td>
-                            <td>0</td>
+                            <td id="strike"></td>
                             <td>&nbsp Out</td>
-                            <td>0</td>
+                            <td id="out"></td>
                         </tr>
                     </table>
                 </td>
@@ -84,24 +84,34 @@
                         </tr>
                         <tr>
                             <td>Home</td>
-                            <td>&nbsp 0</td>
-                            <td>&nbsp 0</td>
-                            <td>&nbsp 0</td>
-                            <td>&nbsp 0</td>
-                            <td>&nbsp 0</td>
-                            <td>&nbsp 0</td>
-                            <td>&nbsp 0</td>
-                            <td>&nbsp 0</td>
-                            <td>&nbsp 0</td>
-                            <td>&nbsp &nbsp 0</td>
-                        </tr>
-                        <tr>
-                            <td>&nbsp </td>
+                            <td id="homeR1"></td>
+                            <td id="homeR2">&nbsp 0</td>
+                            <td id="homeR3">&nbsp 0</td>
+                            <td id="homeR4">&nbsp 0</td>
+                            <td id="homeR5">&nbsp 0</td>
+                            <td id="homeR6">&nbsp 0</td>
+                            <td id="homeR7">&nbsp 0</td>
+                            <td id="homeR8">&nbsp 0</td>
+                            <td id="homeR9">&nbsp 0</td>
+                            <td id="homeT"></td>
                         </tr>
                     </table>
 
+                    <table style="font-size: 16pt; table-layout: fixed; word-break: break-all;">
+                        <tr>
+                            <td>FirstBase</td>
+                            <td>SecondBase</td>
+                            <td>ThirdBase</td>
+                        </tr>
+                        <tr>
+                            <td id="firstBase">&nbsp</td>
+                            <td id="secondBase">&nbsp</td>
+                            <td id="thirdBase">&nbsp</td>
+                        </tr>
+                    </table>
+                    <br>
                     <div id="gameLog" style="overflow: scroll;">
-                    <table id="gameLogTable" style="font-size: 21pt;">
+                    <table id="gameLogTable" style="font-size: 15pt;">
                     </table>
                     </div>
                  </td>
@@ -125,68 +135,25 @@
 
         <img id="filedPic" src="./assets/filedView.jpg" style="display: none;">
     </div>
-       <script>
 
-           var state = false; //After the javascript method complete, change the condition.
+    <script type="module">
+        import { initBatter, seeFiled, take, SS, SI, SH, SL, FS,FI, FH, FL, CO, CI, CH, CL } from "./main.js";
+                document.getElementById("take").addEventListener("click", take);
+                document.getElementById("ss").addEventListener("click", SS);
+                document.getElementById("si").addEventListener("click", SI);
+                document.getElementById("sh").addEventListener("click", SH);
+                document.getElementById("sl").addEventListener("click", SL);
+                document.getElementById("fs").addEventListener("click", FS);
+                document.getElementById("fi").addEventListener("click", FI);
+                document.getElementById("fh").addEventListener("click", FH);
+                document.getElementById("fl").addEventListener("click", FL);
+                document.getElementById("co").addEventListener("click", CO);
+                document.getElementById("ci").addEventListener("click", CI);
+                document.getElementById("ch").addEventListener("click", CH);
+                document.getElementById("cl").addEventListener("click", CL);
 
-            function init()
-            {
-                screenWidth = document.documentElement.clientWidth;
-                screenHeight = document.documentElement.clientHeight;
-                var a = document.getElementById("batterView");
-                a.width = (screenWidth * 0.74);
-                a.height = (screenHeight * 0.73);
-
-                var ctx = a.getContext("2d");
-                var img = document.getElementById("viewPic");
-                ctx.drawImage(img, 10, 10);
-
-                var gamelog = document.getElementById("gameLog");
-                gamelog.scrollTop = gamelog.scrollHeight;
-                gamelog.style.height = (screenHeight * 0.792) + "px";
-
-                var action = document.getElementById("batterAction");
-                action.style.height = (screenHeight * 0.245) + "px";
-
-                document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Match start!</td></tr>" + "<tr><td>Pitcher decide action.</td></tr>" + "<tr><td>Decide your batter action.</td></tr>";
-
-            }
-
-           function seeFiled()
-           {
-                if(state == false)
-                {
-                    screenWidth = document.documentElement.clientWidth;
-                    screenHeight = document.documentElement.clientHeight;
-                    var a = document.getElementById("filedView");
-                    var b = document.getElementById("batterView");
-                    b.style.display = "none";
-                    a.style.display = "block";
-                    a.width = (screenWidth * 0.74);
-                    a.height = (screenHeight * 0.73);
-
-                    var ctx = a.getContext("2d");
-                    var img = document.getElementById("filedPic");
-                    ctx.drawImage(img,10,10);
-                    
-                    state = true;
-                }
-                else if(state == true)
-                {
-                    var a = document.getElementById("filedView");
-                    var b = document.getElementById("batterView");
-                    a.style.display = "none";
-                    b.style.display = "block";
-                    state = false;
-                }
-
-           }
-
-           function addLog()
-           {
-               document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide take!</td></tr>";
-           }
-        </script>
+        window.addEventListener("load", initBatter, false);
+    </script>
 
 </body>
 </html>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<body onload="init()">
+<body>
 
     <div>
 
@@ -16,25 +16,10 @@
 
     </div>
 
-    <script>
-        function init()
-            {
-                screenWidth = document.documentElement.clientWidth;
-                screenHeight = document.documentElement.clientHeight;
-                var a = document.getElementById("SelectMember");
-                a.width = (screenWidth * 0.99);
-                a.height = (screenHeight * 0.97);
-
-                var ctx = a.getContext("2d");
-                ctx.font = "30px Arial";
-                ctx.fillText("Select your Team member!",10,50);
-                var img = document.getElementById("SelectPic");
-                ctx.drawImage(img,0,0, screenWidth, screenHeight);
-
-                var button = document.getElementById("startMatch");
-                button.style.left = String(screenWidth * 0.45) + "px";
-                button.style.top = String(screenHeight * 0.8) + "px";
-            }
+    <script type="module">
+        import { initSelectTeam, createTeam } from "./main.js";
+        document.getElementById("startMatch").addEventListener("click", createTeam);
+        window.addEventListener("load", initSelectTeam, false);
     </script>
 
 </body>

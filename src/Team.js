@@ -32,7 +32,6 @@ export class Team {
 	     * @type {number}
 	     */
         this.runs = 0;
-	    createPlayers();
         this.createPlayers();
     }
     /**
