@@ -1030,7 +1030,8 @@ export class Game {
 	 */
 	foul() {
 		if (this.strikes < 2) {
-			this.strikes++;
+		    this.strikes++;
+		    console.log("foul ball!");
 		}
 	}
 

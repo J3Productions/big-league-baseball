@@ -301,33 +301,39 @@ function BallStrikeOut()
     document.getElementById("ball").innerHTML = action.balls;
     document.getElementById("strike").innerHTML = action.strikes;
     document.getElementById("out").innerHTML = action.outs;
-    if(balls < action.balls)
-    {
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Ball!</td></tr>";
-        balls = action.balls;
-    }
     if(action.balls == 0)
     {
         balls = action.balls;
-    }
-    if(strikes < action.strikes)
-    {
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Strike!</td></tr>";
-        strikes = action.strikes;
     }
     if(action.strikes == 0)
     {
         strikes = action.strikes;
     }
+    if(action.outs == 0)
+    {
+        outs = action.outs;
+    }
+
+
+
+    if(balls < action.balls)
+    {
+        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Ball!</td></tr>";
+        balls = action.balls;
+    }
+
+    if(strikes < action.strikes)
+    {
+        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Strike!</td></tr>";
+        strikes = action.strikes;
+    }
+
     if(outs < action.outs)
     {
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Out!</td></tr>";
         outs = action.outs;
     }
-    if(action.outs == 0)
-    {
-        outs = action.outs;
-    }
+
 }
 
 function homeScore()
@@ -428,21 +434,22 @@ function threeBase()
         document.getElementById("thirdBase").innerHTML = "&nbsp";
     }
  
-    if(action.first != first)
+    if(action.first == true && first == false)
     {
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>runner on the first base!</td></tr>";
-        first = action.first;
     }
-    if(action.second != second)
+    if(action.second == true && second == false)
     {
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>runner on the second base!</td></tr>";
-        second = action.second;
     }
-    if(action.third != third)
+    if(action.third == true && third == false)
     {
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>runner on the third base!</td></tr>";
-        third = action.third;
     }
+
+    first = action.first;
+    second = action.second;
+    third = action.third;
 }
 
 function printScore()
