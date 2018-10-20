@@ -1,6 +1,10 @@
 import {Team} from './Team.js';
 import {Game} from './Game.js';
 
+
+/**
+*   This method store the player entered name locally.
+**/
 export function startGame()
 {
     if (typeof (Storage) !== "undefined")
@@ -12,6 +16,10 @@ export function startGame()
 
 }
 
+
+/**
+*   This method render the index.html with canvas. The size of canvas will auto change with user web browser size.
+**/
 export function initStartPage()
 {
     var screenWidth = document.documentElement.clientWidth;
@@ -39,6 +47,10 @@ export function initStartPage()
     describe.style.top = String(screenHeight * 0.40) + "px";
 }
 
+
+/**
+*   This method create two teams.
+**/
 export function createTeam()
 {
     var blueTeam = new Team("Blue Team");
@@ -46,6 +58,9 @@ export function createTeam()
     console.log("create two team");
 }
 
+/**
+*   This method render the team member select html page with canvas. The size canvas will auto change with user web browser.
+**/
 export function initSelectTeam()
 {
     var screenWidth = document.documentElement.clientWidth;
@@ -66,8 +81,9 @@ export function initSelectTeam()
 }
 
 
-var state = false; //After the javascript method complete, change the condition.
-
+/**
+*   This method render the batter view html page with canvas and two table represent the action opinions and game log. The size canvas will auto change with user web browser.
+**/
 export function initBatter()
 {
     var screenWidth = document.documentElement.clientWidth;
@@ -90,6 +106,11 @@ export function initBatter()
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Match start!</td></tr>" + "<tr><td>Decide your batter action.</td></tr>";
 
 }
+
+/**
+*   change the canvas to see what happend when runner on the base. Not surport in prototype.
+**/
+var state = false; //After the javascript method complete, change the condition.
 
 export function seeFiled()
 {
@@ -121,78 +142,117 @@ export function seeFiled()
 
 }
 
+/**
+*   Button method. It will call when batter decide take action.
+**/
 export function take()
 {
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide take!</td></tr>";
     pitcherAction("take");
 }
 
+/**
+*   Button method. It will call when batter decide Slow Straight action.
+**/
 export function SS()
 {
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Slow Straight!</td></tr>";
     pitcherAction("ss");
 }
 
+/**
+*   Button method. It will call when batter decide Slow Inside action.
+**/
 export function SI()
 {
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Slow Inside!</td></tr>";
     pitcherAction("si");
 }
 
+/**
+*   Button method. It will call when batter decide Slow High action.
+**/
 export function SH()
 {
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Slow High!</td></tr>";
     pitcherAction("sh");
 }
 
+/**
+*   Button method. It will call when batter decide Slow Low action.
+**/
 export function SL()
 {
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Slow Low!</td></tr>";
     pitcherAction("sl");
 }
 
+/**
+*   Button method. It will call when batter decide Fastball Straight action.
+**/
 export function FS()
 {
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Fastball Straight!</td></tr>";
     pitcherAction("fs");
 }
 
+/**
+*   Button method. It will call when batter decide Fastball Inside action.
+**/
 export function FI()
 {
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Fastball Inside!</td></tr>";
     pitcherAction("fi");
 }
 
+/**
+*   Button method. It will call when batter decide Fastball High action.
+**/
 export function FH()
 {
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Fastball High!</td></tr>";
     pitcherAction("fh");
 }
 
+/**
+*   Button method. It will call when batter decide Fastball Low action.
+**/
 export function FL()
 {
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Fastball Low!</td></tr>";
     pitcherAction("fl");
 }
 
+/**
+*   Button method. It will call when batter decide Curveball Outside action.
+**/
 export function CO()
 {
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Curveball Outside!</td></tr>";
     pitcherAction("co");
 }
 
+/**
+*   Button method. It will call when batter decide Curveball Inside action.
+**/
 export function CI()
 {
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Curveball Inside!</td></tr>";
     pitcherAction("ci");
 }
 
+/**
+*   Button method. It will call when batter decide Curveball High action.
+**/
 export function CH()
 {
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Curveball High!</td></tr>";
     pitcherAction("ch");
 }
 
+/**
+*   Button method. It will call when batter decide Curveball Low action.
+**/
 export function CL()
 {
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Curveball Low!</td></tr>";
@@ -200,6 +260,9 @@ export function CL()
 }
 
 
+/**
+*   These varibales keep track of the variables in the Game class.
+**/
 var action = new Game();
 var balls = action.balls;
 var strikes = action.strikes;
@@ -218,6 +281,10 @@ var R7 = 0;
 var R8 = 0;
 var R9 = 0;
 
+
+/**
+*   The method represent the pitcher Action. It was radomly pick actions at this time. After the action is picked, it will auto print the name of action in the game log.
+**/
 function pitcherAction(batterAction)
 {
     var randomNum = Math.floor((Math.random() * 12) + 1);
@@ -296,6 +363,25 @@ function pitcherAction(batterAction)
     }
 }
 
+
+/**
+*   This method called by pitcherAction(). It will combinate all the information and print them in to the game log and score board. It will also make the scroll move to the bottom.
+**/
+function printScore()
+{
+    BallStrikeOut();
+    homeScore();
+    threeBase();
+   
+    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<br><tr><td>" + "Round:" + action.inning + " " + "Decide your batter Action!</td></tr>";
+    
+    var gamelog = document.getElementById("gameLog");
+    gamelog.scrollTop = gamelog.scrollHeight;
+}
+
+/**
+*   This method called in printScore method. It keep track of ball, strike, and out, and print the change in the score board.
+**/
 function BallStrikeOut()
 {
     document.getElementById("ball").innerHTML = action.balls;
@@ -336,6 +422,10 @@ function BallStrikeOut()
 
 }
 
+
+/**
+*   This method called by printScore(). It calculate the home team score, and then print the score and notice of get point in the game log.
+**/
 function homeScore()
 {
     document.getElementById("homeT").innerHTML = "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + action.homeTeam.runs;
@@ -405,6 +495,9 @@ function homeScore()
     }
 }
 
+/**
+*   This method called by printScore(). It print the change of each bases in the score board, and game log.
+**/
 function threeBase()
 {
     if(action.first == true)
@@ -450,18 +543,6 @@ function threeBase()
     first = action.first;
     second = action.second;
     third = action.third;
-}
-
-function printScore()
-{
-    BallStrikeOut();
-    homeScore();
-    threeBase();
-   
-    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<br><tr><td>" + "Round:" + action.inning + " " + "Decide your batter Action!</td></tr>";
-    
-    var gamelog = document.getElementById("gameLog");
-    gamelog.scrollTop = gamelog.scrollHeight;
 }
 //const socket = io();
 
