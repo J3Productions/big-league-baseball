@@ -80,6 +80,58 @@ export function initSelectTeam()
     button.style.top = String(screenHeight * 0.8) + "px";
 }
 
+var k = 7;
+var i = 0;
+var g = 20;
+var j = 0;
+var a = 21;
+var b = 0;
+
+function drawImg()
+{
+    var a = document.getElementById("testC");
+    a.width = 500;
+    a.height = 500;
+    var ctx = a.getContext("2d");
+    var img = document.getElementById("test"); 
+    var img2 = document.getElementById("test2");
+    var img3 = document.getElementById("test3");
+    var width = 346;
+    var height = 346;//336
+    var width2 = 300;
+    var height2 = 300;
+    var width3 = 336;
+    var height3 = 336;
+
+
+    ctx.clearRect(0, 0, width, height);
+    ctx.clearRect(0, 0, width2, height2);
+    ctx.clearRect(0, 0, width3, height3);
+    i++;
+    j++;
+    b++;
+    if(i == k)
+    {
+        i = 0;
+    }
+    if(j == g)
+    {
+        j = 0;
+    }
+    if(b == a)
+    {
+        b = 0;
+    }
+    ctx.drawImage(img, i * width, 0, width, height, 150, 150, width, height);
+    ctx.drawImage(img2, j * width2, 0, width2, height2, 0, 0, width2, height2);
+    ctx.drawImage(img3, j * width3, 0, width3, height3, 0, 150, width3, height3);
+}
+
+export function imgOnload()
+{
+    setInterval(drawImg, 125);
+}
+
 
 /**
 *   This method render the batter view html page with canvas and two table represent the action opinions and game log. The size canvas will auto change with user web browser.
