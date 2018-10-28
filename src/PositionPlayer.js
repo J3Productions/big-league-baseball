@@ -17,6 +17,37 @@ export class PositionPlayer extends Player {
         /**
         * @extends {PlayerClass}
         */
-        super(name,position, battStrengths, baseSpeed);
+        super(name)
+        /**
+		*Hitters batting strengths.
+     	* @type {string[]}
+     	*/
+		this.battStrengths = battStrengths;
+		/**
+		* Player baserunning speed - true if fast runner, false if not fast.
+		* @type {boolean}
+		*/
+		this.baseSpeed = baseSpeed;
     }
+    	/**
+    	* Gets the baseball players position in the game.
+    	* @return {string} position
+    	*/
+        getPosition(){
+            return this.position;
+        }
+    	/**
+    	* Gets if pitch thrown is batters strength.
+    	* @return {array} battStrengths
+    	*/
+        getBattStrengths(){
+    		return this.battStrengths;
+        }
+    	/**
+    	* Gets the baseball players baserunning speed.
+    	* @return {boolean}  baseSpeed
+    	*/
+        getBaseSpeed(){
+            return this.baseSpeed;
+        }
 }

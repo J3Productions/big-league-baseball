@@ -18,11 +18,7 @@ export class Player {
      	* @type {string}
      	*/
 		this.playerName = String(name);
-		/**
-		* Position player or pitcher.
-     	* @type {string}
-     	*/
-		this.position = String(position);
+
         /**
 		*Hitters batting strengths.
      	* @type {string[]}

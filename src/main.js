@@ -596,7 +596,7 @@ function threeBase()
     second = action.second;
     third = action.third;
 }
-//const socket = io();
+const socket = io();
 
 //let ballgame = new Game();
 

@@ -18,7 +18,12 @@ export class Pitcher extends Player {
         /**
         * @extends {PlayerClass}
         */
-        super(name, position, battStrengths);
+        super(name, battStrengths);
+		/**
+		* Position player or pitcher.
+     	* @type {string}
+     	*/
+		this.position = String(position);
         /**
 		* Pitches thrown by this picture.
      	* @type {string[]}
