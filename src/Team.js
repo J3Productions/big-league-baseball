@@ -46,15 +46,15 @@ export class Team {
     * POSTCONDITION: No return.
     */
     createPlayers(){
-        this.arrOfPlayers[0]= new PositionPlayer("Jielong GoLong", "catcher", ["co", "ch"], false);
-        this.arrOfPlayers[1]= new PositionPlayer("Jacob \"The Bull\" Parnell", "1base", ["fs", "fl"], true);
-        this.arrOfPlayers[2]= new PositionPlayer("Rocco Manzeene", "short", ["ci"], false);
-        this.arrOfPlayers[3]= new PositionPlayer("Larry Smerts", "2base", ["fs", "fl"], true);
-        this.arrOfPlayers[4]= new PositionPlayer("Johnny Demp", "3base", ["ss", "sl"], true);
-        this.arrOfPlayers[5]= new PositionPlayer("Ray Cobb", "left", ["fs", "fi"], false);
-        this.arrOfPlayers[6]= new PositionPlayer("Mike Truk", "center", ["si", "ci"], true);
-        this.arrOfPlayers[7]= new PositionPlayer("Mickel J-Rod", "right", ["co"], false);
-        this.arrOfPlayers[8]= new Pitcher("Boom Mannski", "pitcher", [], false, ["fs","ss","ch","fl"]);
+        this.arrOfPlayers[0]= new PositionPlayer("Jielong GoLong", "C", ["co", "ch"], false);
+        this.arrOfPlayers[1]= new PositionPlayer("Jacob \"The Bull\" Parnell", "1B", ["fs", "fl"], true);
+        this.arrOfPlayers[2]= new PositionPlayer("Rocco Manzeene", "SS", ["ci"], false);
+        this.arrOfPlayers[3]= new PositionPlayer("Larry Smerts", "2B", ["fs", "fl"], true);
+        this.arrOfPlayers[4]= new PositionPlayer("Johnny Demp", "3B", ["ss", "sl"], true);
+        this.arrOfPlayers[5]= new PositionPlayer("Ray Cobb", "LF", ["fs", "fi"], false);
+        this.arrOfPlayers[6]= new PositionPlayer("Mike Truk", "CF", ["si", "ci"], true);
+        this.arrOfPlayers[7]= new PositionPlayer("Mickel J-Rod", "RF", ["co"], false);
+        this.arrOfPlayers[8]= new Pitcher("Boom Mannski", "RHP", [], false, ["fs","ss","ch","fl"]);
     }
 
 	/**
