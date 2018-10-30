@@ -72,8 +72,8 @@ export function initSelectTeam()
     var ctx = a.getContext("2d");
     ctx.font = "30px Arial";
     ctx.fillText("Select your Team member!",10,50);
-    var img = document.getElementById("SelectPic");
-    ctx.drawImage(img,0,0, screenWidth, screenHeight);
+    //var img = document.getElementById("SelectPic");
+    //ctx.drawImage(img,0,0, screenWidth, screenHeight);
 
     var button = document.getElementById("startMatch");
     button.style.left = String(screenWidth * 0.45) + "px";
@@ -90,8 +90,8 @@ var b = 0;
 function drawImg()
 {
     var a = document.getElementById("testC");
-    a.width = 500;
-    a.height = 500;
+    a.width = 700;
+    a.height = 600;
     var ctx = a.getContext("2d");
     var img = document.getElementById("test"); 
     var img2 = document.getElementById("test2");
@@ -122,9 +122,9 @@ function drawImg()
     {
         b = 0;
     }
-    ctx.drawImage(img, i * width, 0, width, height, 150, 150, width, height);
+    ctx.drawImage(img, i * width, 0, width, height, 350, 200, width, height);
     ctx.drawImage(img2, j * width2, 0, width2, height2, 0, 0, width2, height2);
-    ctx.drawImage(img3, j * width3, 0, width3, height3, 0, 150, width3, height3);
+    ctx.drawImage(img3, j * width3, 0, width3, height3, 0, 200, width3, height3);
 }
 
 export function imgOnload()
@@ -596,7 +596,7 @@ function threeBase()
     second = action.second;
     third = action.third;
 }
-const socket = io();
+//const socket = io();
 
 //let ballgame = new Game();
 
