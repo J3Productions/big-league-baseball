@@ -13,10 +13,10 @@
 
 <header>
   <a href="./">Home</a>
-  
+
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
-  
+
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -28,7 +28,7 @@
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
-    
+
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Game.js~Game.html">Game</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Pitcher.js~Pitcher.html">Pitcher</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Player.js~Player.html">Player</a></span></span></li>
@@ -54,11 +54,11 @@ export class Pitcher extends Player {
         * @param {string} pitcherType Type of pitcher.
         * @param {array} arsenal The type of pitches the batter hits best.
         */
-    constructor(name, position, battStrengths, pitcher, pitches){
+    constructor(name, position, batStrengths, pitcher, pitches){
         /**
         * @extends {PlayerClass}
         */
-        super(name, position, battStrengths);
+        super(name, position, batStrengths);
         /**
 		* Pitcher is starter or reliever.
      	* @type {string}

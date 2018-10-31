@@ -12,27 +12,17 @@ export class Player {
 		* @param {string[]} batStrengths The type of pitches the batter hits best.
 		* @param {boolean} baseSpeed The players baserunning speed
 		*/
-	constructor(name, position, battStrengths, baseSpeed) {
+	constructor(name, position) {
 		/**
 		* Baseball player name.
      	* @type {string}
      	*/
-		this.playerName = String(name);
+		this.playerName = name;
 		/**
 		* Position player or pitcher.
      	* @type {string}
      	*/
-		this.position = String(position);
-        /**
-		*Hitters batting strengths.
-     	* @type {string[]}
-     	*/
-		this.battStrengths = battStrengths;
-		/**
-		* Player baserunning speed - true if fast runner, false if not fast.
-		* @type {boolean}
-		*/
-		this.baseSpeed = baseSpeed;
+		this.position = position;
         /**
         * Is available to be selected or not.
         * @type {boolean}
@@ -52,20 +42,6 @@ export class Player {
 	*/
     getPosition(){
         return this.position;
-    }
-	/**
-	* Gets if pitch thrown is batters strength.
-	* @return {array} battStrengths
-	*/
-    getBattStrengths(){
-		return this.battStrengths;
-    }
-	/**
-	* Gets the baseball players baserunning speed.
-	* @return {boolean}  baseSpeed
-	*/
-    getBaseSpeed(){
-        return this.baseSpeed;
     }
 	/**
 	* Gets whether the player has already been chosen by a team or not.

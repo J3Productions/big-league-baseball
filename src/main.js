@@ -45,6 +45,10 @@ export function initStartPage()
     input.style.top = String(screenHeight * 0.45) + "px";
     describe.style.left = String(screenWidth * 0.425) + "px";
     describe.style.top = String(screenHeight * 0.40) + "px";
+
+//Sound test2
+    var c1= document.getElementById('organ');//Start crowd noise.
+    c1.play();
 }
 
 
@@ -72,12 +76,115 @@ export function initSelectTeam()
     var ctx = a.getContext("2d");
     ctx.font = "30px Arial";
     ctx.fillText("Select your Team member!",10,50);
-    var img = document.getElementById("SelectPic");
-    ctx.drawImage(img,0,0, screenWidth, screenHeight);
+    //var img = document.getElementById("SelectPic");
+    //ctx.drawImage(img,0,0, screenWidth, screenHeight);
 
     var button = document.getElementById("startMatch");
     button.style.left = String(screenWidth * 0.45) + "px";
     button.style.top = String(screenHeight * 0.8) + "px";
+}
+
+
+var g = 20;
+var j = 0;
+
+
+function drawImg()
+{
+    var selectCanvas = document.getElementById("SelectMember");
+    var ctx = selectCanvas.getContext("2d");
+
+    var img2 = document.getElementById("test2");
+    var width2 = 300;
+    var height2 = 300;
+
+    ctx.clearRect(0, 0, 700, 600);
+    j++;
+    if(j == g)
+    {
+        j == 0;
+    }
+    ctx.drawImage(img2, j * width2, 0, width2, height2, 0, 0, width2, height2);
+}
+
+
+
+var BatterFrames = 7;
+var BatterCurrFrame = 0;
+
+function drawBatterSelect()
+{
+    var BatterCanvas = document.getElementById("NormalPlayer");
+    BatterCanvas.width = 346;
+    BatterCanvas.height = 346;
+    var ctx = BatterCanvas.getContext("2d");
+
+    var normal = document.getElementById("normalBatter");
+    var width = 346;
+    var height = 346;//336
+
+    ctx.clearRect(0, 0, width, height);
+    BatterCurrFrame++;
+    if(BatterCurrFrame == BatterFrames)
+    {
+        BatterCurrFrame = 0;
+    }
+
+    ctx.drawImage(normal, BatterCurrFrame * width, 0, width, height, 0, 0, width, height);
+}
+
+
+
+var CatcherFrames = 21;
+var CatcherCurrFrame = 0;
+
+function drawCatcherSelect()
+{
+    var CatcherCanvas = document.getElementById("Catcher");
+    CatcherCanvas.width = 336;
+    CatcherCanvas.height = 336;
+    var ctx = CatcherCanvas.getContext("2d");
+
+    var img = document.getElementById("CatcherImg");
+    var width = 336;
+    var height = 336;
+
+    ctx.clearRect(0, 0, width, height);
+
+    CatcherCurrFrame++;
+    if(CatcherCurrFrame == CatcherFrames)
+    {
+        CatcherCurrFrame = 0;
+    }
+    if(CatcherCurrFrame == 4)
+    {
+        CatcherCurrFrame++;
+    }
+    if(CatcherCurrFrame == 5 || CatcherCurrFrame == 1 || CatcherCurrFrame == 19)
+    {
+        CatcherCurrFrame++;
+    }
+    if(CatcherCurrFrame == 6)
+    {
+        CatcherCurrFrame++;
+    }
+
+    ctx.drawImage(img, CatcherCurrFrame * width, 0, width, height, 0, 0, width, height);
+}
+
+export function BatterOnload()
+{
+    setInterval(drawBatterSelect, 125);
+}
+
+export function CatcherOnload()
+{
+    setInterval(drawCatcherSelect, 125);
+}
+
+export function imgOnload()
+{
+    setInterval(drawImg, 125);
 }
 
 
@@ -107,6 +214,66 @@ export function initBatter()
 
 }
 
+
+var BatterWaitFrames = 17;
+var BatterWaitCurrFrame = 0;
+
+function drawBatterWait()
+{
+    var BatterWaitCanvas = document.getElementById("BatterWaitting");
+    BatterWaitCanvas.width = 192;
+    BatterWaitCanvas.height = 192;
+    var ctx = BatterWaitCanvas.getContext("2d");
+
+    var img = document.getElementById("BatterWait");
+    var width = 192;
+    var height = 192;
+
+    ctx.clearRect(0, 0, width, height);
+    BatterWaitCurrFrame++;
+    if(BatterWaitCurrFrame == BatterWaitFrames)
+    {
+        BatterWaitCurrFrame = 0;
+    }
+
+    ctx.drawImage(img, BatterWaitCurrFrame * width, 0, width, height, 0, 0, width, height);
+}
+
+export function BatterWaitOnload()
+{
+    setInterval(drawBatterWait, 125);
+}
+
+
+var BatterHitFrames = 11;
+var BatterHitCurrFrame = 0;
+
+function drawBatterHit()
+{
+    var BatterHitCanvas = document.getElementById("BatterHit");
+    BatterHitCanvas.width = 192;
+    BatterHitCanvas.height = 192;
+    var ctx = BatterHitCanvas.getContext("2d");
+
+    var img = document.getElementById("BatterHitting");
+    var width = 192;
+    var height = 192;
+
+    ctx.clearRect(0, 0, width, height);
+    BatterHitCurrFrame++;
+    if(BatterHitCurrFrame == BatterHitFrames)
+    {
+        BatterHitCurrFrame = 0;
+    }
+
+    ctx.drawImage(img, BatterHitCurrFrame * width, 0, width, height, 0, 0, width, height);
+}
+
+export function BatterHitOnload()
+{
+    setInterval(drawBatterHit, 188);
+}
+
 /**
 *   change the canvas to see what happend when runner on the base. Not surport in prototype.
 **/
@@ -128,7 +295,7 @@ export function seeFiled()
         var ctx = a.getContext("2d");
         var img = document.getElementById("filedPic");
         ctx.drawImage(img,10,10);
-                    
+
         state = true;
     }
     else if(state == true)
@@ -306,19 +473,19 @@ function pitcherAction(batterAction)
         action.shPitch(batterAction);
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Slow High!</td></tr>";
         printScore();
-    }  
+    }
     if(randomNum == 4)
     {
         action.slPitch(batterAction);
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Slow Low!</td></tr>";
         printScore();
-    }    
+    }
     if(randomNum == 5)
     {
         action.fsPitch(batterAction);
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Fastball Straigh!</td></tr>";
         printScore();
-    }    
+    }
     if(randomNum == 6)
     {
         action.fiPitch(batterAction);
@@ -330,31 +497,31 @@ function pitcherAction(batterAction)
         action.fhPitch(batterAction);
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Fastball High!</td></tr>";
         printScore();
-    }    
+    }
     if(randomNum == 8)
     {
         action.flPitch(batterAction);
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Fastball Low!</td></tr>";
         printScore();
-    }    
+    }
     if(randomNum == 9)
     {
         action.coPitch(batterAction);
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Curveball Outside!</td></tr>";
         printScore();
-    }    
+    }
     if(randomNum == 10)
     {
         action.ciPitch(batterAction);
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Curveball Inside!</td></tr>";
         printScore();
-    }    
+    }
     if(randomNum == 11)
     {
         action.chPitch(batterAction);
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Curveball High!</td></tr>";
         printScore();
-    }    
+    }
     if(randomNum == 12)
     {
         action.clPitch(batterAction);
@@ -372,9 +539,9 @@ function printScore()
     BallStrikeOut();
     homeScore();
     threeBase();
-   
+
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<br><tr><td>" + "Round:" + action.inning + " " + "Decide your batter Action!</td></tr>";
-    
+
     var gamelog = document.getElementById("gameLog");
     gamelog.scrollTop = gamelog.scrollHeight;
 }
@@ -526,7 +693,7 @@ function threeBase()
     {
         document.getElementById("thirdBase").innerHTML = "&nbsp";
     }
- 
+
     if(action.first == true && first == false)
     {
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>runner on the first base!</td></tr>";
@@ -544,7 +711,7 @@ function threeBase()
     second = action.second;
     third = action.third;
 }
-const socket = io();
+//const socket = io();
 
 //let ballgame = new Game();
 

@@ -1497,7 +1497,7 @@
     "__docId__": 178,
     "kind": "file",
     "name": "src/Pitcher.js",
-    "content": "'use strict';\n/**\n *Child of Player class\n */\nimport { Player } from './Player.js';\n/**\n * Pitcher class - stores information about name, position, batting strength, baserunning speed,whether they have been chosen on a team,pitcher type and pitching arsenal\n */\nexport class Pitcher extends Player {\n    /**\n    * Constructor creates a player that stores there name,position( pitcher or position player), hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also, type of pitcher they are, types of pitches they throw.\n    * POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values,  pitcher type and the pitcher arsenal all now have set values.\n        * @extends {PlayerClass}This class is a child of the player class.\n        * @param {string} pitcherType Type of pitcher.\n        * @param {array} arsenal The type of pitches the batter hits best.\n        */\n    constructor(name, position, battStrengths, pitcher, pitches){\n        /**\n        * @extends {PlayerClass}\n        */\n        super(name, position, battStrengths);\n        /**\n\t\t* Pitcher is starter or reliever.\n     \t* @type {string}\n     \t*/\n        this.pitcherType = pitcher;\n        /**\n\t\t* Pitches thrown by this picture.\n     \t* @type {string[]}\n     \t*/\n        this.arsenal = pitches;\n    }\n    /**\n\t* Gets the type of pitcher they are \"starter or reliever\".\n\t* @return {string} pitcherType\n\t*/\n    getPitcherType(){\n        return this.pitcherType;\n    }\n    /**\n\t* Gets the baseball players name.\n\t* @return {array} arsenal\n\t*/\n    //TODO//What do we want this class to do?\n    getArsenal(){\n        return this.arsenal;\n    }\n}\n",
+    "content": "'use strict';\n/**\n *Child of Player class\n */\nimport { Player } from './Player.js';\n/**\n * Pitcher class - stores information about name, position, batting strength, baserunning speed,whether they have been chosen on a team,pitcher type and pitching arsenal\n */\nexport class Pitcher extends Player {\n    /**\n    * Constructor creates a player that stores there name,position( pitcher or position player), hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also, type of pitcher they are, types of pitches they throw.\n    * POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values,  pitcher type and the pitcher arsenal all now have set values.\n        * @extends {PlayerClass}This class is a child of the player class.\n        * @param {string} pitcherType Type of pitcher.\n        * @param {array} arsenal The type of pitches the batter hits best.\n        */\n    constructor(name, position, batStrengths, pitcher, pitches){\n        /**\n        * @extends {PlayerClass}\n        */\n        super(name, position, batStrengths);\n        /**\n\t\t* Pitcher is starter or reliever.\n     \t* @type {string}\n     \t*/\n        this.pitcherType = pitcher;\n        /**\n\t\t* Pitches thrown by this picture.\n     \t* @type {string[]}\n     \t*/\n        this.arsenal = pitches;\n    }\n    /**\n\t* Gets the type of pitcher they are \"starter or reliever\".\n\t* @return {string} pitcherType\n\t*/\n    getPitcherType(){\n        return this.pitcherType;\n    }\n    /**\n\t* Gets the baseball players name.\n\t* @return {array} arsenal\n\t*/\n    //TODO//What do we want this class to do?\n    getArsenal(){\n        return this.arsenal;\n    }\n}\n",
     "static": true,
     "longname": "/home/jacob/Programming/eecs448/big-league-baseball/src/Pitcher.js",
     "access": "public",
@@ -1649,7 +1649,7 @@
     "__docId__": 185,
     "kind": "file",
     "name": "src/Player.js",
-    "content": "'use strict';\n\n/**\n * Basic player class - stores information about name, position, batting strength, baserunning speed and whether they have been chosen on a team.\n */\nexport class Player {\n\t/**\n\t* Constructor creates a player that stores there name, pitcher or position player, hitting stats, baserunning speed and whether the player is on a team.\n\t* POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values.\n\t\t* @param {string} name Name of baseball player.\n\t\t* @param {string} position Position the baseball player holds in the game.\n\t\t* @param {string[]} batStrengths The type of pitches the batter hits best.\n\t\t* @param {boolean} baseSpeed The players baserunning speed\n\t\t*/\n\tconstructor(name, position, batStrengths, baseSpeed) {\n\t\t/**\n\t\t* Baseball player name.\n     \t* @type {string}\n     \t*/\n\t\tthis.playerName = String(name);\n\t\t/**\n\t\t* Position player or pitcher.\n     \t* @type {string}\n     \t*/\n\t\tthis.position = String(position);\n        /**\n\t\t*Hitters batting strengths.\n     \t* @type {string[]}\n     \t*/\n\t\tthis.battStrengths = battStrengths;\n\t\t/**\n\t\t* Player baserunning speed - true if fast runner, false if not fast.\n\t\t* @type {boolean}\n\t\t*/\n\t\tthis.baseSpeed = baseSpeed;\n        /**\n        * Is available to be selected or not.\n        * @type {boolean}\n        */\n        this.inLineup = true;\n\t}\n\t/**\n\t* Gets the baseball players name.\n\t* @return {string} name\n\t*/\n    getPlayerName(){\n        return this.playerName;\n    }\n\t/**\n\t* Gets the baseball players position in the game.\n\t* @return {string} position\n\t*/\n    getPosition(){\n        return this.position;\n    }\n\t/**\n\t* Gets if pitch thrown is batters strength.\n\t* @return {array} battStrengths\n\t*/\n\n\t//@TODO//Gets if pitch thrown is batters strength, hit action, or just a boolean?*************\n    getBattStrengths(pitch){\n\t\treturn this.battStrengths;\n    }\n\t/**\n\t* Gets the baseball players baserunning speed.\n\t* @return {boolean}  baseSpeed\n\t*/\n    getBaseSpeed(){\n        return this.baseSpeed;\n    }\n\t/**\n\t* Gets whether the player has already been chosen by a team or not.\n\t* @return {boolean} true\n\t*/\n    getInLineup(){\n        return this.inLineup;\n    }\n}\n",
+    "content": "'use strict';\n\n/**\n * Basic player class - stores information about name, position, batting strength, baserunning speed and whether they have been chosen on a team.\n */\nexport class Player {\n\t/**\n\t* Constructor creates a player that stores there name, pitcher or position player, hitting stats, baserunning speed and whether the player is on a team.\n\t* POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values.\n\t\t* @param {string} name Name of baseball player.\n\t\t* @param {string} position Position the baseball player holds in the game.\n\t\t* @param {string[]} batStrengths The type of pitches the batter hits best.\n\t\t* @param {boolean} baseSpeed The players baserunning speed\n\t\t*/\n\tconstructor(name, position, batStrengths, baseSpeed) {\n\t\t/**\n\t\t* Baseball player name.\n     \t* @type {string}\n     \t*/\n\t\tthis.playerName = String(name);\n\t\t/**\n\t\t* Position player or pitcher.\n     \t* @type {string}\n     \t*/\n\t\tthis.position = String(position);\n        /**\n\t\t*Hitters batting strengths.\n     \t* @type {string[]}\n     \t*/\n\t\tthis.batStrengths = batStrengths;\n\t\t/**\n\t\t* Player baserunning speed - true if fast runner, false if not fast.\n\t\t* @type {boolean}\n\t\t*/\n\t\tthis.baseSpeed = baseSpeed;\n        /**\n        * Is available to be selected or not.\n        * @type {boolean}\n        */\n        this.inLineup = true;\n\t}\n\t/**\n\t* Gets the baseball players name.\n\t* @return {string} name\n\t*/\n    getPlayerName(){\n        return this.playerName;\n    }\n\t/**\n\t* Gets the baseball players position in the game.\n\t* @return {string} position\n\t*/\n    getPosition(){\n        return this.position;\n    }\n\t/**\n\t* Gets if pitch thrown is batters strength.\n\t* @return {array} batStrengths\n\t*/\n\n\t//@TODO//Gets if pitch thrown is batters strength, hit action, or just a boolean?*************\n    getbatStrengths(pitch){\n\t\treturn this.batStrengths;\n    }\n\t/**\n\t* Gets the baseball players baserunning speed.\n\t* @return {boolean}  baseSpeed\n\t*/\n    getBaseSpeed(){\n        return this.baseSpeed;\n    }\n\t/**\n\t* Gets whether the player has already been chosen by a team or not.\n\t* @return {boolean} true\n\t*/\n    getInLineup(){\n        return this.inLineup;\n    }\n}\n",
     "static": true,
     "longname": "/home/jacob/Programming/eecs448/big-league-baseball/src/Player.js",
     "access": "public",
@@ -1767,10 +1767,10 @@
   {
     "__docId__": 190,
     "kind": "member",
-    "name": "battStrengths",
+    "name": "batStrengths",
     "memberof": "src/Player.js~Player",
     "static": false,
-    "longname": "src/Player.js~Player#battStrengths",
+    "longname": "src/Player.js~Player#batStrengths",
     "access": "public",
     "description": "Hitters batting strengths.",
     "lineNumber": 30,
@@ -1868,12 +1868,12 @@
   {
     "__docId__": 195,
     "kind": "method",
-    "name": "getBattStrengths",
+    "name": "getbatStrengths",
     "memberof": "src/Player.js~Player",
     "generator": false,
     "async": false,
     "static": false,
-    "longname": "src/Player.js~Player#getBattStrengths",
+    "longname": "src/Player.js~Player#getbatStrengths",
     "access": "public",
     "description": "Gets if pitch thrown is batters strength.",
     "lineNumber": 62,
@@ -1883,7 +1883,7 @@
         "array"
       ],
       "spread": false,
-      "description": "battStrengths"
+      "description": "batStrengths"
     },
     "params": [
       {
@@ -1942,7 +1942,7 @@
     "__docId__": 198,
     "kind": "file",
     "name": "src/PositionPlayer.js",
-    "content": "'use strict';\n/**\n *Child of Player class\n */\nimport { Player } from './Player.js';\n/**\n * PositionPlayer class - stores information about name, position, batting strength, baserunning speed, whether they have been chosen on a team and position player type.\n */\nexport class PositionPlayer extends Player {\n    /**\n    * * Constructor creates a player that stores there name, pitcher or position player, hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also,type of position player.\n    * POSTCONDITION: name, position, hitting stats, baserunning speed inLineup and position player type all now have set values.\n        * @extends {PlayerClass}This class is a child of the player class.\n        * @param {string} positionType The players position\n        */\n    constructor(name, position, battStrengths, baseSpeed, positionPlayer){\n        /**\n        * @extends {PlayerClass}\n        */\n        super(name,position, battStrengths);\n        /**\n        * .Position player position.\"catcher, \"leftField...\"\n        * @type {string}\n        */\n        this.positionType = positionPlayer;\n    }\n}\n",
+    "content": "'use strict';\n/**\n *Child of Player class\n */\nimport { Player } from './Player.js';\n/**\n * PositionPlayer class - stores information about name, position, batting strength, baserunning speed, whether they have been chosen on a team and position player type.\n */\nexport class PositionPlayer extends Player {\n    /**\n    * * Constructor creates a player that stores there name, pitcher or position player, hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also,type of position player.\n    * POSTCONDITION: name, position, hitting stats, baserunning speed inLineup and position player type all now have set values.\n        * @extends {PlayerClass}This class is a child of the player class.\n        * @param {string} positionType The players position\n        */\n    constructor(name, position, batStrengths, baseSpeed, positionPlayer){\n        /**\n        * @extends {PlayerClass}\n        */\n        super(name,position, batStrengths);\n        /**\n        * .Position player position.\"catcher, \"leftField...\"\n        * @type {string}\n        */\n        this.positionType = positionPlayer;\n    }\n}\n",
     "static": true,
     "longname": "/home/jacob/Programming/eecs448/big-league-baseball/src/PositionPlayer.js",
     "access": "public",

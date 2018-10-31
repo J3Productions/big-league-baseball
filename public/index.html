@@ -5,12 +5,12 @@
 	<title>Big League Baseball</title>
 </head>
 <body>
-    
+
 <h1 id="title" style="position:absolute;">Welcome to big league baseball!</h1>
 
 <div>
     <p id="doc" style="position:absolute;">Please enter your name: </p>
-    <input type="text" id="userName" style="position:absolute;" value="player1" required> <br> 
+    <input type="text" id="userName" style="position:absolute;" value="player1" required> <br>
     <a href="SelectTeam.html">
             <button id="startGame" style="position:absolute;">Start Game</button>
     </a>
@@ -23,6 +23,7 @@
 
     <img id="startPic" src="./assets/Start.jpg" style="display: none;">
 
+	<audio src="soundFx/organ-music-various.wav" id="organ"></audio>
 </div>
 
     <script src="/socket.io/socket.io.js"></script>
