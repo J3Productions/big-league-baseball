@@ -53,7 +53,7 @@ export class Team {
     *(left, right or switch hitter),( left or right-handed pitcher)
     * POSTCONDITION: No return.
     */
-    function createPlayers(team){
+    createPlayers(team){
         if(team=="home"){
             this.arrOfPlayers[0]= new Catcher("Jielong GoLong", "catcher", ["co", "ch"], false);
             this.arrOfPlayers[1]= new Infielder("Jacob \"The Bull\" Parnell", "1base", ["fs", "fl"], false);
