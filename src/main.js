@@ -45,6 +45,10 @@ export function initStartPage()
     input.style.top = String(screenHeight * 0.45) + "px";
     describe.style.left = String(screenWidth * 0.425) + "px";
     describe.style.top = String(screenHeight * 0.40) + "px";
+
+//Sound test2
+    var c1= document.getElementById('organ');//Start crowd noise.
+    c1.play();
 }
 
 
@@ -98,7 +102,7 @@ function drawImg()
     j++;
     if(j == g)
     {
-        j == 0;    
+        j == 0;
     }
     ctx.drawImage(img2, j * width2, 0, width2, height2, 0, 0, width2, height2);
 }
@@ -115,7 +119,7 @@ function drawBatterSelect()
     BatterCanvas.height = 346;
     var ctx = BatterCanvas.getContext("2d");
 
-    var normal = document.getElementById("normalBatter"); 
+    var normal = document.getElementById("normalBatter");
     var width = 346;
     var height = 346;//336
 
@@ -221,7 +225,7 @@ function drawBatterWait()
     BatterWaitCanvas.height = 192;
     var ctx = BatterWaitCanvas.getContext("2d");
 
-    var img = document.getElementById("BatterWait"); 
+    var img = document.getElementById("BatterWait");
     var width = 192;
     var height = 192;
 
@@ -234,7 +238,7 @@ function drawBatterWait()
 
     ctx.drawImage(img, BatterWaitCurrFrame * width, 0, width, height, 0, 0, width, height);
 }
-    
+
 export function BatterWaitOnload()
 {
     setInterval(drawBatterWait, 125);
@@ -251,7 +255,7 @@ function drawBatterHit()
     BatterHitCanvas.height = 192;
     var ctx = BatterHitCanvas.getContext("2d");
 
-    var img = document.getElementById("BatterHitting"); 
+    var img = document.getElementById("BatterHitting");
     var width = 192;
     var height = 192;
 
@@ -264,7 +268,7 @@ function drawBatterHit()
 
     ctx.drawImage(img, BatterHitCurrFrame * width, 0, width, height, 0, 0, width, height);
 }
-    
+
 export function BatterHitOnload()
 {
     setInterval(drawBatterHit, 188);
@@ -291,7 +295,7 @@ export function seeFiled()
         var ctx = a.getContext("2d");
         var img = document.getElementById("filedPic");
         ctx.drawImage(img,10,10);
-                    
+
         state = true;
     }
     else if(state == true)
@@ -469,19 +473,19 @@ function pitcherAction(batterAction)
         action.shPitch(batterAction);
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Slow High!</td></tr>";
         printScore();
-    }  
+    }
     if(randomNum == 4)
     {
         action.slPitch(batterAction);
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Slow Low!</td></tr>";
         printScore();
-    }    
+    }
     if(randomNum == 5)
     {
         action.fsPitch(batterAction);
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Fastball Straigh!</td></tr>";
         printScore();
-    }    
+    }
     if(randomNum == 6)
     {
         action.fiPitch(batterAction);
@@ -493,31 +497,31 @@ function pitcherAction(batterAction)
         action.fhPitch(batterAction);
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Fastball High!</td></tr>";
         printScore();
-    }    
+    }
     if(randomNum == 8)
     {
         action.flPitch(batterAction);
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Fastball Low!</td></tr>";
         printScore();
-    }    
+    }
     if(randomNum == 9)
     {
         action.coPitch(batterAction);
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Curveball Outside!</td></tr>";
         printScore();
-    }    
+    }
     if(randomNum == 10)
     {
         action.ciPitch(batterAction);
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Curveball Inside!</td></tr>";
         printScore();
-    }    
+    }
     if(randomNum == 11)
     {
         action.chPitch(batterAction);
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Curveball High!</td></tr>";
         printScore();
-    }    
+    }
     if(randomNum == 12)
     {
         action.clPitch(batterAction);
@@ -535,9 +539,9 @@ function printScore()
     BallStrikeOut();
     homeScore();
     threeBase();
-   
+
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<br><tr><td>" + "Round:" + action.inning + " " + "Decide your batter Action!</td></tr>";
-    
+
     var gamelog = document.getElementById("gameLog");
     gamelog.scrollTop = gamelog.scrollHeight;
 }
@@ -689,7 +693,7 @@ function threeBase()
     {
         document.getElementById("thirdBase").innerHTML = "&nbsp";
     }
- 
+
     if(action.first == true && first == false)
     {
         document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>runner on the first base!</td></tr>";
