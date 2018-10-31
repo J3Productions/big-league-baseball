@@ -17,10 +17,5 @@ export class Infielder extends PositionPlayer {
         /**
         * @extends {PositionPlayerClass}
         */
-        super(name, batStrengths, baseSpeed);
-                 /**
-        		* Position Infielder.
-             	* @type {string}
-             	*/
-        		this.position = (position);
+        super(name, position, batStrengths, baseSpeed);
     }

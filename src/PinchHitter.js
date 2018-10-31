@@ -17,10 +17,17 @@ export class PinchHitter extends PositionPlayer {
         /**
         * @extends {PositionPlayerClass}
         */
-        super(name, batStrengths);
-                 /**
-        		* Position PinchHitter.
-             	* @type {string}
-             	*/
-        		this.position = (position);
+        super(name, position, batStrengths, baseSpeed);
+        /**
+		*Hitters batting side of plate.
+     	* @type {string}
+     	*/
+        this.batSide= batSide;
+    }
+    /**
+	* Returns the baseball players batting side of plate.
+	* @return{string}  batSide
+	*/
+    getBatSide(){
+        return this.batSide;
     }

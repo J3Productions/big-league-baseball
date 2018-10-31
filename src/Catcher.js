@@ -17,10 +17,5 @@ export class Catcher extends PositionPlayer {
         /**
         * @extends {PositionPlayerClass}
         */
-        super(name, batStrengths, baseSpeed);
-                 /**
-        		* Position Catcher.
-             	* @type {string}
-             	*/
-        		this.position = (position);
+        super(name, position, batStrengths, baseSpeed);
     }

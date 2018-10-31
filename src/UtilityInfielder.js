@@ -13,14 +13,9 @@ export class UtilityInfielder extends Infielder {
         * @extends {InfielderClass}This class is a child of the Infielder class.
         * @param {string} positionType The players position
         */
-    constructor(name, position){
+    constructor(name, position, batStrengths, baseSpeed){
         /**
         * @extends {InfielderClass}
         */
-        super(name, batStrengths, baseSpeed);
-                 /**
-        		* Position UtilityInfielder.
-             	* @type {string}
-             	*/
-        		this.position = (position);
+        super(name, position, batStrengths, baseSpeed);
     }

@@ -25,7 +25,6 @@ export class ReliefPitcher extends Pitcher {
      	*/
         this.numInningsLeft = 3;
     }
-
     /**
 	* De-increments the number of innings the reliever can pitch.
 	* @return {num} Innings left to pitch.

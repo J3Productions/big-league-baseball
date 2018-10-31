@@ -22,7 +22,7 @@ export class Player {
 		* Position player or pitcher.
      	* @type {string}
      	*/
-		this.position = (position);
+		this.position = position;
         /**
 		*Hitters batting strengths.
      	* @type {string[]}
@@ -52,20 +52,6 @@ export class Player {
 	*/
     getPosition(){
         return this.position;
-    }
-	/**
-	* Gets if pitch thrown is batters strength.
-	* @return {array} batStrengths
-	*/
-    getbatStrengths(){
-		return this.batStrengths;
-    }
-	/**
-	* Gets the baseball players baserunning speed.
-	* @return {boolean}  baseSpeed
-	*/
-    getBaseSpeed(){
-        return this.baseSpeed;
     }
 	/**
 	* Gets whether the player has already been chosen by a team or not.

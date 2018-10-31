@@ -13,14 +13,9 @@ export class UtilityOutfielder extends Outfielder {
         * @extends {OutfielderClass}This class is a child of the Outfielder class.
         * @param {string} positionType The players position
         */
-    constructor(name, position){
+    constructor(name, position, batStrengths, baseSpeed){
         /**
         * @extends {OutfielderClass}
         */
-        super(name, batStrengths, baseSpeed);
-                 /**
-        		* Position UtilityOutfielder.
-             	* @type {string}
-             	*/
-        		this.position = (position);
+        super(name, position, batStrengths, baseSpeed);
     }
