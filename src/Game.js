@@ -504,7 +504,7 @@ export class Game {
 	 */
 	hit3() {
 		let roll = (Math.floor(Math.random() * 6) + 1) + (Math.floor(Math.random() * 6) + 1);
-		if (roll === 2 || roll == 12) {
+		if (roll === 2 || roll === 12) {
 			this.groundoutDoublePlay();
 		}
 		else if (roll === 3) {
