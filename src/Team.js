@@ -75,7 +75,7 @@ export class Team {
             this.arrOfPlayers[15]= new Pitcher("Miguel Rodriguez", "pitcher", [], false, ["ss","sh","sl","si","fh","fi","co","ch"], "lefty");
             this.arrOfPlayers[16]= new Pitcher("A. J. Heinrich", "pitcher", [], false, ["ss","sh","si","fs","fh","fl","cl","ci"], "righty");
             this.arrOfPlayers[17]= new Pitcher("Hideo Matsui", "pitcher", [], false, ["ss","sh","fs","fh","fl","fi","co","cl"], "lefty");
-            this.arrOfPlayers[18]= new ReliefPitcher("Clinton Dempsey", "pitcher", [], false, ["sh","sl","si","fs","fh","fl","co","ch","ci"], "righty",3);//3= number of innings he can pitch.
+            this.arrOfPlayers[18]= new ReliefPitcher("Clinton Dempsey", "pitcher", [], false, ["sh","sl","si","fs","fh","fl","co","ch","ci"], "righty");
         }
         else{
             this.arrOfPlayers[0]= new Catcher("Alex Canseco", "catcher", ["fi", "ci"], false);
@@ -98,7 +98,7 @@ export class Team {
             this.arrOfPlayers[15]= new Pitcher("Babe Ruth", "pitcher", [], false, ["sh","si","fs","fl","co","ch","cl","ci"], "righty");
             this.arrOfPlayers[16]= new Pitcher("Alcides Ortiz", "pitcher", [], false, ["ss","sh","sl","si","fl","fi","ch","ci"], "lefty");
             this.arrOfPlayers[17]= new Pitcher("Dennis  Eckard", "pitcher", [], false, ["ss","sh","sl","si","co","ch","cl","ci"], "righty");
-            this.arrOfPlayers[18]= new ReliefPitcher("Leslie Koufax", "reliefPitcher", [], false, ["ss","sh","sl","si","fi","co","ch","cl","ci"], "lefty", 3);//3= number of innings he can pitch.
+            this.arrOfPlayers[18]= new ReliefPitcher("Leslie Koufax", "reliefPitcher", [], false, ["ss","sh","sl","si","fi","co","ch","cl","ci"], "lefty");
         }
     }
     /**
