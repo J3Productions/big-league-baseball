@@ -319,9 +319,9 @@
                         "line": 16,
                         "column": 45
                       },
-                      "identifierName": "battStrengths"
+                      "identifierName": "batStrengths"
                     },
-                    "name": "battStrengths"
+                    "name": "batStrengths"
                   },
                   {
                     "type": "Identifier",
@@ -465,9 +465,9 @@
                                 "line": 20,
                                 "column": 42
                               },
-                              "identifierName": "battStrengths"
+                              "identifierName": "batStrengths"
                             },
-                            "name": "battStrengths"
+                            "name": "batStrengths"
                           }
                         ],
                         "leadingComments": null
@@ -1442,7 +1442,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "battStrengths",
+      "value": "batStrengths",
       "start": 859,
       "end": 872,
       "loc": {
@@ -1795,7 +1795,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "battStrengths",
+      "value": "batStrengths",
       "start": 987,
       "end": 1000,
       "loc": {

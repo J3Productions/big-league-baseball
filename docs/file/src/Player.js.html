@@ -13,10 +13,10 @@
 
 <header>
   <a href="./">Home</a>
-  
+
   <a href="identifiers.html">Reference</a>
   <a href="source.html">Source</a>
-  
+
   <div class="search-box">
   <span>
     <img src="./image/search.png">
@@ -28,7 +28,7 @@
 
 <nav class="navigation" data-ice="nav"><div>
   <ul>
-    
+
   <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Game.js~Game.html">Game</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Pitcher.js~Pitcher.html">Pitcher</a></span></span></li>
 <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Player.js~Player.html">Player</a></span></span></li>
@@ -67,7 +67,7 @@ export class Player {
 		*Hitters batting strengths.
      	* @type {string[]}
      	*/
-		this.battStrengths = battStrengths;
+		this.batStrengths = batStrengths;
 		/**
 		* Player baserunning speed - true if fast runner, false if not fast.
 		* @type {boolean}
@@ -95,12 +95,12 @@ export class Player {
     }
 	/**
 	* Gets if pitch thrown is batters strength.
-	* @return {array} battStrengths
+	* @return {array} batStrengths
 	*/
 
 	//@TODO//Gets if pitch thrown is batters strength, hit action, or just a boolean?*************
-    getBattStrengths(pitch){
-		return this.battStrengths;
+    getbatStrengths(pitch){
+		return this.batStrengths;
     }
 	/**
 	* Gets the baseball players baserunning speed.

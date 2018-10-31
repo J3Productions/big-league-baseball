@@ -660,9 +660,9 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/player.js~player#battstrengths",
-    "class/src/Player.js~Player.html#instance-member-battStrengths",
-    "src/Player.js~Player#battStrengths",
+    "src/player.js~player#batStrengths",
+    "class/src/Player.js~Player.html#instance-member-batStrengths",
+    "src/Player.js~Player#batStrengths",
     "member"
   ],
   [
@@ -678,9 +678,9 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/player.js~player#getbattstrengths",
-    "class/src/Player.js~Player.html#instance-method-getBattStrengths",
-    "src/Player.js~Player#getBattStrengths",
+    "src/player.js~player#getbatStrengths",
+    "class/src/Player.js~Player.html#instance-method-getbatStrengths",
+    "src/Player.js~Player#getbatStrengths",
     "method"
   ],
   [

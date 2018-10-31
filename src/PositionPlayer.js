@@ -13,7 +13,7 @@ export class PositionPlayer extends Player {
         * @extends {PlayerClass}This class is a child of the player class.
         * @param {string} positionType The players position
         */
-    constructor(name, position, battStrengths, baseSpeed){
+    constructor(name, position, batStrengths, baseSpeed){
         /**
         * @extends {PlayerClass}
         */
@@ -22,7 +22,7 @@ export class PositionPlayer extends Player {
 		*Hitters batting strengths.
      	* @type {string[]}
      	*/
-		this.battStrengths = battStrengths;
+		this.batStrengths = batStrengths;
 		/**
 		* Player baserunning speed - true if fast runner, false if not fast.
 		* @type {boolean}
@@ -38,10 +38,10 @@ export class PositionPlayer extends Player {
         }
     	/**
     	* Gets if pitch thrown is batters strength.
-    	* @return {array} battStrengths
+    	* @return {array} batStrengths
     	*/
-        getBattStrengths(){
-    		return this.battStrengths;
+        getbatStrengths(){
+    		return this.batStrengths;
         }
     	/**
     	* Gets the baseball players baserunning speed.

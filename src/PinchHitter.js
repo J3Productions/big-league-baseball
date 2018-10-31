@@ -13,11 +13,11 @@ export class PinchHitter extends PositionPlayer {
         * @extends {PositionPlayerClass}This class is a child of the PositionPlayer class.
         * @param {string} positionType The players position
         */
-    constructor(name, position, battStrengths, baseSpeed){
+    constructor(name, position, batStrengths, baseSpeed){
         /**
         * @extends {PositionPlayerClass}
         */
-        super(name, battStrengths, baseSpeed);
+        super(name, batStrengths, baseSpeed);
                  /**
         		* Position PinchHitter.
              	* @type {string}

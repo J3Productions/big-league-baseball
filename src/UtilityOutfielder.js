@@ -17,7 +17,7 @@ export class UtilityOutfielder extends Outfielder {
         /**
         * @extends {OutfielderClass}
         */
-        super(name, battStrengths, baseSpeed);
+        super(name, batStrengths, baseSpeed);
                  /**
         		* Position UtilityOutfielder.
              	* @type {string}

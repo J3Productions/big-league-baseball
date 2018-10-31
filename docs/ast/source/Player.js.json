@@ -626,9 +626,9 @@
                                 "line": 30,
                                 "column": 20
                               },
-                              "identifierName": "battStrengths"
+                              "identifierName": "batStrengths"
                             },
-                            "name": "battStrengths"
+                            "name": "batStrengths"
                           },
                           "computed": false,
                           "leadingComments": null
@@ -646,9 +646,9 @@
                               "line": 30,
                               "column": 36
                             },
-                            "identifierName": "battStrengths"
+                            "identifierName": "batStrengths"
                           },
-                          "name": "battStrengths"
+                          "name": "batStrengths"
                         },
                         "leadingComments": null
                       },
@@ -1283,7 +1283,7 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\n\t* Gets if pitch thrown is batters strength.\n\t* @return {array} battStrengths\n\t",
+                    "value": "*\n\t* Gets if pitch thrown is batters strength.\n\t* @return {array} batStrengths\n\t",
                     "start": 1632,
                     "end": 1717,
                     "loc": {
@@ -1344,9 +1344,9 @@
                       "line": 62,
                       "column": 20
                     },
-                    "identifierName": "getBattStrengths"
+                    "identifierName": "getbatStrengths"
                   },
-                  "name": "getBattStrengths",
+                  "name": "getbatStrengths",
                   "leadingComments": null
                 },
                 "kind": "method",
@@ -1444,9 +1444,9 @@
                               "line": 63,
                               "column": 27
                             },
-                            "identifierName": "battStrengths"
+                            "identifierName": "batStrengths"
                           },
-                          "name": "battStrengths"
+                          "name": "batStrengths"
                         },
                         "computed": false
                       }
@@ -1458,7 +1458,7 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\n\t* Gets if pitch thrown is batters strength.\n\t* @return {array} battStrengths\n\t",
+                    "value": "*\n\t* Gets if pitch thrown is batters strength.\n\t* @return {array} batStrengths\n\t",
                     "start": 1632,
                     "end": 1717,
                     "loc": {
@@ -2053,7 +2053,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n\t* Gets if pitch thrown is batters strength.\n\t* @return {array} battStrengths\n\t",
+      "value": "*\n\t* Gets if pitch thrown is batters strength.\n\t* @return {array} batStrengths\n\t",
       "start": 1632,
       "end": 1717,
       "loc": {
@@ -3176,7 +3176,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "battStrengths",
+      "value": "batStrengths",
       "start": 1068,
       "end": 1081,
       "loc": {
@@ -3229,7 +3229,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "battStrengths",
+      "value": "batStrengths",
       "start": 1084,
       "end": 1097,
       "loc": {
@@ -4200,7 +4200,7 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n\t* Gets if pitch thrown is batters strength.\n\t* @return {array} battStrengths\n\t",
+      "value": "*\n\t* Gets if pitch thrown is batters strength.\n\t* @return {array} batStrengths\n\t",
       "start": 1632,
       "end": 1717,
       "loc": {
@@ -4242,7 +4242,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "getBattStrengths",
+      "value": "getbatStrengths",
       "start": 1819,
       "end": 1835,
       "loc": {
@@ -4451,7 +4451,7 @@
         "postfix": false,
         "binop": null
       },
-      "value": "battStrengths",
+      "value": "batStrengths",
       "start": 1858,
       "end": 1871,
       "loc": {

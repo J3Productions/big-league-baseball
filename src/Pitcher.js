@@ -14,17 +14,12 @@ export class Pitcher extends Player {
         * @param {string} pitcherType Type of pitcher.
         * @param {string[]} arsenal The type of pitches the batter hits best.
         */
-    constructor(name, position, battStrengths, baseSpeed, pitches){
+    constructor(name, position, batStrengths, baseSpeed, pitches){
         /**
         * @extends {PlayerClass}
         */
-        super(name, battStrengths);
+        super(name, position, batStrengths);
 		/**
-		* Position player or pitcher.
-     	* @type {string}
-     	*/
-		this.position = String(position);
-        /**
 		* Pitches thrown by this picture.
      	* @type {string[]}
      	*/

@@ -96,7 +96,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	ssPitch(batter) {
-		if (batter === "ss" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("ss")) {
+		if (batter === "ss" && this.homeTeam.getTeam()[this.homeAB].getbatStrengths().includes("ss")) {
 			this.hit6();
 		}
 		else if (batter === "ss") {
@@ -127,7 +127,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	shPitch(batter) {
-		if (batter === "sh" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("sh")) {
+		if (batter === "sh" && this.homeTeam.getTeam()[this.homeAB].getbatStrengths().includes("sh")) {
 			this.hit6();
 		}
 		else if (batter === "sh") {
@@ -155,7 +155,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	slPitch(batter) {
-		if (batter === "sl" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("sl")) {
+		if (batter === "sl" && this.homeTeam.getTeam()[this.homeAB].getbatStrengths().includes("sl")) {
 			this.hit6();
 		}
 		else if (batter === "sl") {
@@ -183,7 +183,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	siPitch(batter) {
-		if (batter === "si" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("si")) {
+		if (batter === "si" && this.homeTeam.getTeam()[this.homeAB].getbatStrengths().includes("si")) {
 			this.hit6();
 		}
 		else if (batter === "si") {
@@ -211,7 +211,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	fsPitch(batter) {
-		if (batter === "fs" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("fs")) {
+		if (batter === "fs" && this.homeTeam.getTeam()[this.homeAB].getbatStrengths().includes("fs")) {
 			this.hit6();
 		}
 		else if (batter === "fs") {
@@ -242,7 +242,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	fhPitch(batter) {
-		if (batter === "fh" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("fh")) {
+		if (batter === "fh" && this.homeTeam.getTeam()[this.homeAB].getbatStrengths().includes("fh")) {
 			this.hit6();
 		}
 		else if (batter === "fh") {
@@ -270,7 +270,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	flPitch(batter) {
-		if (batter === "fl" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("fl")) {
+		if (batter === "fl" && this.homeTeam.getTeam()[this.homeAB].getbatStrengths().includes("fl")) {
 			this.hit6();
 		}
 		else if (batter === "fl") {
@@ -298,7 +298,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	fiPitch(batter) {
-		if (batter === "fi" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("fi")) {
+		if (batter === "fi" && this.homeTeam.getTeam()[this.homeAB].getbatStrengths().includes("fi")) {
 			this.hit6();
 		}
 		else if (batter === "fi") {
@@ -329,7 +329,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	coPitch(batter) {
-		if (batter === "co" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("co")) {
+		if (batter === "co" && this.homeTeam.getTeam()[this.homeAB].getbatStrengths().includes("co")) {
 			this.hit6();
 		}
 		else if (batter === "co") {
@@ -360,7 +360,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	chPitch(batter) {
-		if (batter === "ch" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("ch")) {
+		if (batter === "ch" && this.homeTeam.getTeam()[this.homeAB].getbatStrengths().includes("ch")) {
 			this.hit6();
 		}
 		else if (batter === "ch") {
@@ -385,7 +385,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	clPitch(batter) {
-		if (batter === "cl" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("cl")) {
+		if (batter === "cl" && this.homeTeam.getTeam()[this.homeAB].getbatStrengths().includes("cl")) {
 			this.hit6();
 		}
 		else if (batter === "cl") {
@@ -413,7 +413,7 @@ export class Game {
 	 * @param {string} batter The batter's action
 	 */
 	ciPitch(batter) {
-		if (batter === "ci" && this.homeTeam.getTeam()[this.homeAB].getBattStrengths().includes("ci")) {
+		if (batter === "ci" && this.homeTeam.getTeam()[this.homeAB].getbatStrengths().includes("ci")) {
 			this.hit6();
 		}
 		else if (batter === "ci") {
