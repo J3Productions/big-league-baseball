@@ -24,16 +24,6 @@ export class Player {
      	*/
 		this.position = position;
         /**
-		*Hitters batting strengths.
-     	* @type {string[]}
-     	*/
-		this.batStrengths = batStrengths;
-		/**
-		* Player baserunning speed - true if fast runner, false if not fast.
-		* @type {boolean}
-		*/
-		this.baseSpeed = baseSpeed;
-        /**
         * Is available to be selected or not.
         * @type {boolean}
         */
