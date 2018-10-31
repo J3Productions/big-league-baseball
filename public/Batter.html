@@ -133,11 +133,21 @@
             Your browser does not support the HTML5 canvas tag.
         </canvas>
 
+
+        <canvas id="BatterWaitting">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+        <img id="BatterWait" src="./assets/BatterWaitting_css_sprites.png" style="display: none;">
+
+
+
+
         <img id="filedPic" src="./assets/filedView.jpg" style="display: none;">
     </div>
 
     <script type="module">
-        import { initBatter, seeFiled, take, SS, SI, SH, SL, FS,FI, FH, FL, CO, CI, CH, CL } from "./main.js";
+        import { initBatter, seeFiled, take, SS, SI, SH, SL, FS,FI, FH, FL, CO, CI, CH, CL, BatterWaitOnload } from "./main.js";
                 document.getElementById("take").addEventListener("click", take);
                 document.getElementById("ss").addEventListener("click", SS);
                 document.getElementById("si").addEventListener("click", SI);
@@ -153,7 +163,17 @@
                 document.getElementById("cl").addEventListener("click", CL);
 
         window.addEventListener("load", initBatter, false);
+        window.addEventListener("load", BatterWaitOnload);
     </script>
-
+    <style>
+        #BatterWaitting
+        {
+            	background:rgba(255,255,255,0.05);
+	            position:absolute;
+	            z-index:1;
+	            top:100px;
+	            left:0px;
+        }
+    </style>
 </body>
 </html>

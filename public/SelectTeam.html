@@ -7,15 +7,19 @@
     <canvas id="SelectMember" style="border:1px solid #d3d3d3;">
             Your browser does not support the HTML5 canvas tag.
     </canvas>
-    <canvas id="testC">
+    <canvas id="NormalPlayer">
+            Your browser does not support the HTML5 canvas tag.
+    </canvas>
+    <canvas id="Catcher">
             Your browser does not support the HTML5 canvas tag.
     </canvas>
 
+
     <img id="SelectPic" src="./assets/SelectView.jpg" style="display: none;">
-    <img id="test" src="./assets/Normal_Player_CSS_Sprite.png" style="display: none;">
+    <img id="normalBatter" src="./assets/Normal_Player_CSS_Sprite.png" style="display: none;">
     <img id="test2" src="./assets/test.png" style="display: none;">
-    <img id="test3" src="./assets/Catcher_css_sprites.png" style="display: none;">
-        
+    <img id="CatcherImg" src="./assets/Catcher_css_sprites.png" style="display: none;"> 
+
 
     <a href="Batter.html">
         <button id="startMatch" style="position:absolute;">Lets start match!</button>
@@ -24,20 +28,30 @@
     </div>
 
     <script type="module">
-        import { initSelectTeam, createTeam, imgOnload } from "./main.js";
+        import { initSelectTeam, createTeam, imgOnload, BatterOnload, CatcherOnload } from "./main.js";
         document.getElementById("startMatch").addEventListener("click", createTeam);
         window.addEventListener("load", initSelectTeam, false);
-        window.addEventListener("load", imgOnload);
+        //window.addEventListener("load", imgOnload);
+        window.addEventListener("load", BatterOnload);
+        window.addEventListener("load", CatcherOnload);
 
     </script>
     <style>
-        #testC
+        #NormalPlayer
         {
             	background:rgba(255,255,255,0.05);
 	            position:absolute;
 	            z-index:1;
-	            top:0px;
+	            top:100px;
 	            left:0px;
+        }
+        #Catcher
+        {
+            	background:rgba(255,255,255,0.05);
+	            position:absolute;
+	            z-index:1;
+	            top:100px;
+	            left:400px;
         }
     </style>
 
