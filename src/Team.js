@@ -54,7 +54,7 @@ export class Team {
     * POSTCONDITION: No return.
     */
     function createPlayers(team){
-        if(team==home){
+        if(team=="home"){
             this.arrOfPlayers[0]= new Catcher("Jielong GoLong", "catcher", ["co", "ch"], false);
             this.arrOfPlayers[1]= new Infielder("Jacob \"The Bull\" Parnell", "1base", ["fs", "fl"], false);
             this.arrOfPlayers[2]= new Infielder("Rocco Manzeene", "short", ["ci"], false);
