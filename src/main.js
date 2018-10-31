@@ -240,6 +240,36 @@ export function BatterWaitOnload()
     setInterval(drawBatterWait, 125);
 }
 
+
+var BatterHitFrames = 11;
+var BatterHitCurrFrame = 0;
+
+function drawBatterHit()
+{
+    var BatterHitCanvas = document.getElementById("BatterHit");
+    BatterHitCanvas.width = 192;
+    BatterHitCanvas.height = 192;
+    var ctx = BatterHitCanvas.getContext("2d");
+
+    var img = document.getElementById("BatterHitting"); 
+    var width = 192;
+    var height = 192;
+
+    ctx.clearRect(0, 0, width, height);
+    BatterHitCurrFrame++;
+    if(BatterHitCurrFrame == BatterHitFrames)
+    {
+        BatterHitCurrFrame = 0;
+    }
+
+    ctx.drawImage(img, BatterHitCurrFrame * width, 0, width, height, 0, 0, width, height);
+}
+    
+export function BatterHitOnload()
+{
+    setInterval(drawBatterHit, 188);
+}
+
 /**
 *   change the canvas to see what happend when runner on the base. Not surport in prototype.
 **/
