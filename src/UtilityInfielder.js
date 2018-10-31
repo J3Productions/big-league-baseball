@@ -19,3 +19,4 @@ export class UtilityInfielder extends Infielder {
         */
         super(name, position, batStrengths, baseSpeed);
     }
+}

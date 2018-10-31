@@ -19,3 +19,4 @@ export class Catcher extends PositionPlayer {
         */
         super(name, position, batStrengths, baseSpeed);
     }
+}

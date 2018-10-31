@@ -31,3 +31,4 @@ export class PinchHitter extends PositionPlayer {
     getBatSide(){
         return this.batSide;
     }
+}

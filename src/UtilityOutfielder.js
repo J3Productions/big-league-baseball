@@ -19,3 +19,4 @@ export class UtilityOutfielder extends Outfielder {
         */
         super(name, position, batStrengths, baseSpeed);
     }
+}

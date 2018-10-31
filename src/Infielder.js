@@ -19,3 +19,4 @@ export class Infielder extends PositionPlayer {
         */
         super(name, position, batStrengths, baseSpeed);
     }
+}
