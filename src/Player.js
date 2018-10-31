@@ -12,7 +12,7 @@ export class Player {
 		* @param {string[]} batStrengths The type of pitches the batter hits best.
 		* @param {boolean} baseSpeed The players baserunning speed
 		*/
-	constructor(name, position, batStrengths, baseSpeed) {
+	constructor(name, position) {
 		/**
 		* Baseball player name.
      	* @type {string}

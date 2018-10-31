@@ -43,7 +43,7 @@ export class Team {
 	     * Calls function create players to build the team
 	     * @type {func}
 	     */
-        this.createPlayers(this.team);
+        this.createPlayers(team);
     }
 
     /**
