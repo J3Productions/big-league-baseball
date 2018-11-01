@@ -144,14 +144,21 @@
             Your browser does not support the HTML5 canvas tag.
         </canvas>
 
-        <img id="BatterHitting" src="./assets/BatterHit_css_sprites.png" style="display: none;">
+        <img id="BatterHitting" src="./assets/Batter_Left_Hit_css_sprites.png" style="display: none;">
 
+
+        <canvas id="PitcherWait">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+        <img id="PitcherWaiting" src="./assets/Pitcher_Waiting_css_sprites.png" style="display: none;">
+        
 
         <img id="filedPic" src="./assets/filedView.jpg" style="display: none;">
     </div>
 
     <script type="module">
-        import { initBatter, seeFiled, take, SS, SI, SH, SL, FS,FI, FH, FL, CO, CI, CH, CL, BatterWaitOnload, BatterHitOnload } from "./main.js";
+        import { initBatter, seeFiled, take, SS, SI, SH, SL, FS,FI, FH, FL, CO, CI, CH, CL, BatterWaitOnload, BatterHitOnload, PitcherWaitOnload } from "./main.js";
                 document.getElementById("take").addEventListener("click", take);
                 document.getElementById("ss").addEventListener("click", SS);
                 document.getElementById("si").addEventListener("click", SI);
@@ -169,6 +176,7 @@
         window.addEventListener("load", initBatter, false);
         window.addEventListener("load", BatterWaitOnload);
         window.addEventListener("load", BatterHitOnload);
+        window.addEventListener("load", PitcherWaitOnload);
     </script>
     <style>
         #BatterWaitting
@@ -186,6 +194,14 @@
 	            z-index:1;
 	            top:100px;
 	            left:300px;
+        }
+        #PitcherWait
+        {
+            	background:rgba(255,255,255,0.05);
+	            position:absolute;
+	            z-index:1;
+	            top:300px;
+	            left:0px;
         }
     </style>
 </body>

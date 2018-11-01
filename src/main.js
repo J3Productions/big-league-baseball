@@ -252,12 +252,12 @@ function drawBatterHit()
 {
     var BatterHitCanvas = document.getElementById("BatterHit");
     BatterHitCanvas.width = 192;
-    BatterHitCanvas.height = 192;
+    BatterHitCanvas.height = 210;
     var ctx = BatterHitCanvas.getContext("2d");
 
     var img = document.getElementById("BatterHitting");
     var width = 192;
-    var height = 192;
+    var height = 210;
 
     ctx.clearRect(0, 0, width, height);
     BatterHitCurrFrame++;
@@ -272,6 +272,37 @@ function drawBatterHit()
 export function BatterHitOnload()
 {
     setInterval(drawBatterHit, 188);
+}
+
+
+var PitcherWaitFrames = 16;
+var PitcherWaitCurrFrames = 0;
+
+function drawPitcherWait()
+{
+    var PitcherWaitCanvas = document.getElementById("PitcherWait");
+    PitcherWaitCanvas.width = 128;
+    PitcherWaitCanvas.height = 140;
+    var ctx = PitcherWaitCanvas.getContext("2d");
+
+    var img = document.getElementById("PitcherWaiting");
+    var width = 128;
+    var height = 140;
+
+    ctx.clearRect(0, 0, width, height);
+
+    PitcherWaitCurrFrames++;
+    if(PitcherWaitCurrFrames == PitcherWaitFrames)
+    {
+        PitcherWaitCurrFrames = 0;
+    }
+
+    ctx.drawImage(img, PitcherWaitCurrFrames * width, 0, width, height, 0, 0, width, height);
+}
+
+export function PitcherWaitOnload()
+{
+    setInterval(drawPitcherWait, 188);
 }
 
 /**
