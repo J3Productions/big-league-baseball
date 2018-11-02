@@ -201,7 +201,7 @@ export function initBatter()
 
     var ctx = a.getContext("2d");
     var img = document.getElementById("viewPic");
-    ctx.drawImage(img, 10, 10);
+    //ctx.drawImage(img, 10, 10);
 
     var gamelog = document.getElementById("gameLog");
     gamelog.scrollTop = gamelog.scrollHeight;
@@ -303,6 +303,37 @@ function drawPitcherWait()
 export function PitcherWaitOnload()
 {
     setInterval(drawPitcherWait, 188);
+}
+
+
+var PitcherPitchFrames = 5;
+var PitcherPitchCurrFrames = 0;
+
+function drawPitcherPitch()
+{
+    var PitcherPitchCanvas = document.getElementById("PitcherPitch");
+    PitcherPitchCanvas.width = 128;
+    PitcherPitchCanvas.height = 140;
+    var ctx = PitcherPitchCanvas.getContext("2d");
+
+    var img = document.getElementById("PitcherPitching");
+    var width = 128;
+    var height = 140;
+
+    ctx.clearRect(0, 0, width, height);
+
+    PitcherPitchCurrFrames++;
+    if(PitcherPitchCurrFrames == PitcherPitchFrames)
+    {
+        PitcherPitchCurrFrames = 0;
+    }
+
+    ctx.drawImage(img, PitcherPitchCurrFrames * width, 0, width, height, 0, 0, width, height);
+}
+
+export function PitcherPitchOnload()
+{
+    setInterval(drawPitcherPitch, 300);
 }
 
 /**
