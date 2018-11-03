@@ -15,7 +15,7 @@
     </canvas>
 
 
-    <img id="SelectPic" src="./assets/SelectView.jpg" style="display: none;">
+    <img id="SelectPic" src="./assets/prototypeExample/SelectView.jpg" style="display: none;">
     <img id="normalBatter" src="./assets/Normal_Player_CSS_Sprite.png" style="display: none;">
     <img id="test2" src="./assets/test.png" style="display: none;">
     <img id="CatcherImg" src="./assets/Catcher_css_sprites.png" style="display: none;"> 
@@ -28,7 +28,8 @@
     </div>
 
     <script type="module">
-        import { initSelectTeam, createTeam, imgOnload, BatterOnload, CatcherOnload } from "./main.js";
+        import { initSelectTeam, createTeam } from "./main.js";      
+        import { imgOnload, BatterOnload, CatcherOnload } from "./Animation.js";
         document.getElementById("startMatch").addEventListener("click", createTeam);
         window.addEventListener("load", initSelectTeam, false);
         //window.addEventListener("load", imgOnload);

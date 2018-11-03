@@ -53,6 +53,38 @@ export function initStartPage()
 
 
 /**
+*   This method render the batter view html page with canvas and two table represent the action opinions and game log. The size canvas will auto change with user web browser.
+**/
+export function initBatter()
+{
+    var screenWidth = document.documentElement.clientWidth;
+    var screenHeight = document.documentElement.clientHeight;
+    var a = document.getElementById("batterView");
+    a.width = (screenWidth * 0.74);
+    a.height = (screenHeight * 0.73);
+
+    var ctx = a.getContext("2d");
+    var img = document.getElementById("viewPic");
+    //ctx.drawImage(img, 10, 10);
+
+    var gamelog = document.getElementById("gameLog");
+    gamelog.scrollTop = gamelog.scrollHeight;
+    gamelog.style.height = (screenHeight * 0.725) + "px";
+
+    var action = document.getElementById("batterAction");
+    action.style.height = (screenHeight * 0.245) + "px";
+
+    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Match start!</td></tr>" + "<tr><td>Decide your batter action.</td></tr>";
+
+    var PitcherPitchCanvas = document.getElementById("PitcherPitch");
+    var BatterHitCanvas = document.getElementById("BatterHit");
+    PitcherPitchCanvas.style.filter = "opacity(0%)";
+    PitcherPitchCanvas.style.WebkitFilter = "opacity(0%)";
+    BatterHitCanvas.style.filter = "opacity(0%)";
+    BatterHitCanvas.style.WebkitFilter = "opacity(0%)";
+}
+
+/**
 *   This method create two teams.
 **/
 export function createTeam()
@@ -84,257 +116,6 @@ export function initSelectTeam()
     button.style.top = String(screenHeight * 0.8) + "px";
 }
 
-
-var g = 20;
-var j = 0;
-
-
-function drawImg()
-{
-    var selectCanvas = document.getElementById("SelectMember");
-    var ctx = selectCanvas.getContext("2d");
-
-    var img2 = document.getElementById("test2");
-    var width2 = 300;
-    var height2 = 300;
-
-    ctx.clearRect(0, 0, 700, 600);
-    j++;
-    if(j == g)
-    {
-        j == 0;
-    }
-    ctx.drawImage(img2, j * width2, 0, width2, height2, 0, 0, width2, height2);
-}
-
-
-
-var BatterFrames = 7;
-var BatterCurrFrame = 0;
-
-function drawBatterSelect()
-{
-    var BatterCanvas = document.getElementById("NormalPlayer");
-    BatterCanvas.width = 346;
-    BatterCanvas.height = 346;
-    var ctx = BatterCanvas.getContext("2d");
-
-    var normal = document.getElementById("normalBatter");
-    var width = 346;
-    var height = 346;//336
-
-    ctx.clearRect(0, 0, width, height);
-    BatterCurrFrame++;
-    if(BatterCurrFrame == BatterFrames)
-    {
-        BatterCurrFrame = 0;
-    }
-
-    ctx.drawImage(normal, BatterCurrFrame * width, 0, width, height, 0, 0, width, height);
-}
-
-
-
-var CatcherFrames = 21;
-var CatcherCurrFrame = 0;
-
-function drawCatcherSelect()
-{
-    var CatcherCanvas = document.getElementById("Catcher");
-    CatcherCanvas.width = 336;
-    CatcherCanvas.height = 336;
-    var ctx = CatcherCanvas.getContext("2d");
-
-    var img = document.getElementById("CatcherImg");
-    var width = 336;
-    var height = 336;
-
-    ctx.clearRect(0, 0, width, height);
-
-    CatcherCurrFrame++;
-    if(CatcherCurrFrame == CatcherFrames)
-    {
-        CatcherCurrFrame = 0;
-    }
-    if(CatcherCurrFrame == 4)
-    {
-        CatcherCurrFrame++;
-    }
-    if(CatcherCurrFrame == 5 || CatcherCurrFrame == 1 || CatcherCurrFrame == 19)
-    {
-        CatcherCurrFrame++;
-    }
-    if(CatcherCurrFrame == 6)
-    {
-        CatcherCurrFrame++;
-    }
-
-    ctx.drawImage(img, CatcherCurrFrame * width, 0, width, height, 0, 0, width, height);
-}
-
-export function BatterOnload()
-{
-    setInterval(drawBatterSelect, 125);
-}
-
-export function CatcherOnload()
-{
-    setInterval(drawCatcherSelect, 125);
-}
-
-export function imgOnload()
-{
-    setInterval(drawImg, 125);
-}
-
-
-/**
-*   This method render the batter view html page with canvas and two table represent the action opinions and game log. The size canvas will auto change with user web browser.
-**/
-export function initBatter()
-{
-    var screenWidth = document.documentElement.clientWidth;
-    var screenHeight = document.documentElement.clientHeight;
-    var a = document.getElementById("batterView");
-    a.width = (screenWidth * 0.74);
-    a.height = (screenHeight * 0.73);
-
-    var ctx = a.getContext("2d");
-    var img = document.getElementById("viewPic");
-    //ctx.drawImage(img, 10, 10);
-
-    var gamelog = document.getElementById("gameLog");
-    gamelog.scrollTop = gamelog.scrollHeight;
-    gamelog.style.height = (screenHeight * 0.725) + "px";
-
-    var action = document.getElementById("batterAction");
-    action.style.height = (screenHeight * 0.245) + "px";
-
-    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Match start!</td></tr>" + "<tr><td>Decide your batter action.</td></tr>";
-
-}
-
-
-var BatterWaitFrames = 17;
-var BatterWaitCurrFrame = 0;
-
-function drawBatterWait()
-{
-    var BatterWaitCanvas = document.getElementById("BatterWaitting");
-    BatterWaitCanvas.width = 192;
-    BatterWaitCanvas.height = 192;
-    var ctx = BatterWaitCanvas.getContext("2d");
-
-    var img = document.getElementById("BatterWait");
-    var width = 192;
-    var height = 192;
-
-    ctx.clearRect(0, 0, width, height);
-    BatterWaitCurrFrame++;
-    if(BatterWaitCurrFrame == BatterWaitFrames)
-    {
-        BatterWaitCurrFrame = 0;
-    }
-
-    ctx.drawImage(img, BatterWaitCurrFrame * width, 0, width, height, 0, 0, width, height);
-}
-
-export function BatterWaitOnload()
-{
-    setInterval(drawBatterWait, 125);
-}
-
-
-var BatterHitFrames = 11;
-var BatterHitCurrFrame = 0;
-
-function drawBatterHit()
-{
-    var BatterHitCanvas = document.getElementById("BatterHit");
-    BatterHitCanvas.width = 192;
-    BatterHitCanvas.height = 210;
-    var ctx = BatterHitCanvas.getContext("2d");
-
-    var img = document.getElementById("BatterHitting");
-    var width = 192;
-    var height = 210;
-
-    ctx.clearRect(0, 0, width, height);
-    BatterHitCurrFrame++;
-    if(BatterHitCurrFrame == BatterHitFrames)
-    {
-        BatterHitCurrFrame = 0;
-    }
-
-    ctx.drawImage(img, BatterHitCurrFrame * width, 0, width, height, 0, 0, width, height);
-}
-
-export function BatterHitOnload()
-{
-    setInterval(drawBatterHit, 188);
-}
-
-
-var PitcherWaitFrames = 16;
-var PitcherWaitCurrFrames = 0;
-
-function drawPitcherWait()
-{
-    var PitcherWaitCanvas = document.getElementById("PitcherWait");
-    PitcherWaitCanvas.width = 128;
-    PitcherWaitCanvas.height = 140;
-    var ctx = PitcherWaitCanvas.getContext("2d");
-
-    var img = document.getElementById("PitcherWaiting");
-    var width = 128;
-    var height = 140;
-
-    ctx.clearRect(0, 0, width, height);
-
-    PitcherWaitCurrFrames++;
-    if(PitcherWaitCurrFrames == PitcherWaitFrames)
-    {
-        PitcherWaitCurrFrames = 0;
-    }
-
-    ctx.drawImage(img, PitcherWaitCurrFrames * width, 0, width, height, 0, 0, width, height);
-}
-
-export function PitcherWaitOnload()
-{
-    setInterval(drawPitcherWait, 188);
-}
-
-
-var PitcherPitchFrames = 5;
-var PitcherPitchCurrFrames = 0;
-
-function drawPitcherPitch()
-{
-    var PitcherPitchCanvas = document.getElementById("PitcherPitch");
-    PitcherPitchCanvas.width = 128;
-    PitcherPitchCanvas.height = 140;
-    var ctx = PitcherPitchCanvas.getContext("2d");
-
-    var img = document.getElementById("PitcherPitching");
-    var width = 128;
-    var height = 140;
-
-    ctx.clearRect(0, 0, width, height);
-
-    PitcherPitchCurrFrames++;
-    if(PitcherPitchCurrFrames == PitcherPitchFrames)
-    {
-        PitcherPitchCurrFrames = 0;
-    }
-
-    ctx.drawImage(img, PitcherPitchCurrFrames * width, 0, width, height, 0, 0, width, height);
-}
-
-export function PitcherPitchOnload()
-{
-    setInterval(drawPitcherPitch, 300);
-}
 
 /**
 *   change the canvas to see what happend when runner on the base. Not surport in prototype.

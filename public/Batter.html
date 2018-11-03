@@ -18,7 +18,7 @@
                             <td><button id="sl">Slow Low</button></td>
                         </tr>
                         <tr>
-                            <td>&nbsp</td>
+                            <td><button id="AnimationHit">Hit Animation</button></td>
                             <td><button id="fs">Fastball Straight</button></td>
                             <td><button id="fi">Fastball Inside</button></td>
                             <td><button id="fh">Fastball High</button></td>
@@ -125,7 +125,7 @@
             Your browser does not support the HTML5 canvas tag.
         </canvas>
 
-        <img id="viewPic" src="./assets/batterView.jpg" style="display: none;">
+        <img id="viewPic" src="./assets/prototypeExample/batterView.jpg" style="display: none;">
     </div>
 
       <div align="left">
@@ -161,12 +161,14 @@
         <img id="PitcherPitching" src="./assets/Pitcher_Pitch_css_sprites.png" style="display: none;">
         
 
-        <img id="filedPic" src="./assets/filedView.jpg" style="display: none;">
+        <img id="filedPic" src="./assets/prototypeExample/filedView.jpg" style="display: none;">
     </div>
 
     <script type="module">
-        import { initBatter, seeFiled, take, SS, SI, SH, SL, FS,FI, FH, FL, CO, CI, CH, CL, BatterWaitOnload, BatterHitOnload, PitcherWaitOnload, PitcherPitchOnload } from "./main.js";
+        import { initBatter, seeFiled, take, SS, SI, SH, SL, FS,FI, FH, FL, CO, CI, CH, CL} from "./main.js";
+        import { BatterWaitOnload, BatterHitOnload, PitcherWaitOnload, PitcherPitchOnload, drawPitchHit } from "./Animation.js";
                 document.getElementById("take").addEventListener("click", take);
+                document.getElementById("AnimationHit").addEventListener("click", drawPitchHit);
                 document.getElementById("ss").addEventListener("click", SS);
                 document.getElementById("si").addEventListener("click", SI);
                 document.getElementById("sh").addEventListener("click", SH);
@@ -182,9 +184,9 @@
 
         window.addEventListener("load", initBatter, false);
         window.addEventListener("load", BatterWaitOnload);
-        window.addEventListener("load", BatterHitOnload);
+        //window.addEventListener("load", BatterHitOnload);
         window.addEventListener("load", PitcherWaitOnload);
-        window.addEventListener("load", PitcherPitchOnload);
+        //window.addEventListener("load", PitcherPitchOnload);
     </script>
     <style>
         #BatterWaitting
@@ -192,15 +194,16 @@
             	background:rgba(255,255,255,0.05);
 	            position:absolute;
 	            z-index:1;
-	            top:100px;
-	            left:0px;
+	            top:350px;
+	            left:300px;
+                transform: rotateY(180deg);
         }
         #BatterHit
         {
             	background:rgba(255,255,255,0.05);
 	            position:absolute;
 	            z-index:1;
-	            top:100px;
+	            top:330px;
 	            left:300px;
         }
         #PitcherWait
@@ -208,16 +211,18 @@
             	background:rgba(255,255,255,0.05);
 	            position:absolute;
 	            z-index:1;
-	            top:300px;
-	            left:0px;
+	            top:60px;
+	            left:320px;
+                transform: rotateY(180deg);
         }
         #PitcherPitch
         {
             	background:rgba(255,255,255,0.05);
 	            position:absolute;
 	            z-index:1;
-	            top:300px;
-	            left:300px;
+	            top:60px;
+	            left:320px;
+                transform: rotateY(180deg);
         }
     </style>
 </body>
