@@ -82,6 +82,10 @@ export function initBatter()
     PitcherPitchCanvas.style.WebkitFilter = "opacity(0%)";
     BatterHitCanvas.style.filter = "opacity(0%)";
     BatterHitCanvas.style.WebkitFilter = "opacity(0%)";
+
+    var BallCanvas = document.getElementById("Ball");
+    BallCanvas.style.top = "80px";
+    BallCanvas.style.left = "330px";
 }
 
 /**

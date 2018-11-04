@@ -160,13 +160,19 @@
 
         <img id="PitcherPitching" src="./assets/Pitcher_Pitch_css_sprites.png" style="display: none;">
         
+         <canvas id="Ball">
+             Your browser does not support the HTML5 canvas tag.
+        </canvas>
+        
+        <img id="BallShaping" src="./assets/Ball_css_sprites.png" style="display: none;">
+        
 
         <img id="filedPic" src="./assets/prototypeExample/filedView.jpg" style="display: none;">
     </div>
 
     <script type="module">
         import { initBatter, seeFiled, take, SS, SI, SH, SL, FS,FI, FH, FL, CO, CI, CH, CL} from "./main.js";
-        import { BatterWaitOnload, BatterHitOnload, PitcherWaitOnload, PitcherPitchOnload, drawPitchHit } from "./Animation.js";
+        import { BatterWaitOnload, BatterHitOnload, PitcherWaitOnload, PitcherPitchOnload, drawPitchHit} from "./Animation.js";
                 document.getElementById("take").addEventListener("click", take);
                 document.getElementById("AnimationHit").addEventListener("click", drawPitchHit);
                 document.getElementById("ss").addEventListener("click", SS);
@@ -195,7 +201,7 @@
 	            position:absolute;
 	            z-index:1;
 	            top:350px;
-	            left:300px;
+	            left:358px;
                 transform: rotateY(180deg);
         }
         #BatterHit
@@ -204,7 +210,7 @@
 	            position:absolute;
 	            z-index:1;
 	            top:330px;
-	            left:300px;
+	            left:358px;
         }
         #PitcherWait
         {
@@ -223,6 +229,12 @@
 	            top:60px;
 	            left:320px;
                 transform: rotateY(180deg);
+        }
+        #Ball
+        {
+            	background:rgba(255,255,255,0.05);
+	            position:absolute;
+	            z-index:1;
         }
     </style>
 </body>

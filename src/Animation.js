@@ -155,6 +155,7 @@ function drawBatterHit()
     else
     {
         clearInterval(BatterHitOnloadControl);
+        clearInterval(BallOnload);
     }
 
     ctx.drawImage(img, BatterHitCurrFrame * width, 0, width, height, 0, 0, width, height);
@@ -164,7 +165,7 @@ function drawBatterHit()
 var BatterHitOnloadControl;
 export function BatterHitOnload()
 {
-    BatterHitOnloadControl = setInterval(drawBatterHit, 90);
+    BatterHitOnloadControl = setInterval(drawBatterHit, 80);
 }
 
 
@@ -216,10 +217,14 @@ function drawPitcherPitch()
 
     ctx.clearRect(0, 0, width, height);
 
-
-    if(PitcherPitchCurrFrames == 4)
+    if(PitcherPitchCurrFrames == 2)
     {
         BatterHitOnload();
+    }
+
+    if(PitcherPitchCurrFrames == 3)
+    {
+        BallOnload();
     }
 
     if(PitcherPitchCurrFrames < PitcherPitchFrames)
@@ -282,4 +287,39 @@ export function drawPitchHit()
     clearInterval(BatterWaitControl);
 
     PitcherPitchOnload();
+}
+
+var BallFrames = 5;
+var BallCurrFrames = 0;
+
+function drawBall()
+{
+    var BallCanvas= document.getElementById("Ball");
+    BallCanvas.width = 128;
+    BallCanvas.height = 128;
+    var temp =  80 + (90.5 * (BallCurrFrames + 1));
+    BallCanvas.style.top = temp + "px";
+    var ctx = BallCanvas.getContext("2d");
+
+    var img = document.getElementById("BallShaping");
+    var width = 128;
+    var height = 128;
+
+    ctx.clearRect(0, 0, width, height);
+
+    BallCurrFrames++;
+
+    ctx.drawImage(img, BallCurrFrames * width, 0, width, height, 0, 0, width, height);
+
+    if(BallCurrFrames == BallFrames)
+    {
+        clearInterval(BallControl);
+        ctx.clearRect(0, 0, width, height);
+    }
+}
+
+var BallControl;
+export function BallOnload()
+{
+    BallControl = setInterval(drawBall, 70);
 }
