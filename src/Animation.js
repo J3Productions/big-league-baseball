@@ -200,7 +200,7 @@ export function PitcherWaitOnload()
 }
 
 
-var PitcherPitchFrames = 4;
+var PitcherPitchFrames = 6;
 var PitcherPitchCurrFrames = 0;
 
 function drawPitcherPitch()
@@ -214,27 +214,33 @@ function drawPitcherPitch()
     var width = 128;
     var height = 140;
 
-    var BatterHitCanvas = document.getElementById("BatterHit");
-    BatterHitCanvas.width = 192;
-    BatterHitCanvas.height = 210;
-    var ctx2 = BatterHitCanvas.getContext("2d");
-    var img2 = document.getElementById("BatterHitting");
-
     ctx.clearRect(0, 0, width, height);
 
 
+    if(PitcherPitchCurrFrames == 4)
+    {
+        BatterHitOnload();
+    }
+
     if(PitcherPitchCurrFrames < PitcherPitchFrames)
     {
-        PitcherPitchCurrFrames++; 
+        PitcherPitchCurrFrames++;
     }
     else
     {
         clearInterval(PitcherPitchControl);
-        BatterHitOnload();
     }
 
     ctx.drawImage(img, PitcherPitchCurrFrames * width, 0, width, height, 0, 0, width, height);
-    ctx2.drawImage(img2, 1 * 192, 0, 192, 210, 0, 0, 192, 210);
+    if(PitcherPitchCurrFrames < 4)
+    {
+        var BatterHitCanvas = document.getElementById("BatterHit");
+        BatterHitCanvas.width = 192;
+        BatterHitCanvas.height = 210;
+        var ctx2 = BatterHitCanvas.getContext("2d");
+        var img2 = document.getElementById("BatterHitting");
+        ctx2.drawImage(img2, 1 * 192, 0, 192, 210, 0, 0, 192, 210);
+    }
 }
 
 var PitcherPitchControl;
