@@ -13,7 +13,6 @@ export function startGame()
         localStorage.setItem("player", name);
         console.log("player name store.")
     }
-
 }
 
 
@@ -46,9 +45,13 @@ export function initStartPage()
     describe.style.left = String(screenWidth * 0.425) + "px";
     describe.style.top = String(screenHeight * 0.40) + "px";
 
-//Sound test2
-    var c1= document.getElementById('organ');//Start crowd noise.
-    c1.play();
+
+
+//document.getElementById('c1').play();
+//document.getElementById('c1').muted = false;
+    //Sound test2
+      var c1= document.getElementById('c1');//Start crowd noise.
+      c1.play();
 }
 
 
@@ -86,6 +89,8 @@ export function initBatter()
     var BallCanvas = document.getElementById("Ball");
     BallCanvas.style.top = "80px";
     BallCanvas.style.left = "330px";
+
+
 }
 
 /**

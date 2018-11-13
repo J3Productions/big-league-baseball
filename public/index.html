@@ -23,16 +23,22 @@
 
     <img id="startPic" src="./assets/prototypeExample/Start.jpg" style="display: none;">
 
-	<audio src="soundFx/organ-music-various.wav" id="organ"></audio>
-</div>
 
-    <script src="/socket.io/socket.io.js"></script>
+	<audio src="./soundFx/homeHit/homeBaseHitOrgan.mp3" id="hBh"></audio>
+	<audio id="c1" src="./soundFx/crowd/chatter1.mp3" ></audio>
+
+
+</div>
+	<script src="/socket.io/socket.io.js"></script>
 	<script src="/main.js" type="module"></script>
+
 
     <script type="module">
         import { startGame, initStartPage } from "./main.js";
         document.getElementById("startGame").addEventListener("click", startGame);
         window.addEventListener("load", initStartPage, false);
+
+
     </script>
 
 

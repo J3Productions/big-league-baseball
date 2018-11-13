@@ -1,11 +1,12 @@
 export function drawPitchHit()//This the function for hit animation.
 {
+
     var PitcherWaitCanvas = document.getElementById("PitcherWait");
     var BatterWaitCanvas = document.getElementById("BatterWaitting");
     PitcherWaitCanvas.style.filter = "opacity(0%)";
     PitcherWaitCanvas.style.WebkitFilter = "opacity(0%)";
     BatterWaitCanvas.style.filter = "opacity(0%)";
-    BatterWaitCanvas.style.WebkitFilter = "opacity(0%)";//first, make two waiting animation canvas disappear. 
+    BatterWaitCanvas.style.WebkitFilter = "opacity(0%)";//first, make two waiting animation canvas disappear.
 
     var PitcherPitchCanvas = document.getElementById("PitcherPitch");
     var BatterHitCanvas = document.getElementById("BatterHit");
@@ -30,6 +31,11 @@ export function drawPitchHit()//This the function for hit animation.
     clearInterval(BatterWaitControl);//clear the waiting animation counting.
 
     PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
+
+
+
+    crowdFx(0);
+//    document.getElementById('c1').play();//Start crowd noise.************************
 }
 
 var PitcherPitchFrames = 6;
@@ -50,7 +56,7 @@ function drawPitcherPitch()
 
     if(PitcherPitchCurrFrames == 2)
     {
-        BatterHitOnload();                              //when the pitcher animation frame go to 2, start drawing Batter Hit animation. go to line 122
+        BatterHitOnload();//when the pitcher animation frame go to 2, start drawing Batter Hit animation. go to line 122
     }
 
     if(PitcherPitchCurrFrames == 3)
@@ -105,6 +111,10 @@ function drawBatterHit()
     if(BatterHitCurrFrame < BatterHitFrames)
     {
         BatterHitCurrFrame++;                               //if the curr frame didn't reach the final frame, increment.
+        if(BatterHitCurrFrame==6) //Timing for hitFx
+        {
+            hit(1);
+        }
     }
     else
     {
@@ -327,7 +337,43 @@ export function PitcherWaitOnload()
 }
 
 
+function crowdFx(time)
+{
+    if(time== 0)
+    {
+        document.getElementById('ch0').play();//Start crowd noise.
+    }
+    if(time== 1)
+    {
+        document.getElementById('cl1').play();
+    }
+    if(time== 2)
+    {
+        document.getElementById('cl2').play();
+    }
+    if(time== 3)
+    {
+        document.getElementById('cl3').play();
+    }
+    if(time== 4)
+    {
+        document.getElementById('cl4').play();
+    }
+    if(time== 5)
+    {
+        document.getElementById('cl5').play();
+    }
+    if(time== 6)
+    {
+        document.getElementById('cl5').play();
+    }
+}
 
 
-
-
+function hit(type)
+{
+    if(type== 1)
+    {
+        document.getElementById('hBh').play();//Base hit
+    }
+}
