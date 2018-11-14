@@ -1,4 +1,36 @@
-<h1>I'm a post</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Big League Baseball</title>
 
-<h3>Location <%= location %></h3>
-<h3>Color <%= color %></h3>
+	<link href="https://fonts.googleapis.com/css?family=Anton|Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="/main.css">
+</head>
+<body>
+
+	<p class="subtitle">Setup your team</p>
+
+	<div class="column-left">
+		<p class="head">Lineup</p>
+	</div>
+	<div class="column-right">
+		<p class="head">Starting Pitcher</p>
+		<table class="pitching">
+			<% for (let i = 1; i <= 4; i++) { %>
+				<tr>
+					<td><input type="radio" name="starter" value="<%= i %>"></td>
+					<td id="pitcher<%= i %>"></td>
+				</tr>
+			<% } %>
+		</table>
+	</div>
+
+	<script src="/gui.js" type="module"></script>
+	<script type="module">
+		import {populatePitcherList} from "./gui.js";
+		populatePitcherList("<%= location %>");
+	</script>
+
+</body>
+</html>

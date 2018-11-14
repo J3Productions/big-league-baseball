@@ -14,11 +14,11 @@ export class ReliefPitcher extends Pitcher {
         * @param {string} position Type of Pitcher.
         * @param {string[]} arsenal The type of pitches he throws.
         */
-    constructor(name, position, batStrengths, baseSpeed, pitches){
+    constructor(name, position, batStrengths, baseSpeed, pitches, pitchSide){
         /**
         * @extends {PitcherClass}
         */
-        super(name, position, batStrengths, baseSpeed, pitches);
+        super(name, position, batStrengths, baseSpeed, pitches, pitchSide);
 		/**
 		* The number of innings the reliever may pitch.
      	* @type {num}

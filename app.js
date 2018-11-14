@@ -2,6 +2,7 @@ const express = require('express');
 const app = express();
 const http = require('http').Server(app);
 const bodyParser = require("body-parser");
+
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: false}));
 
@@ -14,10 +15,8 @@ app.get('/', function(req, res){
 
 app.post("/createTeam", function(req, res) {
 	const location = req.body.location;
-	const color = req.body.color;
 	res.render("createTeam.ejs", {
-		location: location,
-		color: color
+		location: location
 	});
 });
 
