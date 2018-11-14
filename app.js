@@ -1,17 +1,24 @@
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
-const io = require('socket.io')(http);
+const bodyParser = require("body-parser");
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(express.static('public'));
 app.use(express.static('src'));
 
 app.get('/', function(req, res){
-	res.sendFile('index.html');
+	res.render('index.ejs');
 });
 
-io.on('connection', function(socket) {
-	console.log("Connection achieved");
+app.post("/createTeam", function(req, res) {
+	const location = req.body.location;
+	const color = req.body.color;
+	res.render("createTeam.ejs", {
+		location: location,
+		color: color
+	});
 });
 
 http.listen(3000, function() {
