@@ -34,7 +34,7 @@ export function drawPitchHit()//This the function for hit animation.
 
 
 
-//    crowdFx(0);
+    crowdFx(0);
 //    document.getElementById('c1').play();//Start crowd noise.************************
 }
 
@@ -334,54 +334,38 @@ var PitcherWaitControl;
 export function PitcherWaitOnload()
 {
     PitcherWaitControl = setInterval(drawPitcherWait, 188);
-    timeFx(5,4);
-//    let crowdChatterLoop= document.getElementById('c1').play();//Start crowd noise.
-//    crowdChatterLoop.loop()= true;
 }
 
 
-
-
-function timeFx(track, time)//setIntervals of diferent sounds
+function crowdFx(time)
 {
-    var crowdChatter= setInterval(crowdFx, time*1000, track);//interval to begin crowd soundFx
-}
-
-function crowdFx(track)
-{
-    if(track== 0)
+    if(time== 0)
     {
-        document.getElementById('c1').play();
-//        let crowdChatterLoop= document.getElementById('c1').play();//Start crowd noise.
-//        crowdChatterLoop.loop()= true;
+        document.getElementById('ch0').play();//Start crowd noise.
     }
-    if(track== 1)
+    if(time== 1)
     {
-        document.getElementById('c1').play();
+        document.getElementById('cl1').play();
     }
-    if(track== 2)
+    if(time== 2)
     {
-        document.getElementById('c2').play();
+        document.getElementById('cl2').play();
     }
-    if(track== 3)
+    if(time== 3)
     {
-        document.getElementById('c3').play();
+        document.getElementById('cl3').play();
     }
-    if(track== 4)
+    if(time== 4)
     {
-        document.getElementById('c4').play();
+        document.getElementById('cl4').play();
     }
-    if(track== 5)
+    if(time== 5)
     {
-        document.getElementById('c5').play();
+        document.getElementById('cl5').play();
     }
-    if(track== 6)
+    if(time== 6)
     {
-        document.getElementById('c6').play();
-    }
-    if(track== 7)
-    {
-        document.getElementById('7th').play();
+        document.getElementById('cl5').play();
     }
 }
 
