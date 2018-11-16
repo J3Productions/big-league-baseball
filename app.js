@@ -20,6 +20,10 @@ app.post("/createTeam", function(req, res) {
 	});
 });
 
+app.post("/game", function(req, res) {
+	res.render("game.ejs", {});
+});
+
 http.listen(3000, function() {
-	console.log("Serving the site at localhost:3000");
+	console.log("Serving the site at http://localhost:3000");
 });
