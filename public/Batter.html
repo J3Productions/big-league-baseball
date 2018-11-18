@@ -169,26 +169,31 @@
 
         <img id="filedPic" src="./assets/prototypeExample/filedView.jpg" style="display: none;">
 
-
-        <audio id="hBh" src="./soundFx/homeHit/homeBaseHitOrgan.mp3"></audio>
-
-
-        <audio id="ch0" src="./soundFx/crowd/chatter1.mp3" ></audio>
-        <audio id="cl1" src="./soundFx/crowd/clap1.mp3"></audio>
-        <audio id="cl2" src="./soundFx/crowd/clapChant.mp3"></audio>
-        <audio id="cl3" src="./soundFx/crowd/organ1.mp3"></audio>
-        <audio id="cl4" src="./soundFx/crowd/organ2.mp3"></audio>
-        <audio id="cl5" src="./soundFx/crowd/organGo.mp3"></audio>
-        <audio id="cl6" src="./soundFx/crowd/organLetsGo.mp3"></audio>
-
+        <audio id="c0" src="./soundFx/crowd/chatter1Loop.mp3" ></audio>
+        <audio id="c1" src="./soundFx/crowd/clap1.mp3"></audio>
+        <audio id="c2" src="./soundFx/crowd/clapChant.mp3"></audio>
+        <audio id="c3" src="./soundFx/crowd/organ1.mp3"></audio>
+        <audio id="c4" src="./soundFx/crowd/organ2.mp3"></audio>
+        <audio id="c5" src="./soundFx/crowd/organGo.mp3"></audio>
+        <audio id="c6" src="./soundFx/crowd/organLetsGo.mp3"></audio>
         <audio id="7th" src="./soundFx/crowd/7thInningMusic.mp3"></audio>
 
-        <embed src="./soundFx/crowd/7thInningMusic.mp3" hidden="true" autostart="true" loop="true">
+        <audio id="hB1" src="./soundFx/homeHit/homeBaseHit.mp3"></audio>
+        <audio id="hB2" src="./soundFx/homeHit/homeDouble.mp3"></audio>
+
+        <audio id="vB1out" src="./soundFx/visitorHit/vistorSingleOut.mp3"></audio>
+        <audio id="vB2out" src="./soundFx/visitorHit/visitorDoubleOut.mp3"></audio>
+        <audio id="vB3out" src="./soundFx/visitorHit/vistorTripleOut.mp3"></audio>
+
+        <iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+        <audio id="player" autoplay >
+            <source src="./soundFx/crowd/startGameCrowd.mp3" type="audio/mp3">
+        </audio>
 
     </div>
 
     <script type="module">
-        import { initBatter, seeFiled, take, SS, SI, SH, SL, FS,FI, FH, FL, CO, CI, CH, CL} from "./main.js";
+       import { initBatter, seeFiled, take, SS, SI, SH, SL, FS,FI, FH, FL, CO, CI, CH, CL} from "./main.js";
         import { BatterWaitOnload, BatterHitOnload, PitcherWaitOnload, PitcherPitchOnload, drawPitchHit} from "./Animation.js";
                 document.getElementById("take").addEventListener("click", take);
                 document.getElementById("AnimationHit").addEventListener("click", drawPitchHit);

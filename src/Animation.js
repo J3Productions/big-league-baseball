@@ -33,8 +33,7 @@ export function drawPitchHit()//This the function for hit animation.
     PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
 
 
-
-    crowdFx(0);
+//    crowdFx(0);
 //    document.getElementById('c1').play();//Start crowd noise.************************
 }
 
@@ -334,46 +333,101 @@ var PitcherWaitControl;
 export function PitcherWaitOnload()
 {
     PitcherWaitControl = setInterval(drawPitcherWait, 188);
+
+loopCrowdChatter();//Call  to loop crowd noise
+}
+
+var fxCount= true;
+function loopCrowdChatter()//Loops the crowd noise without intro music. At this point called in PitcherWaitOnload()
+{
+    if(fxCount)
+    {
+        setInterval(crowdChatter, 1686415);//exact time length is 1686421ms
+       fxCount= false;
+    }
+    function crowdChatter()
+    {
+        document.getElementById('c0').play();
+    }
 }
 
 
 function crowdFx(time)
 {
+
     if(time== 0)
     {
-        document.getElementById('ch0').play();//Start crowd noise.
+        document.getElementById('c0').play();//Start crowd noise.
     }
     if(time== 1)
     {
-        document.getElementById('cl1').play();
+        document.getElementById('c1').play();
     }
     if(time== 2)
     {
-        document.getElementById('cl2').play();
+        document.getElementById('c2').play();
     }
     if(time== 3)
     {
-        document.getElementById('cl3').play();
+        document.getElementById('c3').play();
     }
     if(time== 4)
     {
-        document.getElementById('cl4').play();
+        document.getElementById('c4').play();
     }
     if(time== 5)
     {
-        document.getElementById('cl5').play();
+        document.getElementById('c5').play();
     }
     if(time== 6)
     {
-        document.getElementById('cl5').play();
+        document.getElementById('c6').play();
+    }
+    if(time== 6)
+    {
+        document.getElementById('7th').play();
     }
 }
 
 
-function hit(type)
+function hitSound(team, swing, contact, result, timeDelay)
 {
-    if(type== 1)
+    let t= team;
+    let s= swing;
+    let c= contact;
+    let r= result;
+    let d= timeDelay;
+
+    if(swing)
     {
-        document.getElementById('hBh').play();//Base hit
+        if(contact)
+        {
+
+        }
+    }
+    else
+    {
+
+    }
+    setTimeout( d )
+
+    function contact()
+    {
+        if(type== 1)
+        {
+            document.getElementById('hB1').play();//Base hit
+        }
+        if(type== 2)
+        {
+            document.getElementById('hB2').play();//Double hit
+        }
+        if(type== f)
+        {
+            document.getElementById('hBf').play();//Foul ball
+        }
+    }
+    function take()
+    {
+
     }
 }
