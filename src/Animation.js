@@ -108,6 +108,11 @@ function drawBatterHit()
 
     ctx.clearRect(0, 0, width, height);
 
+
+ ///////////////////////Call sound
+  hitSound(1, true, true, 1, 500);//team-Home==1 Visitor==2, swing contact==true, contact==true, play base hitSafe==1, timeDelay in ms
+
+
     if(BatterHitCurrFrame < BatterHitFrames)
     {
         if(BatterHitCurrFrame == 11 && count <= 2)
@@ -119,7 +124,10 @@ function drawBatterHit()
             BatterHitCurrFrame++;                               //if the curr frame didn't reach the final frame, increment.
             if(BatterHitCurrFrame==6) //Timing for hitFx
             {
-                hit(1);
+
+ ///////////////////////Call sound
+//
+
             }
         }
 
@@ -399,26 +407,50 @@ function crowdFx(time)
 }
 
 
-function hitSound(team, swing, contact, result, timeDelay)
+function hitSound(team, swing, contact, play, timeDelay)//Sounds for pitching, batting and catching.
 {
-    let t= team;
-    let s= swing;
-    let c= contact;
-    let r= result;
-    let d= timeDelay;
+    let t= team;//h=home, v=visitor
+    let s= swing;//Bool
+    let c= contact;//Bool
+    let p= play;//foul,strike,out
+    let d= timeDelay;//num time delay for sound to begin.
 
     if(swing)
     {
         if(contact)
         {
+            setTimeout(contact, d, t, p );
+            function contact(t, p)
+            {
+                if(p===1)
+                {
+                    if(t===1)
+                    {
+                        if(p== 1)
+                        {
+                            document.getElementById('hB1').play();//Base hit
+                        }
+                        if(p== 2)
+                        {
+                            document.getElementById('hB2').play();//Double hit
+                        }
+                        if(p== 5)
+                        {
+                            document.getElementById('hBf').play();//Foul ball
+                        }
+                    }
+                    else
+                    {
 
+                    }
+                }
+            }
         }
     }
     else
     {
 
     }
-    setTimeout( d )
 
     function contact()
     {
