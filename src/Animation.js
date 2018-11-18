@@ -91,8 +91,9 @@ export function PitcherPitchOnload()
 }
 
 
-var BatterHitFrames = 10;
+var BatterHitFrames = 16;
 var BatterHitCurrFrame = 0;
+var count = 0;
 
 function drawBatterHit()
 {
@@ -109,11 +110,19 @@ function drawBatterHit()
 
     if(BatterHitCurrFrame < BatterHitFrames)
     {
-        BatterHitCurrFrame++;                               //if the curr frame didn't reach the final frame, increment.
-        if(BatterHitCurrFrame==6) //Timing for hitFx
+        if(BatterHitCurrFrame == 11 && count <= 2)
         {
-            hit(1);
+            count++;
         }
+        else
+        {
+            BatterHitCurrFrame++;                               //if the curr frame didn't reach the final frame, increment.
+            if(BatterHitCurrFrame==6) //Timing for hitFx
+            {
+                hit(1);
+            }
+        }
+
     }
     else
     {
