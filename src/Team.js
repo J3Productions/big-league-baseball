@@ -71,11 +71,11 @@ export class Team {
             this.arrOfPlayers[12]= new PinchHitter("Jake Harrison", "ph", ["co","ch"], true, "righty");//position "ph" == Pinch Hitter; Bats righty
             this.arrOfPlayers[13]= new PinchHitter("Stan Lee", "ph", ["sh","ch"], true, "switch");//position "ph" == Pinch Hitter; switch== Bats Lefty and Righty
             //Pitchers
-            this.arrOfPlayers[14]= new Pitcher("Zack Greenlee", "pitcher", [], false, ["ss","sl","fh","fl","fi","co","ch","ci"], "righty");
-            this.arrOfPlayers[15]= new Pitcher("Miguel Rodriguez", "pitcher", [], false, ["ss","sh","sl","si","fh","fi","co","ch"], "lefty");
-            this.arrOfPlayers[16]= new Pitcher("A. J. Heinrich", "pitcher", [], false, ["ss","sh","si","fs","fh","fl","cl","ci"], "righty");
-            this.arrOfPlayers[17]= new Pitcher("Hideo Matsui", "pitcher", [], false, ["ss","sh","fs","fh","fl","fi","co","cl"], "lefty");
-            this.arrOfPlayers[18]= new ReliefPitcher("Clinton Dempsey", "pitcher", [], false, ["sh","sl","si","fs","fh","fl","co","ch","ci"], "righty");
+            this.arrOfPlayers[14]= new Pitcher("Zack Greenlee", "pitcher", [], false, ["ss","sl","fh","fl","fi","co","ch","ci"], "rhp");
+            this.arrOfPlayers[15]= new Pitcher("Miguel Rodriguez", "pitcher", [], false, ["ss","sh","sl","si","fh","fi","co","ch"], "lhp");
+            this.arrOfPlayers[16]= new Pitcher("A. J. Heinrich", "pitcher", [], false, ["ss","sh","si","fs","fh","fl","cl","ci"], "rhp");
+            this.arrOfPlayers[17]= new Pitcher("Hideo Matsui", "pitcher", [], false, ["ss","sh","fs","fh","fl","fi","co","cl"], "lhp");
+            this.arrOfPlayers[18]= new ReliefPitcher("Clinton Dempsey", "pitcher", [], false, ["sh","sl","si","fs","fh","fl","co","ch","ci"], "rhp");
         }
         else{
             this.arrOfPlayers[0]= new Catcher("Alex Canseco", "catcher", ["fi", "ci"], false);
@@ -94,11 +94,11 @@ export class Team {
             this.arrOfPlayers[12]= new PinchHitter("Roberto Cabrera", "ph", ["fh","ch"], true, "righty");//position "ph" == Pinch Hitter; Bats righty
             this.arrOfPlayers[13]= new PinchHitter("Tommy Chapman", "ph", ["co","ch"], false, "switch");//position "ph" == Pinch Hitter; switch== Bats Lefty and Righty
             //Pitchers
-            this.arrOfPlayers[14]= new Pitcher("Dizzy Lasorda", "pitcher", [], false, ["ss","fh","fl","fi","co","ch","cl","ci"], "lefty");
-            this.arrOfPlayers[15]= new Pitcher("Babe Ruth", "pitcher", [], false, ["sh","si","fs","fl","co","ch","cl","ci"], "righty");
-            this.arrOfPlayers[16]= new Pitcher("Alcides Ortiz", "pitcher", [], false, ["ss","sh","sl","si","fl","fi","ch","ci"], "lefty");
-            this.arrOfPlayers[17]= new Pitcher("Dennis  Eckard", "pitcher", [], false, ["ss","sh","sl","si","co","ch","cl","ci"], "righty");
-            this.arrOfPlayers[18]= new ReliefPitcher("Leslie Koufax", "reliefPitcher", [], false, ["ss","sh","sl","si","fi","co","ch","cl","ci"], "lefty");
+            this.arrOfPlayers[14]= new Pitcher("Dizzy Lasorda", "pitcher", [], false, ["ss","fh","fl","fi","co","ch","cl","ci"], "lhp");
+            this.arrOfPlayers[15]= new Pitcher("Babe Ruth", "pitcher", [], false, ["sh","si","fs","fl","co","ch","cl","ci"], "rhp");
+            this.arrOfPlayers[16]= new Pitcher("Alcides Ortiz", "pitcher", [], false, ["ss","sh","sl","si","fl","fi","ch","ci"], "lhp");
+            this.arrOfPlayers[17]= new Pitcher("Dennis  Eckard", "pitcher", [], false, ["ss","sh","sl","si","co","ch","cl","ci"], "rhp");
+            this.arrOfPlayers[18]= new ReliefPitcher("Leslie Koufax", "reliefPitcher", [], false, ["ss","sh","sl","si","fi","co","ch","cl","ci"], "lhp");
         }
     }
     /**

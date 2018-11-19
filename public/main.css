@@ -97,23 +97,31 @@ textarea {
    Author's custom styles
    ========================================================================== */
 
-body.startup {
+body {
     background-color: #00381d;
     color: white;
     font-family: 'Roboto', sans-serif;
 }
 
-h1 {
+p.title {
     font-family: 'Anton', sans-serif;
     text-transform: uppercase;
     font-size: 8vw;
     text-align: center;
-    border-bottom-style: solid;
+	border-bottom-style: solid;
     border-bottom-width: 5px;
     border-bottom-color: red;
+
 }
 
-h2 {
+p.subtitle {
+    font-family: 'Anton', sans-serif;
+    text-transform: uppercase;
+    font-size: 4vw;
+    text-align: center;
+}
+
+p.head {
     font-family: 'Anton', sans-serif;
     text-transform: uppercase;
     font-size: 3vw;
@@ -126,9 +134,66 @@ button {
     color: white;
 }
 
+.column-left {
+    width: 50%;
+    float: left;
+}
 
+.column-right {
+    width: 50%;
+    float: right;
+}
 
+aside {
+    width: 25%;
+    height: 100%;
+    float: top right;
+    border: 5px solid white;
+}
 
+footer {
+    width: 75%;
+    height: 30%;
+    float: bottom;
+    position: fixed;
+    border: 5px solid white;
+    border-left-style: none;
+    border-bottom-style: none;
+}
+
+main {
+    width: 65%;
+    height: 65%;
+    float: top left;
+    border: 5px solid white;
+}
+
+.split {
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    overflow-x: hidden;
+    padding-top: 20px;
+    border: 5px solid white;
+    border-top-style: none;
+}
+
+.left {
+    left: 0;
+    width: 75%;
+    border-left-style: none;
+}
+
+.right {
+    right: 0;
+    width: 25%;
+    border-right-style: none;
+}
+
+.gameArea {
+    height: 70%;
+}
 
 
 
