@@ -18,8 +18,8 @@
   },
   "homepage": "https://github.com/J3Productions/big-league-baseball#readme",
   "dependencies": {
-    "express": "^4.16.4",
-    "socket.io": "^2.1.1"
+    "ejs": "^2.6.1",
+    "express": "^4.16.4"
   },
   "devDependencies": {
     "esdoc": "^1.1.0",

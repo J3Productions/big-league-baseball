@@ -14,7 +14,7 @@ export class Pitcher extends Player {
         * @param {string} position Type of pitcher.
         * @param {string[]} arsenal The type of pitches he throws.
         */
-    constructor(name, position, batStrengths, baseSpeed, pitches){
+    constructor(name, position, batStrengths, baseSpeed, pitches, pitchSide){
         /**
         * @extends {PlayerClass}
         */
@@ -24,6 +24,8 @@ export class Pitcher extends Player {
      	* @type {string[]}
      	*/
         this.arsenal = pitches;
+
+        this.pitchSide = pitchSide;
     }
     /**
 	* Gets the baseball players pitches he throws.
