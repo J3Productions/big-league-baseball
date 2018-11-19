@@ -121,16 +121,8 @@ function drawBatterHit()
         }
         else
         {
-            BatterHitCurrFrame++;                               //if the curr frame didn't reach the final frame, increment.
-            if(BatterHitCurrFrame==6) //Timing for hitFx
-            {
-
- ///////////////////////Call sound
-//
-
-            }
+            BatterHitCurrFrame++; //if the curr frame didn't reach the final frame, increment.
         }
-
     }
     else
     {
@@ -139,6 +131,93 @@ function drawBatterHit()
 
     ctx.drawImage(img, BatterHitCurrFrame * width, 0, width, height, 0, 0, width, height);//draw Batter hit animation frame.
 }
+
+
+
+///////////TODO//////////////////////////////////Finish animation and change variable names for this function
+function drawBatterSwingStrike()
+{
+    var BatterHitCanvas = document.getElementById("BatterStrike");//////////////Look at variable name here
+    BatterHitCanvas.width = 192;
+    BatterHitCanvas.height = 210;
+    var ctx = BatterHitCanvas.getContext("2d");
+
+    var img = document.getElementById("BatterHitting");
+    var width = 192;
+    var height = 210;
+
+    ctx.clearRect(0, 0, width, height);
+
+
+ ///////////////////////Call sound
+  hitSound(1, true, true, 1, 500);//team-Home==1 Visitor==2, swing contact==true, contact==true, play base hitSafe==1, timeDelay in ms
+
+
+    if(BatterHitCurrFrame < BatterHitFrames)
+    {
+        if(BatterHitCurrFrame == 11 && count <= 2)
+        {
+            count++;
+        }
+        else
+        {
+            BatterHitCurrFrame++; //if the curr frame didn't reach the final frame, increment.
+        }
+    }
+    else
+    {
+        clearInterval(BatterHitOnloadControl);              //reach the final frame, clear the counting timer for the hit
+    }
+
+    ctx.drawImage(img, BatterHitCurrFrame * width, 0, width, height, 0, 0, width, height);//draw Batter hit animation frame.
+}
+
+
+function drawBatterTake()///////////////////////////////////////////////
+{
+    var BatterHitCanvas = document.getElementById("BatterTake");/////////////////////////////////
+    BatterHitCanvas.width = 192;
+    BatterHitCanvas.height = 210;
+    var ctx = BatterHitCanvas.getContext("2d");
+
+    var img = document.getElementById("BatterHitting");
+    var width = 192;
+    var height = 210;
+
+    ctx.clearRect(0, 0, width, height);
+
+
+ ///////////////////////Call sound
+  hitSound(1, true, true, 1, 500);//team-Home==1 Visitor==2, swing contact==true, contact==true, play base hitSafe==1, timeDelay in ms
+
+
+    if(BatterHitCurrFrame < BatterHitFrames)
+    {
+        if(BatterHitCurrFrame == 11 && count <= 2)
+        {
+            count++;
+        }
+        else
+        {
+            BatterHitCurrFrame++; //if the curr frame didn't reach the final frame, increment.
+        }
+    }
+    else
+    {
+        clearInterval(BatterHitOnloadControl);              //reach the final frame, clear the counting timer for the hit
+    }
+
+    ctx.drawImage(img, BatterHitCurrFrame * width, 0, width, height, 0, 0, width, height);//draw Batter hit animation frame.
+}
+
+
+
+
+
+
+
+
+
 
 
 var BatterHitOnloadControl;
