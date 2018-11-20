@@ -195,7 +195,55 @@ main {
     height: 70%;
 }
 
+#batterView
+{
+	left: 0;
+    top: 0;
+	position:absolute;
+}
 
+        #BatterWaitting
+        {
+            	background:rgba(255,255,255,0);
+	            position:absolute;
+	            z-index:1;
+	            top:45%;
+	            left:34%;
+                transform: rotateY(180deg);
+        }
+        #PitcherWait
+        {
+            	background:rgba(255,255,255,0);
+	            position:absolute;
+	            z-index:1;
+	            top:12%;
+	            left:35%;
+                transform: rotateY(180deg);
+        }
+
+		#BatterHit
+        {
+            	background:rgba(255,255,255,0);
+	            position:absolute;
+	            z-index:1;
+	            top:43%;
+	            left:34%;
+        }
+		#PitcherPitch
+        {
+            	background:rgba(255,255,255,0);
+	            position:absolute;
+	            z-index:1;
+	            top:12%;
+	            left:35%;
+                transform: rotateY(180deg);
+        }
+		#Ball
+        {
+            	background:rgba(255,255,255,0);
+	            position:absolute;
+	            z-index:1;
+        }
 
 
 

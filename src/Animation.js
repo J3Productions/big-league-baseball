@@ -1,3 +1,34 @@
+var RedTeamBackGroundCurrFrame = 0;
+var RedTeamBackGroundTotalFrame = 2;
+
+export function RedTeamBackGround()
+{
+    var RedTeamBackGroundCanvas = document.getElementById("batterView");
+    var ctx = RedTeamBackGroundCanvas.getContext("2d");
+    var img = document.getElementById("viewPic");
+    var screenWidth = document.documentElement.clientWidth;
+    var screenHeight = document.documentElement.clientHeight;
+    RedTeamBackGroundCanvas.width = screenWidth * 0.75;
+    RedTeamBackGroundCanvas.height = screenHeight * 0.725;
+
+    if(RedTeamBackGroundCurrFrame < RedTeamBackGroundTotalFrame)
+    {
+        RedTeamBackGroundCurrFrame++;
+    }
+    else
+    {
+        RedTeamBackGroundCurrFrame = 0;
+    }
+
+    ctx.drawImage(img, RedTeamBackGroundCurrFrame * 1600, 0, 1600, 900, 0, 0, RedTeamBackGroundCanvas.width, RedTeamBackGroundCanvas.height);
+}
+
+var RedTeamBackGroundControl;
+export function RedTeamBackGroundOnload()
+{
+    RedTeamBackGroundControl = setInterval(RedTeamBackGround, 300);
+}
+
 export function drawPitchHit()//This the function for hit animation.
 {
 
@@ -10,17 +41,17 @@ export function drawPitchHit()//This the function for hit animation.
 
     var PitcherPitchCanvas = document.getElementById("PitcherPitch");
     var BatterHitCanvas = document.getElementById("BatterHit");
-    PitcherPitchCanvas.width = 128;
-    PitcherPitchCanvas.height = 140;
-    BatterHitCanvas.width = 192;
-    BatterHitCanvas.height = 210;
+    PitcherPitchCanvas.width = 96;
+    PitcherPitchCanvas.height = 105;
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
 
     var ctx = PitcherPitchCanvas.getContext("2d");
     var ctx2 = BatterHitCanvas.getContext("2d");
     var img = document.getElementById("PitcherPitching");
     var img2 = document.getElementById("BatterHitting");
-    ctx.drawImage(img, 0 * 128, 0, 128, 140, 0, 0, 128, 140);
-    ctx2.drawImage(img2, 0 * 192, 0, 192, 210, 0, 0, 192, 210);//in order to make the canvas change smooth, draw the frist frame of animation before display the Hit animation canvas.
+    ctx.drawImage(img, 0 * 128, 0, 128, 140, 0, 0, 96, 105);
+    ctx2.drawImage(img2, 0 * 192, 0, 192, 210, 0, 0, 160, 175);//in order to make the canvas change smooth, draw the frist frame of animation before display the Hit animation canvas.
 
     PitcherPitchCanvas.style.filter = "opacity(100%)";
     PitcherPitchCanvas.style.WebkitFilter = "opacity(100%)";
@@ -43,8 +74,8 @@ var PitcherPitchCurrFrames = 0;
 function drawPitcherPitch()
 {
     var PitcherPitchCanvas = document.getElementById("PitcherPitch");
-    PitcherPitchCanvas.width = 128;
-    PitcherPitchCanvas.height = 140;
+    PitcherPitchCanvas.width = 96;
+    PitcherPitchCanvas.height = 105;
     var ctx = PitcherPitchCanvas.getContext("2d");
 
     var img = document.getElementById("PitcherPitching");
@@ -72,7 +103,7 @@ function drawPitcherPitch()
         clearInterval(PitcherPitchControl);             //reach the final frame, clear the counting timer.
     }
 
-    ctx.drawImage(img, PitcherPitchCurrFrames * width, 0, width, height, 0, 0, width, height);//draw this frame.
+    ctx.drawImage(img, PitcherPitchCurrFrames * width, 0, width, height, 0, 0, PitcherPitchCanvas.width, PitcherPitchCanvas.height);//draw this frame.
     if(PitcherPitchCurrFrames < 4)
     {
         var BatterHitCanvas = document.getElementById("BatterHit");
@@ -80,7 +111,7 @@ function drawPitcherPitch()
         BatterHitCanvas.height = 210;
         var ctx2 = BatterHitCanvas.getContext("2d");
         var img2 = document.getElementById("BatterHitting");
-        ctx2.drawImage(img2, 1 * 192, 0, 192, 210, 0, 0, 192, 210);
+        ctx2.drawImage(img2, 0 * 192, 0, 192, 210, 0, 0, 160, 175);
     }
 }
 
@@ -98,8 +129,8 @@ var count = 0;
 function drawBatterHit()
 {
     var BatterHitCanvas = document.getElementById("BatterHit");
-    BatterHitCanvas.width = 192;
-    BatterHitCanvas.height = 210;
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
     var ctx = BatterHitCanvas.getContext("2d");
 
     var img = document.getElementById("BatterHitting");
@@ -129,7 +160,7 @@ function drawBatterHit()
         clearInterval(BatterHitOnloadControl);              //reach the final frame, clear the counting timer for the hit
     }
 
-    ctx.drawImage(img, BatterHitCurrFrame * width, 0, width, height, 0, 0, width, height);//draw Batter hit animation frame.
+    ctx.drawImage(img, BatterHitCurrFrame * width, 0, width, height, 0, 0, BatterHitCanvas.width, BatterHitCanvas.height);//draw Batter hit animation frame.
 }
 
 
@@ -229,13 +260,19 @@ export function BatterHitOnload()
 
 var BallFrames = 5;
 var BallCurrFrames = 0;
+var initalTop = 0;
 
 function drawBall()
 {
     var BallCanvas= document.getElementById("Ball");
+    var screenWidth = document.documentElement.clientWidth;
+    var screenHeight = document.documentElement.clientHeight;
     BallCanvas.width = 128;
     BallCanvas.height = 128;
-    var temp =  80 + (90.5 * (BallCurrFrames + 1));             //the position of the canvas changing with the frame increment.
+    BallCanvas.style.top = (screenHeight * 0.20) + "px";
+    BallCanvas.style.left = (screenWidth * 0.33) + "px";
+    initalTop = (screenHeight * 0.20)
+    var temp =  initalTop * 0.73 * (BallCurrFrames + 1);             //the position of the canvas changing with the frame increment.
     BallCanvas.style.top = temp + "px";
     var ctx = BallCanvas.getContext("2d");
 
@@ -247,7 +284,7 @@ function drawBall()
 
     BallCurrFrames++;
 
-    ctx.drawImage(img, BallCurrFrames * width, 0, width, height, 0, 0, width, height);//draw this flying ball frame
+    ctx.drawImage(img, BallCurrFrames * width, 0, width, height, 0, 0, BallCanvas.width, BallCanvas.height);//draw this flying ball frame
 
     if(BallCurrFrames == BallFrames)
     {
@@ -372,8 +409,8 @@ var BatterWaitCurrFrame = 0;
 function drawBatterWait()
 {
     var BatterWaitCanvas = document.getElementById("BatterWaitting");
-    BatterWaitCanvas.width = 192;
-    BatterWaitCanvas.height = 192;
+    BatterWaitCanvas.width = 160;
+    BatterWaitCanvas.height = 160;
     var ctx = BatterWaitCanvas.getContext("2d");
 
     var img = document.getElementById("BatterWait");
@@ -387,7 +424,7 @@ function drawBatterWait()
         BatterWaitCurrFrame = 0;
     }
 
-    ctx.drawImage(img, BatterWaitCurrFrame * width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(img, BatterWaitCurrFrame * width, 0, width, height, 0, 0, BatterWaitCanvas.width, BatterWaitCanvas.height);
 }
 
 var BatterWaitControl;
@@ -406,8 +443,8 @@ var PitcherWaitCurrFrames = 0;
 function drawPitcherWait()
 {
     var PitcherWaitCanvas = document.getElementById("PitcherWait");
-    PitcherWaitCanvas.width = 128;
-    PitcherWaitCanvas.height = 140;
+    PitcherWaitCanvas.width = 96;
+    PitcherWaitCanvas.height = 105;
     var ctx = PitcherWaitCanvas.getContext("2d");
 
     var img = document.getElementById("PitcherWaiting");
@@ -422,7 +459,7 @@ function drawPitcherWait()
         PitcherWaitCurrFrames = 0;
     }
 
-    ctx.drawImage(img, PitcherWaitCurrFrames * width, 0, width, height, 0, 0, width, height);
+    ctx.drawImage(img, PitcherWaitCurrFrames * width, 0, width, height, 0, 0, PitcherWaitCanvas.width, PitcherWaitCanvas.height);
 }
 
 var PitcherWaitControl;
