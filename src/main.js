@@ -1,6 +1,7 @@
 import {Team} from './Team.js';
 import {Game} from './Game.js';
 
+let game = new Game();
 
 /**
 *   This method store the player entered name locally.
@@ -563,8 +564,7 @@ function threeBase()
     second = action.second;
     third = action.third;
 }
-//const socket = io();
 
-//let ballgame = new Game();
+function drawScore() {
 
-//ballgame.ssPitch("ss"); //Function = Pitch thrown, Parameter = Batter action
+}

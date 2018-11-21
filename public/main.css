@@ -246,9 +246,36 @@ main {
         }
 
 
+.score {
+    font-family: 'Anton', sans-serif;
+    font-size: 76px;
+    text-align: center;
+}
 
+td, tr, table {
+    border-collapse: collapse;
+    border: solid white;
+}
 
+.gridContainer {
+    display: grid;
+    padding-left: 10px;
+    padding-right: 10px;
+}
 
+.gridContainer#scoreGrid {
+    grid-template-columns: 33% 33% 33%;
+}
+
+.gridItem {
+    line-height: 100px;
+    height: 100px;
+    text-align: center;
+}
+
+.gridItem#count {
+    line-height: 1.5;
+}
 
 
 /* ==========================================================================
