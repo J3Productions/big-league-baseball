@@ -1,7 +1,7 @@
 import {Team} from './Team.js';
 import {Game} from './Game.js';
 
-let game = new Game();
+let game = new Game("home");
 
 /**
 *   This method store the player entered name locally.
@@ -566,5 +566,52 @@ function threeBase()
 }
 
 function drawScore() {
+	let innStr = "";
+	if (game.inningSide) {
+		innStr = "&#9660 ";
+	}
+	else {
+		innStr = "&#9650 ";
+	}
+	innStr = innStr + game.inning;
 
+	let countStr = game.balls + "-" + game.strikes + "<br>" + game.outs + " Out";
+
+    document.getElementById("score").innerHTML = game.visitTeam.runs + "-" + game.homeTeam.runs;
+    document.getElementById("inning").innerHTML = innStr;
+    document.getElementById("count").innerHTML = countStr;
+
+    if (game.first) {
+        document.getElementById("firstBase").style.fillOpacity = "255";
+    }
+    else {
+	    document.getElementById("firstBase").style.fillOpacity = "0";
+    }
+	if (game.second) {
+		document.getElementById("secondBase").style.fillOpacity = "255";
+	}
+	else {
+		document.getElementById("secondBase").style.fillOpacity = "0";
+	}
+	if (game.third) {
+		document.getElementById("thirdBase").style.fillOpacity = "255";
+	}
+	else {
+		document.getElementById("thirdBase").style.fillOpacity = "0";
+	}
+
+	let curHitter = "At Bat:<br>";
+	if (game.inningSide) {
+	    curHitter = curHitter + game.homeTeam.lineup[game.homeAB].getPlayerName() + game.homeTeam.lineup[game.homeAB].getPosition() + "<br>";
+    }
+	else {
+		curHitter = curHitter + game.visitTeam.lineup[game.visitAB].getPlayerName() + game.visitTeam.lineup[game.visitAB].getPosition() + "<br>";
+	}
 }
+    let curPitcher = "Pitching:<br>";
+    if (game.inningSide) {
+        curPitcher = curPitcher + game.homeTeam.pitcher.getPlayerName() + game.homeTeam.pitcher.getPosition() + "<br>";
+    }
+    else {
+        curPitcher = curPitcher + game.visitTeam.pitcher.getPlayerName() + game.visitTeam.pitcher.getPosition() + "<br>";
+    }
