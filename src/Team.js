@@ -29,7 +29,7 @@ export class Team {
         this.team = team;
         /**
 		* Baseball array of players on team.
-     	* @type {Team of Baseball Players[]}
+     	* @type {Player[]}
      	*/
         this.arrOfPlayers = [];
         /**
@@ -38,11 +38,19 @@ export class Team {
         */
         this.runs = 0;
 
-
-        /**
-	     * Calls function create players to build the team
-	     * @type {func}
+	    /**
+         * Batting lineup of the team
+	     * @type {Player[]}
 	     */
+	    this.lineup = [];
+
+	    /**
+         * The starting pitcher
+	     * @type {Player}
+	     */
+	    this.pitcher = null;
+
+
         this.createPlayers(team);
     }
 
@@ -54,7 +62,7 @@ export class Team {
     * POSTCONDITION: No return.
     */
     createPlayers(team){
-        if(team=="home"){
+        if(team === "home"){
             this.arrOfPlayers[0]= new Catcher("Jielong GoLong", "catcher", ["co", "ch"], false);
             this.arrOfPlayers[1]= new Infielder("Jacob \"The Bull\" Parnell", "1base", ["fs", "fl"], false);
             this.arrOfPlayers[2]= new Infielder("Rocco Manzeene", "short", ["ci"], false);
@@ -76,6 +84,17 @@ export class Team {
             this.arrOfPlayers[16]= new Pitcher("A. J. Heinrich", "pitcher", [], false, ["ss","sh","si","fs","fh","fl","cl","ci"], "rhp");
             this.arrOfPlayers[17]= new Pitcher("Hideo Matsui", "pitcher", [], false, ["ss","sh","fs","fh","fl","fi","co","cl"], "lhp");
             this.arrOfPlayers[18]= new ReliefPitcher("Clinton Dempsey", "pitcher", [], false, ["sh","sl","si","fs","fh","fl","co","ch","ci"], "rhp");
+
+            this.lineup[0] = this.arrOfPlayers[2];
+            this.lineup[1] = this.arrOfPlayers[3];
+            this.lineup[2] = this.arrOfPlayers[6];
+            this.lineup[3] = this.arrOfPlayers[1];
+            this.lineup[4] = this.arrOfPlayers[4];
+            this.lineup[5] = this.arrOfPlayers[0];
+            this.lineup[6] = this.arrOfPlayers[5];
+            this.lineup[7] = this.arrOfPlayers[7];
+            this.lineup[8] = this.arrOfPlayers[14];
+
         }
         else{
             this.arrOfPlayers[0]= new Catcher("Alex Canseco", "catcher", ["fi", "ci"], false);
@@ -99,14 +118,26 @@ export class Team {
             this.arrOfPlayers[16]= new Pitcher("Alcides Ortiz", "pitcher", [], false, ["ss","sh","sl","si","fl","fi","ch","ci"], "lhp");
             this.arrOfPlayers[17]= new Pitcher("Dennis  Eckard", "pitcher", [], false, ["ss","sh","sl","si","co","ch","cl","ci"], "rhp");
             this.arrOfPlayers[18]= new ReliefPitcher("Leslie Koufax", "reliefPitcher", [], false, ["ss","sh","sl","si","fi","co","ch","cl","ci"], "lhp");
+
+	        this.lineup[0] = this.arrOfPlayers[5];
+	        this.lineup[1] = this.arrOfPlayers[6];
+	        this.lineup[2] = this.arrOfPlayers[4];
+	        this.lineup[3] = this.arrOfPlayers[3];
+	        this.lineup[4] = this.arrOfPlayers[0];
+	        this.lineup[5] = this.arrOfPlayers[1];
+	        this.lineup[6] = this.arrOfPlayers[7];
+	        this.lineup[7] = this.arrOfPlayers[2];
+	        this.lineup[8] = this.arrOfPlayers[14];
         }
+
+        this.pitcher = this.arrOfPlayers[14];
     }
     /**
     * This function returns a team of players in an array.
     * POSTCONDITION: Returns array of team
     */
     getTeam(){
-        return this.arrOfPlayers;
+        return this.lineup;
     }
 
     /**
