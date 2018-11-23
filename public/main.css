@@ -201,6 +201,12 @@ main {
     top: 0;
 	position:absolute;
 }
+#SwSideView
+{
+	left: 0;
+    top: 0;
+	position:absolute;
+}
 #AboveView
 {
 	left: 0;
