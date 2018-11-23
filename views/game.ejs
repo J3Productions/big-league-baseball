@@ -79,7 +79,7 @@
 
 
 		<button id="AnimationHit">Hit Animation</button>
-
+		<button id="AnimationStrike">strike Animation</button>
 
 
 		<div class="gridContainer" id="hitterMenu" style="display: none">
@@ -245,11 +245,13 @@
 <script src="/main.js" type="module"></script>
 <script type="module">
 
-	import {RedTeamBackGroundOnload, BatterWaitOnload, PitcherWaitOnload, drawPitchHit } from "./Animation.js";
+	import {RedTeamBackGroundOnload, BatterWaitOnload, PitcherWaitOnload, drawPitchHit, drawSwingStrike } from "./Animation.js";
 	window.addEventListener("load", RedTeamBackGroundOnload);
 	window.addEventListener("load", BatterWaitOnload);
     window.addEventListener("load", PitcherWaitOnload);
     document.getElementById("AnimationHit").addEventListener("click", drawPitchHit);
+	document.getElementById("AnimationStrike").addEventListener("click", drawSwingStrike);
+
 
 </script>
 
