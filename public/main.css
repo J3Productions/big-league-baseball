@@ -201,6 +201,40 @@ main {
     top: 0;
 	position:absolute;
 }
+#AboveView
+{
+	left: 0;
+    top: 0;
+	position:absolute;
+}
+#FirstBaseView
+{
+    background:rgba(255,255,255,0);
+	position:absolute;
+	left: 0;
+    top: 0;
+}
+#SecondBaseView
+{
+    background:rgba(255,255,255,0);
+	position:absolute;
+	left: 0;
+    top: 0;
+}
+#ThirdBaseView
+{
+    background:rgba(255,255,255,0);
+	position:absolute;
+	left: 0;
+    top: 0;
+}
+#HomeBaseView
+{
+    background:rgba(255,255,255,0);
+	position:absolute;
+	left: 0;
+    top: 0;
+}
 
         #BatterWaitting
         {

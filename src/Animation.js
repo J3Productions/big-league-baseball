@@ -100,7 +100,8 @@ function drawPitcherPitch()
     }
     else
     {
-        clearInterval(PitcherPitchControl);             //reach the final frame, clear the counting timer.
+        clearInterval(PitcherPitchControl);
+        PitcherPitchCurrFrames = 0;
     }
 
     ctx.drawImage(img, PitcherPitchCurrFrames * width, 0, width, height, 0, 0, PitcherPitchCanvas.width, PitcherPitchCanvas.height);//draw this frame.
@@ -158,11 +159,178 @@ function drawBatterHit()
     else
     {
         clearInterval(BatterHitOnloadControl);              //reach the final frame, clear the counting timer for the hit
+        drawAboveView();
+        BatterHitCurrFrame = 0;
     }
 
     ctx.drawImage(img, BatterHitCurrFrame * width, 0, width, height, 0, 0, BatterHitCanvas.width, BatterHitCanvas.height);//draw Batter hit animation frame.
 }
 
+
+function drawAboveView()
+{
+    var PitcherPitchCanvas = document.getElementById("PitcherPitch");
+    var BatterHitCanvas = document.getElementById("BatterHit");
+    var RedTeamBackGroundCanvas = document.getElementById("batterView");
+    PitcherPitchCanvas.style.filter = "opacity(0%)";
+    PitcherPitchCanvas.style.WebkitFilter = "opacity(0%)";
+    BatterHitCanvas.style.filter = "opacity(0%)";
+    BatterHitCanvas.style.WebkitFilter = "opacity(0%)";
+    RedTeamBackGroundCanvas.style.filter = "opacity(0%)";
+    RedTeamBackGroundCanvas.style.WebkitFilter = "opacity(0%)";
+    var ctx1 = PitcherPitchCanvas.getContext("2d");
+    ctx1.clearRect(0, 0, 128, 140);
+    var ctx2 = BatterHitCanvas.getContext("2d");
+    ctx2.clearRect(0, 0, 192, 210);
+
+
+    var AboveViewCanvas = document.getElementById("AboveView");
+    var screenWidth = document.documentElement.clientWidth;
+    var screenHeight = document.documentElement.clientHeight;
+    AboveViewCanvas.width = screenWidth * 0.75;
+    AboveViewCanvas.height = screenHeight * 0.725;
+    AboveViewCanvas.style.filter = "opacity(100%)";
+    AboveViewCanvas.style.WebkitFilter = "opacity(100%)";
+
+    var ctx = AboveViewCanvas.getContext("2d");
+    var img = document.getElementById("AboveViewField");
+
+    ctx.drawImage(img, 1600, 0, 1600, 900, 0, 0, AboveViewCanvas.width, AboveViewCanvas.height);
+
+    BaseChangeOnload();
+
+}
+
+var base1 = true;
+var base2 = true;
+var base3 = true;
+var base4 = true;
+var BaseChangeCurrFrame = 0;
+var BaseChangeTotalFrame = 5;
+function drawBaseChange()
+{
+    var RedTeamBackGroundCanvas = document.getElementById("batterView");
+
+    var FirstBaseViewCanvas = document.getElementById("FirstBaseView");
+    var ctx = FirstBaseViewCanvas.getContext("2d");
+    var img = document.getElementById("FirstBase");
+    FirstBaseViewCanvas.width = RedTeamBackGroundCanvas.width;
+    FirstBaseViewCanvas.height = RedTeamBackGroundCanvas.height;
+    FirstBaseViewCanvas.style.filter = "opacity(100%)";
+    FirstBaseViewCanvas.style.WebkitFilter = "opacity(100%)";
+
+    var SecondBaseViewCanvas = document.getElementById("FirstBaseView");
+    var ctx2 = SecondBaseViewCanvas.getContext("2d");
+    var img2 = document.getElementById("SecondBase");
+    SecondBaseViewCanvas.width = RedTeamBackGroundCanvas.width;
+    SecondBaseViewCanvas.height = RedTeamBackGroundCanvas.height;
+    SecondBaseViewCanvas.style.filter = "opacity(100%)";
+    SecondBaseViewCanvas.style.WebkitFilter = "opacity(100%)";
+
+    var ThirdBaseViewCanvas = document.getElementById("FirstBaseView");
+    var ctx3 = ThirdBaseViewCanvas.getContext("2d");
+    var img3 = document.getElementById("ThirdBase");
+    ThirdBaseViewCanvas.width = RedTeamBackGroundCanvas.width;
+    ThirdBaseViewCanvas.height = RedTeamBackGroundCanvas.height;
+    ThirdBaseViewCanvas.style.filter = "opacity(100%)";
+    ThirdBaseViewCanvas.style.WebkitFilter = "opacity(100%)";
+
+    var HomeBaseViewCanvas = document.getElementById("FirstBaseView");
+    var ctx4 = HomeBaseViewCanvas.getContext("2d");
+    var img4 = document.getElementById("HomeBase");
+    HomeBaseViewCanvas.width = RedTeamBackGroundCanvas.width;
+    HomeBaseViewCanvas.height = RedTeamBackGroundCanvas.height;
+    HomeBaseViewCanvas.style.filter = "opacity(100%)";
+    HomeBaseViewCanvas.style.WebkitFilter = "opacity(100%)";
+
+    if(base1 == true)
+    {
+        ctx.drawImage(img, BaseChangeCurrFrame * 1600, 0, 1600, 900, 0, 0, FirstBaseViewCanvas.width, FirstBaseViewCanvas.height);
+    }
+    if(base2 == true)
+    {
+        ctx2.drawImage(img2, BaseChangeCurrFrame * 1600, 0, 1600, 900, 0, 0, SecondBaseViewCanvas.width, SecondBaseViewCanvas.height);
+    }
+    if(base3 == true)
+    {
+        ctx3.drawImage(img3, BaseChangeCurrFrame * 1600, 0, 1600, 900, 0, 0, ThirdBaseViewCanvas.width, ThirdBaseViewCanvas.height);
+    }
+    if(base4 == true)
+    {
+        ctx4.drawImage(img4, BaseChangeCurrFrame * 1600, 0, 1600, 900, 0, 0, HomeBaseViewCanvas.width, HomeBaseViewCanvas.height);
+    }
+
+    if(BaseChangeCurrFrame < BaseChangeTotalFrame)
+    {
+        BaseChangeCurrFrame++;
+    }
+    else
+    {
+        BaseChangeCurrFrame = 0;
+        clearInterval(BaseChangeControl);
+        fieldBack();
+    }
+}
+
+var BaseChangeControl;
+export function BaseChangeOnload()
+{
+    BaseChangeControl = setInterval(drawBaseChange, 300);
+}
+
+
+function fieldBack()
+{
+    var RedTeamBackGroundCanvas = document.getElementById("batterView");
+
+    var AboveViewCanvas = document.getElementById("AboveView");
+    var ctx = AboveViewCanvas.getContext("2d");
+    AboveViewCanvas.style.filter = "opacity(0%)";
+    AboveViewCanvas.style.WebkitFilter = "opacity(0%)";
+
+    var FirstBaseViewCanvas = document.getElementById("FirstBaseView");
+    var ctx1 = FirstBaseViewCanvas.getContext("2d");
+    FirstBaseViewCanvas.style.filter = "opacity(0%)";
+    FirstBaseViewCanvas.style.WebkitFilter = "opacity(0%)";
+    ctx1.clearRect(0, 0, RedTeamBackGroundCanvas.width, RedTeamBackGroundCanvas.height);
+
+    var SecondBaseViewCanvas = document.getElementById("FirstBaseView");
+    var ctx2 = SecondBaseViewCanvas.getContext("2d");
+    SecondBaseViewCanvas.style.filter = "opacity(0%)";
+    SecondBaseViewCanvas.style.WebkitFilter = "opacity(0%)";
+    ctx2.clearRect(0, 0, RedTeamBackGroundCanvas.width, RedTeamBackGroundCanvas.height);
+
+    var ThirdBaseViewCanvas = document.getElementById("FirstBaseView");
+    var ctx3 = ThirdBaseViewCanvas.getContext("2d");
+    ThirdBaseViewCanvas.style.filter = "opacity(0%)";
+    ThirdBaseViewCanvas.style.WebkitFilter = "opacity(0%)";
+    ctx3.clearRect(0, 0, RedTeamBackGroundCanvas.width, RedTeamBackGroundCanvas.height);
+
+    var HomeBaseViewCanvas = document.getElementById("FirstBaseView");
+    var ctx4 = HomeBaseViewCanvas.getContext("2d");
+    HomeBaseViewCanvas.style.filter = "opacity(0%)";
+    HomeBaseViewCanvas.style.WebkitFilter = "opacity(0%)";
+    ctx4.clearRect(0, 0, RedTeamBackGroundCanvas.width, RedTeamBackGroundCanvas.height);
+
+    var PitcherWaitCanvas = document.getElementById("PitcherWait");
+    var BatterWaitCanvas = document.getElementById("BatterWaitting");
+    PitcherWaitCanvas.style.filter = "opacity(100%)";
+    PitcherWaitCanvas.style.WebkitFilter = "opacity(100%)";
+    BatterWaitCanvas.style.filter = "opacity(100%)";
+    BatterWaitCanvas.style.WebkitFilter = "opacity(100%)";
+    var ctx5 = BatterWaitCanvas.getContext("2d");
+    var ctx6 = PitcherWaitCanvas.getContext("2d");
+    ctx5.clearRect(0, 0, 192, 192);
+    ctx6.clearRect(0, 0, 128, 140);
+
+    PitcherWaitOnload();
+    BatterWaitOnload();
+
+    RedTeamBackGroundCanvas.style.filter = "opacity(100%)";
+    RedTeamBackGroundCanvas.style.WebkitFilter = "opacity(100%)";
+
+
+}
 
 
 ///////////TODO//////////////////////////////////Finish animation and change variable names for this function
@@ -290,6 +458,7 @@ function drawBall()
     {
         clearInterval(BallControl);                             //when reach the final frame, clear the counting timer, and clean the canvas.
         ctx.clearRect(0, 0, width, height);
+        BallCurrFrames = 0;
     }
 }
 
