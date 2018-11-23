@@ -98,6 +98,10 @@ function drawPitcherPitch()
         {
             BatterSwingStrikeOnload();
         }
+        if(BatterStatus == "Out")
+        {
+            BatterTakeOnload();
+        }
     }
 
     if(PitcherPitchCurrFrames == 3)
@@ -349,7 +353,7 @@ function fieldBack()
 }
 
 
-export function drawSwingStrike()//This the function for hit animation.
+export function drawSwingStrike()
 {
     var PitcherWaitCanvas = document.getElementById("PitcherWait");
     var BatterWaitCanvas = document.getElementById("BatterWaitting");
@@ -383,8 +387,43 @@ export function drawSwingStrike()//This the function for hit animation.
     BatterStatus = "Strike";
 
     PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
+}
 
 
+export function drawTakeOut()
+{
+    var PitcherWaitCanvas = document.getElementById("PitcherWait");
+    var BatterWaitCanvas = document.getElementById("BatterWaitting");
+    PitcherWaitCanvas.style.filter = "opacity(0%)";
+    PitcherWaitCanvas.style.WebkitFilter = "opacity(0%)";
+    BatterWaitCanvas.style.filter = "opacity(0%)";
+    BatterWaitCanvas.style.WebkitFilter = "opacity(0%)";//first, make two waiting animation canvas disappear.
+
+    var PitcherPitchCanvas = document.getElementById("PitcherPitch");
+    var BatterHitCanvas = document.getElementById("BatterHit");
+    PitcherPitchCanvas.width = 96;
+    PitcherPitchCanvas.height = 105;
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
+
+    var ctx = PitcherPitchCanvas.getContext("2d");
+    var ctx2 = BatterHitCanvas.getContext("2d");
+    var img = document.getElementById("PitcherPitching");
+    var img2 = document.getElementById("BatterHitting");
+    ctx.drawImage(img, 0 * 128, 0, 128, 140, 0, 0, 96, 105);
+    ctx2.drawImage(img2, 0 * 192, 0, 192, 210, 0, 0, 160, 175);//in order to make the canvas change smooth, draw the frist frame of animation before display the Hit animation canvas.
+
+    PitcherPitchCanvas.style.filter = "opacity(100%)";
+    PitcherPitchCanvas.style.WebkitFilter = "opacity(100%)";
+    BatterHitCanvas.style.filter = "opacity(100%)";
+    BatterHitCanvas.style.WebkitFilter = "opacity(100%)";//display the hit animation canvas.
+
+    clearInterval(PitcherWaitControl);
+    clearInterval(BatterWaitControl);//clear the waiting animation counting.
+
+    BatterStatus = "Out";
+
+    PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
 }
 
 
@@ -477,11 +516,13 @@ export function strikeBackOnload()
     StrikeBackControl = setInterval(strikeBack, 80);
 }
 
-function drawBatterTake()///////////////////////////////////////////////
+
+
+function drawBatterTake()
 {
-    var BatterHitCanvas = document.getElementById("BatterTake");/////////////////////////////////
-    BatterHitCanvas.width = 192;
-    BatterHitCanvas.height = 210;
+    var BatterHitCanvas = document.getElementById("BatterHit");
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
     var ctx = BatterHitCanvas.getContext("2d");
 
     var img = document.getElementById("BatterHitting");
@@ -490,41 +531,68 @@ function drawBatterTake()///////////////////////////////////////////////
 
     ctx.clearRect(0, 0, width, height);
 
+    ctx.drawImage(img, width, 0, width, height, 0, 0, BatterHitCanvas.width, BatterHitCanvas.height);
 
- ///////////////////////Call sound
-  hitSound(1, true, true, 1, 500);//team-Home==1 Visitor==2, swing contact==true, contact==true, play base hitSafe==1, timeDelay in ms
-
-
-    if(BatterHitCurrFrame < BatterHitFrames)
+    if(PitcherPitchCurrFrames == 6)
     {
-        if(BatterHitCurrFrame == 11 && count <= 2)
-        {
-            count++;
-        }
-        else
-        {
-            BatterHitCurrFrame++; //if the curr frame didn't reach the final frame, increment.
-        }
+        clearInterval(PitcherPitchControl);
+        clearInterval(BatterTakeControl);
+        PitcherPitchCurrFrames = 0;
+        OutBackOnload();
     }
-    else
-    {
-        clearInterval(BatterHitOnloadControl);              //reach the final frame, clear the counting timer for the hit
-    }
+}
 
-    ctx.drawImage(img, BatterHitCurrFrame * width, 0, width, height, 0, 0, width, height);//draw Batter hit animation frame.
+var BatterTakeControl;
+export function BatterTakeOnload()
+{
+    BatterTakeControl = setInterval(drawBatterTake, 300);
 }
 
 
 
+function OutBack()
+{
+    var PitcherPitchCanvas = document.getElementById("PitcherPitch");
+    var BatterHitCanvas = document.getElementById("BatterHit");
+    var PitcherWaitCanvas = document.getElementById("PitcherWait");
+    var BatterWaitCanvas = document.getElementById("BatterWaitting");
 
+    if(count1 < 7)
+    {
+        count1++;
+    }
+    else
+    {
+        count1 = 0;
+        clearInterval(OutBackControl);
 
+        PitcherWaitOnload();
+        BatterWaitOnload();
 
+        PitcherWaitCanvas.style.filter = "opacity(100%)";
+        PitcherWaitCanvas.style.WebkitFilter = "opacity(100%)";
+        BatterWaitCanvas.style.filter = "opacity(100%)";
+        BatterWaitCanvas.style.WebkitFilter = "opacity(100%)";
+        var ctx5 = BatterWaitCanvas.getContext("2d");
+        var ctx6 = PitcherWaitCanvas.getContext("2d");
 
+        PitcherPitchCanvas.style.filter = "opacity(0%)";
+        PitcherPitchCanvas.style.WebkitFilter = "opacity(0%)";
+        BatterHitCanvas.style.filter = "opacity(0%)";
+        BatterHitCanvas.style.WebkitFilter = "opacity(0%)";
+        var ctx1 = PitcherPitchCanvas.getContext("2d");
+        ctx1.clearRect(0, 0, 128, 140);
+        var ctx2 = BatterHitCanvas.getContext("2d");
+        ctx2.clearRect(0, 0, 192, 210);
+    }
 
+}
 
-
-
-
+var OutBackControl;
+export function OutBackOnload()
+{
+    OutBackControl = setInterval(OutBack, 80);
+}
 
 
 var BallFrames = 5;
