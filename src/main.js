@@ -95,16 +95,6 @@ export function initBatter()
 }
 
 /**
-*   This method create two teams.
-**/
-export function createTeam()
-{
-    var blueTeam = new Team("Blue Team");
-    var redTeam = new Team("Red Team");
-    console.log("create two team");
-}
-
-/**
 *   This method render the team member select html page with canvas. The size canvas will auto change with user web browser.
 **/
 export function initSelectTeam()
@@ -278,28 +268,6 @@ export function CL()
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Curveball Low!</td></tr>";
     pitcherAction("cl");
 }
-
-
-/**
-*   These varibales keep track of the variables in the Game class.
-**/
-var action = new Game();
-var balls = action.balls;
-var strikes = action.strikes;
-var outs = action.outs;
-var first = action.first;
-var second = action.second;
-var third = action.third;
-var score = action.homeTeam.runs;
-var R1 = 0;
-var R2 = 0;
-var R3 = 0;
-var R4 = 0;
-var R5 = 0;
-var R6 = 0;
-var R7 = 0;
-var R8 = 0;
-var R9 = 0;
 
 
 /**
@@ -607,11 +575,30 @@ function drawScore() {
 	else {
 		curHitter = curHitter + game.visitTeam.lineup[game.visitAB].getPlayerName() + game.visitTeam.lineup[game.visitAB].getPosition() + "<br>";
 	}
+
+	let curPitcher = "Pitching:<br>";
+	if (game.inningSide) {
+		curPitcher = curPitcher + game.homeTeam.pitcher.getPlayerName() + game.homeTeam.pitcher.getPosition() + "<br>";
+	}
+	else {
+		curPitcher = curPitcher + game.visitTeam.pitcher.getPlayerName() + game.visitTeam.pitcher.getPosition() + "<br>";
+	}
 }
-    let curPitcher = "Pitching:<br>";
-    if (game.inningSide) {
-        curPitcher = curPitcher + game.homeTeam.pitcher.getPlayerName() + game.homeTeam.pitcher.getPosition() + "<br>";
-    }
-    else {
-        curPitcher = curPitcher + game.visitTeam.pitcher.getPlayerName() + game.visitTeam.pitcher.getPosition() + "<br>";
-    }
+
+function displayHitMenu() {
+    document.getElementById("gameLog").style.display = "none";
+    document.getElementById("pitcherMenu").style.display = "none";
+    document.getElementById("hitterMenu").style.display = "grid";
+}
+
+function displayPitchMenu() {
+	document.getElementById("gameLog").style.display = "none";
+	document.getElementById("hitterMenu").style.display = "none";
+	document.getElementById("pitcherMenu").style.display = "grid";
+}
+
+function displayGameLog() {
+	document.getElementById("hitterMenu").style.display = "none";
+	document.getElementById("pitcherMenu").style.display = "none";
+	document.getElementById("gameLog").style.display = "grid";
+}

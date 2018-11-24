@@ -85,15 +85,16 @@ export class Game {
 
 		/**
 		 * Object that stores the result of the last pitch thrown - what pitch it was, what the category of contact was, the resulting play, whether an out was made, whether a new at bat is starting, and whether a new half-innning is starting.
-		 * @type {{pitch: string, swing: boolean, play: string, out: boolean, newAB: boolean, newInning: boolean}}
+		 * @type {{pitch: string, swing: boolean, play: string, out: boolean, newAB: boolean, newInning: boolean, runsScored: number}}
 		 */
 		this.lastPitch = {
 			pitch: "",
 			swing: false,
 			play: "",
 			out: false,
-			newAB: false,
-			newInning: false
+			newAB: true,
+			newInning: true,
+			runsScored: 0
 		};
 	}
 
@@ -1016,6 +1017,7 @@ export class Game {
 			numRuns++;
 		}
 		numRuns++;
+
 		if (this.inningSide === false) {
 			this.visitTeam.score(numRuns);
 		}
@@ -1028,6 +1030,7 @@ export class Game {
 		this.lastPitch.out = false;
 
 		this.lastPitch.newInning = false;
+		this.lastPitch.runsScored = numRuns;
 	}
 
 	/**
@@ -1059,6 +1062,7 @@ export class Game {
 		this.lastPitch.out = false;
 
 		this.lastPitch.newInning = false;
+		this.lastPitch.runsScored = numRuns;
 	}
 
 	/**
@@ -1090,6 +1094,7 @@ export class Game {
 		this.lastPitch.out = false;
 
 		this.lastPitch.newInning = false;
+		this.lastPitch.runsScored = numRuns;
 	}
 
 	/**
@@ -1121,6 +1126,7 @@ export class Game {
 		this.lastPitch.out = false;
 
 		this.lastPitch.newInning = false;
+		this.lastPitch.runsScored = numRuns;
 	}
 
 	/**
@@ -1152,6 +1158,7 @@ export class Game {
 		this.lastPitch.out = false;
 
 		this.lastPitch.newInning = false;
+		this.lastPitch.runsScored = numRuns;
 	}
 
 	/**
@@ -1183,6 +1190,7 @@ export class Game {
 		this.lastPitch.out = false;
 
 		this.lastPitch.newInning = false;
+		this.lastPitch.runsScored = numRuns;
 	}
 
 	/**
@@ -1214,6 +1222,7 @@ export class Game {
 		this.lastPitch.out = false;
 
 		this.lastPitch.newInning = false;
+		this.lastPitch.runsScored = numRuns;
 	}
 
 	/**
@@ -1245,6 +1254,7 @@ export class Game {
 		this.lastPitch.out = false;
 
 		this.lastPitch.newInning = false;
+		this.lastPitch.runsScored = numRuns;
 	}
 
 	/**
@@ -1254,7 +1264,7 @@ export class Game {
 		this.out(1);
 		this.newAB();
 		this.lastPitch.play = "foulout";
-
+		this.lastPitch.runsScored = 0;
 	}
 
 	/**
@@ -1264,7 +1274,7 @@ export class Game {
 		this.out(1);
 		this.newAB();
 		this.lastPitch.play = "flyout";
-
+		this.lastPitch.runsScored = 0;
 	}
 
 	/**
@@ -1294,7 +1304,7 @@ export class Game {
 		}
 		this.newAB();
 		this.lastPitch.play = "flyoutAdv";
-
+		this.lastPitch.runsScored = numRuns;
 	}
 
 	/**
@@ -1320,7 +1330,7 @@ export class Game {
 		}
 		this.newAB();
 		this.lastPitch.play = "flyoutNoAdv1st";
-
+		this.lastPitch.runsScored = numRuns;
 	}
 
 	/**
@@ -1350,7 +1360,7 @@ export class Game {
 		}
 		this.newAB();
 		this.lastPitch.play = "groundout";
-
+		this.lastPitch.runsScored = numRuns;
 	}
 
 	/**
@@ -1381,7 +1391,7 @@ export class Game {
 		}
 		this.newAB();
 		this.lastPitch.play = "groundoutAdvIfForced";
-
+		this.lastPitch.runsScored = numRuns;
 	}
 
 	/**
@@ -1417,7 +1427,7 @@ export class Game {
 		}
 		this.newAB();
 		this.lastPitch.play = "groundoutDoublePlay";
-
+		this.lastPitch.runsScored = numRuns;
 	}
 	/**
 	 * Double play - Lead runner and batter out
@@ -1440,7 +1450,7 @@ export class Game {
 		}
 		this.newAB();
 		this.lastPitch.play = "lineoutDoublePlay";
-
+		this.lastPitch.runsScored = 0;
 	}
 
 	/**
@@ -1465,7 +1475,7 @@ export class Game {
 		}
 		this.newAB();
 		this.lastPitch.play = "triplePlay";
-
+		this.lastPitch.runsScored = 0;
 	}
 
 	/**
@@ -1475,7 +1485,7 @@ export class Game {
 		this.out(1);
 		this.newAB();
 		this.lastPitch.play = "fieldersChoice";
-
+		this.lastPitch.runsScored = 0;
 	}
 
 	/**
@@ -1505,7 +1515,7 @@ export class Game {
 		this.newAB();
 		this.lastPitch.play = "errorSecond";
 		this.lastPitch.out = false;
-
+		this.lastPitch.runsScored = numRuns;
 	}
 
 	/**
@@ -1518,6 +1528,7 @@ export class Game {
 		    this.lastPitch.out = false;
 		    this.lastPitch.newAB = false;
 		    this.lastPitch.newInning = false;
+			this.lastPitch.runsScored = 0;
 		}
 	}
 
@@ -1538,6 +1549,7 @@ export class Game {
 			this.lastPitch.newAB = false;
 			this.lastPitch.newInning = false;
 		}
+		this.lastPitch.runsScored = 0;
 	}
 
 	/**
@@ -1557,6 +1569,7 @@ export class Game {
 			this.lastPitch.newAB = false;
 			this.lastPitch.newInning = false;
 		}
+		this.lastPitch.runsScored = 0;
 	}
 
 	/**
@@ -1595,6 +1608,7 @@ export class Game {
 		}
 		this.lastPitch.out = false;
 		this.lastPitch.newInning = false;
+		this.lastPitch.runsScored = numRuns;
 	}
 
 	/**
