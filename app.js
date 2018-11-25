@@ -13,15 +13,12 @@ app.get('/', function(req, res){
 	res.render('index.ejs');
 });
 
-app.post("/createTeam", function(req, res) {
+app.post("/game", function(req, res) {
 	const location = req.body.location;
-	res.render("createTeam.ejs", {
+	console.log(location);
+	res.render("game.ejs", {
 		location: location
 	});
-});
-
-app.post("/game", function(req, res) {
-	res.render("game.ejs", {});
 });
 
 http.listen(3000, function() {
