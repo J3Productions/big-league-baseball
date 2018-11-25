@@ -11,6 +11,7 @@ export function startGame(location) {
     game = new Game(location);
     side = location;
     BackGroundOnload(location);
+    loopCrowdChatter();
     if (location === "home") {
         displayPitchMenu();
     }
@@ -1067,6 +1068,7 @@ export function DetermineAnimation()
     if(game.lastPitch.newInning == true)
     {
         SwitchSideOnload(side);
+        crowdFx(time)
     }
 }
 
@@ -1095,5 +1097,42 @@ function organMusic()//Loops the organ music and crowd clapping. At this point c
     function organMusic()
     {
         document.getElementById('c0').play();
+    }
+}
+
+function crowdFx(time)
+{
+
+    if(time== 0)
+    {
+        document.getElementById('c0').play();//Start crowd noise.
+    }
+    if(time== 1)
+    {
+        document.getElementById('c1').play();
+    }
+    if(time== 2)
+    {
+        document.getElementById('c2').play();
+    }
+    if(time== 3)
+    {
+        document.getElementById('c3').play();
+    }
+    if(time== 4)
+    {
+        document.getElementById('c4').play();
+    }
+    if(time== 5)
+    {
+        document.getElementById('c5').play();
+    }
+    if(time== 6)
+    {
+        document.getElementById('c6').play();
+    }
+    if(time== 6)
+    {
+        document.getElementById('7th').play();
     }
 }
