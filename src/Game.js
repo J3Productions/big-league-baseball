@@ -122,13 +122,13 @@ export class Game {
 		switch (batter) {
 			case "ss":
 				if (this.inningSide === false) {
-					if (this.visitTeam.lineup[this.visitAB].getbatStrengths().includes("ss")) {
+					if (this.visitTeam.lineup[this.visitAB].getBatStrengths().includes("ss")) {
 						this.hit6();
 						break;
 					}
 				}
 				else {
-					if (this.homeTeam.lineup[this.homeAB].getbatStrengths().includes("ss")) {
+					if (this.homeTeam.lineup[this.homeAB].getBatStrengths().includes("ss")) {
 						this.hit6();
 						break;
 					}
@@ -181,13 +181,13 @@ export class Game {
 		switch (batter) {
 			case "sh":
 				if (this.inningSide === false) {
-					if (this.visitTeam.lineup[this.visitAB].getbatStrengths().includes("sh")) {
+					if (this.visitTeam.lineup[this.visitAB].getBatStrengths().includes("sh")) {
 						this.hit6();
 						break;
 					}
 				}
 				else {
-					if (this.homeTeam.lineup[this.homeAB].getbatStrengths().includes("sh")) {
+					if (this.homeTeam.lineup[this.homeAB].getBatStrengths().includes("sh")) {
 						this.hit6();
 						break;
 					}
@@ -233,13 +233,13 @@ export class Game {
 		switch (batter) {
 			case "sl":
 				if (this.inningSide === false) {
-					if (this.visitTeam.lineup[this.visitAB].getbatStrengths().includes("sl")) {
+					if (this.visitTeam.lineup[this.visitAB].getBatStrengths().includes("sl")) {
 						this.hit6();
 						break;
 					}
 				}
 				else {
-					if (this.homeTeam.lineup[this.homeAB].getbatStrengths().includes("sl")) {
+					if (this.homeTeam.lineup[this.homeAB].getBatStrengths().includes("sl")) {
 						this.hit6();
 						break;
 					}
@@ -286,13 +286,13 @@ export class Game {
 		switch (batter) {
 			case "si":
 				if (this.inningSide === false) {
-					if (this.visitTeam.lineup[this.visitAB].getbatStrengths().includes("si")) {
+					if (this.visitTeam.lineup[this.visitAB].getBatStrengths().includes("si")) {
 						this.hit6();
 						break;
 					}
 				}
 				else {
-					if (this.homeTeam.lineup[this.homeAB].getbatStrengths().includes("si")) {
+					if (this.homeTeam.lineup[this.homeAB].getBatStrengths().includes("si")) {
 						this.hit6();
 						break;
 					}
@@ -341,13 +341,13 @@ export class Game {
 		switch (batter) {
 			case "fs":
 				if (this.inningSide === false) {
-					if (this.visitTeam.lineup[this.visitAB].getbatStrengths().includes("fs")) {
+					if (this.visitTeam.lineup[this.visitAB].getBatStrengths().includes("fs")) {
 						this.hit6();
 						break;
 					}
 				}
 				else {
-					if (this.homeTeam.lineup[this.homeAB].getbatStrengths().includes("fs")) {
+					if (this.homeTeam.lineup[this.homeAB].getBatStrengths().includes("fs")) {
 						this.hit6();
 						break;
 					}
@@ -399,13 +399,13 @@ export class Game {
 		switch (batter) {
 			case "fh":
 				if (this.inningSide === false) {
-					if (this.visitTeam.lineup[this.visitAB].getbatStrengths().includes("fh")) {
+					if (this.visitTeam.lineup[this.visitAB].getBatStrengths().includes("fh")) {
 						this.hit6();
 						break;
 					}
 				}
 				else {
-					if (this.homeTeam.lineup[this.homeAB].getbatStrengths().includes("fh")) {
+					if (this.homeTeam.lineup[this.homeAB].getBatStrengths().includes("fh")) {
 						this.hit6();
 						break;
 					}
@@ -451,13 +451,13 @@ export class Game {
 		switch (batter) {
 			case "fl":
 				if (this.inningSide === false) {
-					if (this.visitTeam.lineup[this.visitAB].getbatStrengths().includes("fl")) {
+					if (this.visitTeam.lineup[this.visitAB].getBatStrengths().includes("fl")) {
 						this.hit6();
 						break;
 					}
 				}
 				else {
-					if (this.homeTeam.lineup[this.homeAB].getbatStrengths().includes("fl")) {
+					if (this.homeTeam.lineup[this.homeAB].getBatStrengths().includes("fl")) {
 						this.hit6();
 						break;
 					}
@@ -503,13 +503,13 @@ export class Game {
 		switch (batter) {
 			case "fi":
 				if (this.inningSide === false) {
-					if (this.visitTeam.lineup[this.visitAB].getbatStrengths().includes("fi")) {
+					if (this.visitTeam.lineup[this.visitAB].getBatStrengths().includes("fi")) {
 						this.hit6();
 						break;
 					}
 				}
 				else {
-					if (this.homeTeam.lineup[this.homeAB].getbatStrengths().includes("fi")) {
+					if (this.homeTeam.lineup[this.homeAB].getBatStrengths().includes("fi")) {
 						this.hit6();
 						break;
 					}
@@ -561,13 +561,13 @@ export class Game {
 		switch (batter) {
 			case "co":
 				if (this.inningSide === false) {
-					if (this.visitTeam.lineup[this.visitAB].getbatStrengths().includes("co")) {
+					if (this.visitTeam.lineup[this.visitAB].getBatStrengths().includes("co")) {
 						this.hit6();
 						break;
 					}
 				}
 				else {
-					if (this.homeTeam.lineup[this.homeAB].getbatStrengths().includes("co")) {
+					if (this.homeTeam.lineup[this.homeAB].getBatStrengths().includes("co")) {
 						this.hit6();
 						break;
 					}
@@ -619,13 +619,13 @@ export class Game {
 		switch (batter) {
 			case "ch":
 				if (this.inningSide === false) {
-					if (this.visitTeam.lineup[this.visitAB].getbatStrengths().includes("ch")) {
+					if (this.visitTeam.lineup[this.visitAB].getBatStrengths().includes("ch")) {
 						this.hit6();
 						break;
 					}
 				}
 				else {
-					if (this.homeTeam.lineup[this.homeAB].getbatStrengths().includes("ch")) {
+					if (this.homeTeam.lineup[this.homeAB].getBatStrengths().includes("ch")) {
 						this.hit6();
 						break;
 					}
@@ -668,13 +668,13 @@ export class Game {
 		switch (batter) {
 			case "cl":
 				if (this.inningSide === false) {
-					if (this.visitTeam.lineup[this.visitAB].getbatStrengths().includes("cl")) {
+					if (this.visitTeam.lineup[this.visitAB].getBatStrengths().includes("cl")) {
 						this.hit6();
 						break;
 					}
 				}
 				else {
-					if (this.homeTeam.lineup[this.homeAB].getbatStrengths().includes("cl")) {
+					if (this.homeTeam.lineup[this.homeAB].getBatStrengths().includes("cl")) {
 						this.hit6();
 						break;
 					}
@@ -720,13 +720,13 @@ export class Game {
 		switch (batter) {
 			case "ci":
 				if (this.inningSide === false) {
-					if (this.visitTeam.lineup[this.visitAB].getbatStrengths().includes("ci")) {
+					if (this.visitTeam.lineup[this.visitAB].getBatStrengths().includes("ci")) {
 						this.hit6();
 						break;
 					}
 				}
 				else {
-					if (this.homeTeam.lineup[this.homeAB].getbatStrengths().includes("ci")) {
+					if (this.homeTeam.lineup[this.homeAB].getBatStrengths().includes("ci")) {
 						this.hit6();
 						break;
 					}
@@ -1632,6 +1632,9 @@ export class Game {
 
 		if (this.outs === 3) {
 			this.newInning();
+		}
+		else {
+			this.lastPitch.newInning = false;
 		}
 		this.lastPitch.out = true;
 	}

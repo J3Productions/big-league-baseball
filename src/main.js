@@ -640,10 +640,10 @@ function drawScore() {
 
 	let curPitcher = "Pitching:<br>";
 	if (game.inningSide) {
-		curPitcher = curPitcher + game.homeTeam.pitcher.getPlayerName() + "&nbsp;- " + game.homeTeam.pitcher.getPosition() + "<br>";
+		curPitcher = curPitcher + game.visitTeam.pitcher.getPlayerName() + "&nbsp;- " + game.visitTeam.pitcher.getPosition() + "<br>";
 	}
 	else {
-		curPitcher = curPitcher + game.visitTeam.pitcher.getPlayerName() + "&nbsp;- " + game.visitTeam.pitcher.getPosition() + "<br>";
+		curPitcher = curPitcher + game.homeTeam.pitcher.getPlayerName() + "&nbsp;- " + game.homeTeam.pitcher.getPosition() + "<br>";
 	}
 	document.getElementById("currentPitcher").innerHTML = curPitcher;
 }
@@ -710,7 +710,7 @@ function hitSelect(action) {
 		        game.ciPitch(action);
 		        break;
         }
-	    DetermineAnimation();
+	    //DetermineAnimation();
         switch (game.lastPitch.play) {
             case "homeRun":
                 message = message + "<br>Swung on, a high fly ball, get up, get outta here, gone! It's a home run!";
@@ -872,7 +872,7 @@ function pitchSelect(action) {
 				game.ciPitch(actions[roll]);
 				break;
 		}
-        DetermineAnimation();
+        //DetermineAnimation();
 		switch (game.lastPitch.play) {
 			case "homeRun":
 				message = message + "<br>Swung on, a high fly ball, get up, get outta here, gone! It's a home run!";
@@ -932,6 +932,9 @@ function pitchSelect(action) {
 				break;
 			case "ball":
 				message = message + "<br>That one's out of the zone, taken for a ball.";
+				break;
+			case "foul":
+				message = message + "<br>Swung on, but fouled out of play.";
 				break;
 		}
 		document.getElementById("gameLog").innerHTML = message;

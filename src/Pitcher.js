@@ -35,4 +35,12 @@ export class Pitcher extends Player {
     getArsenal(){
         return this.arsenal;
     }
+
+	/**
+	 * Gets the preferred pitches of the player (which, in a pitcher's case, is none)
+	 * @returns {Array}
+	 */
+	getBatStrengths() {
+    	return [];
+    }
 }
