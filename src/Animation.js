@@ -382,78 +382,78 @@ function drawBaseChange()
     HomeBaseViewCanvas.style.filter = "opacity(100%)";
     HomeBaseViewCanvas.style.WebkitFilter = "opacity(100%)";
 
-    if(gameAnimation.play == "flyoutAdv" || gameAnimation.play == "groundout")
+    if(gameAnimation.lastPitch.play == "flyoutAdv" || gameAnimation.lastPitch.play == "groundout")
     {
         if(times == 0)
         {
-            if(gameAnimation.first == true)
+            if(gameAnimation.lastPitch.first == true)
             {
                 base2 = true;
             }
-            if(gameAnimation.second == true)
+            if(gameAnimation.lastPitch.second == true)
             {
                 base3 = true;
             }
             times++;
         }
-        if(gameAnimation.third == true)
+        if(gameAnimation.lastPitch.third == true)
         {
             base4 = true;
         }
     }
-    if(gameAnimation.play == "flyoutNoAdv1st")
+    if(gameAnimation.lastPitch.play == "flyoutNoAdv1st")
     {
         if(times == 0)
         {
-            if(gameAnimation.second == true)
+            if(gameAnimation.lastPitch.second == true)
             {
                 base3 = true;
             }
-            if(gameAnimation.third == true)
+            if(gameAnimation.lastPitch.third == true)
             {
                 base4 = true;
             }
             times++;
         }
     }
-    if(gameAnimation.play == "groundoutAdvIfForced")
+    if(gameAnimation.lastPitch.play == "groundoutAdvIfForced")
     {
         if(times == 0)
         {
-            if (gameAnimation.third && gameAnimation.second && gameAnimation.first) {
+            if (gameAnimation.lastPitch.third && gameAnimation.lastPitch.second && gameAnimation.lastPitch.first) {
                 base2 = true;
                 base3 = true;
                 base4 = true;
             }
-            if (gameAnimation.second && gameAnimation.first) {
+            if (gameAnimation.lastPitch.second && gameAnimation.lastPitch.first) {
                 base2 = true;
                 base3 = true;
             }
-            if (gameAnimation.first) {
+            if (gameAnimation.lastPitch.first) {
                 base2 = true;
             }
             times++;
         }
     }
-    if(gameAnimation.play == "groundoutDoublePlay")
+    if(gameAnimation.lastPitch.play == "groundoutDoublePlay")
     {
         if(times == 0)
         {
-            if (gameAnimation.third) {
+            if (gameAnimation.lastPitch.third) {
                 base4 = true;
             }
-            if (gameAnimation.second) {
+            if (gameAnimation.lastPitch.second) {
                 base3 = true;
             }
         }
         times++;
     }
 
-    if(gameAnimation.play == "homeRun" || gameAnimation.play == "triple"
-        || gameAnimation.play == "doubleClear" || gameAnimation.play == "double"
-        || gameAnimation.play == "single" || gameAnimation.play == "singleRISP"
-        || gameAnimation.play == "singleAdvance" || gameAnimation.play == "error"
-        || gameAnimation.play == "errorSecond")
+    if(gameAnimation.lastPitch.play == "homeRun" || gameAnimation.lastPitch.play == "triple"
+        || gameAnimation.lastPitch.play == "doubleClear" || gameAnimation.lastPitch.play == "double"
+        || gameAnimation.lastPitch.play == "single" || gameAnimation.lastPitch.play == "singleRISP"
+        || gameAnimation.lastPitch.play == "singleAdvance" || gameAnimation.lastPitch.play == "error"
+        || gameAnimation.lastPitch.play == "errorSecond")
     {
         if(times == 0)
         {
@@ -462,9 +462,9 @@ function drawBaseChange()
         }
 
 
-        if((gameAnimation.play == "double" && gameAnimation.first == true)
-            || (gameAnimation.play == "singleRISP" && gameAnimation.first == true)
-            || (gameAnimation.play == "singleAdvance" && gameAnimation.first == true))
+        if((gameAnimation.lastPitch.play == "double" && gameAnimation.lastPitch.first == true)
+            || (gameAnimation.lastPitch.play == "singleRISP" && gameAnimation.lastPitch.first == true)
+            || (gameAnimation.lastPitch.play == "singleAdvance" && gameAnimation.lastPitch.first == true))
         {
             if(times == 1)
             {
@@ -473,35 +473,35 @@ function drawBaseChange()
             }
 
         }
-        if(gameAnimation.play == "single"
-            || gameAnimation.play == "error")
+        if(gameAnimation.lastPitch.play == "single"
+            || gameAnimation.lastPitch.play == "error")
         {
             if(times == 1)
             {
-                if(gameAnimation.first == true)
+                if(gameAnimation.lastPitch.first == true)
                 {
                     base2 = true;
                 }
-                if(gameAnimation.second == true)
+                if(gameAnimation.lastPitch.second == true)
                 {
                     base3 = true;
                 }
-                if(gameAnimation.third == true)
+                if(gameAnimation.lastPitch.third == true)
                 {
                     base4 = true;
                 }
                 times++;
             }
         }
-        if(gameAnimation.play == "errorSecond")
+        if(gameAnimation.lastPitch.play == "errorSecond")
         {
             if(times == 1)
             {
-                if(gameAnimation.first == true)
+                if(gameAnimation.lastPitch.first == true)
                 {
                     base2 = true;
                 }
-                if(gameAnimation.second == true)
+                if(gameAnimation.lastPitch.second == true)
                 {
                     base3 = true;
                 }
@@ -535,7 +535,7 @@ function drawBaseChange()
     }
     else
     {
-        if(gameAnimation.play == "homeRun")
+        if(gameAnimation.lastPitch.play == "homeRun")
         {
             if(base1 == true)
             {
@@ -563,7 +563,7 @@ function drawBaseChange()
                 fieldBack();
             }
         }
-        else if(gameAnimation.play == "triple")
+        else if(gameAnimation.lastPitch.play == "triple")
         {
             if(base1 == true)
             {
@@ -586,7 +586,7 @@ function drawBaseChange()
                 fieldBack();
             }
         }
-        else if(gameAnimation.play == "doubleClear")
+        else if(gameAnimation.lastPitch.play == "doubleClear")
         {
             if(base1 == true)
             {
@@ -604,7 +604,7 @@ function drawBaseChange()
                 fieldBack();
             }
         }
-        else if(gameAnimation.play == "double")
+        else if(gameAnimation.lastPitch.play == "double")
         {
             if(base1 == true)
             {
@@ -629,14 +629,14 @@ function drawBaseChange()
                 fieldBack();
             }
         }
-        else if(gameAnimation.play == "single"
-            || gameAnimation.play == "singleRISP"
-            || gameAnimation.play == "error"
-            || gameAnimation.play == "flyoutAdv"
-            || gameAnimation.play == "flyoutNoAdv1st"
-            || gameAnimation.play == "groundout"
-            || gameAnimation.play == "groundoutAdvIfForced"
-            || gameAnimation.play == "groundoutDoublePlay")
+        else if(gameAnimation.lastPitch.play == "single"
+            || gameAnimation.lastPitch.play == "singleRISP"
+            || gameAnimation.lastPitch.play == "error"
+            || gameAnimation.lastPitch.play == "flyoutAdv"
+            || gameAnimation.lastPitch.play == "flyoutNoAdv1st"
+            || gameAnimation.lastPitch.play == "groundout"
+            || gameAnimation.lastPitch.play == "groundoutAdvIfForced"
+            || gameAnimation.lastPitch.play == "groundoutDoublePlay")
         {
             base1 = false;
             base2 = false;
@@ -646,7 +646,7 @@ function drawBaseChange()
             clearInterval(BaseChangeControl);
             fieldBack();
         }
-        else if(gameAnimation.play == "singleAdvance")
+        else if(gameAnimation.lastPitch.play == "singleAdvance")
         {
             if(base2 == true && base1 == true)
             {
@@ -665,7 +665,7 @@ function drawBaseChange()
                 fieldBack();
             }
         }
-        else if(gameAnimation.play == "errorSecond")
+        else if(gameAnimation.lastPitch.play == "errorSecond")
         {
             if(base1 == true)
             {
@@ -674,7 +674,7 @@ function drawBaseChange()
                 if(base3 == true)
                 {
                     base4 = true;
-                    if(gameAnimation.first == false)
+                    if(gameAnimation.lastPitch.first == false)
                     {
                         base3 = false;
                     }
@@ -691,298 +691,6 @@ function drawBaseChange()
                 fieldBack();
             }
         }
-
-
-
-
-
-
-
-
-
-
-       /* if(gameAnimation.lastPitch.play == "flyoutAdv" || gameAnimation.lastPitch.play == "groundout")
-        {
-            if(gameAnimation.first == true)
-            {
-                base2 = true;
-            }
-            if(gameAnimation.second == true)
-            {
-                base3 = true;
-            }
-            if(gameAnimation.third == true)
-            {
-                base4 = true;
-            }
-        }
-        if(gameAnimation.lastPitch.play == "flyoutNoAdv1st")
-        {
-            if(gameAnimation.second == true)
-            {
-                base3 = true;
-            }
-            if(gameAnimation.third == true)
-            {
-                base4 = true;
-            }
-        }
-        if(gameAnimation.lastPitch.play == "groundoutAdvIfForced")
-        {
-            if (gameAnimation.third && gameAnimation.second && gameAnimation.first) {
-                base2 = true;
-                base3 = true;
-                base4 = true;
-            }
-            if (gameAnimation.second && gameAnimation.first) {
-                base2 = true;
-                base3 = true;
-            }
-            if (gameAnimation.first) {
-                base2 = true;
-            }
-        }
-        if(gameAnimation.lastPitch.play == "groundoutDoublePlay")
-        {
-            base3 = true;
-        }
-
-        if(gameAnimation.lastPitch.play == "homeRun" || gameAnimation.lastPitch.play == "triple"
-            || gameAnimation.lastPitch.play == "doubleClear" || gameAnimation.lastPitch.play == "double"
-            || gameAnimation.lastPitch.play == "single" || gameAnimation.lastPitch.play == "singleRISP"
-            || gameAnimation.lastPitch.play == "singleAdvance" || gameAnimation.lastPitch.play == "error"
-            || gameAnimation.lastPitch.play == "errorSecond")
-        {
-            base1 = true;
-
-            if((gameAnimation.lastPitch.play == "double" && gameAnimation.first == true)
-                || (gameAnimation.lastPitch.play == "singleRISP" && gameAnimation.first == true)
-                || (gameAnimation.lastPitch.play == "singleAdvance" && gameAnimation.first == true))
-            {
-                base2 = true;
-            }
-            if(gameAnimation.lastPitch.play == "single"
-                || gameAnimation.lastPitch.play == "error")
-            {
-                if(gameAnimation.first == true)
-                {
-                    base2 = true;
-                }
-                if(gameAnimation.second == true)
-                {
-                    base3 = true;
-                }
-                if(gameAnimation.third == true)
-                {
-                    base4 = true;
-                }
-            }
-            if(gameAnimation.lastPitch.play == "errorSecond")
-            {
-                if(gameAnimation.first == true)
-                {
-                    base2 = true;
-                }
-                if(gameAnimation.second == true)
-                {
-                    base3 = true;
-                }
-            }
-
-        }
-
-        if(base1 == true)
-        {
-            ctx.drawImage(img, BaseChangeCurrFrame * 1600, 0, 1600, 900, 0, 0, FirstBaseViewCanvas.width, FirstBaseViewCanvas.height);
-        }
-        if(base2 == true)
-        {
-            ctx2.drawImage(img2, BaseChangeCurrFrame * 1600, 0, 1600, 900, 0, 0, SecondBaseViewCanvas.width, SecondBaseViewCanvas.height);
-        }
-        if(base3 == true)
-        {
-            ctx3.drawImage(img3, BaseChangeCurrFrame * 1600, 0, 1600, 900, 0, 0, ThirdBaseViewCanvas.width, ThirdBaseViewCanvas.height);
-        }
-        if(base4 == true)
-        {
-            ctx4.drawImage(img4, BaseChangeCurrFrame * 1600, 0, 1600, 900, 0, 0, HomeBaseViewCanvas.width, HomeBaseViewCanvas.height);
-        }
-
-
-        if(BaseChangeCurrFrame < BaseChangeTotalFrame)
-        {
-            BaseChangeCurrFrame++;
-        }
-        else
-        {
-            if(gameAnimation.lastPitch.play == "homeRun")
-            {
-                if(base1 == true)
-                {
-                    base1 = false;
-                    base2 = true;
-                }
-                else if(base2 == true)
-                {
-                    base2 = false;
-                    base3 = true;
-                }
-                else if(base3 == true)
-                {
-                    base3 = false;
-                    base4 = true;
-                }
-                else
-                {
-                    base1 = false;
-                    base2 = false;
-                    base3 = false;
-                    base4 = false;
-                    clearInterval(BaseChangeControl);
-                    fieldBack();
-                }
-            }
-            else if(gameAnimation.lastPitch.play == "triple")
-            {
-                if(base1 == true)
-                {
-                    base1 = false;
-                    base2 = true;
-                }
-                else if(base2 == true)
-                {
-                    base2 = false;
-                    base3 = true;
-                }
-                else
-                {
-                    base1 = false;
-                    base2 = false;
-                    base3 = false;
-                    base4 = false;
-                    clearInterval(BaseChangeControl);
-                    fieldBack();
-                }
-            }
-            else if(gameAnimation.lastPitch.play == "doubleClear")
-            {
-                if(base1 == true)
-                {
-                    base1 = false;
-                    base2 = true;
-                }
-                else
-                {
-                    base1 = false;
-                    base2 = false;
-                    base3 = false;
-                    base4 = false;
-                    clearInterval(BaseChangeControl);
-                    fieldBack();
-                }
-            }
-            else if(gameAnimation.lastPitch.play == "double")
-            {
-                if(base1 == true)
-                {
-                    base1 = false;
-                    if(base2 == true)
-                    {
-                        base3 == true;
-                    }
-                    else
-                    {
-                        base2 = true;
-                    }
-                }
-                else
-                {
-                    base1 = false;
-                    base2 = false;
-                    base3 = false;
-                    base4 = false;
-                    clearInterval(BaseChangeControl);
-                    fieldBack();
-                }
-            }
-            else if(gameAnimation.lastPitch.play == "single"
-                || gameAnimation.lastPitch.play == "singleRISP"
-                || gameAnimation.lastPitch.play == "error"
-                || gameAnimation.lastPitch.play == "flyoutAdv"
-                || gameAnimation.lastPitch.play == "flyoutNoAdv1st"
-                || gameAnimation.lastPitch.play == "groundout"
-                || gameAnimation.lastPitch.play == "groundoutAdvIfForced"
-                || gameAnimation.lastPitch.play == "groundoutDoublePlay"
-                || gameAnimation.lastPitch.play == "lineoutDoublePlay")
-            {
-                base1 = false;
-                base2 = false;
-                base3 = false;
-                base4 = false;
-                clearInterval(BaseChangeControl);
-                fieldBack();
-            }
-            else if(gameAnimation.lastPitch.play == "singleAdvance")
-            {
-                if(base2 == true && base1 == true)
-                {
-                    base1 = false;
-                    base2 = false;
-                    base3 = true;
-                }
-                else
-                {
-                    base1 = false;
-                    base2 = false;
-                    base3 = false;
-                    base4 = false;
-                    clearInterval(BaseChangeControl);
-                    fieldBack();
-                }
-            }
-            else if(gameAnimation.lastPitch.play == "errorSecond")
-            {
-                if(base1 == true)
-                {
-                    base1 = false;
-                    base2 = true;
-                }
-                else if(base1 == true && base2 == true)
-                {
-                    base1 = false;
-                    base3 = true;
-                }
-                else if(base1 == true && base2 == true && base3 == true)
-                {
-                    base1 = false;
-                    base4 = true;
-                }
-                else
-                {
-                    base1 = false;
-                    base2 = false;
-                    base3 = false;
-                    base4 = false;
-                    clearInterval(BaseChangeControl);
-                    fieldBack();
-                }
-            }*/
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         BaseChangeCurrFrame = 0;
     }
 }
