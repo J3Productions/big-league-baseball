@@ -923,43 +923,44 @@ function pitchSelect(action) {
 }
 
 
-function DetermineAnimation()
+
+export function DetermineAnimation()
 {
-    if(game.lastPitch.swing == "true")
+    if( game.lastPitch.swing == true)
     {
-        if(game.lastPitch.play == "homeRun" || game.lastPitch.play == "triple" 
-            || game.lastPitch.play == "doubleClear" || game.lastPitch.play == "double"
-            || game.lastPitch.play == "single" || game.lastPitch.play == "singleRISP"
-            || game.lastPitch.play == "singleAdvance" || game.lastPitch.play == "error"
-            || game.lastPitch.play == "flyoutAdv" || game.lastPitch.play == "flyoutNoAdv1st"
-            || game.lastPitch.play == "groundout" || game.lastPitch.play == "groundoutAdvIfForced"
-            || game.lastPitch.play == "groundoutDoublePlay" || game.lastPitch.play == "lineoutDoublePlay"
-            || game.lastPitch.play == "errorSecond")
+        if( game.lastPitch.play == "homeRun" ||  game.lastPitch.play == "triple" 
+            ||  game.lastPitch.play == "doubleClear" ||  game.lastPitch.play == "double"
+            ||  game.lastPitch.play == "single" ||  game.lastPitch.play == "singleRISP"
+            ||  game.lastPitch.play == "singleAdvance" ||  game.lastPitch.play == "error"
+            ||  game.lastPitch.play == "flyoutAdv" ||  game.lastPitch.play == "flyoutNoAdv1st"
+            ||  game.lastPitch.play == "groundout" ||  game.lastPitch.play == "groundoutAdvIfForced"
+            ||  game.lastPitch.play == "groundoutDoublePlay" ||  game.lastPitch.play == "errorSecond")//groundoutAdvIfForced question
         {
-            drawPitchHit();
+            drawPitchHit(lastPitch);
         }
-        if(game.lastPitch.play == "foulout" 
-            || game.lastPitch.play == "flyout"
-            || game.lastPitch.play == "triplePlay"
-            || game.lastPitch.play == "fieldersChoice")
+        if( game.lastPitch.play == "foulout" 
+            ||  game.lastPitch.play == "flyout"
+            ||  game.lastPitch.play == "triplePlay"
+            ||  game.lastPitch.play == "fieldersChoice"
+            ||  game.lastPitch.play == "lineoutDoublePlay")
         {
             drawSwingOut();
         }
     }
     else
     {
-        if(game.lastPitch.play == "foul"
-            || game.lastPitch.play == "swingingStrike"
-            || game.lastPitch.play == "strikeoutLooking"
-            || game.lastPitch.play == "calledStrike")
+        if( game.lastPitch.play == "foul"
+            ||  game.lastPitch.play == "swingingStrike"
+            ||  game.lastPitch.play == "strikeoutLooking"
+            ||  game.lastPitch.play == "calledStrike")
         {
             drawSwingStrike();
         }
-        if(game.lastPitch.play == "walk")
+        if( game.lastPitch.play == "walk")
         {
             drawTakeBall();//take animation with one base;
         }
-        if(game.lastPitch.play == "ball")
+        if( game.lastPitch.play == "ball")
         {
             drawTakeBall();
         }
