@@ -8,7 +8,6 @@ No additional restrictions — You may not apply legal terms or technological meas
 {
 #https://freesound.org/people/AshFox/
 Alyssa Galindo
-
 191929__ashfox__walla-ballpark-organ-music-various
 VisitHitAndCatchOut_applause-short-04
 runOntoField_applause-short
@@ -23,4 +22,21 @@ organ_LetsGo
 organ-cheering-charge_andHit
 organ-music-various
 organ-take-me-out-to-the-ballgame
+}
+{
+remix 101137__CGEffex__Play_Ball_(Before-After Bassy baseball arena effect)#.wav
+https://freesound.org/people/Timbre/sounds/102047/-credit "Timbre" and "Freesound.org"
+}
+}
+
+
+{
+Mike Koenig-PlayBall
+Baseball Bat Swing
+}
+{
+SwingAndMiss-by Dane S Casperson https://freesound.org/people/CosmicEmbers/sounds/160756/
+}
+{
+Home run back ground music-Fantastic Voyage-Coolio
 }

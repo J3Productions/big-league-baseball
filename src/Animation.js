@@ -707,28 +707,34 @@ function hitSound(team, swing, contact, play, timeDelay)//Sounds for pitching, b
             setTimeout(contact, d, t, p );
             function contact(t, p)
             {
-                if(p===1)
+                if(t===1)//team;//h=home, v=visitor
                 {
-                    if(t===1)
+                    if(p== 1)
                     {
-                        if(p== 1)
-                        {
-                            document.getElementById('hB1').play();//Base hit
-                        }
-                        if(p== 2)
-                        {
-                            document.getElementById('hB2').play();//Double hit
-                        }
-                        if(p== 5)
-                        {
-                            document.getElementById('hBf').play();//Foul ball
-                        }
+                        document.getElementById('hB1').play();//Base hit
                     }
-                    else
+                    if(p== 2)
                     {
-
+                        document.getElementById('hB2').play();//Double hit
+                    }
+                    if(p== 3)
+                    {
+                        document.getElementById('hB3').play();//Base hit
+                    }
+                    if(p== 4)
+                    {
+                        document.getElementById('hB4').play();//Double hit
+                    }
+                    if(p== 5)
+                    {
+                        document.getElementById('hBf').play();//Foul ball
                     }
                 }
+                else
+                {
+
+                }
+
             }
         }
     }
