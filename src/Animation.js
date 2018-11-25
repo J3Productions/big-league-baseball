@@ -1,34 +1,120 @@
-var RedTeamBackGroundCurrFrame = 0;
-var RedTeamBackGroundTotalFrame = 2;
-
-export function RedTeamBackGround()
+var Side = "Home";
+var count2 = 0;
+export function SwitchSide()
 {
-    var RedTeamBackGroundCanvas = document.getElementById("batterView");
-    var ctx = RedTeamBackGroundCanvas.getContext("2d");
-    var img = document.getElementById("viewPic");
+    var SwSideViewCanvas = document.getElementById("SwSideView");
     var screenWidth = document.documentElement.clientWidth;
     var screenHeight = document.documentElement.clientHeight;
-    RedTeamBackGroundCanvas.width = screenWidth * 0.75;
-    RedTeamBackGroundCanvas.height = screenHeight * 0.725;
+    SwSideViewCanvas.width = screenWidth * 0.75;
+    SwSideViewCanvas.height = screenHeight * 0.725;
+    var ctx = SwSideViewCanvas.getContext("2d");
+    var img = document.getElementById("SwitchSide");
+    ctx.drawImage(img, 1600, 0, 1600, 900, 0, 0, SwSideViewCanvas.width, SwSideViewCanvas.height);
+    SwSideViewCanvas.style.filter = "opacity(100%)";
+    SwSideViewCanvas.style.WebkitFilter = "opacity(100%)";
 
-    if(RedTeamBackGroundCurrFrame < RedTeamBackGroundTotalFrame)
+    var PitcherWaitCanvas = document.getElementById("PitcherWait");
+    var BatterWaitCanvas = document.getElementById("BatterWaitting");
+    var ctx5 = BatterWaitCanvas.getContext("2d");
+    var ctx6 = PitcherWaitCanvas.getContext("2d");
+    ctx5.clearRect(0, 0, 192, 192);
+    ctx6.clearRect(0, 0, 128, 140);
+
+    var PitcherPitchCanvas = document.getElementById("PitcherPitch");
+    var BatterHitCanvas = document.getElementById("BatterHit");
+    var ctx1 = PitcherPitchCanvas.getContext("2d");
+    ctx1.clearRect(0, 0, 128, 140);
+    var ctx2 = BatterHitCanvas.getContext("2d");
+    ctx2.clearRect(0, 0, 192, 210);
+
+    PitcherWaitCanvas.style.filter = "opacity(0%)";
+    PitcherWaitCanvas.style.WebkitFilter = "opacity(0%)";
+    BatterWaitCanvas.style.filter = "opacity(0%)";
+    BatterWaitCanvas.style.WebkitFilter = "opacity(0%)";
+    var BackGroundCanvas = document.getElementById("batterView");
+    BackGroundCanvas.style.filter = "opacity(0%)";
+    BackGroundCanvas.style.WebkitFilter = "opacity(0%)";
+
+    clearInterval(PitcherWaitControl);
+    clearInterval(BatterWaitControl);
+
+    if(count2 < 8)
     {
-        RedTeamBackGroundCurrFrame++;
+        count2++;
     }
     else
     {
-        RedTeamBackGroundCurrFrame = 0;
+        if(Side == "Home")
+        {
+            Side = "Away";
+        }
+        else
+        {
+            Side = "Home";
+        }
+   
+        SwSideViewCanvas.style.filter = "opacity(0%)";
+        SwSideViewCanvas.style.WebkitFilter = "opacity(0%)";
+        BackGroundCanvas.style.filter = "opacity(100%)";
+        BackGroundCanvas.style.WebkitFilter = "opacity(100%)";
+        PitcherWaitCanvas.style.filter = "opacity(100%)";
+        PitcherWaitCanvas.style.WebkitFilter = "opacity(100%)";
+        BatterWaitCanvas.style.filter = "opacity(100%)";
+        BatterWaitCanvas.style.WebkitFilter = "opacity(100%)";
+        PitcherWaitOnload();
+        BatterWaitOnload();
+
+        count2 = 0;
+        clearInterval(SwitchSideControl);
+    }
+}
+
+var SwitchSideControl;
+export function SwitchSideOnload()
+{
+    SwitchSideControl = setInterval(SwitchSide, 300);
+}
+
+var BackGroundCurrFrame = 0;
+var BackGroundTotalFrame = 2;
+
+export function BackGround()
+{
+    var BackGroundCanvas = document.getElementById("batterView");
+    var ctx = BackGroundCanvas.getContext("2d");
+    if(Side == "Home")
+    {
+        var img = document.getElementById("viewPic");
+    }
+    else
+    {
+        var img = document.getElementById("viewPic2");
+    }
+    var screenWidth = document.documentElement.clientWidth;
+    var screenHeight = document.documentElement.clientHeight;
+    BackGroundCanvas.width = screenWidth * 0.75;
+    BackGroundCanvas.height = screenHeight * 0.725;
+
+    if(BackGroundCurrFrame < BackGroundTotalFrame)
+    {
+        BackGroundCurrFrame++;
+    }
+    else
+    {
+        BackGroundCurrFrame = 0;
     }
 
-    ctx.drawImage(img, RedTeamBackGroundCurrFrame * 1600, 0, 1600, 900, 0, 0, RedTeamBackGroundCanvas.width, RedTeamBackGroundCanvas.height);
+    ctx.drawImage(img, BackGroundCurrFrame * 1600, 0, 1600, 900, 0, 0, BackGroundCanvas.width, BackGroundCanvas.height);
 }
 
-var RedTeamBackGroundControl;
-export function RedTeamBackGroundOnload()
+var BackGroundControl;
+export function BackGroundOnload()
 {
-    RedTeamBackGroundControl = setInterval(RedTeamBackGround, 300);
+    BackGroundControl = setInterval(BackGround, 300);
 }
 
+
+var BatterStatus = "";
 export function drawPitchHit()//This the function for hit animation.
 {
 
@@ -48,8 +134,16 @@ export function drawPitchHit()//This the function for hit animation.
 
     var ctx = PitcherPitchCanvas.getContext("2d");
     var ctx2 = BatterHitCanvas.getContext("2d");
-    var img = document.getElementById("PitcherPitching");
-    var img2 = document.getElementById("BatterHitting");
+    if(Side == "Home")
+    {
+        var img = document.getElementById("PitcherPitching");
+        var img2 = document.getElementById("BatterHitting");
+    }
+    else
+    {
+        var img = document.getElementById("BluePitcherPitching");
+        var img2 = document.getElementById("RedBatterHitting");
+    }
     ctx.drawImage(img, 0 * 128, 0, 128, 140, 0, 0, 96, 105);
     ctx2.drawImage(img2, 0 * 192, 0, 192, 210, 0, 0, 160, 175);//in order to make the canvas change smooth, draw the frist frame of animation before display the Hit animation canvas.
 
@@ -60,6 +154,8 @@ export function drawPitchHit()//This the function for hit animation.
 
     clearInterval(PitcherWaitControl);
     clearInterval(BatterWaitControl);//clear the waiting animation counting.
+
+    BatterStatus = "Hit";
 
     PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
 
@@ -78,7 +174,15 @@ function drawPitcherPitch()
     PitcherPitchCanvas.height = 105;
     var ctx = PitcherPitchCanvas.getContext("2d");
 
-    var img = document.getElementById("PitcherPitching");
+    if(Side == "Home")
+    {
+        var img = document.getElementById("PitcherPitching");
+    }
+    else
+    {
+        var img = document.getElementById("BluePitcherPitching");
+    }
+
     var width = 128;
     var height = 140;                                   //initial the canvas.
 
@@ -86,7 +190,22 @@ function drawPitcherPitch()
 
     if(PitcherPitchCurrFrames == 2)
     {
-        BatterHitOnload();//when the pitcher animation frame go to 2, start drawing Batter Hit animation. go to line 122
+        if(BatterStatus == "Hit")
+        {
+            BatterHitOnload();
+        }
+        if(BatterStatus == "Strike")
+        {
+            BatterSwingStrikeOnload();
+        }
+        if(BatterStatus == "Ball")
+        {
+            BatterTakeOnload();
+        }
+        if(BatterStatus == "Out")
+        {
+            BatterSwingOutOnload();
+        }
     }
 
     if(PitcherPitchCurrFrames == 3)
@@ -111,7 +230,14 @@ function drawPitcherPitch()
         BatterHitCanvas.width = 192;
         BatterHitCanvas.height = 210;
         var ctx2 = BatterHitCanvas.getContext("2d");
-        var img2 = document.getElementById("BatterHitting");
+        if(Side == "Home")
+        {
+            var img2 = document.getElementById("BatterHitting");
+        }
+        else
+        {
+            var img2 = document.getElementById("RedBatterHitting");
+        }
         ctx2.drawImage(img2, 0 * 192, 0, 192, 210, 0, 0, 160, 175);
     }
 }
@@ -133,8 +259,14 @@ function drawBatterHit()
     BatterHitCanvas.width = 160;
     BatterHitCanvas.height = 175;
     var ctx = BatterHitCanvas.getContext("2d");
-
-    var img = document.getElementById("BatterHitting");
+    if(Side == "Home")
+    {
+        var img = document.getElementById("BatterHitting");
+    }
+    else
+    {
+        var img = document.getElementById("RedBatterHitting");
+    }
     var width = 192;
     var height = 210;
 
@@ -166,18 +298,23 @@ function drawBatterHit()
     ctx.drawImage(img, BatterHitCurrFrame * width, 0, width, height, 0, 0, BatterHitCanvas.width, BatterHitCanvas.height);//draw Batter hit animation frame.
 }
 
+var BatterHitOnloadControl;
+export function BatterHitOnload()
+{
+    BatterHitOnloadControl = setInterval(drawBatterHit, 80);//every 80ms call the drawBatterhit function once.
+}
 
 function drawAboveView()
 {
     var PitcherPitchCanvas = document.getElementById("PitcherPitch");
     var BatterHitCanvas = document.getElementById("BatterHit");
-    var RedTeamBackGroundCanvas = document.getElementById("batterView");
+    var BackGroundCanvas = document.getElementById("batterView");
     PitcherPitchCanvas.style.filter = "opacity(0%)";
     PitcherPitchCanvas.style.WebkitFilter = "opacity(0%)";
     BatterHitCanvas.style.filter = "opacity(0%)";
     BatterHitCanvas.style.WebkitFilter = "opacity(0%)";
-    RedTeamBackGroundCanvas.style.filter = "opacity(0%)";
-    RedTeamBackGroundCanvas.style.WebkitFilter = "opacity(0%)";
+    BackGroundCanvas.style.filter = "opacity(0%)";
+    BackGroundCanvas.style.WebkitFilter = "opacity(0%)";
     var ctx1 = PitcherPitchCanvas.getContext("2d");
     ctx1.clearRect(0, 0, 128, 140);
     var ctx2 = BatterHitCanvas.getContext("2d");
@@ -201,47 +338,137 @@ function drawAboveView()
 
 }
 
-var base1 = true;
-var base2 = true;
-var base3 = true;
-var base4 = true;
+var base1 = false;
+var base2 = false;
+var base3 = false;
+var base4 = false;
 var BaseChangeCurrFrame = 0;
 var BaseChangeTotalFrame = 5;
-function drawBaseChange()
+function drawBaseChange(game)
 {
-    var RedTeamBackGroundCanvas = document.getElementById("batterView");
+    var BackGroundCanvas = document.getElementById("batterView");
 
     var FirstBaseViewCanvas = document.getElementById("FirstBaseView");
     var ctx = FirstBaseViewCanvas.getContext("2d");
     var img = document.getElementById("FirstBase");
-    FirstBaseViewCanvas.width = RedTeamBackGroundCanvas.width;
-    FirstBaseViewCanvas.height = RedTeamBackGroundCanvas.height;
+    FirstBaseViewCanvas.width = BackGroundCanvas.width;
+    FirstBaseViewCanvas.height = BackGroundCanvas.height;
     FirstBaseViewCanvas.style.filter = "opacity(100%)";
     FirstBaseViewCanvas.style.WebkitFilter = "opacity(100%)";
 
     var SecondBaseViewCanvas = document.getElementById("FirstBaseView");
     var ctx2 = SecondBaseViewCanvas.getContext("2d");
     var img2 = document.getElementById("SecondBase");
-    SecondBaseViewCanvas.width = RedTeamBackGroundCanvas.width;
-    SecondBaseViewCanvas.height = RedTeamBackGroundCanvas.height;
+    SecondBaseViewCanvas.width = BackGroundCanvas.width;
+    SecondBaseViewCanvas.height = BackGroundCanvas.height;
     SecondBaseViewCanvas.style.filter = "opacity(100%)";
     SecondBaseViewCanvas.style.WebkitFilter = "opacity(100%)";
 
     var ThirdBaseViewCanvas = document.getElementById("FirstBaseView");
     var ctx3 = ThirdBaseViewCanvas.getContext("2d");
     var img3 = document.getElementById("ThirdBase");
-    ThirdBaseViewCanvas.width = RedTeamBackGroundCanvas.width;
-    ThirdBaseViewCanvas.height = RedTeamBackGroundCanvas.height;
+    ThirdBaseViewCanvas.width = BackGroundCanvas.width;
+    ThirdBaseViewCanvas.height = BackGroundCanvas.height;
     ThirdBaseViewCanvas.style.filter = "opacity(100%)";
     ThirdBaseViewCanvas.style.WebkitFilter = "opacity(100%)";
 
     var HomeBaseViewCanvas = document.getElementById("FirstBaseView");
     var ctx4 = HomeBaseViewCanvas.getContext("2d");
     var img4 = document.getElementById("HomeBase");
-    HomeBaseViewCanvas.width = RedTeamBackGroundCanvas.width;
-    HomeBaseViewCanvas.height = RedTeamBackGroundCanvas.height;
+    HomeBaseViewCanvas.width = BackGroundCanvas.width;
+    HomeBaseViewCanvas.height = BackGroundCanvas.height;
     HomeBaseViewCanvas.style.filter = "opacity(100%)";
     HomeBaseViewCanvas.style.WebkitFilter = "opacity(100%)";
+
+    if(game.lastPitch.play == "flyoutAdv" || game.lastPitch.play == "groundout")
+    {
+        if(game.first == true)
+        {
+            base2 = true;
+        }
+        if(game.second == true)
+        {
+            base3 = true;
+        }
+        if(game.third == true)
+        {
+            base4 = true;
+        }
+    }
+    if(game.lastPitch.play == "flyoutNoAdv1st")
+    {
+        if(game.second == true)
+        {
+            base3 = true;
+        }
+        if(game.third == true)
+        {
+            base4 = true;
+        }
+    }
+    if(game.lastPitch.play == "groundoutAdvIfForced")
+    {
+        if (game.third && game.second && game.first) {
+            base2 = true;
+            base3 = true;
+            base4 = true;
+        }
+        if (game.second && game.first) {
+            base2 = true;
+            base3 = true;
+        }
+        if (game.first) {
+            base2 = true;
+        }
+    }
+    if(game.lastPitch.play == "groundoutDoublePlay")
+    {
+        base3 = true;
+    }
+
+    if(game.lastPitch.play == "homeRun" || game.lastPitch.play == "triple" 
+        || game.lastPitch.play == "doubleClear" || game.lastPitch.play == "double" 
+        || game.lastPitch.play == "single" || game.lastPitch.play == "singleRISP"
+        || game.lastPitch.play == "singleAdvance" || game.lastPitch.play == "error"
+        || game.lastPitch.play == "errorSecond")
+    {
+        base1 = true;
+
+        if((game.lastPitch.play == "double" && game.first == true) 
+            || (game.lastPitch.play == "singleRISP" && game.first == true)
+            || (game.lastPitch.play == "singleAdvance" && game.first == true))
+        {
+            base2 = true;
+        }
+        if(game.lastPitch.play == "single" 
+            || game.lastPitch.play == "error")
+        {
+            if(game.first == true)
+            {
+                base2 = true;
+            }
+            if(game.second == true)
+            {
+                base3 = true;
+            }
+            if(game.third == true)
+            {
+                base4 = true;
+            }
+        }
+        if(game.lastPitch.play == "errorSecond")
+        {
+            if(game.first == true)
+            {
+                base2 = true;
+            }
+            if(game.second == true)
+            {
+                base3 = true;
+            }
+        }
+
+    }
 
     if(base1 == true)
     {
@@ -260,28 +487,181 @@ function drawBaseChange()
         ctx4.drawImage(img4, BaseChangeCurrFrame * 1600, 0, 1600, 900, 0, 0, HomeBaseViewCanvas.width, HomeBaseViewCanvas.height);
     }
 
+
     if(BaseChangeCurrFrame < BaseChangeTotalFrame)
     {
         BaseChangeCurrFrame++;
     }
     else
     {
+        if(game.lastPitch.play == "homeRun")
+        {
+            if(base1 == true)
+            {
+                base1 = false;
+                base2 = true;
+            }
+            else if(base2 == true)
+            {
+                base2 = false;
+                base3 = true;
+            }
+            else if(base3 == true)
+            {
+                base3 = false;
+                base4 = true;
+            }
+            else
+            {
+                base1 = false;
+                base2 = false;
+                base3 = false;
+                base4 = false;
+                clearInterval(BaseChangeControl);
+                fieldBack();
+            }
+        }
+        else if(game.lastPitch.play == "triple")
+        {
+            if(base1 == true)
+            {
+                base1 = false;
+                base2 = true;
+            }
+            else if(base2 == true)
+            {
+                base2 = false;
+                base3 = true;
+            }
+            else
+            {
+                base1 = false;
+                base2 = false;
+                base3 = false;
+                base4 = false;
+                clearInterval(BaseChangeControl);
+                fieldBack();
+            }
+        }
+        else if(game.lastPitch.play == "doubleClear")
+        {
+            if(base1 == true)
+            {
+                base1 = false;
+                base2 = true;
+            }
+            else
+            {
+                base1 = false;
+                base2 = false;
+                base3 = false;
+                base4 = false;
+                clearInterval(BaseChangeControl);
+                fieldBack();
+            }
+        }
+        else if(game.lastPitch.play == "double")
+        {
+            if(base1 == true)
+            {
+                base1 = false;
+                if(base2 == true)
+                {
+                    base3 == true;
+                }
+                else
+                {
+                    base2 = true;
+                }
+            }
+            else
+            {
+                base1 = false;
+                base2 = false;
+                base3 = false;
+                base4 = false;
+                clearInterval(BaseChangeControl);
+                fieldBack();
+            }
+        }
+        else if(game.lastPitch.play == "single" 
+            || game.lastPitch.play == "singleRISP"
+            || game.lastPitch.play == "error"
+            || game.lastPitch.play == "flyoutAdv"
+            || game.lastPitch.play == "flyoutNoAdv1st"
+            || game.lastPitch.play == "groundout"
+            || game.lastPitch.play == "groundoutAdvIfForced"
+            || game.lastPitch.play == "groundoutDoublePlay"
+            || game.lastPitch.play == "lineoutDoublePlay")
+        {
+            base1 = false;
+            base2 = false;
+            base3 = false;
+            base4 = false;
+            clearInterval(BaseChangeControl);
+            fieldBack();
+        }
+        else if(game.lastPitch.play == "singleAdvance")
+        {
+            if(base2 == true && base1 == true)
+            {
+                base1 = false;
+                base2 = false;
+                base3 = true;
+            }
+            else
+            {
+                base1 = false;
+                base2 = false;
+                base3 = false;
+                base4 = false;
+                clearInterval(BaseChangeControl);
+                fieldBack();
+            }
+        }
+        else if(game.lastPitch.play == "errorSecond")
+        {
+            if(base1 == true)
+            {
+                base1 = false;
+                base2 = true;
+            }
+            else if(base1 == true && base2 == true)
+            {
+                base1 = false;
+                base3 = true;
+            }
+            else if(base1 == true && base2 == true && base3 == true)
+            {
+                base1 = false;
+                base4 = true;
+            }
+            else
+            {
+                base1 = false;
+                base2 = false;
+                base3 = false;
+                base4 = false;
+                clearInterval(BaseChangeControl);
+                fieldBack();
+            }
+        }
+
+
         BaseChangeCurrFrame = 0;
-        clearInterval(BaseChangeControl);
-        fieldBack();
     }
 }
 
 var BaseChangeControl;
-export function BaseChangeOnload()
+export function BaseChangeOnload(game)
 {
-    BaseChangeControl = setInterval(drawBaseChange, 300);
+    BaseChangeControl = setInterval(drawBaseChange, 150, game);
 }
 
 
 function fieldBack()
 {
-    var RedTeamBackGroundCanvas = document.getElementById("batterView");
+    var BackGroundCanvas = document.getElementById("batterView");
 
     var AboveViewCanvas = document.getElementById("AboveView");
     var ctx = AboveViewCanvas.getContext("2d");
@@ -292,25 +672,25 @@ function fieldBack()
     var ctx1 = FirstBaseViewCanvas.getContext("2d");
     FirstBaseViewCanvas.style.filter = "opacity(0%)";
     FirstBaseViewCanvas.style.WebkitFilter = "opacity(0%)";
-    ctx1.clearRect(0, 0, RedTeamBackGroundCanvas.width, RedTeamBackGroundCanvas.height);
+    ctx1.clearRect(0, 0, BackGroundCanvas.width, BackGroundCanvas.height);
 
     var SecondBaseViewCanvas = document.getElementById("FirstBaseView");
     var ctx2 = SecondBaseViewCanvas.getContext("2d");
     SecondBaseViewCanvas.style.filter = "opacity(0%)";
     SecondBaseViewCanvas.style.WebkitFilter = "opacity(0%)";
-    ctx2.clearRect(0, 0, RedTeamBackGroundCanvas.width, RedTeamBackGroundCanvas.height);
+    ctx2.clearRect(0, 0, BackGroundCanvas.width, BackGroundCanvas.height);
 
     var ThirdBaseViewCanvas = document.getElementById("FirstBaseView");
     var ctx3 = ThirdBaseViewCanvas.getContext("2d");
     ThirdBaseViewCanvas.style.filter = "opacity(0%)";
     ThirdBaseViewCanvas.style.WebkitFilter = "opacity(0%)";
-    ctx3.clearRect(0, 0, RedTeamBackGroundCanvas.width, RedTeamBackGroundCanvas.height);
+    ctx3.clearRect(0, 0, BackGroundCanvas.width, BackGroundCanvas.height);
 
     var HomeBaseViewCanvas = document.getElementById("FirstBaseView");
     var ctx4 = HomeBaseViewCanvas.getContext("2d");
     HomeBaseViewCanvas.style.filter = "opacity(0%)";
     HomeBaseViewCanvas.style.WebkitFilter = "opacity(0%)";
-    ctx4.clearRect(0, 0, RedTeamBackGroundCanvas.width, RedTeamBackGroundCanvas.height);
+    ctx4.clearRect(0, 0, BackGroundCanvas.width, BackGroundCanvas.height);
 
     var PitcherWaitCanvas = document.getElementById("PitcherWait");
     var BatterWaitCanvas = document.getElementById("BatterWaitting");
@@ -326,103 +706,377 @@ function fieldBack()
     PitcherWaitOnload();
     BatterWaitOnload();
 
-    RedTeamBackGroundCanvas.style.filter = "opacity(100%)";
-    RedTeamBackGroundCanvas.style.WebkitFilter = "opacity(100%)";
+    BackGroundCanvas.style.filter = "opacity(100%)";
+    BackGroundCanvas.style.WebkitFilter = "opacity(100%)";
 
 
 }
 
 
-///////////TODO//////////////////////////////////Finish animation and change variable names for this function
+export function drawSwingStrike()
+{
+    var PitcherWaitCanvas = document.getElementById("PitcherWait");
+    var BatterWaitCanvas = document.getElementById("BatterWaitting");
+    PitcherWaitCanvas.style.filter = "opacity(0%)";
+    PitcherWaitCanvas.style.WebkitFilter = "opacity(0%)";
+    BatterWaitCanvas.style.filter = "opacity(0%)";
+    BatterWaitCanvas.style.WebkitFilter = "opacity(0%)";//first, make two waiting animation canvas disappear.
+
+    var PitcherPitchCanvas = document.getElementById("PitcherPitch");
+    var BatterHitCanvas = document.getElementById("BatterHit");
+    PitcherPitchCanvas.width = 96;
+    PitcherPitchCanvas.height = 105;
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
+
+    var ctx = PitcherPitchCanvas.getContext("2d");
+    var ctx2 = BatterHitCanvas.getContext("2d");
+    if(Side == "Home")
+    {
+        var img = document.getElementById("PitcherPitching");
+        var img2 = document.getElementById("BatterHitting");
+    }
+    else
+    {
+        var img = document.getElementById("BluePitcherPitching");
+        var img2 = document.getElementById("RedBatterHitting");
+    }
+
+    ctx.drawImage(img, 0 * 128, 0, 128, 140, 0, 0, 96, 105);
+    ctx2.drawImage(img2, 0 * 192, 0, 192, 210, 0, 0, 160, 175);//in order to make the canvas change smooth, draw the frist frame of animation before display the Hit animation canvas.
+
+    PitcherPitchCanvas.style.filter = "opacity(100%)";
+    PitcherPitchCanvas.style.WebkitFilter = "opacity(100%)";
+    BatterHitCanvas.style.filter = "opacity(100%)";
+    BatterHitCanvas.style.WebkitFilter = "opacity(100%)";//display the hit animation canvas.
+
+    clearInterval(PitcherWaitControl);
+    clearInterval(BatterWaitControl);//clear the waiting animation counting.
+
+    BatterStatus = "Strike";
+
+    PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
+}
+
+
+export function drawSwingOut()
+{
+    var PitcherWaitCanvas = document.getElementById("PitcherWait");
+    var BatterWaitCanvas = document.getElementById("BatterWaitting");
+    PitcherWaitCanvas.style.filter = "opacity(0%)";
+    PitcherWaitCanvas.style.WebkitFilter = "opacity(0%)";
+    BatterWaitCanvas.style.filter = "opacity(0%)";
+    BatterWaitCanvas.style.WebkitFilter = "opacity(0%)";//first, make two waiting animation canvas disappear.
+
+    var PitcherPitchCanvas = document.getElementById("PitcherPitch");
+    var BatterHitCanvas = document.getElementById("BatterHit");
+    PitcherPitchCanvas.width = 96;
+    PitcherPitchCanvas.height = 105;
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
+
+    var ctx = PitcherPitchCanvas.getContext("2d");
+    var ctx2 = BatterHitCanvas.getContext("2d");
+    if(Side == "Home")
+    {
+        var img = document.getElementById("PitcherPitching");
+        var img2 = document.getElementById("BatterHitting");
+    }
+    else
+    {
+        var img = document.getElementById("BluePitcherPitching");
+        var img2 = document.getElementById("RedBatterHitting");
+    }
+
+    ctx.drawImage(img, 0 * 128, 0, 128, 140, 0, 0, 96, 105);
+    ctx2.drawImage(img2, 0 * 192, 0, 192, 210, 0, 0, 160, 175);//in order to make the canvas change smooth, draw the frist frame of animation before display the Hit animation canvas.
+
+    PitcherPitchCanvas.style.filter = "opacity(100%)";
+    PitcherPitchCanvas.style.WebkitFilter = "opacity(100%)";
+    BatterHitCanvas.style.filter = "opacity(100%)";
+    BatterHitCanvas.style.WebkitFilter = "opacity(100%)";//display the hit animation canvas.
+
+    clearInterval(PitcherWaitControl);
+    clearInterval(BatterWaitControl);//clear the waiting animation counting.
+
+    BatterStatus = "Out";
+
+    PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
+}
+
+
+export function drawTakeBall()
+{
+    var PitcherWaitCanvas = document.getElementById("PitcherWait");
+    var BatterWaitCanvas = document.getElementById("BatterWaitting");
+    PitcherWaitCanvas.style.filter = "opacity(0%)";
+    PitcherWaitCanvas.style.WebkitFilter = "opacity(0%)";
+    BatterWaitCanvas.style.filter = "opacity(0%)";
+    BatterWaitCanvas.style.WebkitFilter = "opacity(0%)";//first, make two waiting animation canvas disappear.
+
+    var PitcherPitchCanvas = document.getElementById("PitcherPitch");
+    var BatterHitCanvas = document.getElementById("BatterHit");
+    PitcherPitchCanvas.width = 96;
+    PitcherPitchCanvas.height = 105;
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
+
+    var ctx = PitcherPitchCanvas.getContext("2d");
+    var ctx2 = BatterHitCanvas.getContext("2d");
+    if(Side == "Home")
+    {
+        var img = document.getElementById("PitcherPitching");
+        var img2 = document.getElementById("BatterHitting");
+    }
+    else
+    {
+        var img = document.getElementById("BluePitcherPitching");
+        var img2 = document.getElementById("RedBatterHitting");
+    }
+    
+    ctx.drawImage(img, 0 * 128, 0, 128, 140, 0, 0, 96, 105);
+    ctx2.drawImage(img2, 0 * 192, 0, 192, 210, 0, 0, 160, 175);//in order to make the canvas change smooth, draw the frist frame of animation before display the Hit animation canvas.
+
+    PitcherPitchCanvas.style.filter = "opacity(100%)";
+    PitcherPitchCanvas.style.WebkitFilter = "opacity(100%)";
+    BatterHitCanvas.style.filter = "opacity(100%)";
+    BatterHitCanvas.style.WebkitFilter = "opacity(100%)";//display the hit animation canvas.
+
+    clearInterval(PitcherWaitControl);
+    clearInterval(BatterWaitControl);//clear the waiting animation counting.
+
+    BatterStatus = "Ball";
+
+    PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
+}
+
+
+var BatterStrikeFrames = 11;
+var BatterStrikeCurrFrame = 0;
 function drawBatterSwingStrike()
 {
-    var BatterHitCanvas = document.getElementById("BatterStrike");//////////////Look at variable name here
-    BatterHitCanvas.width = 192;
-    BatterHitCanvas.height = 210;
+    var BatterHitCanvas = document.getElementById("BatterHit");
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
     var ctx = BatterHitCanvas.getContext("2d");
 
-    var img = document.getElementById("BatterHitting");
+    if(Side == "Home")
+    {
+        var img = document.getElementById("BatterHitting");
+    }
+    else
+    {
+        var img = document.getElementById("RedBatterHitting");
+    }
     var width = 192;
     var height = 210;
 
     ctx.clearRect(0, 0, width, height);
 
+    ctx.drawImage(img, BatterStrikeCurrFrame * width, 0, width, height, 0, 0, BatterHitCanvas.width, BatterHitCanvas.height);//draw Batter hit animation frame.
 
- ///////////////////////Call sound
-  hitSound(1, true, true, 1, 500);//team-Home==1 Visitor==2, swing contact==true, contact==true, play base hitSafe==1, timeDelay in ms
-
-
-    if(BatterHitCurrFrame < BatterHitFrames)
+    if(BatterStrikeCurrFrame < BatterStrikeFrames)
     {
-        if(BatterHitCurrFrame == 11 && count <= 2)
+        BatterStrikeCurrFrame++; 
+        if(BatterStrikeCurrFrame == 8)
         {
-            count++;
+            BatterStrikeCurrFrame++;
         }
-        else
+        if(BatterStrikeCurrFrame == 11)
         {
-            BatterHitCurrFrame++; //if the curr frame didn't reach the final frame, increment.
+            clearInterval(PitcherPitchControl); 
+            PitcherPitchCurrFrames = 0;
         }
     }
     else
     {
-        clearInterval(BatterHitOnloadControl);              //reach the final frame, clear the counting timer for the hit
+        clearInterval(BatterSwingStrikeControl);  
+        BatterStrikeCurrFrame = 0;
+        strikeBackOnload();
     }
 
-    ctx.drawImage(img, BatterHitCurrFrame * width, 0, width, height, 0, 0, width, height);//draw Batter hit animation frame.
+}
+
+var BatterSwingStrikeControl;
+export function BatterSwingStrikeOnload()
+{
+    BatterSwingStrikeControl = setInterval(drawBatterSwingStrike, 110);
 }
 
 
-function drawBatterTake()///////////////////////////////////////////////
+var BatterOutFrames = 11;
+var BatterOutCurrFrame = 0;
+function drawOut()
 {
-    var BatterHitCanvas = document.getElementById("BatterTake");/////////////////////////////////
-    BatterHitCanvas.width = 192;
-    BatterHitCanvas.height = 210;
+    var BatterHitCanvas = document.getElementById("BatterHit");
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
     var ctx = BatterHitCanvas.getContext("2d");
 
-    var img = document.getElementById("BatterHitting");
+    if(Side == "Home")
+    {
+        var img = document.getElementById("BatterHitting");
+    }
+    else
+    {
+        var img = document.getElementById("RedBatterHitting");
+    }
     var width = 192;
     var height = 210;
 
     ctx.clearRect(0, 0, width, height);
 
+    ctx.drawImage(img, BatterOutCurrFrame * width, 0, width, height, 0, 0, BatterHitCanvas.width, BatterHitCanvas.height);//draw Batter hit animation frame.
 
- ///////////////////////Call sound
-  hitSound(1, true, true, 1, 500);//team-Home==1 Visitor==2, swing contact==true, contact==true, play base hitSafe==1, timeDelay in ms
-
-
-    if(BatterHitCurrFrame < BatterHitFrames)
+    if(BatterOutCurrFrame < BatterOutFrames)
     {
-        if(BatterHitCurrFrame == 11 && count <= 2)
-        {
-            count++;
-        }
-        else
-        {
-            BatterHitCurrFrame++; //if the curr frame didn't reach the final frame, increment.
-        }
+        BatterOutCurrFrame++; 
     }
     else
     {
-        clearInterval(BatterHitOnloadControl);              //reach the final frame, clear the counting timer for the hit
+        clearInterval(PitcherPitchControl); 
+        PitcherPitchCurrFrames = 0;
+        clearInterval(BatterSwingOutControl);  
+        BatterOutCurrFrame = 0;
+        strikeBackOnload();
     }
 
-    ctx.drawImage(img, BatterHitCurrFrame * width, 0, width, height, 0, 0, width, height);//draw Batter hit animation frame.
+}
+
+var BatterSwingOutControl;
+export function BatterSwingOutOnload()
+{
+    BatterSwingOutControl = setInterval(drawOut, 80);
+}
+
+var count1 = 0;
+function strikeBack()
+{
+    var PitcherPitchCanvas = document.getElementById("PitcherPitch");
+    var BatterHitCanvas = document.getElementById("BatterHit");
+    var PitcherWaitCanvas = document.getElementById("PitcherWait");
+    var BatterWaitCanvas = document.getElementById("BatterWaitting");
+
+    if(count1 < 7)
+    {
+        count1++;
+    }
+    else
+    {
+        count1 = 0;
+        clearInterval(StrikeBackControl);
+
+        PitcherWaitOnload();
+        BatterWaitOnload();
+
+        PitcherWaitCanvas.style.filter = "opacity(100%)";
+        PitcherWaitCanvas.style.WebkitFilter = "opacity(100%)";
+        BatterWaitCanvas.style.filter = "opacity(100%)";
+        BatterWaitCanvas.style.WebkitFilter = "opacity(100%)";
+        var ctx5 = BatterWaitCanvas.getContext("2d");
+        var ctx6 = PitcherWaitCanvas.getContext("2d");
+
+        PitcherPitchCanvas.style.filter = "opacity(0%)";
+        PitcherPitchCanvas.style.WebkitFilter = "opacity(0%)";
+        BatterHitCanvas.style.filter = "opacity(0%)";
+        BatterHitCanvas.style.WebkitFilter = "opacity(0%)";
+        var ctx1 = PitcherPitchCanvas.getContext("2d");
+        ctx1.clearRect(0, 0, 128, 140);
+        var ctx2 = BatterHitCanvas.getContext("2d");
+        ctx2.clearRect(0, 0, 192, 210);
+    }
+}
+
+var StrikeBackControl;
+export function strikeBackOnload()
+{
+    StrikeBackControl = setInterval(strikeBack, 80);
 }
 
 
 
-
-
-
-
-
-
-
-
-var BatterHitOnloadControl;
-export function BatterHitOnload()
+function drawBatterTake()
 {
-    BatterHitOnloadControl = setInterval(drawBatterHit, 80);//every 80ms call the drawBatterhit function once.
+    var BatterHitCanvas = document.getElementById("BatterHit");
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
+    var ctx = BatterHitCanvas.getContext("2d");
+
+    if(Side == "Home")
+    {
+        var img = document.getElementById("BatterHitting");
+    }
+    else
+    {
+        var img = document.getElementById("RedBatterHitting");
+    }
+
+    var width = 192;
+    var height = 210;
+
+    ctx.clearRect(0, 0, width, height);
+
+    ctx.drawImage(img, width, 0, width, height, 0, 0, BatterHitCanvas.width, BatterHitCanvas.height);
+
+    if(PitcherPitchCurrFrames == 6)
+    {
+        clearInterval(PitcherPitchControl);
+        clearInterval(BatterTakeControl);
+        PitcherPitchCurrFrames = 0;
+        BallBackOnload();
+    }
+}
+
+var BatterTakeControl;
+export function BatterTakeOnload()
+{
+    BatterTakeControl = setInterval(drawBatterTake, 300);
+}
+
+
+
+function BallBack()
+{
+    var PitcherPitchCanvas = document.getElementById("PitcherPitch");
+    var BatterHitCanvas = document.getElementById("BatterHit");
+    var PitcherWaitCanvas = document.getElementById("PitcherWait");
+    var BatterWaitCanvas = document.getElementById("BatterWaitting");
+
+    if(count1 < 7)
+    {
+        count1++;
+    }
+    else
+    {
+        count1 = 0;
+        clearInterval(BallBackControl);
+
+        PitcherWaitOnload();
+        BatterWaitOnload();
+
+        PitcherWaitCanvas.style.filter = "opacity(100%)";
+        PitcherWaitCanvas.style.WebkitFilter = "opacity(100%)";
+        BatterWaitCanvas.style.filter = "opacity(100%)";
+        BatterWaitCanvas.style.WebkitFilter = "opacity(100%)";
+        var ctx5 = BatterWaitCanvas.getContext("2d");
+        var ctx6 = PitcherWaitCanvas.getContext("2d");
+
+        PitcherPitchCanvas.style.filter = "opacity(0%)";
+        PitcherPitchCanvas.style.WebkitFilter = "opacity(0%)";
+        BatterHitCanvas.style.filter = "opacity(0%)";
+        BatterHitCanvas.style.WebkitFilter = "opacity(0%)";
+        var ctx1 = PitcherPitchCanvas.getContext("2d");
+        ctx1.clearRect(0, 0, 128, 140);
+        var ctx2 = BatterHitCanvas.getContext("2d");
+        ctx2.clearRect(0, 0, 192, 210);
+    }
+
+}
+
+var BallBackControl;
+export function BallBackOnload()
+{
+    BallBackControl = setInterval(BallBack, 80);
 }
 
 
@@ -469,108 +1123,6 @@ export function BallOnload()
 }
 
 
-var g = 20;
-var j = 0;
-
-
-function drawImg()
-{
-    var selectCanvas = document.getElementById("SelectMember");
-    var ctx = selectCanvas.getContext("2d");
-
-    var img2 = document.getElementById("test2");
-    var width2 = 300;
-    var height2 = 300;
-
-    ctx.clearRect(0, 0, 700, 600);
-    j++;
-    if(j == g)
-    {
-        j == 0;
-    }
-    ctx.drawImage(img2, j * width2, 0, width2, height2, 0, 0, width2, height2);
-}
-
-
-
-var BatterFrames = 7;
-var BatterCurrFrame = 0;
-
-function drawBatterSelect()
-{
-    var BatterCanvas = document.getElementById("NormalPlayer");
-    BatterCanvas.width = 346;
-    BatterCanvas.height = 346;
-    var ctx = BatterCanvas.getContext("2d");
-
-    var normal = document.getElementById("normalBatter");
-    var width = 346;
-    var height = 346;//336
-
-    ctx.clearRect(0, 0, width, height);
-    BatterCurrFrame++;
-    if(BatterCurrFrame == BatterFrames)
-    {
-        BatterCurrFrame = 0;
-    }
-
-    ctx.drawImage(normal, BatterCurrFrame * width, 0, width, height, 0, 0, width, height);
-}
-
-
-
-var CatcherFrames = 21;
-var CatcherCurrFrame = 0;
-
-function drawCatcherSelect()
-{
-    var CatcherCanvas = document.getElementById("Catcher");
-    CatcherCanvas.width = 336;
-    CatcherCanvas.height = 336;
-    var ctx = CatcherCanvas.getContext("2d");
-
-    var img = document.getElementById("CatcherImg");
-    var width = 336;
-    var height = 336;
-
-    ctx.clearRect(0, 0, width, height);
-
-    CatcherCurrFrame++;
-    if(CatcherCurrFrame == CatcherFrames)
-    {
-        CatcherCurrFrame = 0;
-    }
-    if(CatcherCurrFrame == 4)
-    {
-        CatcherCurrFrame++;
-    }
-    if(CatcherCurrFrame == 5 || CatcherCurrFrame == 1 || CatcherCurrFrame == 19)
-    {
-        CatcherCurrFrame++;
-    }
-    if(CatcherCurrFrame == 6)
-    {
-        CatcherCurrFrame++;
-    }
-
-    ctx.drawImage(img, CatcherCurrFrame * width, 0, width, height, 0, 0, width, height);
-}
-
-export function BatterOnload()
-{
-    setInterval(drawBatterSelect, 125);
-}
-
-export function CatcherOnload()
-{
-    setInterval(drawCatcherSelect, 125);
-}
-
-export function imgOnload()
-{
-    setInterval(drawImg, 125);
-}
-
 
 var BatterWaitFrames = 17;
 var BatterWaitCurrFrame = 0;
@@ -582,7 +1134,14 @@ function drawBatterWait()
     BatterWaitCanvas.height = 160;
     var ctx = BatterWaitCanvas.getContext("2d");
 
-    var img = document.getElementById("BatterWait");
+    if(Side == "Home")
+    {
+        var img = document.getElementById("BatterWait");
+    }
+    else
+    {
+        var img = document.getElementById("RedBatterWait");
+    }
     var width = 192;
     var height = 192;
 
@@ -616,7 +1175,15 @@ function drawPitcherWait()
     PitcherWaitCanvas.height = 105;
     var ctx = PitcherWaitCanvas.getContext("2d");
 
-    var img = document.getElementById("PitcherWaiting");
+    if(Side == "Home")
+    {
+        var img = document.getElementById("PitcherWaiting");
+    }
+    else
+    {
+        var img = document.getElementById("BluePitcherWaiting");
+    }
+
     var width = 128;
     var height = 140;
 

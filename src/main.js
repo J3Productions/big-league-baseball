@@ -1,7 +1,8 @@
 import {Team} from './Team.js';
 import {Game} from './Game.js';
+import {Animation} from './Animation.js';
 
-let game = new Game();
+let game = new Game("home");
 
 /**
 *   This method store the player entered name locally.
@@ -92,16 +93,6 @@ export function initBatter()
     BallCanvas.style.left = "330px";
 
 
-}
-
-/**
-*   This method create two teams.
-**/
-export function createTeam()
-{
-    var blueTeam = new Team("Blue Team");
-    var redTeam = new Team("Red Team");
-    console.log("create two team");
 }
 
 /**
@@ -278,28 +269,6 @@ export function CL()
     document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Curveball Low!</td></tr>";
     pitcherAction("cl");
 }
-
-
-/**
-*   These varibales keep track of the variables in the Game class.
-**/
-var action = new Game();
-var balls = action.balls;
-var strikes = action.strikes;
-var outs = action.outs;
-var first = action.first;
-var second = action.second;
-var third = action.third;
-var score = action.homeTeam.runs;
-var R1 = 0;
-var R2 = 0;
-var R3 = 0;
-var R4 = 0;
-var R5 = 0;
-var R6 = 0;
-var R7 = 0;
-var R8 = 0;
-var R9 = 0;
 
 
 /**
@@ -566,5 +535,115 @@ function threeBase()
 }
 
 function drawScore() {
+	let innStr = "";
+	if (game.inningSide) {
+		innStr = "&#9660 ";
+	}
+	else {
+		innStr = "&#9650 ";
+	}
+	innStr = innStr + game.inning;
 
+	let countStr = game.balls + "-" + game.strikes + "<br>" + game.outs + " Out";
+
+    document.getElementById("score").innerHTML = game.visitTeam.runs + "-" + game.homeTeam.runs;
+    document.getElementById("inning").innerHTML = innStr;
+    document.getElementById("count").innerHTML = countStr;
+
+    if (game.first) {
+        document.getElementById("firstBase").style.fillOpacity = "255";
+    }
+    else {
+	    document.getElementById("firstBase").style.fillOpacity = "0";
+    }
+	if (game.second) {
+		document.getElementById("secondBase").style.fillOpacity = "255";
+	}
+	else {
+		document.getElementById("secondBase").style.fillOpacity = "0";
+	}
+	if (game.third) {
+		document.getElementById("thirdBase").style.fillOpacity = "255";
+	}
+	else {
+		document.getElementById("thirdBase").style.fillOpacity = "0";
+	}
+
+	let curHitter = "At Bat:<br>";
+	if (game.inningSide) {
+	    curHitter = curHitter + game.homeTeam.lineup[game.homeAB].getPlayerName() + game.homeTeam.lineup[game.homeAB].getPosition() + "<br>";
+    }
+	else {
+		curHitter = curHitter + game.visitTeam.lineup[game.visitAB].getPlayerName() + game.visitTeam.lineup[game.visitAB].getPosition() + "<br>";
+	}
+
+	let curPitcher = "Pitching:<br>";
+	if (game.inningSide) {
+		curPitcher = curPitcher + game.homeTeam.pitcher.getPlayerName() + game.homeTeam.pitcher.getPosition() + "<br>";
+	}
+	else {
+		curPitcher = curPitcher + game.visitTeam.pitcher.getPlayerName() + game.visitTeam.pitcher.getPosition() + "<br>";
+	}
+}
+
+function displayHitMenu() {
+    document.getElementById("gameLog").style.display = "none";
+    document.getElementById("pitcherMenu").style.display = "none";
+    document.getElementById("hitterMenu").style.display = "grid";
+}
+
+function displayPitchMenu() {
+	document.getElementById("gameLog").style.display = "none";
+	document.getElementById("hitterMenu").style.display = "none";
+	document.getElementById("pitcherMenu").style.display = "grid";
+}
+
+function displayGameLog() {
+	document.getElementById("hitterMenu").style.display = "none";
+	document.getElementById("pitcherMenu").style.display = "none";
+	document.getElementById("gameLog").style.display = "grid";
+}
+
+
+function DetermineAnimation()
+{
+    if(game.lastPitch.swing == "true")
+    {
+        if(game.lastPitch.play == "homeRun" || game.lastPitch.play == "triple" 
+            || game.lastPitch.play == "doubleClear" || game.lastPitch.play == "double"
+            || game.lastPitch.play == "single" || game.lastPitch.play == "singleRISP"
+            || game.lastPitch.play == "singleAdvance" || game.lastPitch.play == "error"
+            || game.lastPitch.play == "flyoutAdv" || game.lastPitch.play == "flyoutNoAdv1st"
+            || game.lastPitch.play == "groundout" || game.lastPitch.play == "groundoutAdvIfForced"
+            || game.lastPitch.play == "groundoutDoublePlay" || game.lastPitch.play == "lineoutDoublePlay"
+            || game.lastPitch.play == "errorSecond")
+        {
+            drawPitchHit();
+        }
+        if(game.lastPitch.play == "foulout" 
+            || game.lastPitch.play == "flyout"
+            || game.lastPitch.play == "triplePlay"
+            || game.lastPitch.play == "fieldersChoice")
+        {
+            drawSwingOut();
+        }
+    }
+    else
+    {
+        if(game.lastPitch.play == "foul"
+            || game.lastPitch.play == "swingingStrike"
+            || game.lastPitch.play == "strikeoutLooking"
+            || game.lastPitch.play == "calledStrike")
+        {
+            drawSwingStrike();
+        }
+        if(game.lastPitch.play == "walk")
+        {
+            drawTakeBall();//take animation with one base;
+        }
+        if(game.lastPitch.play == "ball")
+        {
+            drawTakeBall();
+        }
+    }
 }

@@ -54,19 +54,27 @@
              Your browser does not support the HTML5 canvas tag.
         </canvas>
 
-
+		<canvas id="SwSideView">
+             Your browser does not support the HTML5 canvas tag.
+        </canvas>
 
         <img id="BallShaping" src="./assets/Ball_css_sprites.png" style="display: none;">
 		<img id="PitcherPitching" src="./assets/RedTeam_Pitcher_Pitch_css_sprites.png" style="display: none;">
+		<img id="BluePitcherPitching" src="./assets/BlueTeam_Pitcher_Pitch_css_sprites.png" style="display: none;">
 		<img id="BatterHitting" src="./assets/Batter_Left_Hit_css_sprites.png" style="display: none;">
-	    <img id="viewPic" src="./assets/RedTeam_BackGround_css_sprites.png" style="display: none;">
+	    <img id="RedBatterHitting" src="./assets/RedTeam_Batter_Left_Hit_css_sprites.png" style="display: none;">
+		<img id="viewPic" src="./assets/RedTeam_BackGround_css_sprites.png" style="display: none;">
+		<img id="viewPic2" src="./assets/BlueTeam_BackGround_css_sprites.png" style="display: none;">
 		<img id="BatterWait" src="./assets/BatterWaitting_css_sprites.png" style="display: none;">
+		<img id="RedBatterWait" src="./assets/RedBatterWaitting_css_sprites.png" style="display: none;">
 		<img id="PitcherWaiting" src="./assets/RedTeam_Pitcher_Waiting_css_sprites.png" style="display: none;">
+		<img id="BluePitcherWaiting" src="./assets/BlueTeam_Pitcher_Waiting_css_sprites.png" style="display: none;">
 		<img id="AboveViewField" src="./assets/field_css_sprites.png" style="display: none;">
 		<img id="FirstBase" src="./assets/frist_base_css_sprites.png" style="display: none;">
 		<img id="SecondBase" src="./assets/second_base_css_sprites.png" style="display: none;">
 		<img id="ThirdBase" src="./assets/third_base_css_sprites.png" style="display: none;">
 		<img id="HomeBase" src="./assets/home_base_css_sprites.png" style="display: none;">
+		<img id="SwitchSide" src="./assets/Switch_Side_css_sprites.png" style="display: none;">
 
 <div class="split left split-vertical">
 	<div class="gameArea">
@@ -79,7 +87,10 @@
 
 
 		<button id="AnimationHit">Hit Animation</button>
-
+		<button id="AnimationStrike">Strike Animation</button>
+		<button id="AnimationBall">Ball Animation</button>
+		<button id="AnimationSwitch">Switch Animation</button>
+		<button id="AnimationOut">Out Animation</button>
 
 
 		<div class="gridContainer" id="hitterMenu" style="display: none">
@@ -142,7 +153,7 @@
 <div class="split right">
 	<div class="gridContainer" id="scoreGrid">
 		<div class="gridItem">Away</div>
-			<div class="score gridItem">0-0</div>
+			<div class="score gridItem" id="score">0-0</div>
 		<div class="gridItem">Home</div>
 	</div>
 	<div class="gridContainer">
@@ -197,41 +208,41 @@
 			0 Out
 		</p>
 		<div class="gridItem" id="bases">
-			<svg width="100%" height="auto">
+			<svg width="100%" height="100%">
 				<rect
-						id="rect3713"
+						id="firstBase"
 						width="33.277573"
 						height="33.277573"
 						x="-1.696068"
 						y="79.455223"
-						style="fill:#ffffff;fill-opacity:0;stroke:#ffffff;stroke-width:1.46901;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+						style="fill:#ebdc00;fill-opacity:0;stroke:#ffffff;stroke-width:1.46901;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 						transform="rotate(-45)" />
 				<rect
-						id="rect3713-3"
+						id="thirdBase"
 						width="33.277573"
 						height="33.277573"
 						x="-40.093128"
 						y="41.058174"
-						style="fill:#ffffff;fill-opacity:0;stroke:#ffffff;stroke-width:1.46901;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+						style="fill:#ebdc00;fill-opacity:0;stroke:#ffffff;stroke-width:1.46901;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 						transform="rotate(-45)" />
 				<rect
-						id="rect3713-3-6"
+						id="secondBase"
 						width="33.277573"
 						height="33.277573"
 						x="-1.4734662"
 						y="41.058174"
-						style="fill:#ffffff;fill-opacity:0;stroke:#ffffff;stroke-width:1.46901;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+						style="fill:#ebdc00;fill-opacity:0;stroke:#ffffff;stroke-width:1.46901;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
 						transform="rotate(-45)" />
 			</svg>
 		</div>
 	</div>
-	<div class="gridContainer">
+	<div class="gridContainer" id="currentHitter">
 		At Bat:<br>
 		Player Name - Position<br>
 		Strengths: Pitches
 	</div>
 	<br>
-	<div class="gridContainer">
+	<div class="gridContainer" id="currentPitcher">
 		Pitching:<br>
 		Player Name - Position<br>
 		Throws: Pitches
@@ -245,11 +256,15 @@
 <script src="/main.js" type="module"></script>
 <script type="module">
 
-	import {RedTeamBackGroundOnload, BatterWaitOnload, PitcherWaitOnload, drawPitchHit } from "./Animation.js";
-	window.addEventListener("load", RedTeamBackGroundOnload);
+	import {BackGroundOnload, BatterWaitOnload, PitcherWaitOnload, drawPitchHit, drawSwingStrike, drawTakeBall, SwitchSideOnload, drawSwingOut } from "./Animation.js";
+	window.addEventListener("load", BackGroundOnload);
 	window.addEventListener("load", BatterWaitOnload);
     window.addEventListener("load", PitcherWaitOnload);
     document.getElementById("AnimationHit").addEventListener("click", drawPitchHit);
+	document.getElementById("AnimationStrike").addEventListener("click", drawSwingStrike);
+	document.getElementById("AnimationBall").addEventListener("click", drawTakeBall);
+	document.getElementById("AnimationSwitch").addEventListener("click", SwitchSideOnload);
+	document.getElementById("AnimationOut").addEventListener("click", drawSwingOut);
 
 </script>
 
