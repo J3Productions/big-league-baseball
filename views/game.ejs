@@ -86,12 +86,7 @@
 	<footer>
 
 
-		<button id="AnimationHit">Hit Animation</button>
-		<button id="AnimationStrike">Strike Animation</button>
-		<button id="AnimationBall">Ball Animation</button>
-		<button id="AnimationSwitch">Switch Animation</button>
-		<button id="AnimationOut">Out Animation</button>
-		//<button id="test">test</button>
+		
 
 		<div class="gridContainer" id="hitterMenu" style="display: none">
 			<div class="messageHeader">What will the hitter do?</div>
@@ -298,16 +293,9 @@
 	import {startGame, ssPit, shPit, slPit, siPit, fsPit, fhPit, flPit, fiPit, coPit, chPit, clPit, ciPit, ssHit, shHit, slHit, siHit, fsHit, fhHit, flHit, fiHit, coHit, chHit, clHit, ciHit, take} from "./main.js";
 	startGame("<%= location %>");
 
-	import {BackGroundOnload, BatterWaitOnload, PitcherWaitOnload, drawPitchHit, drawSwingStrike, drawTakeBall, SwitchSideOnload, drawSwingOut } from "./Animation.js";
-	window.addEventListener("load", BackGroundOnload);
+	import { BatterWaitOnload, PitcherWaitOnload } from "./Animation.js";
 	window.addEventListener("load", BatterWaitOnload);
     window.addEventListener("load", PitcherWaitOnload);
-    document.getElementById("AnimationHit").addEventListener("click", drawPitchHit);
-	document.getElementById("AnimationStrike").addEventListener("click", drawSwingStrike);
-	document.getElementById("AnimationBall").addEventListener("click", drawTakeBall);
-	document.getElementById("AnimationSwitch").addEventListener("click", SwitchSideOnload);
-	document.getElementById("AnimationOut").addEventListener("click", drawSwingOut);
-	//document.getElementById("test").addEventListener("click", DetermineAnimation);
 
 	document.getElementById("ssPitch").addEventListener("click", ssPit);
 	document.getElementById("shPitch").addEventListener("click", shPit);
