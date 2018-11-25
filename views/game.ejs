@@ -251,10 +251,33 @@
 
 </div>
 
+		<audio id="c0" src="./soundFx/crowd/chatter1Loop.mp3" ></audio>
+		<audio id="c1" src="./soundFx/crowd/clap1.mp3"></audio>
+		<audio id="c2" src="./soundFx/crowd/clapChant.mp3"></audio>
+		<audio id="c3" src="./soundFx/crowd/organ1.mp3"></audio>
+		<audio id="c4" src="./soundFx/crowd/organ2.mp3"></audio>
+		<audio id="c5" src="./soundFx/crowd/organGo.mp3"></audio>
+		<audio id="c6" src="./soundFx/crowd/organLetsGo.mp3"></audio>
+		<audio id="7th" src="./soundFx/crowd/7thInningMusic.mp3"></audio>
+
+		<audio id="hB1" src="./soundFx/homeHit/homeBaseHit.mp3"></audio>
+		<audio id="hB2" src="./soundFx/homeHit/homeDouble.mp3"></audio>
+
+		<audio id="vB1out" src="./soundFx/visitorHit/vistorSingleOut.mp3"></audio>
+		<audio id="vB2out" src="./soundFx/visitorHit/visitorDoubleOut.mp3"></audio>
+		<audio id="vB3out" src="./soundFx/visitorHit/vistorTripleOut.mp3"></audio>
+
+		<iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+		<audio id="player" autoplay >
+			<source src="./soundFx/crowd/startGameCrowd.mp3" type="audio/mp3">
+		</audio>
 
 
 <script src="/main.js" type="module"></script>
 <script type="module">
+
+	import {startGame, ssPit, shPit, slPit, siPit, fsPit, fhPit, flPit, fiPit, coPit, chPit, clPit, ciPit, ssHit, shHit, slHit, siHit, fsHit, fhHit, flHit, fiHit, coHit, chHit, clHit, ciHit, take} from "./main.js";
+	startGame("<%= location %>");
 
 	import {BackGroundOnload, BatterWaitOnload, PitcherWaitOnload, drawPitchHit, drawSwingStrike, drawTakeBall, SwitchSideOnload, drawSwingOut } from "./Animation.js";
 	window.addEventListener("load", BackGroundOnload);
@@ -265,6 +288,32 @@
 	document.getElementById("AnimationBall").addEventListener("click", drawTakeBall);
 	document.getElementById("AnimationSwitch").addEventListener("click", SwitchSideOnload);
 	document.getElementById("AnimationOut").addEventListener("click", drawSwingOut);
+
+	document.getElementById("ssPitch").addEventListener("click", ssPit);
+	document.getElementById("shPitch").addEventListener("click", shPit);
+	document.getElementById("slPitch").addEventListener("click", slPit);
+	document.getElementById("siPitch").addEventListener("click", siPit);
+	document.getElementById("fsPitch").addEventListener("click", fsPit);
+	document.getElementById("fhPitch").addEventListener("click", fhPit);
+	document.getElementById("flPitch").addEventListener("click", flPit);
+	document.getElementById("fiPitch").addEventListener("click", fiPit);
+	document.getElementById("coPitch").addEventListener("click", coPit);
+	document.getElementById("chPitch").addEventListener("click", chPit);
+	document.getElementById("clPitch").addEventListener("click", clPit);
+	document.getElementById("ciPitch").addEventListener("click", ciPit);
+	document.getElementById("ssSwing").addEventListener("click", ssHit);
+	document.getElementById("shSwing").addEventListener("click", shHit);
+	document.getElementById("slSwing").addEventListener("click", slHit);
+	document.getElementById("siSwing").addEventListener("click", siHit);
+	document.getElementById("fsSwing").addEventListener("click", fsHit);
+	document.getElementById("fhSwing").addEventListener("click", fhHit);
+	document.getElementById("flSwing").addEventListener("click", flHit);
+	document.getElementById("fiSwing").addEventListener("click", fiHit);
+	document.getElementById("coSwing").addEventListener("click", coHit);
+	document.getElementById("chSwing").addEventListener("click", chHit);
+	document.getElementById("clSwing").addEventListener("click", clHit);
+	document.getElementById("ciSwing").addEventListener("click", ciHit);
+	document.getElementById("takeSwing").addEventListener("click", take);
 
 </script>
 

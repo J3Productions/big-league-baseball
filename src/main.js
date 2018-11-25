@@ -1,20 +1,21 @@
-import {Team} from './Team.js';
 import {Game} from './Game.js';
-import {Animation} from './Animation.js';
+//import {Animation} from './Animation.js';
 
-let game = new Game("home");
+let game = null;
 
 /**
-*   This method store the player entered name locally.
-**/
-export function startGame()
-{
-    if (typeof (Storage) !== "undefined")
-    {
-        let name = document.getElementById("userName").value;
-        localStorage.setItem("player", name);
-        console.log("player name store.")
+ * Initializes game object and the gui
+ * @param location {string} The side the user is playing on - "home" or "away"
+ */
+export function startGame(location) {
+    game = new Game(location);
+    if (location === "home") {
+        displayPitchMenu();
     }
+    else {
+        displayHitMenu();
+    }
+    drawScore();
 }
 
 
@@ -156,119 +157,178 @@ export function seeFiled()
 /**
 *   Button method. It will call when batter decide take action.
 **/
-export function take()
-{
-    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide take!</td></tr>";
-    pitcherAction("take");
+export function take() {
+    hitSelect("take");
 }
 
 /**
-*   Button method. It will call when batter decide Slow Straight action.
-**/
-export function SS()
-{
-    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Slow Straight!</td></tr>";
-    pitcherAction("ss");
+ *   Button method. It will call when batter decide Slow Straight action.
+ **/
+export function ssHit() {
+    hitSelect("ss");
 }
 
 /**
-*   Button method. It will call when batter decide Slow Inside action.
-**/
-export function SI()
-{
-    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Slow Inside!</td></tr>";
-    pitcherAction("si");
+ *   Button method. It will call when pitcher decide Slow Straight action.
+ **/
+export function ssPit() {
+	pitchSelect("ss");
 }
 
 /**
-*   Button method. It will call when batter decide Slow High action.
-**/
-export function SH()
-{
-    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Slow High!</td></tr>";
-    pitcherAction("sh");
+ *   Button method. It will call when batter decide Slow Straight action.
+ **/
+export function shHit() {
+	hitSelect("sh");
 }
 
 /**
-*   Button method. It will call when batter decide Slow Low action.
-**/
-export function SL()
-{
-    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Slow Low!</td></tr>";
-    pitcherAction("sl");
+ *   Button method. It will call when pitcher decide Slow Straight action.
+ **/
+export function shPit() {
+	pitchSelect("sh");
 }
 
 /**
-*   Button method. It will call when batter decide Fastball Straight action.
-**/
-export function FS()
-{
-    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Fastball Straight!</td></tr>";
-    pitcherAction("fs");
+ *   Button method. It will call when batter decide Slow Straight action.
+ **/
+export function slHit() {
+	hitSelect("sl");
 }
 
 /**
-*   Button method. It will call when batter decide Fastball Inside action.
-**/
-export function FI()
-{
-    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Fastball Inside!</td></tr>";
-    pitcherAction("fi");
+ *   Button method. It will call when pitcher decide Slow Straight action.
+ **/
+export function slPit() {
+	pitchSelect("sl");
 }
 
 /**
-*   Button method. It will call when batter decide Fastball High action.
-**/
-export function FH()
-{
-    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Fastball High!</td></tr>";
-    pitcherAction("fh");
+ *   Button method. It will call when batter decide Slow Straight action.
+ **/
+export function siHit() {
+	hitSelect("si");
 }
 
 /**
-*   Button method. It will call when batter decide Fastball Low action.
-**/
-export function FL()
-{
-    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Fastball Low!</td></tr>";
-    pitcherAction("fl");
+ *   Button method. It will call when pitcher decide Slow Straight action.
+ **/
+export function siPit() {
+	pitchSelect("si");
 }
 
 /**
-*   Button method. It will call when batter decide Curveball Outside action.
-**/
-export function CO()
-{
-    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Curveball Outside!</td></tr>";
-    pitcherAction("co");
+ *   Button method. It will call when batter decide Slow Straight action.
+ **/
+export function fsHit() {
+	hitSelect("fs");
 }
 
 /**
-*   Button method. It will call when batter decide Curveball Inside action.
-**/
-export function CI()
-{
-    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Curveball Inside!</td></tr>";
-    pitcherAction("ci");
+ *   Button method. It will call when pitcher decide Slow Straight action.
+ **/
+export function fsPit() {
+	pitchSelect("fs");
 }
 
 /**
-*   Button method. It will call when batter decide Curveball High action.
-**/
-export function CH()
-{
-    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Curveball High!</td></tr>";
-    pitcherAction("ch");
+ *   Button method. It will call when batter decide Slow Straight action.
+ **/
+export function fhHit() {
+	hitSelect("fh");
 }
 
 /**
-*   Button method. It will call when batter decide Curveball Low action.
-**/
-export function CL()
-{
-    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Batter decide Curveball Low!</td></tr>";
-    pitcherAction("cl");
+ *   Button method. It will call when pitcher decide Slow Straight action.
+ **/
+export function fhPit() {
+	pitchSelect("fh");
 }
+
+/**
+ *   Button method. It will call when batter decide Slow Straight action.
+ **/
+export function flHit() {
+	hitSelect("fl");
+}
+
+/**
+ *   Button method. It will call when pitcher decide Slow Straight action.
+ **/
+export function flPit() {
+	pitchSelect("fl");
+}
+
+/**
+ *   Button method. It will call when batter decide Slow Straight action.
+ **/
+export function fiHit() {
+	hitSelect("fi");
+}
+
+/**
+ *   Button method. It will call when pitcher decide Slow Straight action.
+ **/
+export function fiPit() {
+	pitchSelect("fi");
+}
+
+/**
+ *   Button method. It will call when batter decide Slow Straight action.
+ **/
+export function coHit() {
+	hitSelect("co");
+}
+
+/**
+ *   Button method. It will call when pitcher decide Slow Straight action.
+ **/
+export function coPit() {
+	pitchSelect("co");
+}
+
+/**
+ *   Button method. It will call when batter decide Slow Straight action.
+ **/
+export function chHit() {
+	hitSelect("ch");
+}
+
+/**
+ *   Button method. It will call when pitcher decide Slow Straight action.
+ **/
+export function chPit() {
+	pitchSelect("ch");
+}
+
+/**
+ *   Button method. It will call when batter decide Slow Straight action.
+ **/
+export function clHit() {
+	hitSelect("cl");
+}
+
+/**
+ *   Button method. It will call when pitcher decide Slow Straight action.
+ **/
+export function clPit() {
+	pitchSelect("cl");
+}
+
+/**
+ *   Button method. It will call when batter decide Slow Straight action.
+ **/
+export function ciHit() {
+	hitSelect("ci");
+}
+
+/**
+ *   Button method. It will call when pitcher decide Slow Straight action.
+ **/
+export function ciPit() {
+	pitchSelect("ci");
+}
+
 
 
 /**
@@ -571,19 +631,21 @@ function drawScore() {
 
 	let curHitter = "At Bat:<br>";
 	if (game.inningSide) {
-	    curHitter = curHitter + game.homeTeam.lineup[game.homeAB].getPlayerName() + game.homeTeam.lineup[game.homeAB].getPosition() + "<br>";
+	    curHitter = curHitter + game.homeTeam.lineup[game.homeAB].getPlayerName() + "&nbsp;- " + game.homeTeam.lineup[game.homeAB].getPosition() + "<br>";
     }
 	else {
-		curHitter = curHitter + game.visitTeam.lineup[game.visitAB].getPlayerName() + game.visitTeam.lineup[game.visitAB].getPosition() + "<br>";
+		curHitter = curHitter + game.visitTeam.lineup[game.visitAB].getPlayerName() + "&nbsp;- " + game.visitTeam.lineup[game.visitAB].getPosition() + "<br>";
 	}
+	document.getElementById("currentHitter").innerHTML = curHitter;
 
 	let curPitcher = "Pitching:<br>";
 	if (game.inningSide) {
-		curPitcher = curPitcher + game.homeTeam.pitcher.getPlayerName() + game.homeTeam.pitcher.getPosition() + "<br>";
+		curPitcher = curPitcher + game.homeTeam.pitcher.getPlayerName() + "&nbsp;- " + game.homeTeam.pitcher.getPosition() + "<br>";
 	}
 	else {
-		curPitcher = curPitcher + game.visitTeam.pitcher.getPlayerName() + game.visitTeam.pitcher.getPosition() + "<br>";
+		curPitcher = curPitcher + game.visitTeam.pitcher.getPlayerName() + "&nbsp;- " + game.visitTeam.pitcher.getPosition() + "<br>";
 	}
+	document.getElementById("currentPitcher").innerHTML = curPitcher;
 }
 
 function displayHitMenu() {
