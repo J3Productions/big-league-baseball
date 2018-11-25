@@ -1033,3 +1033,31 @@ export function DetermineAnimation()
         }
     }
 }
+
+
+var fxCount= true;
+function loopCrowdChatter()//Loops the crowd noise without intro music. At this point called in PitcherWaitOnload()
+{
+    if(fxCount)
+    {
+        setInterval(crowdChatter, 1686415);//exact time length is 1686421ms
+       fxCount= false;
+    }
+    function crowdChatter()
+    {
+        document.getElementById('c0').play();
+    }
+}
+var organCount= true;
+function organMusic()//Loops the organ music and crowd clapping. At this point called in PitcherWaitOnload()
+{
+    if(organCount)
+    {
+        setInterval(organMusic, 200000);//exact time length is 1686421ms
+       organCount= false;
+    }
+    function organMusic()
+    {
+        document.getElementById('c0').play();
+    }
+}
