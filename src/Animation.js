@@ -78,8 +78,9 @@ export function SwitchSideOnload()
 var BackGroundCurrFrame = 0;
 var BackGroundTotalFrame = 2;
 
-export function BackGround()
+export function BackGround(location)
 {
+    Side = location;
     var BackGroundCanvas = document.getElementById("batterView");
     var ctx = BackGroundCanvas.getContext("2d");
     if(Side == "home")
@@ -108,9 +109,9 @@ export function BackGround()
 }
 
 var BackGroundControl;
-export function BackGroundOnload()
+export function BackGroundOnload(location)
 {
-    BackGroundControl = setInterval(BackGround, 300);
+    BackGroundControl = setInterval(BackGround, 300, location);
 }
 
 

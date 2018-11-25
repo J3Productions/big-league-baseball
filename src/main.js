@@ -1,5 +1,5 @@
 import {Game} from './Game.js';
-import {drawPitchHit, drawSwingOut, drawSwingStrike, drawTakeBall} from './Animation.js';
+import {drawPitchHit, drawSwingOut, drawSwingStrike, drawTakeBall, BackGroundOnload} from './Animation.js';
 
 let game = null;
 var side;
@@ -10,6 +10,7 @@ var side;
 export function startGame(location) {
     game = new Game(location);
     side = location;
+    BackGroundOnload(location);
     if (location === "home") {
         displayPitchMenu();
     }
