@@ -275,7 +275,7 @@ function drawBatterHit()
 
 
  ///////////////////////Call sound
-  batterSound("Home",true,true, 1, 500);//team-Home==1 Visitor==2, swing contact==true, contact==true, play base hitSafe==1, timeDelay in ms
+//  batterSound("Home",true,true, 1, 500);//team-Home==1 Visitor==2, swing contact==true, contact==true, play base hitSafe==1, timeDelay in ms
 
 
     if(BatterHitCurrFrame < BatterHitFrames)
@@ -1246,21 +1246,7 @@ export function PitcherWaitOnload()
 {
     PitcherWaitControl = setInterval(drawPitcherWait, 188);
 
-loopCrowdChatter();//Call  to loop crowd noise
-}
 
-var fxCount= true;
-function loopCrowdChatter()//Loops the crowd noise without intro music. At this point called in PitcherWaitOnload()
-{
-    if(fxCount)
-    {
-        setInterval(crowdChatter, 1686415);//exact time length is 1686421ms
-       fxCount= false;
-    }
-    function crowdChatter()
-    {
-        document.getElementById('c0').play();
-    }
 }
 
 
