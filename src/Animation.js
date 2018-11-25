@@ -1263,19 +1263,7 @@ function loopCrowdChatter()//Loops the crowd noise without intro music. At this 
     }
 }
 
-var organCount= true;
-function organMusic()//Loops the organ music and crowd clapping. At this point called in PitcherWaitOnload()
-{
-    if(organCount)
-    {
-        setInterval(organMusic, 200000);//exact time length is 1686421ms
-       organCount= false;
-    }
-    function organMusic()
-    {
-        document.getElementById('c0').play();
-    }
-}
+
 
 function crowdFx(time)
 {
