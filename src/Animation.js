@@ -1,7 +1,8 @@
 var Side;
 var count2 = 0;
-export function SwitchSide()
+export function SwitchSide(side)
 {
+    Side = side;
     var SwSideViewCanvas = document.getElementById("SwSideView");
     var screenWidth = document.documentElement.clientWidth;
     var screenHeight = document.documentElement.clientHeight;
@@ -44,14 +45,14 @@ export function SwitchSide()
     }
     else
     {
-        if(Side == "home")
+        /*if(Side == "home")
         {
             Side = "away";
         }
         else
         {
             Side = "home";
-        }
+        }*/
 
         SwSideViewCanvas.style.filter = "opacity(0%)";
         SwSideViewCanvas.style.WebkitFilter = "opacity(0%)";
@@ -70,9 +71,9 @@ export function SwitchSide()
 }
 
 var SwitchSideControl;
-export function SwitchSideOnload()
+export function SwitchSideOnload(side)
 {
-    SwitchSideControl = setInterval(SwitchSide, 300);
+    SwitchSideControl = setInterval(SwitchSide, 300, side);
 }
 
 var BackGroundCurrFrame = 0;
