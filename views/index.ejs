@@ -12,7 +12,10 @@
 <p class="title">Big League Baseball</p>
 
 <p class="head">Play as:</p>
-
+<iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+<audio id="player" autoplay >
+	<source src="./soundFx/Umpire/playBall.mp3" type="audio/mp3">
+</audio>
 <form action="/game" method="POST">
 	<input type="radio" name="location" value="home">&nbsp;Home &nbsp;<input type="radio" name="location" value="away">&nbsp;Away<br>
 	<input type="submit" value="Next">

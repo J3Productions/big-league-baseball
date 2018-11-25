@@ -274,7 +274,7 @@ function drawBatterHit()
 
 
  ///////////////////////Call sound
-  hitSound(1, true, true, 1, 500);//team-Home==1 Visitor==2, swing contact==true, contact==true, play base hitSafe==1, timeDelay in ms
+  batterSound("Home",true,true, 1, 500);//team-Home==1 Visitor==2, swing contact==true, contact==true, play base hitSafe==1, timeDelay in ms
 
 
     if(BatterHitCurrFrame < BatterHitFrames)
@@ -1220,6 +1220,19 @@ function loopCrowdChatter()//Loops the crowd noise without intro music. At this 
     }
 }
 
+var organCount= true;
+function organMusic()//Loops the organ music and crowd clapping. At this point called in PitcherWaitOnload()
+{
+    if(organCount)
+    {
+        setInterval(organMusic, 200000);//exact time length is 1686421ms
+       organCount= false;
+    }
+    function organMusic()
+    {
+        document.getElementById('c0').play();
+    }
+}
 
 function crowdFx(time)
 {
@@ -1259,7 +1272,7 @@ function crowdFx(time)
 }
 
 
-function hitSound(team, swing, contact, play, timeDelay)//Sounds for pitching, batting and catching.
+function batterSound(team,swing, contact, play, timeDelay)//Sounds for pitching, batting and catching.
 {
     let t= team;//h=home, v=visitor
     let s= swing;//Bool
@@ -1267,68 +1280,111 @@ function hitSound(team, swing, contact, play, timeDelay)//Sounds for pitching, b
     let p= play;//foul,strike,out
     let d= timeDelay;//num time delay for sound to begin.
 
-    if(swing)
-    {
-        if(contact)
-        {
-            setTimeout(contact, d, t, p );
-            function contact(t, p)
+//    if(swing)
+//    {
+//        if(contact)
+//        {
+            setTimeout(playsound, d, p );
+            function playSound(p)
             {
-                if(t===1)//team;//h=home, v=visitor
+                if(t=== "Home")//team;//h=home, v=visitor
                 {
-                    if(p== 1)
+                    if(p== "ball")
+                    {
+                        document.getElementById("hBall").play();
+                    }
+                    if(p== "foul")
+                    {
+                        document.getElementById("hFoul").play();
+                    }
+                    if(p== "foulout" || "flyout")
+                    {
+                        document.getElementById("hHitOut").play();//Base hit
+                    }
+                    if(p== "single" || "singleAdvance" || "error" || "flyoutAdv" || "flyoutNoAdv1st" || "groundout")
                     {
                         document.getElementById('hB1').play();//Base hit
                     }
-                    if(p== 2)
-                    {
-                        document.getElementById('hB2').play();//Double hit
-                    }
-                    if(p== 3)
+                    if(p== "singleRISP")
                     {
                         document.getElementById('hB3').play();//Base hit
                     }
-                    if(p== 4)
+                    if(p== "doubleClear" || "double" || "errorSecond")
                     {
-                        document.getElementById('hB4').play();//Double hit
+                        document.getElementById('hB2').play();//Double hit
                     }
-                    if(p== 5)
+                    if(p== "triple")
                     {
-                        document.getElementById('hBf').play();//Foul ball
+                        document.getElementById('hB3').play();//Base hit
+                    }
+                    if(p== "homeRun")
+                    {
+                        document.getElementById("hHomeRun").play();
+                    }
+                    if(p== "groundoutAdvIfForced" || "groundoutDoublePlay" || "lineoutDoublePlay" || "triplePlay" || "fieldersChoice")
+                    {
+                        document.getElementById("hHitOut").play();//out
+                    }
+                    if(p== "swingingStrike")
+                    {
+                        document.getElementById("hSwingStrike").play();
+                    }
+                    if(p== "calledStrike")
+                    {
+                        document.getElementById("hTakeStrike").play();
                     }
                 }
                 else
                 {
-
+                    if(p== "ball")
+                    {
+                        document.getElementById("vBall").play();
+                    }
+                    if(p== "foul")
+                    {
+                        document.getElementById("vFoul").play();
+                    }
+                    if(p== "foulout" || "flyout")
+                    {
+                        document.getElementById("vB1Out").play();//Base hit
+                    }
+                    if(p== "single" || "singleAdvance" || "error" || "flyoutAdv" || "flyoutNoAdv1st" || "groundout")
+                    {
+                        document.getElementById('vB1').play();//Base hit
+                    }
+                    if(p== "singleRISP")
+                    {
+                        document.getElementById('vB1').play();//Base hit
+                    }
+                    if(p== "doubleClear" || "double" || "errorSecond")
+                    {
+                        document.getElementById('vB1').play();//Double hit
+                    }
+                    if(p== "triple")
+                    {
+                        document.getElementById('vB1').play();//Base hit
+                    }
+                    if(p== "homeRun")
+                    {
+                        document.getElementById("vHomeRun").play();
+                    }
+                    if(p== "groundoutAdvIfForced"  || "groundoutDoublePlay" || "lineoutDoublePlay" || "triplePlay" || "fieldersChoice")
+                    {
+                        document.getElementById("vB1").play();//out
+                    }
+                    if(p== "swingingStrike")
+                    {
+                        document.getElementById("vSwingStrike").play();
+                    }
+                    if(p== "calledStrike")
+                    {
+                        document.getElementById("vTakeStrike").play();
+                    }
                 }
 
-            }
-        }
-    }
-    else
-    {
-
-    }
-
-    function contact()
-    {
-        if(type== 1)
-        {
-            document.getElementById('hB1').play();//Base hit
-        }
-        if(type== 2)
-        {
-            document.getElementById('hB2').play();//Double hit
-        }
-        if(type== f)
-        {
-            document.getElementById('hBf').play();//Foul ball
-        }
-    }
-    function take()
-    {
-
-    }
+           }
+//        }
+//   }
 }
 
 function organMusic(number)
