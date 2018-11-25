@@ -1,15 +1,16 @@
 import {Game} from './Game.js';
-//import {Animation} from './Animation.js';
+import {drawPitchHit, drawSwingOut, drawSwingStrike, drawTakeBall, BackGroundOnload} from './Animation.js';
 
 let game = null;
-
+var side;
 /**
  * Initializes game object and the gui
  * @param location {string} The side the user is playing on - "home" or "away"
  */
 export function startGame(location) {
     game = new Game(location);
-    loopCrowdChatter();//Call  to loop crowd noise
+    side = location;
+    BackGroundOnload(location);
     if (location === "home") {
         displayPitchMenu();
     }
@@ -999,7 +1000,7 @@ export function DetermineAnimation()
             ||  game.lastPitch.play == "groundout" ||  game.lastPitch.play == "groundoutAdvIfForced"
             ||  game.lastPitch.play == "groundoutDoublePlay" ||  game.lastPitch.play == "errorSecond")//groundoutAdvIfForced question
         {
-            drawPitchHit(lastPitch);
+            drawPitchHit(game, side);
         }
         if( game.lastPitch.play == "foulout"
             ||  game.lastPitch.play == "flyout"
@@ -1007,7 +1008,7 @@ export function DetermineAnimation()
             ||  game.lastPitch.play == "fieldersChoice"
             ||  game.lastPitch.play == "lineoutDoublePlay")
         {
-            drawSwingOut();
+            drawSwingOut(side);
         }
     }
     else
@@ -1017,15 +1018,15 @@ export function DetermineAnimation()
             ||  game.lastPitch.play == "strikeoutLooking"
             ||  game.lastPitch.play == "calledStrike")
         {
-            drawSwingStrike();
+            drawSwingStrike(side);
         }
         if( game.lastPitch.play == "walk")
         {
-            drawTakeBall();//take animation with one base;
+            drawTakeBall(side);//take animation with one base;
         }
         if( game.lastPitch.play == "ball")
         {
-            drawTakeBall();
+            drawTakeBall(side);
         }
     }
 }

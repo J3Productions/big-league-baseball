@@ -1,4 +1,4 @@
-var Side = "Home";
+var Side;
 var count2 = 0;
 export function SwitchSide()
 {
@@ -44,13 +44,13 @@ export function SwitchSide()
     }
     else
     {
-        if(Side == "Home")
+        if(Side == "home")
         {
-            Side = "Away";
+            Side = "away";
         }
         else
         {
-            Side = "Home";
+            Side = "home";
         }
 
         SwSideViewCanvas.style.filter = "opacity(0%)";
@@ -78,11 +78,12 @@ export function SwitchSideOnload()
 var BackGroundCurrFrame = 0;
 var BackGroundTotalFrame = 2;
 
-export function BackGround()
+export function BackGround(location)
 {
+    Side = location;
     var BackGroundCanvas = document.getElementById("batterView");
     var ctx = BackGroundCanvas.getContext("2d");
-    if(Side == "Home")
+    if(Side == "home")
     {
         var img = document.getElementById("viewPic");
     }
@@ -108,17 +109,18 @@ export function BackGround()
 }
 
 var BackGroundControl;
-export function BackGroundOnload()
+export function BackGroundOnload(location)
 {
-    BackGroundControl = setInterval(BackGround, 300);
+    BackGroundControl = setInterval(BackGround, 300, location);
 }
 
 
 var BatterStatus = "";
 var gameAnimation;
-export function drawPitchHit(game)//This the function for hit animation.
+export function drawPitchHit(game, side)//This the function for hit animation.
 {
     gameAnimation = game;
+    Side = side;
     var PitcherWaitCanvas = document.getElementById("PitcherWait");
     var BatterWaitCanvas = document.getElementById("BatterWaitting");
     PitcherWaitCanvas.style.filter = "opacity(0%)";
@@ -135,7 +137,7 @@ export function drawPitchHit(game)//This the function for hit animation.
 
     var ctx = PitcherPitchCanvas.getContext("2d");
     var ctx2 = BatterHitCanvas.getContext("2d");
-    if(Side == "Home")
+    if(Side == "home")
     {
         var img = document.getElementById("PitcherPitching");
         var img2 = document.getElementById("BatterHitting");
@@ -175,7 +177,7 @@ function drawPitcherPitch()
     PitcherPitchCanvas.height = 105;
     var ctx = PitcherPitchCanvas.getContext("2d");
 
-    if(Side == "Home")
+    if(Side == "home")
     {
         var img = document.getElementById("PitcherPitching");
     }
@@ -231,7 +233,7 @@ function drawPitcherPitch()
         BatterHitCanvas.width = 192;
         BatterHitCanvas.height = 210;
         var ctx2 = BatterHitCanvas.getContext("2d");
-        if(Side == "Home")
+        if(Side == "home")
         {
             var img2 = document.getElementById("BatterHitting");
         }
@@ -260,7 +262,7 @@ function drawBatterHit()
     BatterHitCanvas.width = 160;
     BatterHitCanvas.height = 175;
     var ctx = BatterHitCanvas.getContext("2d");
-    if(Side == "Home")
+    if(Side == "home")
     {
         var img = document.getElementById("BatterHitting");
     }
@@ -756,8 +758,9 @@ function fieldBack()
 }
 
 
-export function drawSwingStrike()
+export function drawSwingStrike(side)
 {
+    Side = side;
     var PitcherWaitCanvas = document.getElementById("PitcherWait");
     var BatterWaitCanvas = document.getElementById("BatterWaitting");
     PitcherWaitCanvas.style.filter = "opacity(0%)";
@@ -774,7 +777,7 @@ export function drawSwingStrike()
 
     var ctx = PitcherPitchCanvas.getContext("2d");
     var ctx2 = BatterHitCanvas.getContext("2d");
-    if(Side == "Home")
+    if(Side == "home")
     {
         var img = document.getElementById("PitcherPitching");
         var img2 = document.getElementById("BatterHitting");
@@ -802,8 +805,9 @@ export function drawSwingStrike()
 }
 
 
-export function drawSwingOut()
+export function drawSwingOut(side)
 {
+    Side = side;
     var PitcherWaitCanvas = document.getElementById("PitcherWait");
     var BatterWaitCanvas = document.getElementById("BatterWaitting");
     PitcherWaitCanvas.style.filter = "opacity(0%)";
@@ -820,7 +824,7 @@ export function drawSwingOut()
 
     var ctx = PitcherPitchCanvas.getContext("2d");
     var ctx2 = BatterHitCanvas.getContext("2d");
-    if(Side == "Home")
+    if(Side == "home")
     {
         var img = document.getElementById("PitcherPitching");
         var img2 = document.getElementById("BatterHitting");
@@ -848,8 +852,9 @@ export function drawSwingOut()
 }
 
 
-export function drawTakeBall()
+export function drawTakeBall(side)
 {
+    Side = side;
     var PitcherWaitCanvas = document.getElementById("PitcherWait");
     var BatterWaitCanvas = document.getElementById("BatterWaitting");
     PitcherWaitCanvas.style.filter = "opacity(0%)";
@@ -866,7 +871,7 @@ export function drawTakeBall()
 
     var ctx = PitcherPitchCanvas.getContext("2d");
     var ctx2 = BatterHitCanvas.getContext("2d");
-    if(Side == "Home")
+    if(Side == "home")
     {
         var img = document.getElementById("PitcherPitching");
         var img2 = document.getElementById("BatterHitting");
@@ -903,7 +908,7 @@ function drawBatterSwingStrike()
     BatterHitCanvas.height = 175;
     var ctx = BatterHitCanvas.getContext("2d");
 
-    if(Side == "Home")
+    if(Side == "home")
     {
         var img = document.getElementById("BatterHitting");
     }
@@ -956,7 +961,7 @@ function drawOut()
     BatterHitCanvas.height = 175;
     var ctx = BatterHitCanvas.getContext("2d");
 
-    if(Side == "Home")
+    if(Side == "home")
     {
         var img = document.getElementById("BatterHitting");
     }
@@ -1045,7 +1050,7 @@ function drawBatterTake()
     BatterHitCanvas.height = 175;
     var ctx = BatterHitCanvas.getContext("2d");
 
-    if(Side == "Home")
+    if(Side == "home")
     {
         var img = document.getElementById("BatterHitting");
     }
@@ -1177,7 +1182,7 @@ function drawBatterWait()
     BatterWaitCanvas.height = 160;
     var ctx = BatterWaitCanvas.getContext("2d");
 
-    if(Side == "Home")
+    if(Side == "home")
     {
         var img = document.getElementById("BatterWait");
     }
@@ -1218,7 +1223,7 @@ function drawPitcherWait()
     PitcherWaitCanvas.height = 105;
     var ctx = PitcherWaitCanvas.getContext("2d");
 
-    if(Side == "Home")
+    if(Side == "home")
     {
         var img = document.getElementById("PitcherWaiting");
     }
