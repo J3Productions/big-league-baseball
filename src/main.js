@@ -1,5 +1,5 @@
 import {Game} from './Game.js';
-import {drawPitchHit, drawSwingOut, drawSwingStrike, drawTakeBall, BackGroundOnload} from './Animation.js';
+import {drawPitchHit, drawSwingOut, drawSwingStrike, drawTakeBall, BackGroundOnload, SwitchSideOnload} from './Animation.js';
 
 let game = null;
 var side;
@@ -817,9 +817,25 @@ function hitSelect(action) {
 		    setTimeout(() => {
 		        if (game.lastPitch.newInning) {
 		            displayPitchMenu();
+		            if(side == "home")
+		            {
+		                side = "away";
+		            }
+		            else
+		            {
+		                side = "home";
+		            }
                 }
                 else {
-                    displayHitMenu();
+		            displayHitMenu();
+		            if(side == "home")
+		            {
+		                side = "away";
+		            }
+		            else
+		            {
+		                side = "home";
+		            }
                 }
             }, 3000);
 
@@ -974,10 +990,26 @@ function pitchSelect(action) {
 			document.getElementById("gameLog").innerHTML = message;
 			setTimeout(() => {
 				if (game.lastPitch.newInning) {
-					displayHitMenu();
+				    displayHitMenu();
+				    if(side == "home")
+				    {
+				        side = "away";
+				    }
+				    else
+				    {
+				        side = "home";
+				    }
 				}
 				else {
-					displayPitchMenu();
+				    displayPitchMenu();
+				    if(side == "home")
+				    {
+				        side = "away";
+				    }
+				    else
+				    {
+				        side = "home";
+				    }
 				}
 			}, 3000);
 
@@ -1028,5 +1060,9 @@ export function DetermineAnimation()
         {
             drawTakeBall(side);
         }
+    }
+    if(game.lastPitch.newInning == true)
+    {
+        SwitchSideOnload(side);
     }
 }
