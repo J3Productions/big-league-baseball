@@ -1,5 +1,6 @@
 import {Team} from './Team.js';
 import {Game} from './Game.js';
+import {Animation} from './Animation.js';
 
 let game = new Game("home");
 
@@ -601,4 +602,48 @@ function displayGameLog() {
 	document.getElementById("hitterMenu").style.display = "none";
 	document.getElementById("pitcherMenu").style.display = "none";
 	document.getElementById("gameLog").style.display = "grid";
+}
+
+
+function DetermineAnimation()
+{
+    if(game.lastPitch.swing == "true")
+    {
+        if(game.lastPitch.play == "homeRun" || game.lastPitch.play == "triple" 
+            || game.lastPitch.play == "doubleClear" || game.lastPitch.play == "double"
+            || game.lastPitch.play == "single" || game.lastPitch.play == "singleRISP"
+            || game.lastPitch.play == "singleAdvance" || game.lastPitch.play == "error"
+            || game.lastPitch.play == "flyoutAdv" || game.lastPitch.play == "flyoutNoAdv1st"
+            || game.lastPitch.play == "groundout" || game.lastPitch.play == "groundoutAdvIfForced"
+            || game.lastPitch.play == "groundoutDoublePlay" || game.lastPitch.play == "lineoutDoublePlay"
+            || game.lastPitch.play == "errorSecond")
+        {
+            drawPitchHit();
+        }
+        if(game.lastPitch.play == "foulout" 
+            || game.lastPitch.play == "flyout"
+            || game.lastPitch.play == "triplePlay"
+            || game.lastPitch.play == "fieldersChoice")
+        {
+            drawSwingOut();
+        }
+    }
+    else
+    {
+        if(game.lastPitch.play == "foul"
+            || game.lastPitch.play == "swingingStrike"
+            || game.lastPitch.play == "strikeoutLooking"
+            || game.lastPitch.play == "calledStrike")
+        {
+            drawSwingStrike();
+        }
+        if(game.lastPitch.play == "walk")
+        {
+            drawTakeBall();//take animation with one base;
+        }
+        if(game.lastPitch.play == "ball")
+        {
+            drawTakeBall();
+        }
+    }
 }

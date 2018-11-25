@@ -88,8 +88,9 @@
 
 		<button id="AnimationHit">Hit Animation</button>
 		<button id="AnimationStrike">Strike Animation</button>
-		<button id="AnimationOut">Out Animation</button>
+		<button id="AnimationBall">Ball Animation</button>
 		<button id="AnimationSwitch">Switch Animation</button>
+		<button id="AnimationOut">Out Animation</button>
 
 
 		<div class="gridContainer" id="hitterMenu" style="display: none">
@@ -255,15 +256,15 @@
 <script src="/main.js" type="module"></script>
 <script type="module">
 
-	import {BackGroundOnload, BatterWaitOnload, PitcherWaitOnload, drawPitchHit, drawSwingStrike, drawTakeOut, SwitchSideOnload } from "./Animation.js";
+	import {BackGroundOnload, BatterWaitOnload, PitcherWaitOnload, drawPitchHit, drawSwingStrike, drawTakeBall, SwitchSideOnload, drawSwingOut } from "./Animation.js";
 	window.addEventListener("load", BackGroundOnload);
 	window.addEventListener("load", BatterWaitOnload);
     window.addEventListener("load", PitcherWaitOnload);
     document.getElementById("AnimationHit").addEventListener("click", drawPitchHit);
 	document.getElementById("AnimationStrike").addEventListener("click", drawSwingStrike);
-	document.getElementById("AnimationOut").addEventListener("click", drawTakeOut);
+	document.getElementById("AnimationBall").addEventListener("click", drawTakeBall);
 	document.getElementById("AnimationSwitch").addEventListener("click", SwitchSideOnload);
-
+	document.getElementById("AnimationOut").addEventListener("click", drawSwingOut);
 
 </script>
 
