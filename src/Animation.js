@@ -52,7 +52,7 @@ export function SwitchSide()
         {
             Side = "Home";
         }
-   
+
         SwSideViewCanvas.style.filter = "opacity(0%)";
         SwSideViewCanvas.style.WebkitFilter = "opacity(0%)";
         BackGroundCanvas.style.filter = "opacity(100%)";
@@ -426,21 +426,21 @@ function drawBaseChange(game)
         base3 = true;
     }
 
-    if(game.lastPitch.play == "homeRun" || game.lastPitch.play == "triple" 
-        || game.lastPitch.play == "doubleClear" || game.lastPitch.play == "double" 
+    if(game.lastPitch.play == "homeRun" || game.lastPitch.play == "triple"
+        || game.lastPitch.play == "doubleClear" || game.lastPitch.play == "double"
         || game.lastPitch.play == "single" || game.lastPitch.play == "singleRISP"
         || game.lastPitch.play == "singleAdvance" || game.lastPitch.play == "error"
         || game.lastPitch.play == "errorSecond")
     {
         base1 = true;
 
-        if((game.lastPitch.play == "double" && game.first == true) 
+        if((game.lastPitch.play == "double" && game.first == true)
             || (game.lastPitch.play == "singleRISP" && game.first == true)
             || (game.lastPitch.play == "singleAdvance" && game.first == true))
         {
             base2 = true;
         }
-        if(game.lastPitch.play == "single" 
+        if(game.lastPitch.play == "single"
             || game.lastPitch.play == "error")
         {
             if(game.first == true)
@@ -584,7 +584,7 @@ function drawBaseChange(game)
                 fieldBack();
             }
         }
-        else if(game.lastPitch.play == "single" 
+        else if(game.lastPitch.play == "single"
             || game.lastPitch.play == "singleRISP"
             || game.lastPitch.play == "error"
             || game.lastPitch.play == "flyoutAdv"
@@ -833,7 +833,7 @@ export function drawTakeBall()
         var img = document.getElementById("BluePitcherPitching");
         var img2 = document.getElementById("RedBatterHitting");
     }
-    
+
     ctx.drawImage(img, 0 * 128, 0, 128, 140, 0, 0, 96, 105);
     ctx2.drawImage(img2, 0 * 192, 0, 192, 210, 0, 0, 160, 175);//in order to make the canvas change smooth, draw the frist frame of animation before display the Hit animation canvas.
 
@@ -877,20 +877,20 @@ function drawBatterSwingStrike()
 
     if(BatterStrikeCurrFrame < BatterStrikeFrames)
     {
-        BatterStrikeCurrFrame++; 
+        BatterStrikeCurrFrame++;
         if(BatterStrikeCurrFrame == 8)
         {
             BatterStrikeCurrFrame++;
         }
         if(BatterStrikeCurrFrame == 11)
         {
-            clearInterval(PitcherPitchControl); 
+            clearInterval(PitcherPitchControl);
             PitcherPitchCurrFrames = 0;
         }
     }
     else
     {
-        clearInterval(BatterSwingStrikeControl);  
+        clearInterval(BatterSwingStrikeControl);
         BatterStrikeCurrFrame = 0;
         strikeBackOnload();
     }
@@ -930,13 +930,13 @@ function drawOut()
 
     if(BatterOutCurrFrame < BatterOutFrames)
     {
-        BatterOutCurrFrame++; 
+        BatterOutCurrFrame++;
     }
     else
     {
-        clearInterval(PitcherPitchControl); 
+        clearInterval(PitcherPitchControl);
         PitcherPitchCurrFrames = 0;
-        clearInterval(BatterSwingOutControl);  
+        clearInterval(BatterSwingOutControl);
         BatterOutCurrFrame = 0;
         strikeBackOnload();
     }
@@ -1328,5 +1328,25 @@ function hitSound(team, swing, contact, play, timeDelay)//Sounds for pitching, b
     function take()
     {
 
+    }
+}
+
+function organMusic(number)
+{
+    if(number== 1)
+    {
+        document.getElementById('o1').play();
+    }
+    else if(number== 2)
+    {
+        document.getElementById('o2').play();//Double hit
+    }
+    else if(number== 3)
+    {
+        document.getElementById('o3').play();//Foul ball
+    }
+    else if(number== 7)
+    {
+        document.getElementById('7th').play();//Foul ball
     }
 }

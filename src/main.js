@@ -52,8 +52,8 @@ export function initStartPage()
 //document.getElementById('c1').play();
 //document.getElementById('c1').muted = false;
     //Sound test2
-      var c1= document.getElementById('c1');//Start crowd noise.
-      c1.play();
+//      var c1= document.getElementById('c1');//Start crowd noise.
+//      c1.play();
 }
 
 
@@ -927,7 +927,7 @@ function DetermineAnimation()
 {
     if(game.lastPitch.swing == "true")
     {
-        if(game.lastPitch.play == "homeRun" || game.lastPitch.play == "triple" 
+        if(game.lastPitch.play == "homeRun" || game.lastPitch.play == "triple"
             || game.lastPitch.play == "doubleClear" || game.lastPitch.play == "double"
             || game.lastPitch.play == "single" || game.lastPitch.play == "singleRISP"
             || game.lastPitch.play == "singleAdvance" || game.lastPitch.play == "error"
@@ -938,7 +938,7 @@ function DetermineAnimation()
         {
             drawPitchHit();
         }
-        if(game.lastPitch.play == "foulout" 
+        if(game.lastPitch.play == "foulout"
             || game.lastPitch.play == "flyout"
             || game.lastPitch.play == "triplePlay"
             || game.lastPitch.play == "fieldersChoice")
