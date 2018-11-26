@@ -301,12 +301,6 @@ function drawBatterHit()
     var height = 210;
 
     ctx.clearRect(0, 0, width, height);
-
-
-    ///////////////////////Call sound
-    //batterSound("Home",true,true, 1, 500);//team-Home==1 Visitor==2, swing contact==true, contact==true, play base hitSafe==1, timeDelay in ms
-
-
     if(BatterHitCurrFrame < BatterHitFrames)
     {
         if(BatterHitCurrFrame == 11 && count <= 2)
@@ -353,7 +347,6 @@ function drawAboveView()
     var ctx2 = BatterHitCanvas.getContext("2d");
     ctx2.clearRect(0, 0, 192, 210);
 
-
     var AboveViewCanvas = document.getElementById("AboveView");
     var screenWidth = document.documentElement.clientWidth;
     var screenHeight = document.documentElement.clientHeight;
@@ -368,7 +361,6 @@ function drawAboveView()
     ctx.drawImage(img, 1600, 0, 1600, 900, 0, 0, AboveViewCanvas.width, AboveViewCanvas.height);
 
     BaseChangeOnload();
-
 }
 
 var base1 = false;
@@ -527,7 +519,6 @@ function drawBaseChange()
             }
         }
 
-
         if(gameAnimation.lastPitch.play == "singleRISP")
         {
             if(gameAnimation.lastPitch.base1Change == true)
@@ -551,7 +542,6 @@ function drawBaseChange()
                 }
             }
         }
-
 
         if(gameAnimation.lastPitch.play == "error")
         {
@@ -584,8 +574,6 @@ function drawBaseChange()
             }
         }
 
-
-
         if(gameAnimation.lastPitch.play == "errorSecond")
         {
             if(gameAnimation.lastPitch.base1to3 == true)
@@ -610,8 +598,6 @@ function drawBaseChange()
 
     }
 
-
-
     if(base1 == true)
     {
         ctx.drawImage(img, BaseChangeCurrFrame * 1600, 0, 1600, 900, 0, 0, FirstBaseViewCanvas.width, FirstBaseViewCanvas.height);
@@ -628,7 +614,6 @@ function drawBaseChange()
     {
         ctx4.drawImage(img4, BaseChangeCurrFrame * 1600, 0, 1600, 900, 0, 0, HomeBaseViewCanvas.width, HomeBaseViewCanvas.height);
     }
-
 
     if(BaseChangeCurrFrame < BaseChangeTotalFrame)
     {
@@ -871,8 +856,6 @@ function fieldBack()
 
     BackGroundCanvas.style.filter = "opacity(100%)";
     BackGroundCanvas.style.WebkitFilter = "opacity(100%)";
-
-
 }
 
 /**
@@ -974,7 +957,6 @@ export function drawSwingOut(game)
 
     PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
 }
-
 
 /**
 * This function is animation of batter decided take and it was a Ball
@@ -1127,7 +1109,6 @@ function drawOut()
         BatterOutCurrFrame = 0;
         strikeBackOnload();
     }
-
 }
 
 var BatterSwingOutControl;
@@ -1197,7 +1178,6 @@ export function strikeBackOnload()
     StrikeBackControl = setInterval(strikeBack, 80);
 }
 
-
 /**
 * This function will draw the take animation
 *
@@ -1244,7 +1224,6 @@ export function BatterTakeOnload()
     BatterTakeControl = setInterval(drawBatterTake, 300);
 }
 
-
 /**
 * This function will the canvas back to normal after Ball animation is finished.
 *
@@ -1289,7 +1268,6 @@ function BallBack()
         var ctx2 = BatterHitCanvas.getContext("2d");
         ctx2.clearRect(0, 0, 192, 210);
     }
-
 }
 
 var BallBackControl;
@@ -1301,7 +1279,6 @@ export function BallBackOnload()
 {
     BallBackControl = setInterval(BallBack, 80);
 }
-
 
 var BallFrames = 5;
 var BallCurrFrames = 0;
@@ -1352,8 +1329,6 @@ export function BallOnload()
     BallControl = setInterval(drawBall, 70);//every 70ms draw flying ball once
 }
 
-
-
 var BatterWaitFrames = 17;
 var BatterWaitCurrFrame = 0;
 /**
@@ -1384,7 +1359,6 @@ function drawBatterWait()
     {
         BatterWaitCurrFrame = 0;
     }
-
     ctx.drawImage(img, BatterWaitCurrFrame * width, 0, width, height, 0, 0, BatterWaitCanvas.width, BatterWaitCanvas.height);
 }
 

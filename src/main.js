@@ -14,9 +14,9 @@ export function startGame(location) {
     side = location;
     BackGroundOnload(location);
     document.getElementById('uPlayBall').play();
-    document.getElementById('c0').play();
-    loopCrowdChatter();
-    loopCrowdOrgan();
+    document.getElementById('c0').play();//Starts crowd noise
+    loopCrowdChatter();//Calls to set the interval of the crowd noise loop.
+    loopCrowdOrgan();//Call to loop clapping and organ music.
     if (location === "home") {
         displayPitchMenu();
     }
