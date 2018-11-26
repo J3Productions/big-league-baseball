@@ -1033,9 +1033,8 @@ var BatterStrikeCurrFrame = 0;
 * This function is animation of strike when the pitcher pitch has been called
 * @param {object} this is the object of the result of each action had been selected.
 */
-function drawBatterSwingStrike(game)
+function drawBatterSwingStrike()
 {
-    gameAnimation = game;
     var BatterHitCanvas = document.getElementById("BatterHit");
     BatterHitCanvas.width = 160;
     BatterHitCanvas.height = 175;
@@ -1083,9 +1082,9 @@ var BatterSwingStrikeControl;
 * BaseChangeOnload - a control of strike animation, set the time interval of each frame.
 *
 */
-export function BatterSwingStrikeOnload(game)
+export function BatterSwingStrikeOnload()
 {
-    BatterSwingStrikeControl = setInterval(drawBatterSwingStrike, 110, game);
+    BatterSwingStrikeControl = setInterval(drawBatterSwingStrike, 110);
 }
 
 
