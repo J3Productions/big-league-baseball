@@ -54,14 +54,6 @@ export function initStartPage()
     input.style.top = String(screenHeight * 0.45) + "px";
     describe.style.left = String(screenWidth * 0.425) + "px";
     describe.style.top = String(screenHeight * 0.40) + "px";
-
-
-
-//document.getElementById('c1').play();
-//document.getElementById('c1').muted = false;
-    //Sound test2
-//      var c1= document.getElementById('c1');//Start crowd noise.
-//      c1.play();
 }
 
 
@@ -99,8 +91,6 @@ export function initBatter()
     var BallCanvas = document.getElementById("Ball");
     BallCanvas.style.top = "80px";
     BallCanvas.style.left = "330px";
-
-
 }
 
 /**
@@ -988,8 +978,6 @@ function DetermineAnimation()
         batterSound();
 }
 
-
-
 function gameOver() {
 	displayGameLog();
 	let message = "That's your ballgame!<br>";
@@ -1005,19 +993,19 @@ function gameOver() {
 		document.getElementById("gameLog").innerHTML = message;
 	}, 2000);
 }
-var Music = setInterval(crowdFx, 16000);
+
 var crowdOrgan= true;
 function loopCrowdOrgan()//Loops the organ music and crowd clapping. At this point called in PitcherWaitOnload()
 {
     if(crowdOrgan)
     {
-        setInterval(crowdFx, 16000, );//exact time length is 1686421ms
+        setInterval(crowdFx, 50000);//exact time length is 1686421ms
         crowdOrgan= false;
     }
 }
 function crowdFx(time)
 {
-//    var time =Math.floor(Math.random() * 5);
+    var time =Math.floor(Math.random() * 5);
 
     if(time== 0)
     {

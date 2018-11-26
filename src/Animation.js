@@ -1418,115 +1418,113 @@ export function PitcherWaitOnload()
 
 export function batterSound()//Sounds for pitching, batting and catching.
 {
-    var t= Side ;//h=home, v=visitor
-//    let s= swing;//Bool
-//    let c= contact;//Bool
     var p= gameAnimation.lastPitch.play;//foul,strike,out
     var d= 1300;//num time delay for sound to begin.
-
-//    if(swing)
-//    {
-//        if(contact)
-//        {
-            setTimeout(playSound, d, p );
-            function playSound(p)
+    var t= Side ;//h=home, v=visitor
+    if(t== "home")
+    {
+        t= "away";
+    }
+    else
+    {
+        t="home";
+    }
+    setTimeout(playSound, d, p );
+    function playSound(p)
+    {
+        if(t== "home")
+        {
+            if(p== "ball")
             {
-                if(t=== "home")//team;//h=home, v=visitor
-                {
-                    if(p== "ball")
-                    {
-                        document.getElementById("hBall").play();
-                    }
-                    if(p== "foul")
-                    {
-                        document.getElementById("hFoul").play();
-                    }
-                    if(p== "foulout" || "flyout")
-                    {
-                        document.getElementById("hHitOut").play();
-                    }
-                    if(p== "single" || "singleAdvance" || "error" || "flyoutAdv" || "flyoutNoAdv1st" || "groundout")
-                    {
-                        document.getElementById('hB1').play();//Base hit
-                    }
-                    if(p== "singleRISP")
-                    {
-                        document.getElementById('hB3').play();
-                    }
-                    if(p== "doubleClear" || "double" || "errorSecond")
-                    {
-                        document.getElementById('hB2').play();//Double hit
-                    }
-                    if(p== "triple")
-                    {
-                        document.getElementById('hB3').play();//Base hit
-                    }
-                    if(p== "homeRun")
-                    {
-                        document.getElementById("hHomeRun").play();
-                    }
-                    if(p== "groundoutAdvIfForced" || "groundoutDoublePlay" || "lineoutDoublePlay" || "triplePlay" || "fieldersChoice")
-                    {
-                        document.getElementById("hHitOut").play();//out
-                    }
-                    if(p== "swingingStrike")
-                    {
-                        document.getElementById("hSwingStrike").play();
-                    }
-                    if(p== "calledStrike")
-                    {
-                        document.getElementById("hTakeStrike").play();
-                    }
-                }
-                else
-                {
-                    if(p== "ball")
-                    {
-                        document.getElementById("vBall").play();
-                    }
-                    if(p== "foul")
-                    {
-                        document.getElementById("vFoul").play();
-                    }
-                    if(p== "foulout" || "flyout")
-                    {
-                        document.getElementById("vB1Out").play();//Base hit
-                    }
-                    if(p== "single" || "singleAdvance" || "error" || "flyoutAdv" || "flyoutNoAdv1st" || "groundout")
-                    {
-                        document.getElementById('vB1').play();//Base hit
-                    }
-                    if(p== "singleRISP")
-                    {
-                        document.getElementById('vB1').play();//Base hit
-                    }
-                    if(p== "doubleClear" || "double" || "errorSecond")
-                    {
-                        document.getElementById('vB1').play();//Double hit
-                    }
-                    if(p== "triple")
-                    {
-                        document.getElementById('vB1').play();//Base hit
-                    }
-                    if(p== "homeRun")
-                    {
-                        document.getElementById("vHomeRun").play();
-                    }
-                    if(p== "groundoutAdvIfForced"  || "groundoutDoublePlay" || "lineoutDoublePlay" || "triplePlay" || "fieldersChoice")
-                    {
-                        document.getElementById("vB1").play();//out
-                    }
-                    if(p== "swingingStrike")
-                    {
-                        document.getElementById("vSwingStrike").play();
-                    }
-                    if(p== "calledStrike")
-                    {
-                        document.getElementById("vTakeStrike").play();
-                    }
-                }
-
-           }
-//        }
-//   }
+                document.getElementById("hBall").play();
+            }
+            if(p== "foul")
+            {
+                document.getElementById("hFoul").play();
+            }
+            if(p== "foulout" ||p== "flyout")
+            {
+                document.getElementById("hHitOut").play();
+            }
+            if(p== "single" || p=="singleAdvance" || p=="error" || p=="flyoutAdv" || p=="flyoutNoAdv1st" ||p== "groundout")
+            {
+                document.getElementById('hB1').play();
+            }
+            if(p== "singleRISP")
+            {
+                document.getElementById('hB3').play();
+            }
+            if(p== "doubleClear" ||p== "double" || p=="errorSecond")
+            {
+                document.getElementById('hB2').play();
+            }
+            if(p== "triple")
+            {
+                document.getElementById('hB3').play();
+            }
+            if(p== "homeRun")
+            {
+                document.getElementById("hHomeRun").play();
+            }
+            if(p== "groundoutAdvIfForced" || p=="groundoutDoublePlay" ||p== "lineoutDoublePlay" || p== "triplePlay" ||p== "fieldersChoice")
+            {
+                document.getElementById("hHitOut").play();
+            }
+            if(p== "swingingStrike")
+            {
+                document.getElementById("hSwingStrike").play();
+            }
+            if(p== "calledStrike")
+            {
+                document.getElementById("hTakeStrike").play();
+            }
+        }
+        else
+        {
+            if(p== "ball")
+            {
+                document.getElementById("vBall").play();
+            }
+            if(p== "foul")
+            {
+                document.getElementById("vFoul").play();
+            }
+            if(p== "foulout" ||p== "flyout")
+            {
+                document.getElementById("vB1Out").play();
+            }
+            if(p== "single" ||p== "singleAdvance" || p=="error" || p=="flyoutAdv" || p=="flyoutNoAdv1st" || p=="groundout")
+            {
+                document.getElementById('vB1').play();
+            }
+            if(p== "singleRISP")
+            {
+                document.getElementById('vB1').play();
+            }
+            if(p== "doubleClear" || p=="double" || p=="errorSecond")
+            {
+                document.getElementById('vB1').play();
+            }
+            if(p== "triple")
+            {
+                document.getElementById('vB1').play();
+            }
+            if(p== "homeRun")
+            {
+                document.getElementById("vHomeRun").play();
+            }
+            if(p== "groundoutAdvIfForced"  ||p== "groundoutDoublePlay" || p=="lineoutDoublePlay" || p=="triplePlay" || p=="fieldersChoice")
+            {
+                document.getElementById("vB1").play();
+            }
+            if(p== "swingingStrike")
+            {
+                document.getElementById("vSwingStrike").play();
+            }
+            if(p== "calledStrike")
+            {
+                document.getElementById("vTakeStrike").play();
+            }
+        }
+    }
 }
