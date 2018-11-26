@@ -985,7 +985,7 @@ function DetermineAnimation()
         {
             drawTakeBall(game);
         }
-        batterSound(game, side);
+        batterSound();
 }
 
 
