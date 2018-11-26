@@ -1,5 +1,5 @@
 import {Game} from './Game.js';
-import {drawPitchHit, drawSwingOut, drawSwingStrike, drawTakeBall, BackGroundOnload, SwitchSideOnload} from './Animation.js';
+
 
 let game = null;
 var side;
@@ -819,7 +819,7 @@ function hitSelect(action) {
 		        game.ciPitch(action);
 		        break;
         }
-	    //DetermineAnimation();
+	    DetermineAnimation();
         switch (game.lastPitch.play) {
             case "homeRun":
                 message = message + "<br>Swung on, a high fly ball, get up, get outta here, gone! It's a home run!";
@@ -1000,7 +1000,7 @@ function pitchSelect(action) {
 				game.ciPitch(actions[roll]);
 				break;
 		}
-        //DetermineAnimation();
+        DetermineAnimation();
 		switch (game.lastPitch.play) {
 			case "homeRun":
 				message = message + "<br>Swung on, a high fly ball, get up, get outta here, gone! It's a home run!";
@@ -1134,12 +1134,10 @@ function pitchSelect(action) {
 	}, 3000);
 }
 
+import {drawPitchHit, drawSwingOut, drawSwingStrike, drawTakeBall, BackGroundOnload, SwitchSideOnload} from './Animation.js';
 
-
-export function DetermineAnimation()
+function DetermineAnimation()
 {
-    if( game.lastPitch.swing == true)
-    {
         if( game.lastPitch.play == "homeRun" ||  game.lastPitch.play == "triple"
             ||  game.lastPitch.play == "doubleClear" ||  game.lastPitch.play == "double"
             ||  game.lastPitch.play == "single" ||  game.lastPitch.play == "singleRISP"
@@ -1148,7 +1146,7 @@ export function DetermineAnimation()
             ||  game.lastPitch.play == "groundout" ||  game.lastPitch.play == "groundoutAdvIfForced"
             ||  game.lastPitch.play == "groundoutDoublePlay" ||  game.lastPitch.play == "errorSecond")//groundoutAdvIfForced question
         {
-            drawPitchHit(game, side);
+            drawPitchHit(game);
         }
         if( game.lastPitch.play == "foulout"
             ||  game.lastPitch.play == "flyout"
@@ -1156,32 +1154,24 @@ export function DetermineAnimation()
             ||  game.lastPitch.play == "fieldersChoice"
             ||  game.lastPitch.play == "lineoutDoublePlay")
         {
-            drawSwingOut(side);
+            drawSwingOut(game);
         }
-    }
-    else
-    {
+
         if( game.lastPitch.play == "foul"
-            ||  game.lastPitch.play == "swingingStrike"
-            ||  game.lastPitch.play == "strikeoutLooking"
-            ||  game.lastPitch.play == "calledStrike")
+            ||  game.lastPitch.play == "calledStrike"
+            || game.lastPitch.play == "swingingStrike")
         {
-            drawSwingStrike(side);
+            drawSwingStrike(game);
         }
         if( game.lastPitch.play == "walk")
         {
-            drawTakeBall(side);//take animation with one base;
+            drawTakeBall(game);//take animation with one base;
         }
-        if( game.lastPitch.play == "ball")
+        if( game.lastPitch.play == "ball"
+            ||  game.lastPitch.play == "strikeoutLooking")
         {
-            drawTakeBall(side);
+            drawTakeBall(game);
         }
-    }
-    if(game.lastPitch.newInning == true)
-    {
-        SwitchSideOnload(side);
-        crowdFx(time)
-    }
 }
 
 
