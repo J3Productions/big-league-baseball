@@ -183,18 +183,14 @@ export function drawPitchHit(game)
 
     BatterStatus = "Hit";
 
-    PitcherPitchOnload();
-
-
-//    crowdFx(0);
-//    document.getElementById('c1').play();//Start crowd noise.************************
+    PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
 }
 
 var PitcherPitchFrames = 6;
 var PitcherPitchCurrFrames = 0;
 /**
 * drawPitcherPitch, this is the animation of pitcher pitch.
-* 
+*
 */
 function drawPitcherPitch()
 {
@@ -213,7 +209,7 @@ function drawPitcherPitch()
     }
 
     var width = 128;
-    var height = 140;                                   
+    var height = 140;
 
     ctx.clearRect(0, 0, width, height);
 
@@ -239,12 +235,12 @@ function drawPitcherPitch()
 
     if(PitcherPitchCurrFrames == 3)
     {
-        BallOnload();                                  
+        BallOnload();
     }
 
     if(PitcherPitchCurrFrames < PitcherPitchFrames)
     {
-        PitcherPitchCurrFrames++;                      
+        PitcherPitchCurrFrames++;
     }
     else
     {
@@ -384,7 +380,7 @@ var BaseChangeCurrFrame = 0;
 var BaseChangeTotalFrame = 5;
 /**
 * drawBaseChange - This a control function and animation. It will determine which base change animation need to been called.
-* 
+*
 */
 function drawBaseChange()
 {
@@ -439,7 +435,7 @@ function drawBaseChange()
                 base3 = true;
             }
         }
-            
+
         if(gameAnimation.lastPitch.base3Change == true)
         {
             if(times == 1)
@@ -462,7 +458,7 @@ function drawBaseChange()
                 base3 = true;
             }
         }
-            
+
         if(gameAnimation.lastPitch.base3Change == true)
         {
             if(times == 1)
@@ -517,7 +513,7 @@ function drawBaseChange()
                     base3 = true;
                 }
             }
-            
+
             if(gameAnimation.lastPitch.base3Change == true)
             {
                 if(times == 1)
@@ -555,7 +551,7 @@ function drawBaseChange()
                 }
             }
         }
-            
+
 
         if(gameAnimation.lastPitch.play == "error")
         {
@@ -574,7 +570,7 @@ function drawBaseChange()
                     base3 = true;
                 }
             }
-            
+
             if(gameAnimation.lastPitch.base3Change == true)
             {
                 if(times == 1)
@@ -784,7 +780,7 @@ function drawBaseChange()
                         base4 = true;
                     }
                     else
-                    {                    
+                    {
                         base3 = true;
                     }
                 }
@@ -811,7 +807,7 @@ function drawBaseChange()
 var BaseChangeControl;
 /**
 * BaseChangeOnload - a control of Base change animation, set the time interval of each frame.
-* 
+*
 */
 export function BaseChangeOnload()
 {
@@ -1085,7 +1081,7 @@ function drawBatterSwingStrike(game)
 var BatterSwingStrikeControl;
 /**
 * BaseChangeOnload - a control of strike animation, set the time interval of each frame.
-* 
+*
 */
 export function BatterSwingStrikeOnload(game)
 {
@@ -1138,7 +1134,7 @@ function drawOut()
 var BatterSwingOutControl;
 /**
 * BatterSwingOutOnload - a control of out animation, set the time interval of each frame.
-* 
+*
 */
 export function BatterSwingOutOnload()
 {
@@ -1148,7 +1144,7 @@ export function BatterSwingOutOnload()
 var count1 = 0;
 /**
 * This function will the canvas back to normal after strike animation is finished.
-* 
+*
 */
 function strikeBack()
 {
@@ -1195,7 +1191,7 @@ function strikeBack()
 var StrikeBackControl;
 /**
 * strikeBackOnload - a control of strike back to normal function, set the time interval of each frame.
-* 
+*
 */
 export function strikeBackOnload()
 {
@@ -1205,7 +1201,7 @@ export function strikeBackOnload()
 
 /**
 * This function will draw the take animation
-* 
+*
 */
 function drawBatterTake()
 {
@@ -1242,7 +1238,7 @@ function drawBatterTake()
 var BatterTakeControl;
 /**
 * BatterTakeOnload - a control of take animation, set the time interval of each frame.
-* 
+*
 */
 export function BatterTakeOnload()
 {
@@ -1431,19 +1427,20 @@ export function PitcherWaitOnload()
 
 var hitTd= 500;//Hit time delay
 var takeTd=550;//Take time delay
-function batterSound(timeDelay)//Sounds for pitching, batting and catching.
+export function batterSound(game, side)//Sounds for pitching, batting and catching.
 {
-    var t= Side;//h=home, v=visitor
+    gameAnimation = game;
+    var t= game ;//h=home, v=visitor
 //    let s= swing;//Bool
 //    let c= contact;//Bool
     var p= gameAnimation.lastPitch.play;//foul,strike,out
-    var d= timeDelay;//num time delay for sound to begin.
+    var d= 1300;//num time delay for sound to begin.
 
 //    if(swing)
 //    {
 //        if(contact)
 //        {
-            setTimeout(playsound, d, p );
+            setTimeout(playSound, d, p );
             function playSound(p)
             {
                 if(t=== "home")//team;//h=home, v=visitor

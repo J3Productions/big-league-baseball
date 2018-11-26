@@ -947,7 +947,7 @@ function pitchSelect(action) {
 	}, 3000);
 }
 
-import {drawPitchHit, drawSwingOut, drawSwingStrike, drawTakeBall, BackGroundOnload, SwitchSideOnload} from './Animation.js';
+import {drawPitchHit, drawSwingOut, drawSwingStrike, drawTakeBall, batterSound, BackGroundOnload, SwitchSideOnload} from './Animation.js';
 
 function DetermineAnimation()
 {
@@ -985,18 +985,10 @@ function DetermineAnimation()
         {
             drawTakeBall(game);
         }
+        batterSound(game, side);
 }
 
 
-var crowdOrgan= true;
-function loopCrowdOrgan()//Loops the organ music and crowd clapping. At this point called in PitcherWaitOnload()
-{
-    if(crowdOrgan)
-    {
-        setInterval(crowdFx, 16000, 1);//exact time length is 1686421ms
-       crowdOrgan= false;
-    }
-}
 
 function gameOver() {
 	displayGameLog();
@@ -1013,7 +1005,16 @@ function gameOver() {
 		document.getElementById("gameLog").innerHTML = message;
 	}, 2000);
 }
-
+var Music = setInterval(crowdFx, 16000);
+var crowdOrgan= true;
+function loopCrowdOrgan()//Loops the organ music and crowd clapping. At this point called in PitcherWaitOnload()
+{
+    if(crowdOrgan)
+    {
+        setInterval(crowdFx, 16000, );//exact time length is 1686421ms
+        crowdOrgan= false;
+    }
+}
 function crowdFx(time)
 {
 //    var time =Math.floor(Math.random() * 5);
@@ -1021,7 +1022,7 @@ function crowdFx(time)
     if(time== 0)
     {
         document.getElementById('c1').play();
-        setInterval(crowdFx, 16000, 1);//exact time length is 1686421ms
+        clearInterval(crowdFx);//exact time length is 1686421ms
     }
     if(time== 1)
     {
