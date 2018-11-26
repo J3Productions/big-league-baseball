@@ -94,7 +94,11 @@ export class Game {
 			out: false,
 			newAB: true,
 			newInning: true,
-			runsScored: 0
+			runsScored: 0,
+			base1Change: false,
+			base2Change: false,
+			base3Change: false,
+			base1to3: false
 		};
 	}
 
@@ -1003,6 +1007,11 @@ export class Game {
 	 * Home run - clears the bases and adds one run for every runner
 	 */
 	homeRun() {
+	    this.lastPitch.base1Change = false;
+	    this.lastPitch.base2Change = false;
+	    this.lastPitch.base3Change = false;
+	    this.lastPitch.base1to3 = false;
+
 		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
@@ -1037,6 +1046,10 @@ export class Game {
 	 * Triple - clears the bases and batter ends up at third
 	 */
 	triple() {
+	    this.lastPitch.base1Change = false;
+	    this.lastPitch.base2Change = false;
+	    this.lastPitch.base3Change = false;
+	    this.lastPitch.base1to3 = false;
 		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
@@ -1069,6 +1082,10 @@ export class Game {
 	 * Bases-clearing double - clears the bases (runner at first scores) and batter ends up at second
 	 */
 	doubleClear() {
+	    this.lastPitch.base1Change = false;
+	    this.lastPitch.base2Change = false;
+	    this.lastPitch.base3Change = false;
+	    this.lastPitch.base1to3 = false;
 		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
@@ -1095,12 +1112,17 @@ export class Game {
 
 		this.lastPitch.newInning = false;
 		this.lastPitch.runsScored = numRuns;
+
 	}
 
 	/**
 	 * Double - runners at third and second score, runner at first goes to third, batter ends up at second
 	 */
 	double() {
+	    this.lastPitch.base1Change = false;
+	    this.lastPitch.base2Change = false;
+	    this.lastPitch.base3Change = false;
+	    this.lastPitch.base1to3 = false;
 		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
@@ -1113,6 +1135,7 @@ export class Game {
 		if (this.first) {
 			this.first = false;
 			this.third = true;
+			this.lastPitch.base1to3 = true;
 		}
 		this.second = true;
 		if (this.inningSide === false) {
@@ -1133,18 +1156,25 @@ export class Game {
 	 * Single - all runners advance one base, batter ends up at first
 	 */
 	single() {
+	    this.lastPitch.base1Change = false;
+	    this.lastPitch.base2Change = false;
+	    this.lastPitch.base3Change = false;
+	    this.lastPitch.base1to3 = false;
 		let numRuns = 0;
 		if (this.third) {
-			this.third = false;
+		    this.third = false;
+		    this.lastPitch.base3Change = true;
 			numRuns++;
 		}
 		if (this.second) {
 			this.second = false;
 			this.third = true;
+			this.lastPitch.base2Change = true;
 		}
 		if (this.first) {
 			this.first = false;
 			this.second = true;
+			this.lastPitch.base1Change = true;
 		}
 		this.first = true;
 		if (this.inningSide === false) {
@@ -1165,6 +1195,10 @@ export class Game {
 	 * Single that scores runners in scoring postion - runners at third and second score, runner at first goes to second, batter ends up at first
 	 */
 	singleRISP() {
+	    this.lastPitch.base1Change = false;
+	    this.lastPitch.base2Change = false;
+	    this.lastPitch.base3Change = false;
+	    this.lastPitch.base1to3 = false;
 		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
@@ -1177,6 +1211,7 @@ export class Game {
 		if (this.first) {
 			this.first = false;
 			this.second = true;
+			this.lastPitch.base1Change = true;
 		}
 		this.first = true;
 		if (this.inningSide === false) {
@@ -1197,6 +1232,10 @@ export class Game {
 	 * Single that allows runner at first to go to third - runners at third and second score, runner at first goes to third, batter ends up at first
 	 */
 	singleAdvance() {
+	    this.lastPitch.base1Change = false;
+	    this.lastPitch.base2Change = false;
+	    this.lastPitch.base3Change = false;
+	    this.lastPitch.base1to3 = false;
 		let numRuns = 0;
 		if (this.third) {
 			this.third = false;
@@ -1209,6 +1248,7 @@ export class Game {
 		if (this.first) {
 			this.first = false;
 			this.third = true;
+			this.lastPitch.base1to3 = true;
 		}
 		this.first = true;
 		if (this.inningSide === false) {
@@ -1229,18 +1269,25 @@ export class Game {
 	 * Error - All runners move up a base, batter is safe at first in play that should've resulted in an out
 	 */
 	error() {
+	    this.lastPitch.base1Change = false;
+	    this.lastPitch.base2Change = false;
+	    this.lastPitch.base3Change = false;
+	    this.lastPitch.base1to3 = false;
 		let numRuns = 0;
 		if (this.third) {
-			this.third = false;
+		    this.third = false;
+		    this.lastPitch.base3Change = true;
 			numRuns++;
 		}
 		if (this.second) {
 			this.second = false;
 			this.third = true;
+			this.lastPitch.base2Change = true;
 		}
 		if (this.first) {
 			this.first = false;
 			this.second = true;
+			this.lastPitch.base1Change = true;
 		}
 		this.first = true;
 		if (this.inningSide === false) {
@@ -1281,19 +1328,26 @@ export class Game {
 	 * Batter pops out - All runners advance one base
 	 */
 	flyoutAdv() {
+	    this.lastPitch.base1Change = false;
+	    this.lastPitch.base2Change = false;
+	    this.lastPitch.base3Change = false;
+	    this.lastPitch.base1to3 = false;
 		let numRuns = 0;
 		if (this.third) {
-			this.third = false;
+		    this.third = false;
+		    this.lastPitch.base3Change = true;
 			if (this.outs < 2)
 				numRuns++;
 		}
 		if (this.second) {
 			this.second = false;
 			this.third = true;
+			this.lastPitch.base2Change = true;
 		}
 		if (this.first) {
 			this.first = false;
 			this.second = true;
+			this.lastPitch.base1Change = true;
 		}
 		this.out(1);
 		if (this.inningSide === false) {
@@ -1311,15 +1365,21 @@ export class Game {
 	 * Batter pops out - All runners (except runner at first) advance one base
 	 */
 	flyoutNoAdv1st() {
+	    this.lastPitch.base1Change = false;
+	    this.lastPitch.base2Change = false;
+	    this.lastPitch.base3Change = false;
+	    this.lastPitch.base1to3 = false;
 		let numRuns = 0;
 		if (this.third) {
-			this.third = false;
+		    this.third = false;
+		    this.lastPitch.base3Change = true;
 			if (this.outs < 2)
 				numRuns++;
 		}
 		if (this.second) {
 			this.second = false;
 			this.third = true;
+			this.lastPitch.base2Change = true;
 		}
 		this.out(1);
 		if (this.inningSide === false) {
@@ -1337,19 +1397,26 @@ export class Game {
 	 * Batter grounds out - All runners advance one base
 	 */
 	groundout() {
+	    this.lastPitch.base1Change = false;
+	    this.lastPitch.base2Change = false;
+	    this.lastPitch.base3Change = false;
+	    this.lastPitch.base1to3 = false;
 		let numRuns = 0;
 		if (this.third) {
-			this.third = false;
+		    this.third = false;
+		    this.lastPitch.base3Change = true;
 			if (this.outs < 2)
 				numRuns++;
 		}
 		if (this.second) {
 			this.second = false;
 			this.third = true;
+			this.lastPitch.base2Change = true;
 		}
 		if (this.first) {
 			this.first = false;
 			this.second = true;
+			this.lastPitch.base1Change = true;
 		}
 		this.out(1);
 		if (this.inningSide === false) {
@@ -1367,9 +1434,14 @@ export class Game {
 	 * Batter grounds out - Runners hold unless they are forced to advance
 	 */
 	groundoutAdvIfForced() {
+	    this.lastPitch.base1Change = false;
+	    this.lastPitch.base2Change = false;
+	    this.lastPitch.base3Change = false;
+	    this.lastPitch.base1to3 = false;
 		let numRuns = 0;
 		if (this.third && this.second && this.first) {
-			this.third = false;
+		    this.third = false;
+		    this.lastPitch.base3Change = true;
 			if (this.outs < 2) {
 				numRuns++;
 			}
@@ -1377,10 +1449,12 @@ export class Game {
 		if (this.second && this.first) {
 			this.second = false;
 			this.third = true;
+			this.lastPitch.base2Change = true;
 		}
 		if (this.first) {
 			this.first = false;
 			this.second = true;
+			this.lastPitch.base1Change = true;
 		}
 		this.out(1);
 		if (this.inningSide === false) {
@@ -1398,9 +1472,14 @@ export class Game {
 	 * Double play - Runner at first out and batter out
 	 */
 	groundoutDoublePlay() {
+	    this.lastPitch.base1Change = false;
+	    this.lastPitch.base2Change = false;
+	    this.lastPitch.base3Change = false;
+	    this.lastPitch.base1to3 = false;
 		let numRuns = 0;
 		if (this.third) {
-			this.third = false;
+		    this.third = false;
+		    this.lastPitch.base3Change = true;
 			if (this.outs < 1 && !this.first) {
 				numRuns++;
 			}
@@ -1411,6 +1490,7 @@ export class Game {
 		if (this.second) {
 			this.second = false;
 			this.third = true;
+			this.lastPitch.base2Change = true;
 		}
 		if (this.first) {
 			this.first = false;
@@ -1492,9 +1572,14 @@ export class Game {
 	 * Error - Runners at first and second advance 2 bases and batter ends up at second
 	 */
 	errorSecond() {
+	    this.lastPitch.base1Change = false;
+	    this.lastPitch.base2Change = false;
+	    this.lastPitch.base3Change = false;
+	    this.lastPitch.base1to3 = false;
 		let numRuns = 0;
 		if (this.third) {
-			this.third = false;
+		    this.third = false;
+		    this.lastPitch.base3Change = true;
 			numRuns++;
 		}
 		if (this.second) {
@@ -1504,6 +1589,7 @@ export class Game {
 		if (this.first) {
 			this.first = false;
 			this.third = true;
+			this.lastPitch.base1to3 = true;
 		}
 		this.second = true;
 		if (this.inningSide === false) {
