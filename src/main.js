@@ -1,4 +1,6 @@
 import {Game} from './Game.js';
+import {drawPitchHit, drawSwingOut, drawSwingStrike, drawTakeBall, batterSound, BackGroundOnload, SwitchSideOnload} from './Animation.js';
+
 
 
 let game = null;
@@ -15,7 +17,6 @@ export function startGame(location) {
     document.getElementById('c0').play();
     loopCrowdChatter();
     loopCrowdOrgan();
-    document.getElementById('c0').play();
     if (location === "home") {
         displayPitchMenu();
     }
@@ -326,271 +327,9 @@ export function ciPit() {
 	pitchSelect("ci");
 }
 
-
-
 /**
-*   The method represent the pitcher Action. It was radomly pick actions at this time. After the action is picked, it will auto print the name of action in the game log.
-**/
-function pitcherAction(batterAction)
-{
-    var randomNum = Math.floor((Math.random() * 12) + 1);
-
-    if(randomNum == 1)
-    {
-        action.ssPitch(batterAction);
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Slow Straight!</td></tr>";
-        printScore();
-    }
-    if(randomNum == 2)
-    {
-        action.siPitch(batterAction);
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Slow Inside!</td></tr>";
-        printScore();
-    }
-    if(randomNum == 3)
-    {
-        action.shPitch(batterAction);
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Slow High!</td></tr>";
-        printScore();
-    }
-    if(randomNum == 4)
-    {
-        action.slPitch(batterAction);
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Slow Low!</td></tr>";
-        printScore();
-    }
-    if(randomNum == 5)
-    {
-        action.fsPitch(batterAction);
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Fastball Straigh!</td></tr>";
-        printScore();
-    }
-    if(randomNum == 6)
-    {
-        action.fiPitch(batterAction);
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Fastball Inside!</td></tr>";
-        printScore();
-    }
-    if(randomNum == 7)
-    {
-        action.fhPitch(batterAction);
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Fastball High!</td></tr>";
-        printScore();
-    }
-    if(randomNum == 8)
-    {
-        action.flPitch(batterAction);
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Fastball Low!</td></tr>";
-        printScore();
-    }
-    if(randomNum == 9)
-    {
-        action.coPitch(batterAction);
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Curveball Outside!</td></tr>";
-        printScore();
-    }
-    if(randomNum == 10)
-    {
-        action.ciPitch(batterAction);
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Curveball Inside!</td></tr>";
-        printScore();
-    }
-    if(randomNum == 11)
-    {
-        action.chPitch(batterAction);
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Curveball High!</td></tr>";
-        printScore();
-    }
-    if(randomNum == 12)
-    {
-        action.clPitch(batterAction);
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Pitcher decide Curveball Low!</td></tr>";
-        printScore();
-    }
-}
-
-
-/**
-*   This method called by pitcherAction(). It will combinate all the information and print them in to the game log and score board. It will also make the scroll move to the bottom.
-**/
-function printScore()
-{
-    BallStrikeOut();
-    homeScore();
-    threeBase();
-
-    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<br><tr><td>" + "Round:" + action.inning + " " + "Decide your batter Action!</td></tr>";
-
-    var gamelog = document.getElementById("gameLog");
-    gamelog.scrollTop = gamelog.scrollHeight;
-}
-
-/**
-*   This method called in printScore method. It keep track of ball, strike, and out, and print the change in the score board.
-**/
-function BallStrikeOut()
-{
-    document.getElementById("ball").innerHTML = action.balls;
-    document.getElementById("strike").innerHTML = action.strikes;
-    document.getElementById("out").innerHTML = action.outs;
-    if(action.balls == 0)
-    {
-        balls = action.balls;
-    }
-    if(action.strikes == 0)
-    {
-        strikes = action.strikes;
-    }
-    if(action.outs == 0)
-    {
-        outs = action.outs;
-    }
-
-
-
-    if(balls < action.balls)
-    {
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Ball!</td></tr>";
-        balls = action.balls;
-    }
-
-    if(strikes < action.strikes)
-    {
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Strike!</td></tr>";
-        strikes = action.strikes;
-    }
-
-    if(outs < action.outs)
-    {
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Out!</td></tr>";
-        outs = action.outs;
-    }
-
-}
-
-
-/**
-*   This method called by printScore(). It calculate the home team score, and then print the score and notice of get point in the game log.
-**/
-function homeScore()
-{
-    document.getElementById("homeT").innerHTML = "&nbsp" + "&nbsp" + "&nbsp" + "&nbsp" + action.homeTeam.runs;
-
-    if(action.inning == 1 && (score < action.homeTeam.runs))
-    {
-        R1++;
-        document.getElementById("homeR1").innerHTML = "&nbsp" + "&nbsp" + R1;
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Home team get point!</td></tr>";
-        score = action.homeTeam.runs;
-    }
-    if(action.inning == 2 && (score < action.homeTeam.runs))
-    {
-        R2++;
-        document.getElementById("homeR2").innerHTML = "&nbsp" + "&nbsp" + R2;
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Home team get point!</td></tr>";
-        score = action.homeTeam.runs;
-    }
-    if(action.inning == 3 && (score < action.homeTeam.runs))
-    {
-        R3++;
-        document.getElementById("homeR3").innerHTML = "&nbsp" + "&nbsp" + R3;
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Home team get point!</td></tr>";
-        score = action.homeTeam.runs;
-    }
-    if(action.inning == 4 && (score < action.homeTeam.runs))
-    {
-        R4++;
-        document.getElementById("homeR4").innerHTML = "&nbsp" + "&nbsp" + R4;
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Home team get point!</td></tr>";
-        score = action.homeTeam.runs;
-    }
-    if(action.inning == 5 && (score < action.homeTeam.runs))
-    {
-        R5++;
-        document.getElementById("homeR5").innerHTML = "&nbsp" + "&nbsp" + R5;
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Home team get point!</td></tr>";
-        score = action.homeTeam.runs;
-    }
-    if(action.inning == 6 && (score < action.homeTeam.runs))
-    {
-        R6++;
-        document.getElementById("homeR6").innerHTML = "&nbsp" + "&nbsp" + R6;
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Home team get point!</td></tr>";
-        score = action.homeTeam.runs;
-    }
-    if(action.inning == 7 && (score < action.homeTeam.runs))
-    {
-        R7++;
-        document.getElementById("homeR7").innerHTML = "&nbsp" + "&nbsp" + R7;
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Home team get point!</td></tr>";
-        score = action.homeTeam.runs;
-    }
-    if(action.inning == 8 && (score < action.homeTeam.runs))
-    {
-        R8++;
-        document.getElementById("homeR8").innerHTML = "&nbsp" + "&nbsp" + R8;
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Home team get point!</td></tr>";
-        score = action.homeTeam.runs;
-    }
-    if(action.inning == 9 && (score < action.homeTeam.runs))
-    {
-        R9++;
-        document.getElementById("homeR9").innerHTML = "&nbsp" + "&nbsp" + R9;
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Home team get point!</td></tr>";
-        score = action.homeTeam.runs;
-    }
-}
-
-/**
-*   This method called by printScore(). It print the change of each bases in the score board, and game log.
-**/
-function threeBase()
-{
-    if(action.first == true)
-    {
-        document.getElementById("firstBase").innerHTML = "X";
-    }
-    else
-    {
-        document.getElementById("firstBase").innerHTML = "&nbsp";
-    }
-
-    if(action.second == true)
-    {
-        document.getElementById("secondBase").innerHTML = "X";
-    }
-    else
-    {
-        document.getElementById("secondBase").innerHTML = "&nbsp";
-    }
-
-    if(action.third == true)
-    {
-        document.getElementById("thirdBase").innerHTML = "X";
-    }
-    else
-    {
-        document.getElementById("thirdBase").innerHTML = "&nbsp";
-    }
-
-    if(action.first == true && first == false)
-    {
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>runner on the first base!</td></tr>";
-    }
-    if(action.second == true && second == false)
-    {
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>runner on the second base!</td></tr>";
-    }
-    if(action.third == true && third == false)
-    {
-        document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>runner on the third base!</td></tr>";
-    }
-
-    first = action.first;
-    second = action.second;
-    third = action.third;
-}
-
+ * Prints the status of the game on the right hand side of the interface
+ */
 function drawScore() {
 	let innStr = "";
 	let innScoreID = "";
@@ -747,24 +486,37 @@ function drawScore() {
 	document.getElementById("currentPitcher").innerHTML = curPitcher;
 }
 
+/**
+ * Displays the menu for selecting a hit on the bottom of the gui
+ */
 function displayHitMenu() {
     document.getElementById("gameLog").style.display = "none";
     document.getElementById("pitcherMenu").style.display = "none";
     document.getElementById("hitterMenu").style.display = "grid";
 }
 
+/**
+ * Displays the menu for selecting a pitch on the bottom of the gui
+ */
 function displayPitchMenu() {
 	document.getElementById("gameLog").style.display = "none";
 	document.getElementById("hitterMenu").style.display = "none";
 	document.getElementById("pitcherMenu").style.display = "grid";
 }
 
+/**
+ * Displays the game log on the bottom of the gui
+ */
 function displayGameLog() {
 	document.getElementById("hitterMenu").style.display = "none";
 	document.getElementById("pitcherMenu").style.display = "none";
 	document.getElementById("gameLog").style.display = "grid";
 }
 
+/**
+ * Run when the user, acting as the hitter, selects a hit they want to swing for and runs through the game logic and prints to the game log
+ * @param action {string} The pitch that the hitter will swing for
+ */
 function hitSelect(action) {
     displayGameLog();
     let message = "Here's the pitch...";
@@ -851,6 +603,10 @@ function hitSelect(action) {
 
 }
 
+/**
+ * Run when the user, acting as the pitch, selects a pitch they want to throw and runs through the game logic and prints to the game log
+ * @param action {string} The pitch that the pitcher will pitch
+ */
 function pitchSelect(action) {
 	displayGameLog();
 	let message = "Here's the pitch...";
@@ -937,7 +693,6 @@ function pitchSelect(action) {
 	}, 3000);
 }
 
-import {drawPitchHit, drawSwingOut, drawSwingStrike, drawTakeBall, batterSound, BackGroundOnload, SwitchSideOnload} from './Animation.js';
 
 function DetermineAnimation()
 {
@@ -1050,6 +805,11 @@ function loopCrowdChatter()//Loops the crowd noise. At this point called in Pitc
     }
 }
 
+/**
+ * Function to print the second line of the game log for both pitching and hitting
+ * @param message {string} The string being added to
+ * @return {string} The modified string
+ */
 function log2Print(message) {
 	switch (game.lastPitch.play) {
 		case "homeRun":
@@ -1118,6 +878,11 @@ function log2Print(message) {
 	return message;
 }
 
+/**
+ * Function to print the third line of the game log for both pitching and hitting
+ * @param message {string} The string being added to
+ * @return {string} The modified string
+ */
 function log3Print(message) {
 	if (game.lastPitch.newInning) {
 		message = message + "<br>That's it for the inning.";
