@@ -13,6 +13,10 @@ app.get('/', function(req, res){
 	res.render('index.ejs');
 });
 
+app.get('/test', function(req, res){
+	res.render('testSuite.ejs');
+});
+
 app.post("/game", function(req, res) {
 	const location = req.body.location;
 	console.log(location);
