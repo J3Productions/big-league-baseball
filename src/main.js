@@ -820,105 +820,11 @@ function hitSelect(action) {
 		        break;
         }
 	    DetermineAnimation();
-        switch (game.lastPitch.play) {
-            case "homeRun":
-                message = message + "<br>Swung on, a high fly ball, get up, get outta here, gone! It's a home run!";
-                break;
-            case "triple":
-                message = message + "<br>Swung on, lined into the gap in the outfield! That's good for a triple!";
-                break;
-            case "double":
-            case "doubleClear":
-                message = message + "<br>Swung on, hit hard into the outfield, and the batter will end up at second base!";
-                break;
-            case "single":
-            case "singleRISP":
-            case "singleAdvance":
-                message = message + "<br>Swung on, and it's a base hit. The batter will end up at first.";
-                break;
-            case "error":
-                message = message + "<br>Swung on, and misplayed by the defense, the batter will reach on an error!";
-                break;
-            case "errorSecond":
-                message = message + "<br>Swung on, hit toward the infield, but they overthrow to first! The batter will reach second on an error!";
-                break;
-            case "foulout":
-                message = message + "<br>Popped up into foul territory, the fielder gets under it and makes the out.";
-                break;
-            case "flyout":
-                message = message + "<br>Swung on, and it's a pop fly that the defense takes care of easily.";
-                break;
-            case "flyoutAdv":
-            case "flyoutNoAdv1st":
-                message = message + "<br>Swung on, and it's a pop fly that the outfielder has to hurry to get to, but he makes the play for the out.";
-                break;
-            case "groundout":
-            case "groundoutAdvIfForced":
-            case "groundoutDoublePlay":
-            case "fieldersChoice":
-                message = message + "<br>Swung on, ground ball on the infield, and the infielders take care of it.";
-                break;
-            case "lineoutDoublePlay":
-            case "triplePlay":
-                message = message + "<br>Swung on, lined right at the infield defense, who makes a nice play to retire the batter.";
-                break;
-            case "strikeoutSwinging":
-                message = message + "<br>Swing and a miss, got him to strikeout!";
-                break;
-	        case "strikeoutLooking":
-		        message = message + "<br>Got him looking! He was taking, but the pitcher threw him a strike.";
-		        break;
-            case "swingingStrike":
-	            message = message + "<br>Swing and a miss, that's a strike.";
-	            break;
-	        case "calledStrike":
-		        message = message + "<br>That one's taken for a strike.";
-		        break;
-            case "walk":
-	            message = message + "<br>That's ball four, and the batter is on with a walk!";
-	            break;
-            case "ball":
-                message = message + "<br>That one's out of the zone, taken for a ball.";
-                break;
-            case "foul":
-	            message = message + "<br>Swung on, but fouled out of play.";
-	            break;
-        }
+	    message = log2Print(message);
 
 	    document.getElementById("gameLog").innerHTML = message;
 	    setTimeout(() => {
-	        if (game.lastPitch.newInning) {
-	            message = message + "<br>That's it for the inning.";
-            }
-	        else if (game.lastPitch.newAB) {
-	            if (game.first && game.second && game.third) {
-		            message = message + "<br>The bases are now loaded with " + game.outs + " outs.";
-                }
-                else if (game.first && game.third) {
-		            message = message + "<br>Runners are now at the corners with " + game.outs + " outs.";
-                }
-	            else if (game.first && game.second) {
-		            message = message + "<br>Runners are now at first and second with " + game.outs + " outs.";
-	            }
-	            else if (game.second && game.third) {
-		            message = message + "<br>Runners are now at second and third with " + game.outs + " outs.";
-	            }
-	            else if (game.first) {
-		            message = message + "<br>Man on first now with " + game.outs + " outs.";
-	            }
-	            else if (game.second) {
-		            message = message + "<br>Man on second now with " + game.outs + " outs.";
-	            }
-	            else if (game.third) {
-		            message = message + "<br>Man on third now with " + game.outs + " outs.";
-	            }
-	            else {
-		            message = message + "<br>The bases are now empty with " + game.outs + " outs.";
-	            }
-            }
-            else {
-                message = message + "<br>" + game.balls + " balls and " + game.strikes + " strikes now.";
-            }
+		    message = log3Print(message);
 		    drawScore();
 		    document.getElementById("gameLog").innerHTML = message;
 		    setTimeout(() => {
@@ -1001,104 +907,11 @@ function pitchSelect(action) {
 				break;
 		}
         DetermineAnimation();
-		switch (game.lastPitch.play) {
-			case "homeRun":
-				message = message + "<br>Swung on, a high fly ball, get up, get outta here, gone! It's a home run!";
-				break;
-			case "triple":
-				message = message + "<br>Swung on, lined into the gap in the outfield! That's good for a triple!";
-				break;
-			case "double":
-			case "doubleClear":
-				message = message + "<br>Swung on, hit hard into the outfield, and the batter will end up at second base!";
-				break;
-			case "single":
-			case "singleRISP":
-			case "singleAdvance":
-				message = message + "<br>Swung on, and it's a base hit. The batter will end up at first.";
-				break;
-			case "error":
-				message = message + "<br>Swung on, and misplayed by the defense, the batter will reach on an error!";
-				break;
-			case "errorSecond":
-				message = message + "<br>Swung on, hit toward the infield, but they overthrow to first! The batter will reach second on an error!";
-				break;
-			case "foulout":
-				message = message + "<br>Popped up into foul territory, the fielder gets under it and makes the out.";
-				break;
-			case "flyout":
-				message = message + "<br>Swung on, and it's a pop fly that the defense takes care of easily.";
-				break;
-			case "flyoutAdv":
-			case "flyoutNoAdv1st":
-				message = message + "<br>Swung on, and it's a pop fly that the outfielder has to hurry to get to, but he makes the play for the out.";
-				break;
-			case "groundout":
-			case "groundoutAdvIfForced":
-			case "groundoutDoublePlay":
-			case "fieldersChoice":
-				message = message + "<br>Swung on, ground ball on the infield, and the infielders take care of it.";
-				break;
-			case "lineoutDoublePlay":
-			case "triplePlay":
-				message = message + "<br>Swung on, lined right at the infield defense, who makes a nice play to retire the batter.";
-				break;
-			case "strikeoutSwinging":
-				message = message + "<br>Swing and a miss, got him to strikeout!";
-				break;
-			case "strikeoutLooking":
-				message = message + "<br>Got him looking! He was taking, but the pitcher threw him a strike.";
-				break;
-			case "swingingStrike":
-				message = message + "<br>Swing and a miss, that's a strike.";
-				break;
-			case "calledStrike":
-				message = message + "<br>That one's taken for a strike.";
-				break;
-			case "walk":
-				message = message + "<br>That's ball four, and the batter is on with a walk!";
-				break;
-			case "ball":
-				message = message + "<br>That one's out of the zone, taken for a ball.";
-				break;
-			case "foul":
-				message = message + "<br>Swung on, but fouled out of play.";
-				break;
-		}
+		message = log2Print(message);
+
 		document.getElementById("gameLog").innerHTML = message;
 		setTimeout(() => {
-			if (game.lastPitch.newInning) {
-				message = message + "<br>That's it for the inning.";
-			}
-			else if (game.lastPitch.newAB) {
-				if (game.first && game.second && game.third) {
-					message = message + "<br>The bases are now loaded with " + game.outs + " outs.";
-				}
-				else if (game.first && game.third) {
-					message = message + "<br>Runners are now at the corners with " + game.outs + " outs.";
-				}
-				else if (game.first && game.second) {
-					message = message + "<br>Runners are now at first and second with " + game.outs + " outs.";
-				}
-				else if (game.second && game.third) {
-					message = message + "<br>Runners are now at second and third with " + game.outs + " outs.";
-				}
-				else if (game.first) {
-					message = message + "<br>Man on first now with " + game.outs + " outs.";
-				}
-				else if (game.second) {
-					message = message + "<br>Man on second now with " + game.outs + " outs.";
-				}
-				else if (game.third) {
-					message = message + "<br>Man on third now with " + game.outs + " outs.";
-				}
-				else {
-					message = message + "<br>The bases are now empty with " + game.outs + " outs.";
-				}
-			}
-			else {
-				message = message + "<br>" + game.balls + " balls and " + game.strikes + " strikes now.";
-			}
+			message = log3Print(message);
 			drawScore();
 			document.getElementById("gameLog").innerHTML = message;
 			setTimeout(() => {
@@ -1246,4 +1059,108 @@ function loopCrowdChatter()//Loops the crowd noise. At this point called in Pitc
     {
         document.getElementById('c0').play();
     }
+}
+
+function log2Print(message) {
+	switch (game.lastPitch.play) {
+		case "homeRun":
+			message = message + "<br>Swung on, a high fly ball, get up, get outta here, gone! It's a home run!";
+			break;
+		case "triple":
+			message = message + "<br>Swung on, lined into the gap in the outfield! That's good for a triple!";
+			break;
+		case "double":
+		case "doubleClear":
+			message = message + "<br>Swung on, hit hard into the outfield, and the batter will end up at second base!";
+			break;
+		case "single":
+		case "singleRISP":
+		case "singleAdvance":
+			message = message + "<br>Swung on, and it's a base hit. The batter will end up at first.";
+			break;
+		case "error":
+			message = message + "<br>Swung on, and misplayed by the defense, the batter will reach on an error!";
+			break;
+		case "errorSecond":
+			message = message + "<br>Swung on, hit toward the infield, but they overthrow to first! The batter will reach second on an error!";
+			break;
+		case "foulout":
+			message = message + "<br>Popped up into foul territory, the fielder gets under it and makes the out.";
+			break;
+		case "flyout":
+			message = message + "<br>Swung on, and it's a pop fly that the defense takes care of easily.";
+			break;
+		case "flyoutAdv":
+		case "flyoutNoAdv1st":
+			message = message + "<br>Swung on, and it's a pop fly that the outfielder has to hurry to get to, but he makes the play for the out.";
+			break;
+		case "groundout":
+		case "groundoutAdvIfForced":
+		case "groundoutDoublePlay":
+		case "fieldersChoice":
+			message = message + "<br>Swung on, ground ball on the infield, and the infielders take care of it.";
+			break;
+		case "lineoutDoublePlay":
+		case "triplePlay":
+			message = message + "<br>Swung on, lined right at the infield defense, who makes a nice play to retire the batter.";
+			break;
+		case "strikeoutSwinging":
+			message = message + "<br>Swing and a miss, got him to strikeout!";
+			break;
+		case "strikeoutLooking":
+			message = message + "<br>Got him looking! He was taking, but the pitcher threw him a strike.";
+			break;
+		case "swingingStrike":
+			message = message + "<br>Swing and a miss, that's a strike.";
+			break;
+		case "calledStrike":
+			message = message + "<br>That one's taken for a strike.";
+			break;
+		case "walk":
+			message = message + "<br>That's ball four, and the batter is on with a walk!";
+			break;
+		case "ball":
+			message = message + "<br>That one's out of the zone, taken for a ball.";
+			break;
+		case "foul":
+			message = message + "<br>Swung on, but fouled out of play.";
+			break;
+	}
+	return message;
+}
+
+function log3Print(message) {
+	if (game.lastPitch.newInning) {
+		message = message + "<br>That's it for the inning.";
+	}
+	else if (game.lastPitch.newAB) {
+		if (game.first && game.second && game.third) {
+			message = message + "<br>The bases are now loaded with " + game.outs + " outs.";
+		}
+		else if (game.first && game.third) {
+			message = message + "<br>Runners are now at the corners with " + game.outs + " outs.";
+		}
+		else if (game.first && game.second) {
+			message = message + "<br>Runners are now at first and second with " + game.outs + " outs.";
+		}
+		else if (game.second && game.third) {
+			message = message + "<br>Runners are now at second and third with " + game.outs + " outs.";
+		}
+		else if (game.first) {
+			message = message + "<br>Man on first now with " + game.outs + " outs.";
+		}
+		else if (game.second) {
+			message = message + "<br>Man on second now with " + game.outs + " outs.";
+		}
+		else if (game.third) {
+			message = message + "<br>Man on third now with " + game.outs + " outs.";
+		}
+		else {
+			message = message + "<br>The bases are now empty with " + game.outs + " outs.";
+		}
+	}
+	else {
+		message = message + "<br>" + game.balls + " balls and " + game.strikes + " strikes now.";
+	}
+	return message;
 }
