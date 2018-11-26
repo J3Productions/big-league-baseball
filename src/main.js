@@ -1,4 +1,6 @@
 import {Game} from './Game.js';
+import {drawPitchHit, drawSwingOut, drawSwingStrike, drawTakeBall, batterSound, BackGroundOnload, SwitchSideOnload} from './Animation.js';
+
 
 
 let game = null;
@@ -201,7 +203,9 @@ export function ciPit() {
 	pitchSelect("ci");
 }
 
-
+/**
+ * Prints the status of the game on the right hand side of the interface
+ */
 function drawScore() {
 	let innStr = "";
 	let innScoreID = "";
@@ -358,24 +362,37 @@ function drawScore() {
 	document.getElementById("currentPitcher").innerHTML = curPitcher;
 }
 
+/**
+ * Displays the menu for selecting a hit on the bottom of the gui
+ */
 function displayHitMenu() {
     document.getElementById("gameLog").style.display = "none";
     document.getElementById("pitcherMenu").style.display = "none";
     document.getElementById("hitterMenu").style.display = "grid";
 }
 
+/**
+ * Displays the menu for selecting a pitch on the bottom of the gui
+ */
 function displayPitchMenu() {
 	document.getElementById("gameLog").style.display = "none";
 	document.getElementById("hitterMenu").style.display = "none";
 	document.getElementById("pitcherMenu").style.display = "grid";
 }
 
+/**
+ * Displays the game log on the bottom of the gui
+ */
 function displayGameLog() {
 	document.getElementById("hitterMenu").style.display = "none";
 	document.getElementById("pitcherMenu").style.display = "none";
 	document.getElementById("gameLog").style.display = "grid";
 }
 
+/**
+ * Run when the user, acting as the hitter, selects a hit they want to swing for and runs through the game logic and prints to the game log
+ * @param action {string} The pitch that the hitter will swing for
+ */
 function hitSelect(action) {
     displayGameLog();
     let message = "Here's the pitch...";
@@ -462,6 +479,10 @@ function hitSelect(action) {
 
 }
 
+/**
+ * Run when the user, acting as the pitch, selects a pitch they want to throw and runs through the game logic and prints to the game log
+ * @param action {string} The pitch that the pitcher will pitch
+ */
 function pitchSelect(action) {
 	displayGameLog();
 	let message = "Here's the pitch...";
@@ -548,7 +569,6 @@ function pitchSelect(action) {
 	}, 3000);
 }
 
-import {drawPitchHit, drawSwingOut, drawSwingStrike, drawTakeBall, batterSound, BackGroundOnload, SwitchSideOnload} from './Animation.js';
 
 function DetermineAnimation()
 {
@@ -663,6 +683,11 @@ function loopCrowdChatter()//Loops the crowd noise. At this point called in Pitc
     }
 }
 
+/**
+ * Function to print the second line of the game log for both pitching and hitting
+ * @param message {string} The string being added to
+ * @return {string} The modified string
+ */
 function log2Print(message) {
 	switch (game.lastPitch.play) {
 		case "homeRun":
@@ -731,6 +756,11 @@ function log2Print(message) {
 	return message;
 }
 
+/**
+ * Function to print the third line of the game log for both pitching and hitting
+ * @param message {string} The string being added to
+ * @return {string} The modified string
+ */
 function log3Print(message) {
 	if (game.lastPitch.newInning) {
 		message = message + "<br>That's it for the inning.";
