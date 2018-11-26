@@ -40,3 +40,9 @@ SwingAndMiss-by Dane S Casperson https://freesound.org/people/CosmicEmbers/sound
 {
 Home run back ground music-Fantastic Voyage-Coolio
 }
+
+
+<iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+	<audio id="player" autoplay >
+		<source src="./soundFx/crowd/startGameCrowd.mp3" type="audio/mp3">
+	</audio>

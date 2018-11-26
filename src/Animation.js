@@ -1350,51 +1350,17 @@ export function PitcherWaitOnload()
 
 
 
-function crowdFx(time)
+
+
+var hitTd= 500;//Hit time delay
+var takeTd=550;//Take time delay
+function batterSound(timeDelay)//Sounds for pitching, batting and catching.
 {
-
-    if(time== 0)
-    {
-        document.getElementById('c0').play();//Start crowd noise.
-    }
-    if(time== 1)
-    {
-        document.getElementById('c1').play();
-    }
-    if(time== 2)
-    {
-        document.getElementById('c2').play();
-    }
-    if(time== 3)
-    {
-        document.getElementById('c3').play();
-    }
-    if(time== 4)
-    {
-        document.getElementById('c4').play();
-    }
-    if(time== 5)
-    {
-        document.getElementById('c5').play();
-    }
-    if(time== 6)
-    {
-        document.getElementById('c6').play();
-    }
-    if(time== 6)
-    {
-        document.getElementById('7th').play();
-    }
-}
-
-
-function batterSound(team,swing, contact, play, timeDelay)//Sounds for pitching, batting and catching.
-{
-    let t= team;//h=home, v=visitor
-    let s= swing;//Bool
-    let c= contact;//Bool
-    let p= play;//foul,strike,out
-    let d= timeDelay;//num time delay for sound to begin.
+    var t= Side;//h=home, v=visitor
+//    let s= swing;//Bool
+//    let c= contact;//Bool
+    var p= gameAnimation.lastPitch.play;//foul,strike,out
+    var d= timeDelay;//num time delay for sound to begin.
 
 //    if(swing)
 //    {
@@ -1403,7 +1369,7 @@ function batterSound(team,swing, contact, play, timeDelay)//Sounds for pitching,
             setTimeout(playsound, d, p );
             function playSound(p)
             {
-                if(t=== "Home")//team;//h=home, v=visitor
+                if(t=== "home")//team;//h=home, v=visitor
                 {
                     if(p== "ball")
                     {
@@ -1501,24 +1467,4 @@ function batterSound(team,swing, contact, play, timeDelay)//Sounds for pitching,
            }
 //        }
 //   }
-}
-
-function organMusic(number)
-{
-    if(number== 1)
-    {
-        document.getElementById('o1').play();
-    }
-    else if(number== 2)
-    {
-        document.getElementById('o2').play();//Double hit
-    }
-    else if(number== 3)
-    {
-        document.getElementById('o3').play();//Foul ball
-    }
-    else if(number== 7)
-    {
-        document.getElementById('7th').play();//Foul ball
-    }
 }
