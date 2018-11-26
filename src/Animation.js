@@ -1245,7 +1245,10 @@ export function BatterTakeOnload()
 }
 
 
-
+/**
+* This function will the canvas back to normal after Ball animation is finished.
+*
+*/
 function BallBack()
 {
     var PitcherPitchCanvas = document.getElementById("PitcherPitch");
@@ -1290,6 +1293,10 @@ function BallBack()
 }
 
 var BallBackControl;
+/**
+* BallBackOnload - a control of Ball back function.
+*
+*/
 export function BallBackOnload()
 {
     BallBackControl = setInterval(BallBack, 80);
@@ -1299,7 +1306,10 @@ export function BallBackOnload()
 var BallFrames = 5;
 var BallCurrFrames = 0;
 var initalTop = 0;
-
+/**
+* This function is the animation of a flying Ball
+*
+*/
 function drawBall()
 {
     var BallCanvas= document.getElementById("Ball");
@@ -1333,6 +1343,10 @@ function drawBall()
 }
 
 var BallControl;
+/**
+* BallOnload - a control of flying ball animation, set the time interval of each frame.
+*
+*/
 export function BallOnload()
 {
     BallControl = setInterval(drawBall, 70);//every 70ms draw flying ball once
@@ -1342,7 +1356,10 @@ export function BallOnload()
 
 var BatterWaitFrames = 17;
 var BatterWaitCurrFrame = 0;
-
+/**
+* This function is the animation of Batter waiting of the action been selected.
+*
+*/
 function drawBatterWait()
 {
     var BatterWaitCanvas = document.getElementById("BatterWaitting");
@@ -1372,6 +1389,10 @@ function drawBatterWait()
 }
 
 var BatterWaitControl;
+/**
+* BatterWaitOnload - a control of batter waiting animation, set the time interval of each frame.
+*
+*/
 export function BatterWaitOnload()
 {
     BatterWaitControl = setInterval(drawBatterWait, 125);
@@ -1379,7 +1400,10 @@ export function BatterWaitOnload()
 
 var PitcherWaitFrames = 16;
 var PitcherWaitCurrFrames = 0;
-
+/**
+* This function is the animation of pitcher waiting of the action been selected.
+*
+*/
 function drawPitcherWait()
 {
     var PitcherWaitCanvas = document.getElementById("PitcherWait");
@@ -1411,6 +1435,10 @@ function drawPitcherWait()
 }
 
 var PitcherWaitControl;
+/**
+* PitcherWaitOnload - a control of pitcher waiting animation, set the time interval of each frame.
+*
+*/
 export function PitcherWaitOnload()
 {
     PitcherWaitControl = setInterval(drawPitcherWait, 188);
