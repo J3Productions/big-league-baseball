@@ -754,14 +754,19 @@ function loopCrowdOrgan()//Loops the organ music and crowd clapping. At this poi
 {
     if(crowdOrgan)
     {
-        setInterval(crowdFx, 50000);//exact time length is 1686421ms
+        setInterval(crowdFx, 80000);//exact time length is 1686421ms
         crowdOrgan= false;
     }
 }
-function crowdFx(time)
+var temp;
+function crowdFx()
 {
     var time =Math.floor(Math.random() * 5);
-
+    while(time===temp)
+    {
+        var time =Math.floor(Math.random() * 5);
+    }
+    temp= time;
     if(time== 0)
     {
         document.getElementById('c1').play();
