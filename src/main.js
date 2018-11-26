@@ -12,10 +12,10 @@ export function startGame(location) {
     side = location;
     BackGroundOnload(location);
     document.getElementById('uPlayBall').play();
-//    document.getElementById('c0').play();
-//    loopCrowdChatter();
-//    loopCrowdOrgan();
-//   document.getElementById('c0').play();
+    document.getElementById('c0').play();
+    loopCrowdChatter();
+    loopCrowdOrgan();
+    document.getElementById('c0').play();
     if (location === "home") {
         displayPitchMenu();
     }
