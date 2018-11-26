@@ -1,7 +1,10 @@
 var gameAnimation;
-
 var Side;
 var count2 = 0;
+/**
+* SwitchSide function is to swtich the side when the a new inning came out.
+* @param {string} it represented the side of img. Home will call blue, away will call red.
+*/
 export function SwitchSide(side)
 {
     Side = side;
@@ -73,6 +76,10 @@ export function SwitchSide(side)
 }
 
 var SwitchSideControl;
+/**
+* SwitchSideOnload will make switchside been recalled for a period of time.
+* @param {string} it represented the side of img. Home will call blue, away will call red.
+*/
 export function SwitchSideOnload(side)
 {
     SwitchSideControl = setInterval(SwitchSide, 200, side);
@@ -81,6 +88,10 @@ export function SwitchSideOnload(side)
 var BackGroundCurrFrame = 0;
 var BackGroundTotalFrame = 2;
 var temp = 0;
+/**
+* BackGroud function will make the playground background move. It is a animation function.
+* @param {string} it represented the side of img. Home will call blue, away will call red.
+*/
 export function BackGround(location)
 {
     if(temp == 0)
@@ -116,6 +127,10 @@ export function BackGround(location)
 }
 
 var BackGroundControl;
+/**
+* BackGroundOnload, make the background moving when the game been played.
+* @param {string} it represented the side of img. Home will call blue, away will call red.
+*/
 export function BackGroundOnload(location)
 {
     BackGroundControl = setInterval(BackGround, 300, location);
@@ -123,8 +138,11 @@ export function BackGroundOnload(location)
 
 
 var BatterStatus = "";
-
-export function drawPitchHit(game)//This the function for hit animation.
+/**
+* drawPitchHit, this function is a control of stop the waiting animations and hidden the canvas to open the hit animation canvas.
+* @param {object} this is the object of the result of each action had been selected.
+*/
+export function drawPitchHit(game)
 {
     gameAnimation = game;
     var PitcherWaitCanvas = document.getElementById("PitcherWait");
@@ -132,7 +150,7 @@ export function drawPitchHit(game)//This the function for hit animation.
     PitcherWaitCanvas.style.filter = "opacity(0%)";
     PitcherWaitCanvas.style.WebkitFilter = "opacity(0%)";
     BatterWaitCanvas.style.filter = "opacity(0%)";
-    BatterWaitCanvas.style.WebkitFilter = "opacity(0%)";//first, make two waiting animation canvas disappear.
+    BatterWaitCanvas.style.WebkitFilter = "opacity(0%)";
 
     var PitcherPitchCanvas = document.getElementById("PitcherPitch");
     var BatterHitCanvas = document.getElementById("BatterHit");
@@ -154,19 +172,18 @@ export function drawPitchHit(game)//This the function for hit animation.
         var img2 = document.getElementById("RedBatterHitting");
     }
     ctx.drawImage(img, 0 * 128, 0, 128, 140, 0, 0, 96, 105);
-    ctx2.drawImage(img2, 0 * 192, 0, 192, 210, 0, 0, 160, 175);//in order to make the canvas change smooth, draw the frist frame of animation before display the Hit animation canvas.
+    ctx2.drawImage(img2, 0 * 192, 0, 192, 210, 0, 0, 160, 175);
 
     PitcherPitchCanvas.style.filter = "opacity(100%)";
     PitcherPitchCanvas.style.WebkitFilter = "opacity(100%)";
     BatterHitCanvas.style.filter = "opacity(100%)";
-    BatterHitCanvas.style.WebkitFilter = "opacity(100%)";//display the hit animation canvas.
-
+    BatterHitCanvas.style.WebkitFilter = "opacity(100%)";
     clearInterval(PitcherWaitControl);
-    clearInterval(BatterWaitControl);//clear the waiting animation counting.
+    clearInterval(BatterWaitControl);
 
     BatterStatus = "Hit";
 
-    PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
+    PitcherPitchOnload();
 
 
 //    crowdFx(0);
@@ -175,7 +192,10 @@ export function drawPitchHit(game)//This the function for hit animation.
 
 var PitcherPitchFrames = 6;
 var PitcherPitchCurrFrames = 0;
-
+/**
+* drawPitcherPitch, this is the animation of pitcher pitch.
+* 
+*/
 function drawPitcherPitch()
 {
     var PitcherPitchCanvas = document.getElementById("PitcherPitch");
@@ -193,7 +213,7 @@ function drawPitcherPitch()
     }
 
     var width = 128;
-    var height = 140;                                   //initial the canvas.
+    var height = 140;                                   
 
     ctx.clearRect(0, 0, width, height);
 
@@ -219,12 +239,12 @@ function drawPitcherPitch()
 
     if(PitcherPitchCurrFrames == 3)
     {
-        BallOnload();                                   //when the pitcher animation frame go to 3, start drawing Ball flying animation. go to line 158
+        BallOnload();                                  
     }
 
     if(PitcherPitchCurrFrames < PitcherPitchFrames)
     {
-        PitcherPitchCurrFrames++;                       //increment the frame number if it not reach the final frame.
+        PitcherPitchCurrFrames++;                      
     }
     else
     {
@@ -232,7 +252,7 @@ function drawPitcherPitch()
         PitcherPitchCurrFrames = 0;
     }
 
-    ctx.drawImage(img, PitcherPitchCurrFrames * width, 0, width, height, 0, 0, PitcherPitchCanvas.width, PitcherPitchCanvas.height);//draw this frame.
+    ctx.drawImage(img, PitcherPitchCurrFrames * width, 0, width, height, 0, 0, PitcherPitchCanvas.width, PitcherPitchCanvas.height);
     if(PitcherPitchCurrFrames < 4)
     {
         var BatterHitCanvas = document.getElementById("BatterHit");
@@ -252,16 +272,21 @@ function drawPitcherPitch()
 }
 
 var PitcherPitchControl;
+/**
+* PitcherPitchOnload - a control of pitcherPitch anuation, set the time interval of each frame.
+*/
 export function PitcherPitchOnload()
 {
-    PitcherPitchControl = setInterval(drawPitcherPitch, 300);//every 300ms call the drawPitcherPitch function once. go to line 38
+    PitcherPitchControl = setInterval(drawPitcherPitch, 300);
 }
 
 
 var BatterHitFrames = 16;
 var BatterHitCurrFrame = 0;
 var count = 0;
-
+/**
+* drawBatterHit, this is the animation of batter hit.
+*/
 function drawBatterHit()
 {
     var BatterHitCanvas = document.getElementById("BatterHit");
@@ -282,8 +307,8 @@ function drawBatterHit()
     ctx.clearRect(0, 0, width, height);
 
 
- ///////////////////////Call sound
-//  batterSound("Home",true,true, 1, 500);//team-Home==1 Visitor==2, swing contact==true, contact==true, play base hitSafe==1, timeDelay in ms
+    ///////////////////////Call sound
+    //batterSound("Home",true,true, 1, 500);//team-Home==1 Visitor==2, swing contact==true, contact==true, play base hitSafe==1, timeDelay in ms
 
 
     if(BatterHitCurrFrame < BatterHitFrames)
@@ -308,6 +333,9 @@ function drawBatterHit()
 }
 
 var BatterHitOnloadControl;
+/**
+* BatterHitOnload - a control of Batter hit animation, set the time interval of each frame.
+*/
 export function BatterHitOnload()
 {
     BatterHitOnloadControl = setInterval(drawBatterHit, 80);//every 80ms call the drawBatterhit function once.
@@ -354,6 +382,10 @@ var base4 = false;
 var times = 0;
 var BaseChangeCurrFrame = 0;
 var BaseChangeTotalFrame = 5;
+/**
+* drawBaseChange - This a control function and animation. It will determine which base change animation need to been called.
+* 
+*/
 function drawBaseChange()
 {
     var BackGroundCanvas = document.getElementById("batterView");
@@ -777,12 +809,18 @@ function drawBaseChange()
 }
 
 var BaseChangeControl;
+/**
+* BaseChangeOnload - a control of Base change animation, set the time interval of each frame.
+* 
+*/
 export function BaseChangeOnload()
 {
     BaseChangeControl = setInterval(drawBaseChange, 200);
 }
 
-
+/**
+* This function will make the canvas back to normal when the field animation is finished.
+*/
 function fieldBack()
 {
     var BackGroundCanvas = document.getElementById("batterView");
@@ -841,7 +879,10 @@ function fieldBack()
 
 }
 
-
+/**
+* This function is animation of strike.
+* @param {object} this is the object of the result of each action had been selected.
+*/
 export function drawSwingStrike(game)
 {
     gameAnimation = game;
@@ -888,7 +929,10 @@ export function drawSwingStrike(game)
     PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
 }
 
-
+/**
+* This function is animation of swing but it is Out.
+* @param {object} this is the object of the result of each action had been selected.
+*/
 export function drawSwingOut(game)
 {
     gameAnimation = game;
@@ -936,6 +980,10 @@ export function drawSwingOut(game)
 }
 
 
+/**
+* This function is animation of batter decided take and it was a Ball
+* @param {object} this is the object of the result of each action had been selected.
+*/
 export function drawTakeBall(game)
 {
     gameAnimation = game;
@@ -985,8 +1033,13 @@ export function drawTakeBall(game)
 
 var BatterStrikeFrames = 11;
 var BatterStrikeCurrFrame = 0;
-function drawBatterSwingStrike()
+/**
+* This function is animation of strike when the pitcher pitch has been called
+* @param {object} this is the object of the result of each action had been selected.
+*/
+function drawBatterSwingStrike(game)
 {
+    gameAnimation = game;
     var BatterHitCanvas = document.getElementById("BatterHit");
     BatterHitCanvas.width = 160;
     BatterHitCanvas.height = 175;
@@ -1030,14 +1083,21 @@ function drawBatterSwingStrike()
 }
 
 var BatterSwingStrikeControl;
-export function BatterSwingStrikeOnload()
+/**
+* BaseChangeOnload - a control of strike animation, set the time interval of each frame.
+* 
+*/
+export function BatterSwingStrikeOnload(game)
 {
-    BatterSwingStrikeControl = setInterval(drawBatterSwingStrike, 110);
+    BatterSwingStrikeControl = setInterval(drawBatterSwingStrike, 110, game);
 }
 
 
 var BatterOutFrames = 11;
 var BatterOutCurrFrame = 0;
+/**
+* This function will draw the out animation
+*/
 function drawOut()
 {
     var BatterHitCanvas = document.getElementById("BatterHit");
@@ -1076,12 +1136,20 @@ function drawOut()
 }
 
 var BatterSwingOutControl;
+/**
+* BatterSwingOutOnload - a control of out animation, set the time interval of each frame.
+* 
+*/
 export function BatterSwingOutOnload()
 {
     BatterSwingOutControl = setInterval(drawOut, 80);
 }
 
 var count1 = 0;
+/**
+* This function will the canvas back to normal after strike animation is finished.
+* 
+*/
 function strikeBack()
 {
     var PitcherPitchCanvas = document.getElementById("PitcherPitch");
@@ -1125,13 +1193,20 @@ function strikeBack()
 }
 
 var StrikeBackControl;
+/**
+* strikeBackOnload - a control of strike back to normal function, set the time interval of each frame.
+* 
+*/
 export function strikeBackOnload()
 {
     StrikeBackControl = setInterval(strikeBack, 80);
 }
 
 
-
+/**
+* This function will draw the take animation
+* 
+*/
 function drawBatterTake()
 {
     var BatterHitCanvas = document.getElementById("BatterHit");
@@ -1165,6 +1240,10 @@ function drawBatterTake()
 }
 
 var BatterTakeControl;
+/**
+* BatterTakeOnload - a control of take animation, set the time interval of each frame.
+* 
+*/
 export function BatterTakeOnload()
 {
     BatterTakeControl = setInterval(drawBatterTake, 300);
