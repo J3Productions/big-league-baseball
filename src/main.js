@@ -11,7 +11,11 @@ export function startGame(location) {
     game = new Game(location);
     side = location;
     BackGroundOnload(location);
-    loopCrowdChatter();
+    document.getElementById('uPlayBall').play();
+//    document.getElementById('c0').play();
+//    loopCrowdChatter();
+//    loopCrowdOrgan();
+//   document.getElementById('c0').play();
     if (location === "home") {
         displayPitchMenu();
     }
@@ -1073,66 +1077,59 @@ export function DetermineAnimation()
 }
 
 
-var fxCount= true;
-function loopCrowdChatter()//Loops the crowd noise without intro music. At this point called in PitcherWaitOnload()
+var crowdOrgan= true;
+function loopCrowdOrgan()//Loops the organ music and crowd clapping. At this point called in PitcherWaitOnload()
 {
-    if(fxCount)
+    if(crowdOrgan)
     {
-        setInterval(crowdChatter, 1686415);//exact time length is 1686421ms
-       fxCount= false;
-    }
-    function crowdChatter()
-    {
-        document.getElementById('c0').play();
-    }
-}
-var organCount= true;
-function organMusic()//Loops the organ music and crowd clapping. At this point called in PitcherWaitOnload()
-{
-    if(organCount)
-    {
-        setInterval(organMusic, 200000);//exact time length is 1686421ms
-       organCount= false;
-    }
-    function organMusic()
-    {
-        document.getElementById('c0').play();
+        setInterval(crowdFx, 16000, 1);//exact time length is 1686421ms
+       crowdOrgan= false;
     }
 }
 
 function crowdFx(time)
 {
+//    var time =Math.floor(Math.random() * 5);
 
     if(time== 0)
     {
-        document.getElementById('c0').play();//Start crowd noise.
+        document.getElementById('c1').play();
+        setInterval(crowdFx, 16000, 1);//exact time length is 1686421ms
     }
     if(time== 1)
     {
-        document.getElementById('c1').play();
+        document.getElementById('o1').play();
     }
     if(time== 2)
     {
-        document.getElementById('c2').play();
+        document.getElementById('o2').play();
     }
     if(time== 3)
     {
-        document.getElementById('c3').play();
+        document.getElementById('c2').play();
     }
     if(time== 4)
     {
-        document.getElementById('c4').play();
+        document.getElementById('o4').play();
     }
-    if(time== 5)
-    {
-        document.getElementById('c5').play();
-    }
-    if(time== 6)
-    {
-        document.getElementById('c6').play();
-    }
-    if(time== 6)
+
+    if(time== 7)
     {
         document.getElementById('7th').play();
+    }
+}
+
+
+var fxCount= true;
+function loopCrowdChatter()//Loops the crowd noise. At this point called in PitcherWaitOnload()
+{
+    if(fxCount)
+    {
+        setInterval(crowdChatter, .0000001);//exact time length is 1686421ms
+        fxCount= false;
+    }
+    function crowdChatter()
+    {
+        document.getElementById('c0').play();
     }
 }

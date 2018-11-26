@@ -1251,8 +1251,6 @@ var PitcherWaitControl;
 export function PitcherWaitOnload()
 {
     PitcherWaitControl = setInterval(drawPitcherWait, 188);
-
-
 }
 
 
