@@ -167,10 +167,6 @@ export function drawPitchHit(game)//This the function for hit animation.
     BatterStatus = "Hit";
 
     PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
-
-
-//    crowdFx(0);
-//    document.getElementById('c1').play();//Start crowd noise.************************
 }
 
 var PitcherPitchFrames = 6;
@@ -407,7 +403,7 @@ function drawBaseChange()
                 base3 = true;
             }
         }
-            
+
         if(gameAnimation.lastPitch.base3Change == true)
         {
             if(times == 1)
@@ -430,7 +426,7 @@ function drawBaseChange()
                 base3 = true;
             }
         }
-            
+
         if(gameAnimation.lastPitch.base3Change == true)
         {
             if(times == 1)
@@ -485,7 +481,7 @@ function drawBaseChange()
                     base3 = true;
                 }
             }
-            
+
             if(gameAnimation.lastPitch.base3Change == true)
             {
                 if(times == 1)
@@ -523,7 +519,7 @@ function drawBaseChange()
                 }
             }
         }
-            
+
 
         if(gameAnimation.lastPitch.play == "error")
         {
@@ -542,7 +538,7 @@ function drawBaseChange()
                     base3 = true;
                 }
             }
-            
+
             if(gameAnimation.lastPitch.base3Change == true)
             {
                 if(times == 1)
@@ -752,7 +748,7 @@ function drawBaseChange()
                         base4 = true;
                     }
                     else
-                    {                    
+                    {
                         base3 = true;
                     }
                 }
@@ -1352,19 +1348,20 @@ export function PitcherWaitOnload()
 
 var hitTd= 500;//Hit time delay
 var takeTd=550;//Take time delay
-function batterSound(timeDelay)//Sounds for pitching, batting and catching.
+export function batterSound(game, side)//Sounds for pitching, batting and catching.
 {
-    var t= Side;//h=home, v=visitor
+    gameAnimation = game;
+    var t= game ;//h=home, v=visitor
 //    let s= swing;//Bool
 //    let c= contact;//Bool
     var p= gameAnimation.lastPitch.play;//foul,strike,out
-    var d= timeDelay;//num time delay for sound to begin.
+    var d= 1300;//num time delay for sound to begin.
 
 //    if(swing)
 //    {
 //        if(contact)
 //        {
-            setTimeout(playsound, d, p );
+            setTimeout(playSound, d, p );
             function playSound(p)
             {
                 if(t=== "home")//team;//h=home, v=visitor
