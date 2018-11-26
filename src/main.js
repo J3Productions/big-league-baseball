@@ -648,6 +648,9 @@ function drawScore() {
 	if (game.inningSide) {
 	    curHitter = curHitter + game.homeTeam.lineup[game.homeAB].getPlayerName() + "&nbsp;- " + game.homeTeam.lineup[game.homeAB].getPosition() + "<br>";
 	    curHitter = curHitter + "Strength(s):";
+		if (game.homeTeam.lineup[game.homeAB].getBatStrengths() == []) {
+			curHitter = curHitter + " None,";
+		}
 	    for (let strength of game.homeTeam.lineup[game.homeAB].getBatStrengths()) {
 	    	switch (strength) {
 			    case "ss":
@@ -693,7 +696,10 @@ function drawScore() {
 	else {
 		curHitter = curHitter + game.visitTeam.lineup[game.visitAB].getPlayerName() + "&nbsp;- " + game.visitTeam.lineup[game.visitAB].getPosition() + "<br>";
 		curHitter = curHitter + "Strength(s):";
-		for (let strength of game.homeTeam.lineup[game.homeAB].getBatStrengths()) {
+		if (game.visitTeam.lineup[game.visitAB].getBatStrengths() == []) {
+			curHitter = curHitter + " None,";
+		}
+		for (let strength of game.visitTeam.lineup[game.visitAB].getBatStrengths()) {
 			switch (strength) {
 				case "ss":
 					curHitter = curHitter + " Slow Straight,";
