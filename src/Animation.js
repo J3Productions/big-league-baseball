@@ -1299,10 +1299,6 @@ export function BatterWaitOnload()
     BatterWaitControl = setInterval(drawBatterWait, 125);
 }
 
-
-
-
-
 var PitcherWaitFrames = 16;
 var PitcherWaitCurrFrames = 0;
 
@@ -1342,16 +1338,9 @@ export function PitcherWaitOnload()
     PitcherWaitControl = setInterval(drawPitcherWait, 188);
 }
 
-
-
-
-
-var hitTd= 500;//Hit time delay
-var takeTd=550;//Take time delay
-export function batterSound(game, side)//Sounds for pitching, batting and catching.
+export function batterSound()//Sounds for pitching, batting and catching.
 {
-    gameAnimation = game;
-    var t= game ;//h=home, v=visitor
+    var t= Side ;//h=home, v=visitor
 //    let s= swing;//Bool
 //    let c= contact;//Bool
     var p= gameAnimation.lastPitch.play;//foul,strike,out
@@ -1376,7 +1365,7 @@ export function batterSound(game, side)//Sounds for pitching, batting and catchi
                     }
                     if(p== "foulout" || "flyout")
                     {
-                        document.getElementById("hHitOut").play();//Base hit
+                        document.getElementById("hHitOut").play();
                     }
                     if(p== "single" || "singleAdvance" || "error" || "flyoutAdv" || "flyoutNoAdv1st" || "groundout")
                     {
@@ -1384,7 +1373,7 @@ export function batterSound(game, side)//Sounds for pitching, batting and catchi
                     }
                     if(p== "singleRISP")
                     {
-                        document.getElementById('hB3').play();//Base hit
+                        document.getElementById('hB3').play();
                     }
                     if(p== "doubleClear" || "double" || "errorSecond")
                     {
