@@ -14,10 +14,9 @@ export function startGame(location) {
     side = location;
     BackGroundOnload(location);
     document.getElementById('uPlayBall').play();
-    document.getElementById('c0').play();
-    loopCrowdChatter();
-    loopCrowdOrgan();
-    document.getElementById('c0').play();
+    document.getElementById('c0').play();//Starts crowd noise
+    loopCrowdChatter();//Calls to set the interval of the crowd noise loop.
+    loopCrowdOrgan();//Call to loop clapping and organ music.
     if (location === "home") {
         displayPitchMenu();
     }
@@ -25,6 +24,132 @@ export function startGame(location) {
         displayHitMenu();
     }
     drawScore();
+}
+
+
+/**
+*   This method render the index.html with canvas. The size of canvas will auto change with user web browser size.
+**/
+export function initStartPage()
+{
+    var screenWidth = document.documentElement.clientWidth;
+    var screenHeight = document.documentElement.clientHeight;
+    var a = document.getElementById("startPage");
+    a.width = (screenWidth * 0.99);
+    a.height = (screenHeight * 0.97);
+
+    var ctx = a.getContext("2d");
+    var img = document.getElementById("startPic");
+    ctx.drawImage(img,0,0, screenWidth, screenHeight);
+
+    var button = document.getElementById("startGame");
+    button.style.left = String(screenWidth * 0.45) + "px";
+    button.style.top = String(screenHeight * 0.60) + "px";
+
+    var title = document.getElementById("title");
+    var input = document.getElementById("userName");
+    var describe = document.getElementById("doc");
+    title.style.left = String(screenWidth * 0.32) + "px";
+    title.style.top = String(screenHeight * 0.25) + "px";
+    input.style.left = String(screenWidth * 0.42) + "px";
+    input.style.top = String(screenHeight * 0.45) + "px";
+    describe.style.left = String(screenWidth * 0.425) + "px";
+    describe.style.top = String(screenHeight * 0.40) + "px";
+}
+
+
+/**
+*   This method render the batter view html page with canvas and two table represent the action opinions and game log. The size canvas will auto change with user web browser.
+**/
+export function initBatter()
+{
+    var screenWidth = document.documentElement.clientWidth;
+    var screenHeight = document.documentElement.clientHeight;
+    var a = document.getElementById("batterView");
+    a.width = (screenWidth * 0.74);
+    a.height = (screenHeight * 0.73);
+
+    var ctx = a.getContext("2d");
+    var img = document.getElementById("viewPic");
+    //ctx.drawImage(img, 10, 10);
+
+    var gamelog = document.getElementById("gameLog");
+    gamelog.scrollTop = gamelog.scrollHeight;
+    gamelog.style.height = (screenHeight * 0.725) + "px";
+
+    var action = document.getElementById("batterAction");
+    action.style.height = (screenHeight * 0.245) + "px";
+
+    document.getElementById("gameLogTable").innerHTML = document.getElementById("gameLogTable").innerHTML + "<tr><td>Match start!</td></tr>" + "<tr><td>Decide your batter action.</td></tr>";
+
+    var PitcherPitchCanvas = document.getElementById("PitcherPitch");
+    var BatterHitCanvas = document.getElementById("BatterHit");
+    PitcherPitchCanvas.style.filter = "opacity(0%)";
+    PitcherPitchCanvas.style.WebkitFilter = "opacity(0%)";
+    BatterHitCanvas.style.filter = "opacity(0%)";
+    BatterHitCanvas.style.WebkitFilter = "opacity(0%)";
+
+    var BallCanvas = document.getElementById("Ball");
+    BallCanvas.style.top = "80px";
+    BallCanvas.style.left = "330px";
+}
+
+/**
+*   This method render the team member select html page with canvas. The size canvas will auto change with user web browser.
+**/
+export function initSelectTeam()
+{
+    var screenWidth = document.documentElement.clientWidth;
+    var screenHeight = document.documentElement.clientHeight;
+    var a = document.getElementById("SelectMember");
+    a.width = (screenWidth * 0.99);
+    a.height = (screenHeight * 0.97);
+
+    var ctx = a.getContext("2d");
+    ctx.font = "30px Arial";
+    ctx.fillText("Select your Team member!",10,50);
+    //var img = document.getElementById("SelectPic");
+    //ctx.drawImage(img,0,0, screenWidth, screenHeight);
+
+    var button = document.getElementById("startMatch");
+    button.style.left = String(screenWidth * 0.45) + "px";
+    button.style.top = String(screenHeight * 0.8) + "px";
+}
+
+
+/**
+*   change the canvas to see what happend when runner on the base. Not surport in prototype.
+**/
+var state = false; //After the javascript method complete, change the condition.
+
+export function seeFiled()
+{
+    if(state == false)
+    {
+        var screenWidth = document.documentElement.clientWidth;
+        var screenHeight = document.documentElement.clientHeight;
+        var a = document.getElementById("filedView");
+        var b = document.getElementById("batterView");
+        b.style.display = "none";
+        a.style.display = "block";
+        a.width = (screenWidth * 0.74);
+        a.height = (screenHeight * 0.73);
+
+        var ctx = a.getContext("2d");
+        var img = document.getElementById("filedPic");
+        ctx.drawImage(img,10,10);
+
+        state = true;
+    }
+    else if(state == true)
+    {
+        var a = document.getElementById("filedView");
+        var b = document.getElementById("batterView");
+        a.style.display = "none";
+        b.style.display = "block";
+        state = false;
+    }
+
 }
 
 /**
@@ -608,8 +733,6 @@ function DetermineAnimation()
         batterSound();
 }
 
-
-
 function gameOver() {
 	displayGameLog();
 	let message = "That's your ballgame!<br>";
@@ -625,19 +748,19 @@ function gameOver() {
 		document.getElementById("gameLog").innerHTML = message;
 	}, 2000);
 }
-var Music = setInterval(crowdFx, 16000);
+
 var crowdOrgan= true;
 function loopCrowdOrgan()//Loops the organ music and crowd clapping. At this point called in PitcherWaitOnload()
 {
     if(crowdOrgan)
     {
-        setInterval(crowdFx, 16000, );//exact time length is 1686421ms
+        setInterval(crowdFx, 50000);//exact time length is 1686421ms
         crowdOrgan= false;
     }
 }
 function crowdFx(time)
 {
-//    var time =Math.floor(Math.random() * 5);
+    var time =Math.floor(Math.random() * 5);
 
     if(time== 0)
     {

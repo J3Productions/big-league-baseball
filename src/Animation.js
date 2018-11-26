@@ -301,12 +301,6 @@ function drawBatterHit()
     var height = 210;
 
     ctx.clearRect(0, 0, width, height);
-
-
-    ///////////////////////Call sound
-    //batterSound("Home",true,true, 1, 500);//team-Home==1 Visitor==2, swing contact==true, contact==true, play base hitSafe==1, timeDelay in ms
-
-
     if(BatterHitCurrFrame < BatterHitFrames)
     {
         if(BatterHitCurrFrame == 11 && count <= 2)
@@ -353,7 +347,6 @@ function drawAboveView()
     var ctx2 = BatterHitCanvas.getContext("2d");
     ctx2.clearRect(0, 0, 192, 210);
 
-
     var AboveViewCanvas = document.getElementById("AboveView");
     var screenWidth = document.documentElement.clientWidth;
     var screenHeight = document.documentElement.clientHeight;
@@ -368,7 +361,6 @@ function drawAboveView()
     ctx.drawImage(img, 1600, 0, 1600, 900, 0, 0, AboveViewCanvas.width, AboveViewCanvas.height);
 
     BaseChangeOnload();
-
 }
 
 var base1 = false;
@@ -527,7 +519,6 @@ function drawBaseChange()
             }
         }
 
-
         if(gameAnimation.lastPitch.play == "singleRISP")
         {
             if(gameAnimation.lastPitch.base1Change == true)
@@ -551,7 +542,6 @@ function drawBaseChange()
                 }
             }
         }
-
 
         if(gameAnimation.lastPitch.play == "error")
         {
@@ -584,8 +574,6 @@ function drawBaseChange()
             }
         }
 
-
-
         if(gameAnimation.lastPitch.play == "errorSecond")
         {
             if(gameAnimation.lastPitch.base1to3 == true)
@@ -610,8 +598,6 @@ function drawBaseChange()
 
     }
 
-
-
     if(base1 == true)
     {
         ctx.drawImage(img, BaseChangeCurrFrame * 1600, 0, 1600, 900, 0, 0, FirstBaseViewCanvas.width, FirstBaseViewCanvas.height);
@@ -628,7 +614,6 @@ function drawBaseChange()
     {
         ctx4.drawImage(img4, BaseChangeCurrFrame * 1600, 0, 1600, 900, 0, 0, HomeBaseViewCanvas.width, HomeBaseViewCanvas.height);
     }
-
 
     if(BaseChangeCurrFrame < BaseChangeTotalFrame)
     {
@@ -871,8 +856,6 @@ function fieldBack()
 
     BackGroundCanvas.style.filter = "opacity(100%)";
     BackGroundCanvas.style.WebkitFilter = "opacity(100%)";
-
-
 }
 
 /**
@@ -974,7 +957,6 @@ export function drawSwingOut(game)
 
     PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
 }
-
 
 /**
 * This function is animation of batter decided take and it was a Ball
@@ -1127,7 +1109,6 @@ function drawOut()
         BatterOutCurrFrame = 0;
         strikeBackOnload();
     }
-
 }
 
 var BatterSwingOutControl;
@@ -1197,7 +1178,6 @@ export function strikeBackOnload()
     StrikeBackControl = setInterval(strikeBack, 80);
 }
 
-
 /**
 * This function will draw the take animation
 *
@@ -1244,8 +1224,10 @@ export function BatterTakeOnload()
     BatterTakeControl = setInterval(drawBatterTake, 300);
 }
 
-
-
+/**
+* This function will the canvas back to normal after Ball animation is finished.
+*
+*/
 function BallBack()
 {
     var PitcherPitchCanvas = document.getElementById("PitcherPitch");
@@ -1286,20 +1268,25 @@ function BallBack()
         var ctx2 = BatterHitCanvas.getContext("2d");
         ctx2.clearRect(0, 0, 192, 210);
     }
-
 }
 
 var BallBackControl;
+/**
+* BallBackOnload - a control of Ball back function.
+*
+*/
 export function BallBackOnload()
 {
     BallBackControl = setInterval(BallBack, 80);
 }
 
-
 var BallFrames = 5;
 var BallCurrFrames = 0;
 var initalTop = 0;
-
+/**
+* This function is the animation of a flying Ball
+*
+*/
 function drawBall()
 {
     var BallCanvas= document.getElementById("Ball");
@@ -1333,16 +1320,21 @@ function drawBall()
 }
 
 var BallControl;
+/**
+* BallOnload - a control of flying ball animation, set the time interval of each frame.
+*
+*/
 export function BallOnload()
 {
     BallControl = setInterval(drawBall, 70);//every 70ms draw flying ball once
 }
 
-
-
 var BatterWaitFrames = 17;
 var BatterWaitCurrFrame = 0;
-
+/**
+* This function is the animation of Batter waiting of the action been selected.
+*
+*/
 function drawBatterWait()
 {
     var BatterWaitCanvas = document.getElementById("BatterWaitting");
@@ -1367,11 +1359,14 @@ function drawBatterWait()
     {
         BatterWaitCurrFrame = 0;
     }
-
     ctx.drawImage(img, BatterWaitCurrFrame * width, 0, width, height, 0, 0, BatterWaitCanvas.width, BatterWaitCanvas.height);
 }
 
 var BatterWaitControl;
+/**
+* BatterWaitOnload - a control of batter waiting animation, set the time interval of each frame.
+*
+*/
 export function BatterWaitOnload()
 {
     BatterWaitControl = setInterval(drawBatterWait, 125);
@@ -1379,7 +1374,10 @@ export function BatterWaitOnload()
 
 var PitcherWaitFrames = 16;
 var PitcherWaitCurrFrames = 0;
-
+/**
+* This function is the animation of pitcher waiting of the action been selected.
+*
+*/
 function drawPitcherWait()
 {
     var PitcherWaitCanvas = document.getElementById("PitcherWait");
@@ -1411,6 +1409,10 @@ function drawPitcherWait()
 }
 
 var PitcherWaitControl;
+/**
+* PitcherWaitOnload - a control of pitcher waiting animation, set the time interval of each frame.
+*
+*/
 export function PitcherWaitOnload()
 {
     PitcherWaitControl = setInterval(drawPitcherWait, 188);
@@ -1418,115 +1420,113 @@ export function PitcherWaitOnload()
 
 export function batterSound()//Sounds for pitching, batting and catching.
 {
-    var t= Side ;//h=home, v=visitor
-//    let s= swing;//Bool
-//    let c= contact;//Bool
     var p= gameAnimation.lastPitch.play;//foul,strike,out
     var d= 1300;//num time delay for sound to begin.
-
-//    if(swing)
-//    {
-//        if(contact)
-//        {
-            setTimeout(playSound, d, p );
-            function playSound(p)
+    var t= Side ;//h=home, v=visitor
+    if(t== "home")
+    {
+        t= "away";
+    }
+    else
+    {
+        t="home";
+    }
+    setTimeout(playSound, d, p );
+    function playSound(p)
+    {
+        if(t== "home")
+        {
+            if(p== "ball")
             {
-                if(t=== "home")//team;//h=home, v=visitor
-                {
-                    if(p== "ball")
-                    {
-                        document.getElementById("hBall").play();
-                    }
-                    if(p== "foul")
-                    {
-                        document.getElementById("hFoul").play();
-                    }
-                    if(p== "foulout" || "flyout")
-                    {
-                        document.getElementById("hHitOut").play();
-                    }
-                    if(p== "single" || "singleAdvance" || "error" || "flyoutAdv" || "flyoutNoAdv1st" || "groundout")
-                    {
-                        document.getElementById('hB1').play();//Base hit
-                    }
-                    if(p== "singleRISP")
-                    {
-                        document.getElementById('hB3').play();
-                    }
-                    if(p== "doubleClear" || "double" || "errorSecond")
-                    {
-                        document.getElementById('hB2').play();//Double hit
-                    }
-                    if(p== "triple")
-                    {
-                        document.getElementById('hB3').play();//Base hit
-                    }
-                    if(p== "homeRun")
-                    {
-                        document.getElementById("hHomeRun").play();
-                    }
-                    if(p== "groundoutAdvIfForced" || "groundoutDoublePlay" || "lineoutDoublePlay" || "triplePlay" || "fieldersChoice")
-                    {
-                        document.getElementById("hHitOut").play();//out
-                    }
-                    if(p== "swingingStrike")
-                    {
-                        document.getElementById("hSwingStrike").play();
-                    }
-                    if(p== "calledStrike")
-                    {
-                        document.getElementById("hTakeStrike").play();
-                    }
-                }
-                else
-                {
-                    if(p== "ball")
-                    {
-                        document.getElementById("vBall").play();
-                    }
-                    if(p== "foul")
-                    {
-                        document.getElementById("vFoul").play();
-                    }
-                    if(p== "foulout" || "flyout")
-                    {
-                        document.getElementById("vB1Out").play();//Base hit
-                    }
-                    if(p== "single" || "singleAdvance" || "error" || "flyoutAdv" || "flyoutNoAdv1st" || "groundout")
-                    {
-                        document.getElementById('vB1').play();//Base hit
-                    }
-                    if(p== "singleRISP")
-                    {
-                        document.getElementById('vB1').play();//Base hit
-                    }
-                    if(p== "doubleClear" || "double" || "errorSecond")
-                    {
-                        document.getElementById('vB1').play();//Double hit
-                    }
-                    if(p== "triple")
-                    {
-                        document.getElementById('vB1').play();//Base hit
-                    }
-                    if(p== "homeRun")
-                    {
-                        document.getElementById("vHomeRun").play();
-                    }
-                    if(p== "groundoutAdvIfForced"  || "groundoutDoublePlay" || "lineoutDoublePlay" || "triplePlay" || "fieldersChoice")
-                    {
-                        document.getElementById("vB1").play();//out
-                    }
-                    if(p== "swingingStrike")
-                    {
-                        document.getElementById("vSwingStrike").play();
-                    }
-                    if(p== "calledStrike")
-                    {
-                        document.getElementById("vTakeStrike").play();
-                    }
-                }
-
-           }
-//        }
-//   }
+                document.getElementById("hBall").play();
+            }
+            if(p== "foul")
+            {
+                document.getElementById("hFoul").play();
+            }
+            if(p== "foulout" ||p== "flyout")
+            {
+                document.getElementById("hHitOut").play();
+            }
+            if(p== "single" || p=="singleAdvance" || p=="error" || p=="flyoutAdv" || p=="flyoutNoAdv1st" ||p== "groundout")
+            {
+                document.getElementById('hB1').play();
+            }
+            if(p== "singleRISP")
+            {
+                document.getElementById('hB3').play();
+            }
+            if(p== "doubleClear" ||p== "double" || p=="errorSecond")
+            {
+                document.getElementById('hB2').play();
+            }
+            if(p== "triple")
+            {
+                document.getElementById('hB3').play();
+            }
+            if(p== "homeRun")
+            {
+                document.getElementById("hHomeRun").play();
+            }
+            if(p== "groundoutAdvIfForced" || p=="groundoutDoublePlay" ||p== "lineoutDoublePlay" || p== "triplePlay" ||p== "fieldersChoice")
+            {
+                document.getElementById("hHitOut").play();
+            }
+            if(p== "swingingStrike")
+            {
+                document.getElementById("hSwingStrike").play();
+            }
+            if(p== "calledStrike")
+            {
+                document.getElementById("hTakeStrike").play();
+            }
+        }
+        else
+        {
+            if(p== "ball")
+            {
+                document.getElementById("vBall").play();
+            }
+            if(p== "foul")
+            {
+                document.getElementById("vFoul").play();
+            }
+            if(p== "foulout" ||p== "flyout")
+            {
+                document.getElementById("vB1Out").play();
+            }
+            if(p== "single" ||p== "singleAdvance" || p=="error" || p=="flyoutAdv" || p=="flyoutNoAdv1st" || p=="groundout")
+            {
+                document.getElementById('vB1').play();
+            }
+            if(p== "singleRISP")
+            {
+                document.getElementById('vB1').play();
+            }
+            if(p== "doubleClear" || p=="double" || p=="errorSecond")
+            {
+                document.getElementById('vB1').play();
+            }
+            if(p== "triple")
+            {
+                document.getElementById('vB1').play();
+            }
+            if(p== "homeRun")
+            {
+                document.getElementById("vHomeRun").play();
+            }
+            if(p== "groundoutAdvIfForced"  ||p== "groundoutDoublePlay" || p=="lineoutDoublePlay" || p=="triplePlay" || p=="fieldersChoice")
+            {
+                document.getElementById("vB1").play();
+            }
+            if(p== "swingingStrike")
+            {
+                document.getElementById("vSwingStrike").play();
+            }
+            if(p== "calledStrike")
+            {
+                document.getElementById("vTakeStrike").play();
+            }
+        }
+    }
 }
