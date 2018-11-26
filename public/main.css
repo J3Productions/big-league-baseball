@@ -114,6 +114,12 @@ p.title {
 
 }
 
+form {
+    font-family: 'Anton', sans-serif;
+    text-align: center;
+    font-size: 24px;
+}
+
 p.subtitle {
     font-family: 'Anton', sans-serif;
     text-transform: uppercase;
@@ -285,6 +291,15 @@ main {
 	            z-index:1;
         }
 
+.gridItem {
+    line-height: 100px;
+    height: 100px;
+    text-align: center;
+    font-family: Anton;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
 
 .score {
     font-family: 'Anton', sans-serif;
@@ -307,11 +322,7 @@ td, tr, table {
     grid-template-columns: 33% 33% 33%;
 }
 
-.gridItem {
-    line-height: 100px;
-    height: 100px;
-    text-align: center;
-}
+
 
 .gridItem#count {
     line-height: 1.5;
@@ -334,6 +345,7 @@ td, tr, table {
     font-family: 'Anton', sans-serif;
     font-size: 24px;
     line-height: 28px;
+    padding-top: 5px;
 }
 
 

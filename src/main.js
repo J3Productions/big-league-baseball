@@ -603,17 +603,29 @@ function threeBase()
 
 function drawScore() {
 	let innStr = "";
+	let innScoreID = "";
 	if (game.inningSide) {
 		innStr = "&#9660 ";
+		innScoreID = "h" + game.inning;
 	}
 	else {
 		innStr = "&#9650 ";
+		innScoreID = "a" + game.inning;
+
 	}
 	innStr = innStr + game.inning;
 
 	let countStr = game.balls + "-" + game.strikes + "<br>" + game.outs + " Out";
+	if (game.inning <= 9) {
+		let innScore = Number(document.getElementById(innScoreID).innerHTML);
+		innScore = innScore + game.lastPitch.runsScored;
+		document.getElementById(innScoreID).innerHTML = innScore;
+	}
+
 
     document.getElementById("score").innerHTML = game.visitTeam.runs + "-" + game.homeTeam.runs;
+    document.getElementById("ar").innerHTML = String(game.visitTeam.runs);
+	document.getElementById("hr").innerHTML = String(game.homeTeam.runs);
     document.getElementById("inning").innerHTML = innStr;
     document.getElementById("count").innerHTML = countStr;
 
@@ -639,9 +651,99 @@ function drawScore() {
 	let curHitter = "At Bat:<br>";
 	if (game.inningSide) {
 	    curHitter = curHitter + game.homeTeam.lineup[game.homeAB].getPlayerName() + "&nbsp;- " + game.homeTeam.lineup[game.homeAB].getPosition() + "<br>";
+	    curHitter = curHitter + "Strength(s):";
+		if (game.homeTeam.lineup[game.homeAB].getBatStrengths() == []) {
+			curHitter = curHitter + " None,";
+		}
+	    for (let strength of game.homeTeam.lineup[game.homeAB].getBatStrengths()) {
+	    	switch (strength) {
+			    case "ss":
+				    curHitter = curHitter + " Slow Straight,";
+				    break;
+			    case "sh":
+				    curHitter = curHitter + " Slow High,";
+				    break;
+			    case "sl":
+				    curHitter = curHitter + " Slow Low,";
+				    break;
+			    case "si":
+				    curHitter = curHitter + " Slow Inside,";
+				    break;
+			    case "fs":
+				    curHitter = curHitter + " Fast Straight,";
+				    break;
+			    case "fh":
+				    curHitter = curHitter + " Fast High,";
+				    break;
+			    case "fl":
+				    curHitter = curHitter + " Fast Low,";
+				    break;
+			    case "fi":
+				    curHitter = curHitter + " Fast Inside,";
+				    break;
+			    case "co":
+				    curHitter = curHitter + " Curve Outside,";
+				    break;
+			    case "ch":
+				    curHitter = curHitter + " Curve High,";
+				    break;
+			    case "cl":
+				    curHitter = curHitter + " Curve Low,";
+				    break;
+			    case "ci":
+				    curHitter = curHitter + " Curve Inside,";
+				    break;
+		    }
+	    }
+		curHitter = curHitter.slice(0, -1);
     }
 	else {
 		curHitter = curHitter + game.visitTeam.lineup[game.visitAB].getPlayerName() + "&nbsp;- " + game.visitTeam.lineup[game.visitAB].getPosition() + "<br>";
+		curHitter = curHitter + "Strength(s):";
+		if (game.visitTeam.lineup[game.visitAB].getBatStrengths() == []) {
+			curHitter = curHitter + " None,";
+		}
+		for (let strength of game.visitTeam.lineup[game.visitAB].getBatStrengths()) {
+			switch (strength) {
+				case "ss":
+					curHitter = curHitter + " Slow Straight,";
+					break;
+				case "sh":
+					curHitter = curHitter + " Slow High,";
+					break;
+				case "sl":
+					curHitter = curHitter + " Slow Low,";
+					break;
+				case "si":
+					curHitter = curHitter + " Slow Inside,";
+					break;
+				case "fs":
+					curHitter = curHitter + " Fast Straight,";
+					break;
+				case "fh":
+					curHitter = curHitter + " Fast High,";
+					break;
+				case "fl":
+					curHitter = curHitter + " Fast Low,";
+					break;
+				case "fi":
+					curHitter = curHitter + " Fast Inside,";
+					break;
+				case "co":
+					curHitter = curHitter + " Curve Outside,";
+					break;
+				case "ch":
+					curHitter = curHitter + " Curve High,";
+					break;
+				case "cl":
+					curHitter = curHitter + " Curve Low,";
+					break;
+				case "ci":
+					curHitter = curHitter + " Curve Inside,";
+					break;
+			}
+		}
+		curHitter = curHitter.slice(0, -1);
 	}
 	document.getElementById("currentHitter").innerHTML = curHitter;
 
@@ -820,7 +922,10 @@ function hitSelect(action) {
 		    drawScore();
 		    document.getElementById("gameLog").innerHTML = message;
 		    setTimeout(() => {
-		        if (game.lastPitch.newInning) {
+			    if (game.gameOver) {
+				    gameOver();
+			    }
+		        else if (game.lastPitch.newInning) {
 		            displayPitchMenu();
 		            if(side == "home")
 		            {
@@ -842,11 +947,11 @@ function hitSelect(action) {
 		                side = "home";
 		            }
                 }
-            }, 3000);
+            }, 2000);
 
         }, 2000);
 
-    }, 2000);
+    }, 3000);
 
 }
 
@@ -855,7 +960,7 @@ function pitchSelect(action) {
 	let message = "Here's the pitch...";
 	document.getElementById("gameLog").innerHTML = message;
 	setTimeout(() => {
-	    const actions = ["ss", "sh", "sl", "si", "fs", "fh", "fl", "fi", "co", "ch", "cl", "ci", "take"];
+	    const actions = ["ss", "sh", "sl", "si", "take", "fs", "fh", "fl", "fi", "take", "co", "ch", "cl", "ci", "take"];
 		let roll = Math.floor((Math.random() * 13));
 		switch (action) {
 			case "ss":
@@ -997,7 +1102,10 @@ function pitchSelect(action) {
 			drawScore();
 			document.getElementById("gameLog").innerHTML = message;
 			setTimeout(() => {
-				if (game.lastPitch.newInning) {
+				if (game.gameOver) {
+					gameOver();
+				}
+				else if (game.lastPitch.newInning) {
 				    displayHitMenu();
 				    if(side == "home")
 				    {
@@ -1019,11 +1127,11 @@ function pitchSelect(action) {
 				        side = "home";
 				    }
 				}
-			}, 3000);
+			}, 2000);
 
 		}, 2000);
 
-	}, 2000);
+	}, 3000);
 }
 
 
@@ -1085,6 +1193,22 @@ function loopCrowdOrgan()//Loops the organ music and crowd clapping. At this poi
         setInterval(crowdFx, 16000, 1);//exact time length is 1686421ms
        crowdOrgan= false;
     }
+}
+
+function gameOver() {
+	displayGameLog();
+	let message = "That's your ballgame!<br>";
+	document.getElementById("gameLog").innerHTML = message;
+	setTimeout(() => {
+		if (game.homeTeam.runs > game.visitTeam.runs) {
+			message = message + "The Home team wins by a final score of " + game.homeTeam.runs + " to " + game.visitTeam.runs + "!<br>";
+		}
+		else {
+			message = message + "The Away team wins by a final score of " + game.visitTeam.runs + " to " + game.homeTeam.runs + "!<br>";
+		}
+		message = message + "Thank you for playing Big League Baseball!<br>You can... put it on the boooooaaaaard YES!";
+		document.getElementById("gameLog").innerHTML = message;
+	}, 2000);
 }
 
 function crowdFx(time)

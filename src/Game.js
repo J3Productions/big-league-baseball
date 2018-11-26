@@ -63,13 +63,13 @@ export class Game {
 		 * Position in the home team lineup that is at bat (or scheduled to bat next)
 		 * @type {number}
 		 */
-		this.homeAB = 1;
+		this.homeAB = 0;
 
 		/**
 		 * Position in the visiting team lineup that is at bat (or scheduled to bat next)
 		 * @type {number}
 		 */
-		this.visitAB = 1;
+		this.visitAB = 0;
 
 		/**
 		 * Inning number - this.inningSide denotes the top or the bottom of the inning
@@ -96,6 +96,12 @@ export class Game {
 			newInning: true,
 			runsScored: 0
 		};
+
+		/**
+		 * Boolean that shows if the game is over or not. True if game is over, false otherwise.
+		 * @type {boolean}
+		 */
+		this.gameOver = false;
 	}
 
 	/*
@@ -1261,8 +1267,9 @@ export class Game {
 	 * Batter pops out in foul territory - All runners hold
 	 */
 	foulout() {
-		this.out(1);
 		this.newAB();
+		this.out(1);
+
 		this.lastPitch.play = "foulout";
 		this.lastPitch.runsScored = 0;
 	}
@@ -1271,8 +1278,9 @@ export class Game {
 	 * Batter pops out - All runners hold
 	 */
 	flyout() {
-		this.out(1);
 		this.newAB();
+		this.out(1);
+
 		this.lastPitch.play = "flyout";
 		this.lastPitch.runsScored = 0;
 	}
@@ -1282,6 +1290,7 @@ export class Game {
 	 */
 	flyoutAdv() {
 		let numRuns = 0;
+		this.newAB();
 		if (this.third) {
 			this.third = false;
 			if (this.outs < 2)
@@ -1302,7 +1311,7 @@ export class Game {
 		else {
 			this.homeTeam.score(numRuns);
 		}
-		this.newAB();
+
 		this.lastPitch.play = "flyoutAdv";
 		this.lastPitch.runsScored = numRuns;
 	}
@@ -1312,6 +1321,7 @@ export class Game {
 	 */
 	flyoutNoAdv1st() {
 		let numRuns = 0;
+		this.newAB();
 		if (this.third) {
 			this.third = false;
 			if (this.outs < 2)
@@ -1328,7 +1338,7 @@ export class Game {
 		else {
 			this.homeTeam.score(numRuns);
 		}
-		this.newAB();
+
 		this.lastPitch.play = "flyoutNoAdv1st";
 		this.lastPitch.runsScored = numRuns;
 	}
@@ -1338,6 +1348,7 @@ export class Game {
 	 */
 	groundout() {
 		let numRuns = 0;
+		this.newAB();
 		if (this.third) {
 			this.third = false;
 			if (this.outs < 2)
@@ -1358,7 +1369,7 @@ export class Game {
 		else {
 			this.homeTeam.score(numRuns);
 		}
-		this.newAB();
+
 		this.lastPitch.play = "groundout";
 		this.lastPitch.runsScored = numRuns;
 	}
@@ -1368,6 +1379,7 @@ export class Game {
 	 */
 	groundoutAdvIfForced() {
 		let numRuns = 0;
+		this.newAB();
 		if (this.third && this.second && this.first) {
 			this.third = false;
 			if (this.outs < 2) {
@@ -1389,7 +1401,7 @@ export class Game {
 		else {
 			this.homeTeam.score(numRuns);
 		}
-		this.newAB();
+
 		this.lastPitch.play = "groundoutAdvIfForced";
 		this.lastPitch.runsScored = numRuns;
 	}
@@ -1399,6 +1411,7 @@ export class Game {
 	 */
 	groundoutDoublePlay() {
 		let numRuns = 0;
+		this.newAB();
 		if (this.third) {
 			this.third = false;
 			if (this.outs < 1 && !this.first) {
@@ -1425,7 +1438,7 @@ export class Game {
 		else {
 			this.homeTeam.score(numRuns);
 		}
-		this.newAB();
+
 		this.lastPitch.play = "groundoutDoublePlay";
 		this.lastPitch.runsScored = numRuns;
 	}
@@ -1433,6 +1446,7 @@ export class Game {
 	 * Double play - Lead runner and batter out
 	 */
 	lineoutDoublePlay() {
+		this.newAB();
 		if (this.third) {
 			this.third = false;
 			this.out(2);
@@ -1448,7 +1462,7 @@ export class Game {
 		else {
 			this.out(1);
 		}
-		this.newAB();
+
 		this.lastPitch.play = "lineoutDoublePlay";
 		this.lastPitch.runsScored = 0;
 	}
@@ -1457,6 +1471,7 @@ export class Game {
 	 * Triple play - Runners at first and second and batter out
 	 */
 	triplePlay() {
+		this.newAB();
 		if (this.second && this.first) {
 			this.second = false;
 			this.first = false;
@@ -1473,7 +1488,6 @@ export class Game {
 		else {
 			this.out(1);
 		}
-		this.newAB();
 		this.lastPitch.play = "triplePlay";
 		this.lastPitch.runsScored = 0;
 	}
@@ -1482,8 +1496,8 @@ export class Game {
 	 * Fielder's choice - Runner advances only if forced and lead runner is out, batter out and runners hold otherwise
 	 */
 	fieldersChoice() {
-		this.out(1);
 		this.newAB();
+		this.out(1);
 		this.lastPitch.play = "fieldersChoice";
 		this.lastPitch.runsScored = 0;
 	}
@@ -1539,8 +1553,8 @@ export class Game {
 		this.strikes++;
 		if (this.strikes === 3) {
 			this.strikes = 0;
-			this.out(1);
 			this.newAB();
+			this.out(1);
 			this.lastPitch.play = "strikeoutSwinging";
 		}
 		else {
@@ -1559,8 +1573,8 @@ export class Game {
 		this.strikes++;
 		if (this.strikes === 3) {
 			this.strikes = 0;
-			this.out(1);
 			this.newAB();
+			this.out(1);
 			this.lastPitch.play = "strikeoutLooking";
 		}
 		else {
@@ -1646,20 +1660,26 @@ export class Game {
 		this.balls = 0;
 		this.strikes = 0;
 		if (this.inningSide === false) {
-			if (this.visitAB === 9) {
-				this.visitAB = 1;
+			if (this.visitAB === 8) {
+				this.visitAB = 0;
 			}
-			else{
+			else {
 				this.visitAB++;
 			}
 		}
 		else {
-			if (this.homeAB === 9) {
-				this.homeAB = 1;
+			if (this.inning >= 9 && this.homeTeam.runs > this.visitTeam.runs) {
+				this.gameOver = true;
 			}
-			else{
-				this.homeAB++;
+			else {
+				if (this.homeAB === 8) {
+					this.homeAB = 0;
+				}
+				else {
+					this.homeAB++;
+				}
 			}
+
 		}
 
 		this.lastPitch.newAB = true;
@@ -1673,11 +1693,21 @@ export class Game {
 		this.second = false;
 		this.third = false;
 		this.outs = 0;
-		if (this.inningSide) {
-			this.inning++;
+		if (this.inningSide === true && this.inning >= 9 && this.visitTeam.runs > this.homeTeam.runs) {
+			this.gameOver = true;
 		}
-		this.inningSide = !this.inningSide;
+		else if (this.inningSide === false && this.inning === 9 && this.homeTeam.runs > this.visitTeam.runs) {
+			this.gameOver = true;
+		}
+		else {
+			if (this.inningSide) {
+				this.inning++;
+			}
+			this.inningSide = !this.inningSide;
+
+		}
 		this.lastPitch.newInning = true;
+
 	}
 
 	teamPointer(team) {
@@ -1688,4 +1718,6 @@ export class Game {
 			return this.visitTeam;
 		}
 	}
+
+
 }
