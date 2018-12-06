@@ -1,3 +1,8 @@
+HTML5 Boilerplate
+Express.js
+Socket.io
+ESDoc
+
 sound effects sources
 
 {#https://creativecommons.org/licenses/by/3.0/
@@ -30,10 +35,4 @@ https://freesound.org/people/Timbre/sounds/102047/-credit "Timbre" and "Freesoun
 
 Mike Koenig-PlayBall
 Baseball Bat Swing
-}
-{
-SwingAndMiss-by Dane S Casperson https://freesound.org/people/CosmicEmbers/sounds/160756/
-}
-{
-Home run back ground music-Fantastic Voyage-Coolio
 }
