@@ -1,0 +1,1648 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <base data-ice="baseUrl" href="../../">
+  <title data-ice="title">src/Animation.js | Big League Baseball</title>
+  <link type="text/css" rel="stylesheet" href="css/style.css">
+  <link type="text/css" rel="stylesheet" href="css/prettify-tomorrow.css">
+  <script src="script/prettify/prettify.js"></script>
+  <script src="script/manual.js"></script>
+<meta name="description" content="A port of the 3M Sports board game"><meta property="twitter:card" content="summary"><meta property="twitter:title" content="Big League Baseball"><meta property="twitter:description" content="A port of the 3M Sports board game"></head>
+<body class="layout-container" data-ice="rootContainer">
+
+<header>
+  <a href="./">Home</a>
+  
+  <a href="identifiers.html">Reference</a>
+  <a href="source.html">Source</a>
+  
+  <div class="search-box">
+  <span>
+    <img src="./image/search.png">
+    <span class="search-input-edge"></span><input class="search-input"><span class="search-input-edge"></span>
+  </span>
+    <ul class="search-result"></ul>
+  </div>
+<a style="position:relative; top:3px;" href="https://github.com/J3Productions/big-league-baseball"><img width="20px" src="./image/github.png"></a></header>
+
+<nav class="navigation" data-ice="nav"><div>
+  <ul>
+    
+  <li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Catcher.js~Catcher.html">Catcher</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Game.js~Game.html">Game</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Infielder.js~Infielder.html">Infielder</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Outfielder.js~Outfielder.html">Outfielder</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/PinchHitter.js~PinchHitter.html">PinchHitter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Pitcher.js~Pitcher.html">Pitcher</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Player.js~Player.html">Player</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/PositionPlayer.js~PositionPlayer.html">PositionPlayer</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/ReliefPitcher.js~ReliefPitcher.html">ReliefPitcher</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/Team.js~Team.html">Team</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/UtilityInfielder.js~UtilityInfielder.html">UtilityInfielder</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-class">C</span><span data-ice="name"><span><a href="class/src/UtilityOutfielder.js~UtilityOutfielder.html">UtilityOutfielder</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-BackGround">BackGround</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-BackGroundOnload">BackGroundOnload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-BallBackOnload">BallBackOnload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-BallOnload">BallOnload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-BaseChangeOnload">BaseChangeOnload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-BatterHitOnload">BatterHitOnload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-BatterSwingOutOnload">BatterSwingOutOnload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-BatterSwingStrikeOnload">BatterSwingStrikeOnload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-BatterTakeOnload">BatterTakeOnload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-BatterWaitOnload">BatterWaitOnload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-PitcherPitchOnload">PitcherPitchOnload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-PitcherWaitOnload">PitcherWaitOnload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SwitchSide">SwitchSide</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-SwitchSideOnload">SwitchSideOnload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-batterSound">batterSound</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-drawPitchHit">drawPitchHit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-drawSwingOut">drawSwingOut</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-drawSwingStrike">drawSwingStrike</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-drawTakeBall">drawTakeBall</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-strikeBackOnload">strikeBackOnload</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-chHit">chHit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-chPit">chPit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ciHit">ciHit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ciPit">ciPit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-clHit">clHit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-clPit">clPit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-coHit">coHit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-coPit">coPit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fhHit">fhHit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fhPit">fhPit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fiHit">fiHit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fiPit">fiPit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-flHit">flHit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-flPit">flPit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fsHit">fsHit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-fsPit">fsPit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-initBatter">initBatter</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-initSelectTeam">initSelectTeam</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-initStartPage">initStartPage</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-seeFiled">seeFiled</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-shHit">shHit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-shPit">shPit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-siHit">siHit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-siPit">siPit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-slHit">slHit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-slPit">slPit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ssHit">ssHit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-ssPit">ssPit</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-startGame">startGame</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-take">take</a></span></span></li>
+<li data-ice="doc"><span data-ice="kind" class="kind-function">F</span><span data-ice="name"><span><a href="function/index.html#static-function-runTests">runTests</a></span></span></li>
+</ul>
+</div>
+</nav>
+
+<div class="content" data-ice="content"><h1 data-ice="title">src/Animation.js</h1>
+<pre class="source-code line-number raw-source-code"><code class="prettyprint linenums" data-ice="content">var gameAnimation;
+var Side;
+var count2 = 0;
+/**
+* SwitchSide function is to swtich the side when the a new inning came out.
+* @param {string} it represented the side of img. Home will call blue, away will call red.
+*/
+export function SwitchSide(side)
+{
+    Side = side;
+    var SwSideViewCanvas = document.getElementById(&quot;SwSideView&quot;);
+    var screenWidth = document.documentElement.clientWidth;
+    var screenHeight = document.documentElement.clientHeight;
+    SwSideViewCanvas.width = screenWidth * 0.75;
+    SwSideViewCanvas.height = screenHeight * 0.725;
+    var ctx = SwSideViewCanvas.getContext(&quot;2d&quot;);
+    var img = document.getElementById(&quot;SwitchSide&quot;);
+    ctx.drawImage(img, 1600, 0, 1600, 900, 0, 0, SwSideViewCanvas.width, SwSideViewCanvas.height);
+    SwSideViewCanvas.style.filter = &quot;opacity(100%)&quot;;
+    SwSideViewCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+
+    var PitcherWaitCanvas = document.getElementById(&quot;PitcherWait&quot;);
+    var BatterWaitCanvas = document.getElementById(&quot;BatterWaitting&quot;);
+    var ctx5 = BatterWaitCanvas.getContext(&quot;2d&quot;);
+    var ctx6 = PitcherWaitCanvas.getContext(&quot;2d&quot;);
+    ctx5.clearRect(0, 0, 192, 192);
+    ctx6.clearRect(0, 0, 128, 140);
+
+    var PitcherPitchCanvas = document.getElementById(&quot;PitcherPitch&quot;);
+    var BatterHitCanvas = document.getElementById(&quot;BatterHit&quot;);
+    var ctx1 = PitcherPitchCanvas.getContext(&quot;2d&quot;);
+    ctx1.clearRect(0, 0, 128, 140);
+    var ctx2 = BatterHitCanvas.getContext(&quot;2d&quot;);
+    ctx2.clearRect(0, 0, 192, 210);
+
+    PitcherWaitCanvas.style.filter = &quot;opacity(0%)&quot;;
+    PitcherWaitCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+    BatterWaitCanvas.style.filter = &quot;opacity(0%)&quot;;
+    BatterWaitCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+    var BackGroundCanvas = document.getElementById(&quot;batterView&quot;);
+    BackGroundCanvas.style.filter = &quot;opacity(0%)&quot;;
+    BackGroundCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+
+    clearInterval(PitcherWaitControl);
+    clearInterval(BatterWaitControl);
+
+    if(count2 &lt; 8)
+    {
+        count2++;
+    }
+    else
+    {
+        if(Side == &quot;home&quot;)
+        {
+            Side = &quot;away&quot;;
+        }
+        else
+        {
+            Side = &quot;home&quot;;
+        }
+
+        SwSideViewCanvas.style.filter = &quot;opacity(0%)&quot;;
+        SwSideViewCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+        BackGroundCanvas.style.filter = &quot;opacity(100%)&quot;;
+        BackGroundCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+        PitcherWaitCanvas.style.filter = &quot;opacity(100%)&quot;;
+        PitcherWaitCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+        BatterWaitCanvas.style.filter = &quot;opacity(100%)&quot;;
+        BatterWaitCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+        PitcherWaitOnload();
+        BatterWaitOnload();
+
+        count2 = 0;
+        clearInterval(SwitchSideControl);
+    }
+}
+
+var SwitchSideControl;
+/**
+* SwitchSideOnload will make switchside been recalled for a period of time.
+* @param {string} it represented the side of img. Home will call blue, away will call red.
+*/
+export function SwitchSideOnload(side)
+{
+    SwitchSideControl = setInterval(SwitchSide, 200, side);
+}
+
+var BackGroundCurrFrame = 0;
+var BackGroundTotalFrame = 2;
+var temp = 0;
+/**
+* BackGroud function will make the playground background move. It is a animation function.
+* @param {string} it represented the side of img. Home will call blue, away will call red.
+*/
+export function BackGround(location)
+{
+    if(temp == 0)
+    {
+        Side = location;
+        temp++;
+    }
+    var BackGroundCanvas = document.getElementById(&quot;batterView&quot;);
+    var ctx = BackGroundCanvas.getContext(&quot;2d&quot;);
+    if(Side == &quot;home&quot;)
+    {
+        var img = document.getElementById(&quot;viewPic&quot;);
+    }
+    else
+    {
+        var img = document.getElementById(&quot;viewPic2&quot;);
+    }
+    var screenWidth = document.documentElement.clientWidth;
+    var screenHeight = document.documentElement.clientHeight;
+    BackGroundCanvas.width = screenWidth * 0.75;
+    BackGroundCanvas.height = screenHeight * 0.725;
+
+    if(BackGroundCurrFrame &lt; BackGroundTotalFrame)
+    {
+        BackGroundCurrFrame++;
+    }
+    else
+    {
+        BackGroundCurrFrame = 0;
+    }
+
+    ctx.drawImage(img, BackGroundCurrFrame * 1600, 0, 1600, 900, 0, 0, BackGroundCanvas.width, BackGroundCanvas.height);
+}
+
+var BackGroundControl;
+/**
+* BackGroundOnload, make the background moving when the game been played.
+* @param {string} it represented the side of img. Home will call blue, away will call red.
+*/
+export function BackGroundOnload(location)
+{
+    BackGroundControl = setInterval(BackGround, 300, location);
+}
+
+
+var BatterStatus = &quot;&quot;;
+/**
+* drawPitchHit, this function is a control of stop the waiting animations and hidden the canvas to open the hit animation canvas.
+* @param {object} this is the object of the result of each action had been selected.
+*/
+export function drawPitchHit(game)
+{
+    gameAnimation = game;
+    var PitcherWaitCanvas = document.getElementById(&quot;PitcherWait&quot;);
+    var BatterWaitCanvas = document.getElementById(&quot;BatterWaitting&quot;);
+    PitcherWaitCanvas.style.filter = &quot;opacity(0%)&quot;;
+    PitcherWaitCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+    BatterWaitCanvas.style.filter = &quot;opacity(0%)&quot;;
+    BatterWaitCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+
+    var PitcherPitchCanvas = document.getElementById(&quot;PitcherPitch&quot;);
+    var BatterHitCanvas = document.getElementById(&quot;BatterHit&quot;);
+    PitcherPitchCanvas.width = 96;
+    PitcherPitchCanvas.height = 105;
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
+
+    var ctx = PitcherPitchCanvas.getContext(&quot;2d&quot;);
+    var ctx2 = BatterHitCanvas.getContext(&quot;2d&quot;);
+    if(Side == &quot;home&quot;)
+    {
+        var img = document.getElementById(&quot;PitcherPitching&quot;);
+        var img2 = document.getElementById(&quot;BatterHitting&quot;);
+    }
+    else
+    {
+        var img = document.getElementById(&quot;BluePitcherPitching&quot;);
+        var img2 = document.getElementById(&quot;RedBatterHitting&quot;);
+    }
+    ctx.drawImage(img, 0 * 128, 0, 128, 140, 0, 0, 96, 105);
+    ctx2.drawImage(img2, 0 * 192, 0, 192, 210, 0, 0, 160, 175);
+
+    PitcherPitchCanvas.style.filter = &quot;opacity(100%)&quot;;
+    PitcherPitchCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+    BatterHitCanvas.style.filter = &quot;opacity(100%)&quot;;
+    BatterHitCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+    clearInterval(PitcherWaitControl);
+    clearInterval(BatterWaitControl);
+
+    BatterStatus = &quot;Hit&quot;;
+
+    PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
+}
+
+var PitcherPitchFrames = 6;
+var PitcherPitchCurrFrames = 0;
+/**
+* drawPitcherPitch, this is the animation of pitcher pitch.
+*
+*/
+function drawPitcherPitch()
+{
+    var PitcherPitchCanvas = document.getElementById(&quot;PitcherPitch&quot;);
+    PitcherPitchCanvas.width = 96;
+    PitcherPitchCanvas.height = 105;
+    var ctx = PitcherPitchCanvas.getContext(&quot;2d&quot;);
+
+    if(Side == &quot;home&quot;)
+    {
+        var img = document.getElementById(&quot;PitcherPitching&quot;);
+    }
+    else
+    {
+        var img = document.getElementById(&quot;BluePitcherPitching&quot;);
+    }
+
+    var width = 128;
+    var height = 140;
+
+    ctx.clearRect(0, 0, width, height);
+
+    if(PitcherPitchCurrFrames == 2)
+    {
+        if(BatterStatus == &quot;Hit&quot;)
+        {
+            BatterHitOnload();
+        }
+        if(BatterStatus == &quot;Strike&quot;)
+        {
+            BatterSwingStrikeOnload();
+        }
+        if(BatterStatus == &quot;Ball&quot;)
+        {
+            BatterTakeOnload();
+        }
+        if(BatterStatus == &quot;Out&quot;)
+        {
+            BatterSwingOutOnload();
+        }
+    }
+
+    if(PitcherPitchCurrFrames == 3)
+    {
+        BallOnload();
+    }
+
+    if(PitcherPitchCurrFrames &lt; PitcherPitchFrames)
+    {
+        PitcherPitchCurrFrames++;
+    }
+    else
+    {
+        clearInterval(PitcherPitchControl);
+        PitcherPitchCurrFrames = 0;
+    }
+
+    ctx.drawImage(img, PitcherPitchCurrFrames * width, 0, width, height, 0, 0, PitcherPitchCanvas.width, PitcherPitchCanvas.height);
+    if(PitcherPitchCurrFrames &lt; 4)
+    {
+        var BatterHitCanvas = document.getElementById(&quot;BatterHit&quot;);
+        BatterHitCanvas.width = 192;
+        BatterHitCanvas.height = 210;
+        var ctx2 = BatterHitCanvas.getContext(&quot;2d&quot;);
+        if(Side == &quot;home&quot;)
+        {
+            var img2 = document.getElementById(&quot;BatterHitting&quot;);
+        }
+        else
+        {
+            var img2 = document.getElementById(&quot;RedBatterHitting&quot;);
+        }
+        ctx2.drawImage(img2, 0 * 192, 0, 192, 210, 0, 0, 160, 175);
+    }
+}
+
+var PitcherPitchControl;
+/**
+* PitcherPitchOnload - a control of pitcherPitch anuation, set the time interval of each frame.
+*/
+export function PitcherPitchOnload()
+{
+    PitcherPitchControl = setInterval(drawPitcherPitch, 300);
+}
+
+
+var BatterHitFrames = 16;
+var BatterHitCurrFrame = 0;
+var count = 0;
+/**
+* drawBatterHit, this is the animation of batter hit.
+*/
+function drawBatterHit()
+{
+    var BatterHitCanvas = document.getElementById(&quot;BatterHit&quot;);
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
+    var ctx = BatterHitCanvas.getContext(&quot;2d&quot;);
+    if(Side == &quot;home&quot;)
+    {
+        var img = document.getElementById(&quot;BatterHitting&quot;);
+    }
+    else
+    {
+        var img = document.getElementById(&quot;RedBatterHitting&quot;);
+    }
+    var width = 192;
+    var height = 210;
+
+    ctx.clearRect(0, 0, width, height);
+    if(BatterHitCurrFrame &lt; BatterHitFrames)
+    {
+        if(BatterHitCurrFrame == 11 &amp;&amp; count &lt;= 2)
+        {
+            count++;
+        }
+        else
+        {
+            BatterHitCurrFrame++; //if the curr frame didn&apos;t reach the final frame, increment.
+        }
+    }
+    else
+    {
+        clearInterval(BatterHitOnloadControl);              //reach the final frame, clear the counting timer for the hit
+        drawAboveView();
+        BatterHitCurrFrame = 0;
+    }
+
+    ctx.drawImage(img, BatterHitCurrFrame * width, 0, width, height, 0, 0, BatterHitCanvas.width, BatterHitCanvas.height);//draw Batter hit animation frame.
+}
+
+var BatterHitOnloadControl;
+/**
+* BatterHitOnload - a control of Batter hit animation, set the time interval of each frame.
+*/
+export function BatterHitOnload()
+{
+    BatterHitOnloadControl = setInterval(drawBatterHit, 80);//every 80ms call the drawBatterhit function once.
+}
+
+function drawAboveView()
+{
+    var PitcherPitchCanvas = document.getElementById(&quot;PitcherPitch&quot;);
+    var BatterHitCanvas = document.getElementById(&quot;BatterHit&quot;);
+    var BackGroundCanvas = document.getElementById(&quot;batterView&quot;);
+    PitcherPitchCanvas.style.filter = &quot;opacity(0%)&quot;;
+    PitcherPitchCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+    BatterHitCanvas.style.filter = &quot;opacity(0%)&quot;;
+    BatterHitCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+    BackGroundCanvas.style.filter = &quot;opacity(0%)&quot;;
+    BackGroundCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+    var ctx1 = PitcherPitchCanvas.getContext(&quot;2d&quot;);
+    ctx1.clearRect(0, 0, 128, 140);
+    var ctx2 = BatterHitCanvas.getContext(&quot;2d&quot;);
+    ctx2.clearRect(0, 0, 192, 210);
+
+    var AboveViewCanvas = document.getElementById(&quot;AboveView&quot;);
+    var screenWidth = document.documentElement.clientWidth;
+    var screenHeight = document.documentElement.clientHeight;
+    AboveViewCanvas.width = screenWidth * 0.75;
+    AboveViewCanvas.height = screenHeight * 0.725;
+    AboveViewCanvas.style.filter = &quot;opacity(100%)&quot;;
+    AboveViewCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+
+    var ctx = AboveViewCanvas.getContext(&quot;2d&quot;);
+    var img = document.getElementById(&quot;AboveViewField&quot;);
+
+    ctx.drawImage(img, 1600, 0, 1600, 900, 0, 0, AboveViewCanvas.width, AboveViewCanvas.height);
+
+    BaseChangeOnload();
+}
+
+var base1 = false;
+var base2 = false;
+var base3 = false;
+var base4 = false;
+var times = 0;
+var BaseChangeCurrFrame = 0;
+var BaseChangeTotalFrame = 5;
+/**
+* drawBaseChange - This a control function and animation. It will determine which base change animation need to been called.
+*
+*/
+function drawBaseChange()
+{
+    var BackGroundCanvas = document.getElementById(&quot;batterView&quot;);
+
+    var FirstBaseViewCanvas = document.getElementById(&quot;FirstBaseView&quot;);
+    var ctx = FirstBaseViewCanvas.getContext(&quot;2d&quot;);
+    var img = document.getElementById(&quot;FirstBase&quot;);
+    FirstBaseViewCanvas.width = BackGroundCanvas.width;
+    FirstBaseViewCanvas.height = BackGroundCanvas.height;
+    FirstBaseViewCanvas.style.filter = &quot;opacity(100%)&quot;;
+    FirstBaseViewCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+
+    var SecondBaseViewCanvas = document.getElementById(&quot;FirstBaseView&quot;);
+    var ctx2 = SecondBaseViewCanvas.getContext(&quot;2d&quot;);
+    var img2 = document.getElementById(&quot;SecondBase&quot;);
+    SecondBaseViewCanvas.width = BackGroundCanvas.width;
+    SecondBaseViewCanvas.height = BackGroundCanvas.height;
+    SecondBaseViewCanvas.style.filter = &quot;opacity(100%)&quot;;
+    SecondBaseViewCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+
+    var ThirdBaseViewCanvas = document.getElementById(&quot;FirstBaseView&quot;);
+    var ctx3 = ThirdBaseViewCanvas.getContext(&quot;2d&quot;);
+    var img3 = document.getElementById(&quot;ThirdBase&quot;);
+    ThirdBaseViewCanvas.width = BackGroundCanvas.width;
+    ThirdBaseViewCanvas.height = BackGroundCanvas.height;
+    ThirdBaseViewCanvas.style.filter = &quot;opacity(100%)&quot;;
+    ThirdBaseViewCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+
+    var HomeBaseViewCanvas = document.getElementById(&quot;FirstBaseView&quot;);
+    var ctx4 = HomeBaseViewCanvas.getContext(&quot;2d&quot;);
+    var img4 = document.getElementById(&quot;HomeBase&quot;);
+    HomeBaseViewCanvas.width = BackGroundCanvas.width;
+    HomeBaseViewCanvas.height = BackGroundCanvas.height;
+    HomeBaseViewCanvas.style.filter = &quot;opacity(100%)&quot;;
+    HomeBaseViewCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+
+    if(gameAnimation.lastPitch.play == &quot;flyoutAdv&quot; || gameAnimation.lastPitch.play == &quot;groundout&quot; || gameAnimation.lastPitch.play == &quot;groundoutAdvIfForced&quot;)
+    {
+        if(gameAnimation.lastPitch.base1Change == true)
+        {
+            if(times == 1)
+            {
+                base2 = true;
+            }
+        }
+
+        if(gameAnimation.lastPitch.base2Change == true)
+        {
+            if(times == 1)
+            {
+                base3 = true;
+            }
+        }
+
+        if(gameAnimation.lastPitch.base3Change == true)
+        {
+            if(times == 1)
+            {
+                base4 = true;
+            }
+        }
+        if(gameAnimation.lastPitch.base1Change == true || gameAnimation.lastPitch.base2Change == true || gameAnimation.lastPitch.base3Change == true)
+        {
+            times++;
+        }
+    }
+
+    if(gameAnimation.lastPitch.play == &quot;flyoutNoAdv1st&quot; || gameAnimation.lastPitch.play == &quot;groundoutDoublePlay&quot;)
+    {
+        if(gameAnimation.lastPitch.base2Change == true)
+        {
+            if(times == 1)
+            {
+                base3 = true;
+            }
+        }
+
+        if(gameAnimation.lastPitch.base3Change == true)
+        {
+            if(times == 1)
+            {
+                base4 = true;
+            }
+        }
+        if(gameAnimation.lastPitch.base2Change == true || gameAnimation.lastPitch.base3Change == true)
+        {
+            times++;
+        }
+    }
+
+    if(gameAnimation.lastPitch.play == &quot;homeRun&quot; || gameAnimation.lastPitch.play == &quot;triple&quot;
+        || gameAnimation.lastPitch.play == &quot;doubleClear&quot; || gameAnimation.lastPitch.play == &quot;double&quot;
+        || gameAnimation.lastPitch.play == &quot;single&quot; || gameAnimation.lastPitch.play == &quot;singleRISP&quot;
+        || gameAnimation.lastPitch.play == &quot;singleAdvance&quot; || gameAnimation.lastPitch.play == &quot;error&quot;
+        || gameAnimation.lastPitch.play == &quot;errorSecond&quot;)
+    {
+        if(times == 0)
+        {
+            base1 = true;
+            times++;
+        }
+
+        if(gameAnimation.lastPitch.play == &quot;double&quot;)
+        {
+            if(gameAnimation.lastPitch.base1to3 == true)
+            {
+                if(times == 1)
+                {
+                    base2 = true;
+                    times++;
+                }
+            }
+        }
+
+        if(gameAnimation.lastPitch.play == &quot;single&quot;)
+        {
+            if(gameAnimation.lastPitch.base1Change == true)
+            {
+                if(times == 1)
+                {
+                    base2 = true;
+                }
+            }
+
+            if(gameAnimation.lastPitch.base2Change == true)
+            {
+                if(times == 1)
+                {
+                    base3 = true;
+                }
+            }
+
+            if(gameAnimation.lastPitch.base3Change == true)
+            {
+                if(times == 1)
+                {
+                    base4 = true;
+                }
+            }
+            if(gameAnimation.lastPitch.base1Change == true || gameAnimation.lastPitch.base2Change == true || gameAnimation.lastPitch.base3Change == true)
+            {
+                times++;
+            }
+        }
+
+        if(gameAnimation.lastPitch.play == &quot;singleRISP&quot;)
+        {
+            if(gameAnimation.lastPitch.base1Change == true)
+            {
+                if(times == 1)
+                {
+                    base2 = true;
+                    times++;
+                }
+            }
+        }
+
+        if(gameAnimation.lastPitch.play == &quot;singleAdvance&quot;)
+        {
+            if(gameAnimation.lastPitch.base1to3 == true)
+            {
+                if(times == 1)
+                {
+                    base2 = true;
+                    times++;
+                }
+            }
+        }
+
+        if(gameAnimation.lastPitch.play == &quot;error&quot;)
+        {
+            if(gameAnimation.lastPitch.base1Change == true)
+            {
+                if(times == 1)
+                {
+                    base2 = true;
+                }
+            }
+
+            if(gameAnimation.lastPitch.base2Change == true)
+            {
+                if(times == 1)
+                {
+                    base3 = true;
+                }
+            }
+
+            if(gameAnimation.lastPitch.base3Change == true)
+            {
+                if(times == 1)
+                {
+                    base4 = true;
+                }
+            }
+            if(gameAnimation.lastPitch.base1Change == true || gameAnimation.lastPitch.base2Change == true || gameAnimation.lastPitch.base3Change == true)
+            {
+                times++;
+            }
+        }
+
+        if(gameAnimation.lastPitch.play == &quot;errorSecond&quot;)
+        {
+            if(gameAnimation.lastPitch.base1to3 == true)
+            {
+                if(times == 1)
+                {
+                    base2 = true;
+                }
+            }
+            if(gameAnimation.lastPitch.base3Change = true)
+            {
+                if(times == 1)
+                {
+                    base3 = true;
+                }
+            }
+            if(gameAnimation.lastPitch.base1to3 == true || gameAnimation.lastPitch.base3Change == true)
+            {
+                times++;
+            }
+        }
+
+    }
+
+    if(base1 == true)
+    {
+        ctx.drawImage(img, BaseChangeCurrFrame * 1600, 0, 1600, 900, 0, 0, FirstBaseViewCanvas.width, FirstBaseViewCanvas.height);
+    }
+    if(base2 == true)
+    {
+        ctx2.drawImage(img2, BaseChangeCurrFrame * 1600, 0, 1600, 900, 0, 0, SecondBaseViewCanvas.width, SecondBaseViewCanvas.height);
+    }
+    if(base3 == true)
+    {
+        ctx3.drawImage(img3, BaseChangeCurrFrame * 1600, 0, 1600, 900, 0, 0, ThirdBaseViewCanvas.width, ThirdBaseViewCanvas.height);
+    }
+    if(base4 == true)
+    {
+        ctx4.drawImage(img4, BaseChangeCurrFrame * 1600, 0, 1600, 900, 0, 0, HomeBaseViewCanvas.width, HomeBaseViewCanvas.height);
+    }
+
+    if(BaseChangeCurrFrame &lt; BaseChangeTotalFrame)
+    {
+        BaseChangeCurrFrame++;
+    }
+    else
+    {
+        if(gameAnimation.lastPitch.play == &quot;homeRun&quot;)
+        {
+            if(base1 == true)
+            {
+                base1 = false;
+                base2 = true;
+            }
+            else if(base2 == true)
+            {
+                base2 = false;
+                base3 = true;
+            }
+            else if(base3 == true)
+            {
+                base3 = false;
+                base4 = true;
+            }
+            else
+            {
+                base1 = false;
+                base2 = false;
+                base3 = false;
+                base4 = false;
+                times = 0;
+                clearInterval(BaseChangeControl);
+                fieldBack();
+            }
+        }
+        else if(gameAnimation.lastPitch.play == &quot;triple&quot;)
+        {
+            if(base1 == true)
+            {
+                base1 = false;
+                base2 = true;
+            }
+            else if(base2 == true)
+            {
+                base2 = false;
+                base3 = true;
+            }
+            else
+            {
+                base1 = false;
+                base2 = false;
+                base3 = false;
+                base4 = false;
+                times = 0;
+                clearInterval(BaseChangeControl);
+                fieldBack();
+            }
+        }
+        else if(gameAnimation.lastPitch.play == &quot;doubleClear&quot;)
+        {
+            if(base1 == true)
+            {
+                base1 = false;
+                base2 = true;
+            }
+            else
+            {
+                base1 = false;
+                base2 = false;
+                base3 = false;
+                base4 = false;
+                times = 0;
+                clearInterval(BaseChangeControl);
+                fieldBack();
+            }
+        }
+        else if(gameAnimation.lastPitch.play == &quot;double&quot;)
+        {
+            if(base1 == true)
+            {
+                base1 = false;
+                if(base2 == true)
+                {
+                    base3 = true;
+                }
+                else
+                {
+                    base2 = true;
+                }
+            }
+            else
+            {
+                base1 = false;
+                base2 = false;
+                base3 = false;
+                base4 = false;
+                times = 0;
+                clearInterval(BaseChangeControl);
+                fieldBack();
+            }
+        }
+        else if(gameAnimation.lastPitch.play == &quot;single&quot;
+            || gameAnimation.lastPitch.play == &quot;singleRISP&quot;
+            || gameAnimation.lastPitch.play == &quot;error&quot;
+            || gameAnimation.lastPitch.play == &quot;flyoutAdv&quot;
+            || gameAnimation.lastPitch.play == &quot;flyoutNoAdv1st&quot;
+            || gameAnimation.lastPitch.play == &quot;groundout&quot;
+            || gameAnimation.lastPitch.play == &quot;groundoutAdvIfForced&quot;
+            || gameAnimation.lastPitch.play == &quot;groundoutDoublePlay&quot;)
+        {
+            base1 = false;
+            base2 = false;
+            base3 = false;
+            base4 = false;
+            times = 0;
+            clearInterval(BaseChangeControl);
+            fieldBack();
+        }
+        else if(gameAnimation.lastPitch.play == &quot;singleAdvance&quot;)
+        {
+            if(base1 == true)
+            {
+                base1 = false;
+                if(base2 == true)
+                {
+                    base3 = true;
+                }
+            }
+            else
+            {
+                base1 = false;
+                base2 = false;
+                base3 = false;
+                base4 = false;
+                times = 0;
+                clearInterval(BaseChangeControl);
+                fieldBack();
+            }
+        }
+        else if(gameAnimation.lastPitch.play == &quot;errorSecond&quot;)
+        {
+            if(base1 == true)
+            {
+                base1 = false;
+                if(base2 == true)
+                {
+                    if(base3 == true)
+                    {
+                        base4 = true;
+                    }
+                    else
+                    {
+                        base3 = true;
+                    }
+                }
+                else
+                {
+                    base2 = true;
+                }
+            }
+            else
+            {
+                base1 = false;
+                base2 = false;
+                base3 = false;
+                base4 = false;
+                times = 0;
+                clearInterval(BaseChangeControl);
+                fieldBack();
+            }
+        }
+        BaseChangeCurrFrame = 0;
+    }
+}
+
+var BaseChangeControl;
+/**
+* BaseChangeOnload - a control of Base change animation, set the time interval of each frame.
+*
+*/
+export function BaseChangeOnload()
+{
+    BaseChangeControl = setInterval(drawBaseChange, 200);
+}
+
+/**
+* This function will make the canvas back to normal when the field animation is finished.
+*/
+function fieldBack()
+{
+    var BackGroundCanvas = document.getElementById(&quot;batterView&quot;);
+
+    var AboveViewCanvas = document.getElementById(&quot;AboveView&quot;);
+    var ctx = AboveViewCanvas.getContext(&quot;2d&quot;);
+    AboveViewCanvas.style.filter = &quot;opacity(0%)&quot;;
+    AboveViewCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+
+    var FirstBaseViewCanvas = document.getElementById(&quot;FirstBaseView&quot;);
+    var ctx1 = FirstBaseViewCanvas.getContext(&quot;2d&quot;);
+    FirstBaseViewCanvas.style.filter = &quot;opacity(0%)&quot;;
+    FirstBaseViewCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+    ctx1.clearRect(0, 0, BackGroundCanvas.width, BackGroundCanvas.height);
+
+    var SecondBaseViewCanvas = document.getElementById(&quot;FirstBaseView&quot;);
+    var ctx2 = SecondBaseViewCanvas.getContext(&quot;2d&quot;);
+    SecondBaseViewCanvas.style.filter = &quot;opacity(0%)&quot;;
+    SecondBaseViewCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+    ctx2.clearRect(0, 0, BackGroundCanvas.width, BackGroundCanvas.height);
+
+    var ThirdBaseViewCanvas = document.getElementById(&quot;FirstBaseView&quot;);
+    var ctx3 = ThirdBaseViewCanvas.getContext(&quot;2d&quot;);
+    ThirdBaseViewCanvas.style.filter = &quot;opacity(0%)&quot;;
+    ThirdBaseViewCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+    ctx3.clearRect(0, 0, BackGroundCanvas.width, BackGroundCanvas.height);
+
+    var HomeBaseViewCanvas = document.getElementById(&quot;FirstBaseView&quot;);
+    var ctx4 = HomeBaseViewCanvas.getContext(&quot;2d&quot;);
+    HomeBaseViewCanvas.style.filter = &quot;opacity(0%)&quot;;
+    HomeBaseViewCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+    ctx4.clearRect(0, 0, BackGroundCanvas.width, BackGroundCanvas.height);
+
+    var PitcherWaitCanvas = document.getElementById(&quot;PitcherWait&quot;);
+    var BatterWaitCanvas = document.getElementById(&quot;BatterWaitting&quot;);
+    PitcherWaitCanvas.style.filter = &quot;opacity(100%)&quot;;
+    PitcherWaitCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+    BatterWaitCanvas.style.filter = &quot;opacity(100%)&quot;;
+    BatterWaitCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+    var ctx5 = BatterWaitCanvas.getContext(&quot;2d&quot;);
+    var ctx6 = PitcherWaitCanvas.getContext(&quot;2d&quot;);
+    ctx5.clearRect(0, 0, 192, 192);
+    ctx6.clearRect(0, 0, 128, 140);
+
+    if(gameAnimation.lastPitch.newInning == true)
+    {
+        SwitchSideOnload(Side);
+    }
+
+    PitcherWaitOnload();
+    BatterWaitOnload();
+
+    BackGroundCanvas.style.filter = &quot;opacity(100%)&quot;;
+    BackGroundCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+}
+
+/**
+* This function is animation of strike.
+* @param {object} this is the object of the result of each action had been selected.
+*/
+export function drawSwingStrike(game)
+{
+    gameAnimation = game;
+    var PitcherWaitCanvas = document.getElementById(&quot;PitcherWait&quot;);
+    var BatterWaitCanvas = document.getElementById(&quot;BatterWaitting&quot;);
+    PitcherWaitCanvas.style.filter = &quot;opacity(0%)&quot;;
+    PitcherWaitCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+    BatterWaitCanvas.style.filter = &quot;opacity(0%)&quot;;
+    BatterWaitCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;//first, make two waiting animation canvas disappear.
+
+    var PitcherPitchCanvas = document.getElementById(&quot;PitcherPitch&quot;);
+    var BatterHitCanvas = document.getElementById(&quot;BatterHit&quot;);
+    PitcherPitchCanvas.width = 96;
+    PitcherPitchCanvas.height = 105;
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
+
+    var ctx = PitcherPitchCanvas.getContext(&quot;2d&quot;);
+    var ctx2 = BatterHitCanvas.getContext(&quot;2d&quot;);
+    if(Side == &quot;home&quot;)
+    {
+        var img = document.getElementById(&quot;PitcherPitching&quot;);
+        var img2 = document.getElementById(&quot;BatterHitting&quot;);
+    }
+    else
+    {
+        var img = document.getElementById(&quot;BluePitcherPitching&quot;);
+        var img2 = document.getElementById(&quot;RedBatterHitting&quot;);
+    }
+
+    ctx.drawImage(img, 0 * 128, 0, 128, 140, 0, 0, 96, 105);
+    ctx2.drawImage(img2, 0 * 192, 0, 192, 210, 0, 0, 160, 175);//in order to make the canvas change smooth, draw the frist frame of animation before display the Hit animation canvas.
+
+    PitcherPitchCanvas.style.filter = &quot;opacity(100%)&quot;;
+    PitcherPitchCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+    BatterHitCanvas.style.filter = &quot;opacity(100%)&quot;;
+    BatterHitCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;//display the hit animation canvas.
+
+    clearInterval(PitcherWaitControl);
+    clearInterval(BatterWaitControl);//clear the waiting animation counting.
+
+    BatterStatus = &quot;Strike&quot;;
+
+    PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
+}
+
+/**
+* This function is animation of swing but it is Out.
+* @param {object} this is the object of the result of each action had been selected.
+*/
+export function drawSwingOut(game)
+{
+    gameAnimation = game;
+    var PitcherWaitCanvas = document.getElementById(&quot;PitcherWait&quot;);
+    var BatterWaitCanvas = document.getElementById(&quot;BatterWaitting&quot;);
+    PitcherWaitCanvas.style.filter = &quot;opacity(0%)&quot;;
+    PitcherWaitCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+    BatterWaitCanvas.style.filter = &quot;opacity(0%)&quot;;
+    BatterWaitCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;//first, make two waiting animation canvas disappear.
+
+    var PitcherPitchCanvas = document.getElementById(&quot;PitcherPitch&quot;);
+    var BatterHitCanvas = document.getElementById(&quot;BatterHit&quot;);
+    PitcherPitchCanvas.width = 96;
+    PitcherPitchCanvas.height = 105;
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
+
+    var ctx = PitcherPitchCanvas.getContext(&quot;2d&quot;);
+    var ctx2 = BatterHitCanvas.getContext(&quot;2d&quot;);
+    if(Side == &quot;home&quot;)
+    {
+        var img = document.getElementById(&quot;PitcherPitching&quot;);
+        var img2 = document.getElementById(&quot;BatterHitting&quot;);
+    }
+    else
+    {
+        var img = document.getElementById(&quot;BluePitcherPitching&quot;);
+        var img2 = document.getElementById(&quot;RedBatterHitting&quot;);
+    }
+
+    ctx.drawImage(img, 0 * 128, 0, 128, 140, 0, 0, 96, 105);
+    ctx2.drawImage(img2, 0 * 192, 0, 192, 210, 0, 0, 160, 175);//in order to make the canvas change smooth, draw the frist frame of animation before display the Hit animation canvas.
+
+    PitcherPitchCanvas.style.filter = &quot;opacity(100%)&quot;;
+    PitcherPitchCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+    BatterHitCanvas.style.filter = &quot;opacity(100%)&quot;;
+    BatterHitCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;//display the hit animation canvas.
+
+    clearInterval(PitcherWaitControl);
+    clearInterval(BatterWaitControl);//clear the waiting animation counting.
+
+    BatterStatus = &quot;Out&quot;;
+
+    PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
+}
+
+/**
+* This function is animation of batter decided take and it was a Ball
+* @param {object} this is the object of the result of each action had been selected.
+*/
+export function drawTakeBall(game)
+{
+    gameAnimation = game;
+    var PitcherWaitCanvas = document.getElementById(&quot;PitcherWait&quot;);
+    var BatterWaitCanvas = document.getElementById(&quot;BatterWaitting&quot;);
+    PitcherWaitCanvas.style.filter = &quot;opacity(0%)&quot;;
+    PitcherWaitCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+    BatterWaitCanvas.style.filter = &quot;opacity(0%)&quot;;
+    BatterWaitCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;//first, make two waiting animation canvas disappear.
+
+    var PitcherPitchCanvas = document.getElementById(&quot;PitcherPitch&quot;);
+    var BatterHitCanvas = document.getElementById(&quot;BatterHit&quot;);
+    PitcherPitchCanvas.width = 96;
+    PitcherPitchCanvas.height = 105;
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
+
+    var ctx = PitcherPitchCanvas.getContext(&quot;2d&quot;);
+    var ctx2 = BatterHitCanvas.getContext(&quot;2d&quot;);
+    if(Side == &quot;home&quot;)
+    {
+        var img = document.getElementById(&quot;PitcherPitching&quot;);
+        var img2 = document.getElementById(&quot;BatterHitting&quot;);
+    }
+    else
+    {
+        var img = document.getElementById(&quot;BluePitcherPitching&quot;);
+        var img2 = document.getElementById(&quot;RedBatterHitting&quot;);
+    }
+
+    ctx.drawImage(img, 0 * 128, 0, 128, 140, 0, 0, 96, 105);
+    ctx2.drawImage(img2, 0 * 192, 0, 192, 210, 0, 0, 160, 175);//in order to make the canvas change smooth, draw the frist frame of animation before display the Hit animation canvas.
+
+    PitcherPitchCanvas.style.filter = &quot;opacity(100%)&quot;;
+    PitcherPitchCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+    BatterHitCanvas.style.filter = &quot;opacity(100%)&quot;;
+    BatterHitCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;//display the hit animation canvas.
+
+    clearInterval(PitcherWaitControl);
+    clearInterval(BatterWaitControl);//clear the waiting animation counting.
+
+    BatterStatus = &quot;Ball&quot;;
+
+    PitcherPitchOnload();//start calling the pitcher pitch animation. go to line 85.
+}
+
+
+var BatterStrikeFrames = 11;
+var BatterStrikeCurrFrame = 0;
+/**
+* This function is animation of strike when the pitcher pitch has been called
+* @param {object} this is the object of the result of each action had been selected.
+*/
+function drawBatterSwingStrike()
+{
+    var BatterHitCanvas = document.getElementById(&quot;BatterHit&quot;);
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
+    var ctx = BatterHitCanvas.getContext(&quot;2d&quot;);
+
+    if(Side == &quot;home&quot;)
+    {
+        var img = document.getElementById(&quot;BatterHitting&quot;);
+    }
+    else
+    {
+        var img = document.getElementById(&quot;RedBatterHitting&quot;);
+    }
+    var width = 192;
+    var height = 210;
+
+    ctx.clearRect(0, 0, width, height);
+
+    ctx.drawImage(img, BatterStrikeCurrFrame * width, 0, width, height, 0, 0, BatterHitCanvas.width, BatterHitCanvas.height);//draw Batter hit animation frame.
+
+    if(BatterStrikeCurrFrame &lt; BatterStrikeFrames)
+    {
+        BatterStrikeCurrFrame++;
+        if(BatterStrikeCurrFrame == 8)
+        {
+            BatterStrikeCurrFrame++;
+        }
+        if(BatterStrikeCurrFrame == 11)
+        {
+            clearInterval(PitcherPitchControl);
+            PitcherPitchCurrFrames = 0;
+        }
+    }
+    else
+    {
+        clearInterval(BatterSwingStrikeControl);
+        BatterStrikeCurrFrame = 0;
+        strikeBackOnload();
+    }
+
+}
+
+var BatterSwingStrikeControl;
+/**
+* BaseChangeOnload - a control of strike animation, set the time interval of each frame.
+*
+*/
+export function BatterSwingStrikeOnload()
+{
+    BatterSwingStrikeControl = setInterval(drawBatterSwingStrike, 110);
+}
+
+
+var BatterOutFrames = 11;
+var BatterOutCurrFrame = 0;
+/**
+* This function will draw the out animation
+*/
+function drawOut()
+{
+    var BatterHitCanvas = document.getElementById(&quot;BatterHit&quot;);
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
+    var ctx = BatterHitCanvas.getContext(&quot;2d&quot;);
+
+    if(Side == &quot;home&quot;)
+    {
+        var img = document.getElementById(&quot;BatterHitting&quot;);
+    }
+    else
+    {
+        var img = document.getElementById(&quot;RedBatterHitting&quot;);
+    }
+    var width = 192;
+    var height = 210;
+
+    ctx.clearRect(0, 0, width, height);
+
+    ctx.drawImage(img, BatterOutCurrFrame * width, 0, width, height, 0, 0, BatterHitCanvas.width, BatterHitCanvas.height);//draw Batter hit animation frame.
+
+    if(BatterOutCurrFrame &lt; BatterOutFrames)
+    {
+        BatterOutCurrFrame++;
+    }
+    else
+    {
+        clearInterval(PitcherPitchControl);
+        PitcherPitchCurrFrames = 0;
+        clearInterval(BatterSwingOutControl);
+        BatterOutCurrFrame = 0;
+        strikeBackOnload();
+    }
+}
+
+var BatterSwingOutControl;
+/**
+* BatterSwingOutOnload - a control of out animation, set the time interval of each frame.
+*
+*/
+export function BatterSwingOutOnload()
+{
+    BatterSwingOutControl = setInterval(drawOut, 80);
+}
+
+var count1 = 0;
+/**
+* This function will the canvas back to normal after strike animation is finished.
+*
+*/
+function strikeBack()
+{
+    var PitcherPitchCanvas = document.getElementById(&quot;PitcherPitch&quot;);
+    var BatterHitCanvas = document.getElementById(&quot;BatterHit&quot;);
+    var PitcherWaitCanvas = document.getElementById(&quot;PitcherWait&quot;);
+    var BatterWaitCanvas = document.getElementById(&quot;BatterWaitting&quot;);
+
+    if(count1 &lt; 7)
+    {
+        count1++;
+    }
+    else
+    {
+        count1 = 0;
+        clearInterval(StrikeBackControl);
+
+        if(gameAnimation.lastPitch.newInning == true)
+        {
+            SwitchSideOnload(Side);
+        }
+
+        PitcherWaitOnload();
+        BatterWaitOnload();
+
+        PitcherWaitCanvas.style.filter = &quot;opacity(100%)&quot;;
+        PitcherWaitCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+        BatterWaitCanvas.style.filter = &quot;opacity(100%)&quot;;
+        BatterWaitCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+        var ctx5 = BatterWaitCanvas.getContext(&quot;2d&quot;);
+        var ctx6 = PitcherWaitCanvas.getContext(&quot;2d&quot;);
+
+        PitcherPitchCanvas.style.filter = &quot;opacity(0%)&quot;;
+        PitcherPitchCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+        BatterHitCanvas.style.filter = &quot;opacity(0%)&quot;;
+        BatterHitCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+        var ctx1 = PitcherPitchCanvas.getContext(&quot;2d&quot;);
+        ctx1.clearRect(0, 0, 128, 140);
+        var ctx2 = BatterHitCanvas.getContext(&quot;2d&quot;);
+        ctx2.clearRect(0, 0, 192, 210);
+    }
+}
+
+var StrikeBackControl;
+/**
+* strikeBackOnload - a control of strike back to normal function, set the time interval of each frame.
+*
+*/
+export function strikeBackOnload()
+{
+    StrikeBackControl = setInterval(strikeBack, 80);
+}
+
+/**
+* This function will draw the take animation
+*
+*/
+function drawBatterTake()
+{
+    var BatterHitCanvas = document.getElementById(&quot;BatterHit&quot;);
+    BatterHitCanvas.width = 160;
+    BatterHitCanvas.height = 175;
+    var ctx = BatterHitCanvas.getContext(&quot;2d&quot;);
+
+    if(Side == &quot;home&quot;)
+    {
+        var img = document.getElementById(&quot;BatterHitting&quot;);
+    }
+    else
+    {
+        var img = document.getElementById(&quot;RedBatterHitting&quot;);
+    }
+
+    var width = 192;
+    var height = 210;
+
+    ctx.clearRect(0, 0, width, height);
+
+    ctx.drawImage(img, width, 0, width, height, 0, 0, BatterHitCanvas.width, BatterHitCanvas.height);
+
+    if(PitcherPitchCurrFrames == 6)
+    {
+        clearInterval(PitcherPitchControl);
+        clearInterval(BatterTakeControl);
+        PitcherPitchCurrFrames = 0;
+        BallBackOnload();
+    }
+}
+
+var BatterTakeControl;
+/**
+* BatterTakeOnload - a control of take animation, set the time interval of each frame.
+*
+*/
+export function BatterTakeOnload()
+{
+    BatterTakeControl = setInterval(drawBatterTake, 300);
+}
+
+/**
+* This function will the canvas back to normal after Ball animation is finished.
+*
+*/
+function BallBack()
+{
+    var PitcherPitchCanvas = document.getElementById(&quot;PitcherPitch&quot;);
+    var BatterHitCanvas = document.getElementById(&quot;BatterHit&quot;);
+    var PitcherWaitCanvas = document.getElementById(&quot;PitcherWait&quot;);
+    var BatterWaitCanvas = document.getElementById(&quot;BatterWaitting&quot;);
+
+    if(count1 &lt; 7)
+    {
+        count1++;
+    }
+    else
+    {
+        count1 = 0;
+        clearInterval(BallBackControl);
+
+        if(gameAnimation.lastPitch.newInning == true)
+        {
+            SwitchSideOnload(Side);
+        }
+
+        PitcherWaitOnload();
+        BatterWaitOnload();
+
+        PitcherWaitCanvas.style.filter = &quot;opacity(100%)&quot;;
+        PitcherWaitCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+        BatterWaitCanvas.style.filter = &quot;opacity(100%)&quot;;
+        BatterWaitCanvas.style.WebkitFilter = &quot;opacity(100%)&quot;;
+        var ctx5 = BatterWaitCanvas.getContext(&quot;2d&quot;);
+        var ctx6 = PitcherWaitCanvas.getContext(&quot;2d&quot;);
+
+        PitcherPitchCanvas.style.filter = &quot;opacity(0%)&quot;;
+        PitcherPitchCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+        BatterHitCanvas.style.filter = &quot;opacity(0%)&quot;;
+        BatterHitCanvas.style.WebkitFilter = &quot;opacity(0%)&quot;;
+        var ctx1 = PitcherPitchCanvas.getContext(&quot;2d&quot;);
+        ctx1.clearRect(0, 0, 128, 140);
+        var ctx2 = BatterHitCanvas.getContext(&quot;2d&quot;);
+        ctx2.clearRect(0, 0, 192, 210);
+    }
+}
+
+var BallBackControl;
+/**
+* BallBackOnload - a control of Ball back function.
+*
+*/
+export function BallBackOnload()
+{
+    BallBackControl = setInterval(BallBack, 80);
+}
+
+var BallFrames = 5;
+var BallCurrFrames = 0;
+var initalTop = 0;
+/**
+* This function is the animation of a flying Ball
+*
+*/
+function drawBall()
+{
+    var BallCanvas= document.getElementById(&quot;Ball&quot;);
+    var screenWidth = document.documentElement.clientWidth;
+    var screenHeight = document.documentElement.clientHeight;
+    BallCanvas.width = 128;
+    BallCanvas.height = 128;
+    BallCanvas.style.top = (screenHeight * 0.20) + &quot;px&quot;;
+    BallCanvas.style.left = (screenWidth * 0.33) + &quot;px&quot;;
+    initalTop = (screenHeight * 0.20)
+    var temp =  initalTop * 0.73 * (BallCurrFrames + 1);             //the position of the canvas changing with the frame increment.
+    BallCanvas.style.top = temp + &quot;px&quot;;
+    var ctx = BallCanvas.getContext(&quot;2d&quot;);
+
+    var img = document.getElementById(&quot;BallShaping&quot;);
+    var width = 128;
+    var height = 128;
+
+    ctx.clearRect(0, 0, width, height);
+
+    BallCurrFrames++;
+
+    ctx.drawImage(img, BallCurrFrames * width, 0, width, height, 0, 0, BallCanvas.width, BallCanvas.height);//draw this flying ball frame
+
+    if(BallCurrFrames == BallFrames)
+    {
+        clearInterval(BallControl);                             //when reach the final frame, clear the counting timer, and clean the canvas.
+        ctx.clearRect(0, 0, width, height);
+        BallCurrFrames = 0;
+    }
+}
+
+var BallControl;
+/**
+* BallOnload - a control of flying ball animation, set the time interval of each frame.
+*
+*/
+export function BallOnload()
+{
+    BallControl = setInterval(drawBall, 70);//every 70ms draw flying ball once
+}
+
+var BatterWaitFrames = 17;
+var BatterWaitCurrFrame = 0;
+/**
+* This function is the animation of Batter waiting of the action been selected.
+*
+*/
+function drawBatterWait()
+{
+    var BatterWaitCanvas = document.getElementById(&quot;BatterWaitting&quot;);
+    BatterWaitCanvas.width = 160;
+    BatterWaitCanvas.height = 160;
+    var ctx = BatterWaitCanvas.getContext(&quot;2d&quot;);
+
+    if(Side == &quot;home&quot;)
+    {
+        var img = document.getElementById(&quot;BatterWait&quot;);
+    }
+    else
+    {
+        var img = document.getElementById(&quot;RedBatterWait&quot;);
+    }
+    var width = 192;
+    var height = 192;
+
+    ctx.clearRect(0, 0, width, height);
+    BatterWaitCurrFrame++;
+    if(BatterWaitCurrFrame == BatterWaitFrames)
+    {
+        BatterWaitCurrFrame = 0;
+    }
+    ctx.drawImage(img, BatterWaitCurrFrame * width, 0, width, height, 0, 0, BatterWaitCanvas.width, BatterWaitCanvas.height);
+}
+
+var BatterWaitControl;
+/**
+* BatterWaitOnload - a control of batter waiting animation, set the time interval of each frame.
+*
+*/
+export function BatterWaitOnload()
+{
+    BatterWaitControl = setInterval(drawBatterWait, 125);
+}
+
+var PitcherWaitFrames = 16;
+var PitcherWaitCurrFrames = 0;
+/**
+* This function is the animation of pitcher waiting of the action been selected.
+*
+*/
+function drawPitcherWait()
+{
+    var PitcherWaitCanvas = document.getElementById(&quot;PitcherWait&quot;);
+    PitcherWaitCanvas.width = 96;
+    PitcherWaitCanvas.height = 105;
+    var ctx = PitcherWaitCanvas.getContext(&quot;2d&quot;);
+
+    if(Side == &quot;home&quot;)
+    {
+        var img = document.getElementById(&quot;PitcherWaiting&quot;);
+    }
+    else
+    {
+        var img = document.getElementById(&quot;BluePitcherWaiting&quot;);
+    }
+
+    var width = 128;
+    var height = 140;
+
+    ctx.clearRect(0, 0, width, height);
+
+    PitcherWaitCurrFrames++;
+    if(PitcherWaitCurrFrames == PitcherWaitFrames)
+    {
+        PitcherWaitCurrFrames = 0;
+    }
+
+    ctx.drawImage(img, PitcherWaitCurrFrames * width, 0, width, height, 0, 0, PitcherWaitCanvas.width, PitcherWaitCanvas.height);
+}
+
+var PitcherWaitControl;
+/**
+* PitcherWaitOnload - a control of pitcher waiting animation, set the time interval of each frame.
+*
+*/
+export function PitcherWaitOnload()
+{
+    PitcherWaitControl = setInterval(drawPitcherWait, 188);
+}
+
+export function batterSound()//Sounds for pitching, batting and catching.
+{
+    var p= gameAnimation.lastPitch.play;//foul,strike,out
+    var d= 1300;//num time delay for sound to begin.
+    var t= Side ;//h=home, v=visitor
+    if(t== &quot;home&quot;)
+    {
+        t= &quot;away&quot;;
+    }
+    else
+    {
+        t=&quot;home&quot;;
+    }
+    setTimeout(playSound, d, p );
+    function playSound(p)
+    {
+        if(t== &quot;home&quot;)
+        {
+            if(p== &quot;ball&quot;)
+            {
+                document.getElementById(&quot;hBall&quot;).play();
+            }
+            if(p== &quot;foul&quot;)
+            {
+                document.getElementById(&quot;hFoul&quot;).play();
+            }
+            if(p== &quot;foulout&quot; ||p== &quot;flyout&quot;)
+            {
+                document.getElementById(&quot;hHitOut&quot;).play();
+            }
+            if(p== &quot;single&quot; || p==&quot;singleAdvance&quot; || p==&quot;error&quot; || p==&quot;flyoutAdv&quot; || p==&quot;flyoutNoAdv1st&quot; ||p== &quot;groundout&quot;)
+            {
+                document.getElementById(&apos;hB1&apos;).play();
+            }
+            if(p== &quot;singleRISP&quot;)
+            {
+                document.getElementById(&apos;hB3&apos;).play();
+            }
+            if(p== &quot;doubleClear&quot; ||p== &quot;double&quot; || p==&quot;errorSecond&quot;)
+            {
+                document.getElementById(&apos;hB2&apos;).play();
+            }
+            if(p== &quot;triple&quot;)
+            {
+                document.getElementById(&apos;hB3&apos;).play();
+            }
+            if(p== &quot;homeRun&quot;)
+            {
+                document.getElementById(&quot;hHomeRun&quot;).play();
+            }
+            if(p== &quot;groundoutAdvIfForced&quot; || p==&quot;groundoutDoublePlay&quot; ||p== &quot;lineoutDoublePlay&quot; || p== &quot;triplePlay&quot; ||p== &quot;fieldersChoice&quot;)
+            {
+                document.getElementById(&quot;hHitOut&quot;).play();
+            }
+            if(p== &quot;swingingStrike&quot;)
+            {
+                document.getElementById(&quot;hSwingStrike&quot;).play();
+            }
+            if(p== &quot;calledStrike&quot;)
+            {
+                document.getElementById(&quot;hTakeStrike&quot;).play();
+            }
+        }
+        else
+        {
+            if(p== &quot;ball&quot;)
+            {
+                document.getElementById(&quot;vBall&quot;).play();
+            }
+            if(p== &quot;foul&quot;)
+            {
+                document.getElementById(&quot;vFoul&quot;).play();
+            }
+            if(p== &quot;foulout&quot; ||p== &quot;flyout&quot;)
+            {
+                document.getElementById(&quot;vB1Out&quot;).play();
+            }
+            if(p== &quot;single&quot; ||p== &quot;singleAdvance&quot; || p==&quot;error&quot; || p==&quot;flyoutAdv&quot; || p==&quot;flyoutNoAdv1st&quot; || p==&quot;groundout&quot;)
+            {
+                document.getElementById(&apos;vB1&apos;).play();
+            }
+            if(p== &quot;singleRISP&quot;)
+            {
+                document.getElementById(&apos;vB1&apos;).play();
+            }
+            if(p== &quot;doubleClear&quot; || p==&quot;double&quot; || p==&quot;errorSecond&quot;)
+            {
+                document.getElementById(&apos;vB1&apos;).play();
+            }
+            if(p== &quot;triple&quot;)
+            {
+                document.getElementById(&apos;vB1&apos;).play();
+            }
+            if(p== &quot;homeRun&quot;)
+            {
+                document.getElementById(&quot;vHomeRun&quot;).play();
+            }
+            if(p== &quot;groundoutAdvIfForced&quot;  ||p== &quot;groundoutDoublePlay&quot; || p==&quot;lineoutDoublePlay&quot; || p==&quot;triplePlay&quot; || p==&quot;fieldersChoice&quot;)
+            {
+                document.getElementById(&quot;vB1&quot;).play();
+            }
+            if(p== &quot;swingingStrike&quot;)
+            {
+                document.getElementById(&quot;vSwingStrike&quot;).play();
+            }
+            if(p== &quot;calledStrike&quot;)
+            {
+                document.getElementById(&quot;vTakeStrike&quot;).play();
+            }
+        }
+    }
+}
+</code></pre>
+
+</div>
+
+<footer class="footer">
+  Generated by <a href="https://esdoc.org">ESDoc<span data-ice="esdocVersion">(1.1.0)</span><img src="./image/esdoc-logo-mini-black.png"></a>
+</footer>
+
+<script src="script/search_index.js"></script>
+<script src="script/search.js"></script>
+<script src="script/pretty-print.js"></script>
+<script src="script/inherited-summary.js"></script>
+<script src="script/test-summary.js"></script>
+<script src="script/inner-link.js"></script>
+<script src="script/patch-for-local.js"></script>
+</body>
+</html>
