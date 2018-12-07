@@ -1,15 +1,80 @@
-\documentclass[]{report}
+\documentclass[12pt,a4paper]{report}
+\usepackage[left=1.00in, right=1.00in, top=1.00in, bottom=1.00in]{geometry}
+\usepackage{csquotes, hyperref, graphicx}
 
 
 % Title Page
-\title{}
-\author{}
+\title{{\Huge Big League Baseball \\\bigskip User's Manual}}
+\author{{\LARGE J3 Productions}}
+\date{\vspace{-5ex}}
 
 
 \begin{document}
 \maketitle
 
-\begin{abstract}
-\end{abstract}
+\tableofcontents
+\newpage
+
+\chapter{Introduction}
+\begin{center}
+	\includegraphics[width=1\linewidth]{umInclude/title}
+\end{center}
+
+\begin{displayquote}
+	All the action and excitement of the major leagues comes alive as each player manages his own BIG LEAGUE BASEBALL team in this challenging new game.\\\\
+	As the manager, you choose your team, call the pitches, decide when to hit and when to take. The result of each pitch and each hit is determined by the game's calculations based on averages of major league play.\\\\
+	All the strategy and skill involved in a professional baseball game combine with luck to make this a fascinating game as it's 1, 2, 3 strikes, you're out-that's the old ball game!
+\end{displayquote}
+
+You might not have the strength, agility, or friends necessary to play baseball, but in BIG LEAGUE BASEBALL, you can play with all of the strategy of actual baseball!\\
+
+Try to outwit your opponent while pitching, getting him to strikeout, and outwit the opposing pitcher by crushing those meatballs down the middle he tries to blow right by you!\\
+
+All this and more awaits you in BIG LEAGUE BASEBALL! So what are you waiting for? Send out your lineup cards, get your starter warmed up, because it's time to play ball!
+
+\chapter{Setup}
+This section will inform you how to download and install BIG LEAGUE BASEBALL. If you already installed BIG LEAGUE BASEBALL and paid one cent for it, then it's probably likely that you've been scammed. But if you're reading this, don't worry, you'll be able to enjoy BIG LEAGUE BASEBALL scam-free!
+
+\section{Downloading}
+If you have Git installed on your computer, you may wish to clone the GitHub repository to your computer. To do this, open a terminal and type the following command:
+\begin{displayquote}
+	\texttt{git clone https://github.com/J3Productions/big-league-baseball.git}
+\end{displayquote}
+\begin{center}
+	\includegraphics[width=1\linewidth]{umInclude/clone}
+\end{center}
+This will download the game to your computer just like that! However, if you do not have Git installed, you can still download BIG LEAGUE BASEBALL on the game's GitHub page.\\
+Open up your preferred web browser (Chrome, Firefox, Midori, etc.) and navigate to\linebreak \href{https://github.com/J3Productions/big-league-baseball}{\texttt{github.com/J3Productions/big-league-baseball}}. There, you will find the game's GitHub page (we're open source, you're welcome to fork!).
+\begin{center}
+	\includegraphics[width=1\linewidth]{umInclude/github}
+\end{center}
+From there, you will see a green button labeled ``Clone or download.'' Click on the button, and then click on the button labeled ``Download ZIP.''
+\begin{center}
+	\includegraphics[width=0.75\linewidth]{umInclude/download}
+\end{center}
+This will download the game a compressed ZIP file to your computer. Extract the file with your preferred archive manager, and you have BIG LEAGUE BASEBALL downloaded!
+
+\section{Installing}
+Now that you have the BIG LEAGUE BASEBALL downloaded, the game must be installed (well, not technically, since the game just needs to download a few dependencies, but nothing actually gets installed to your computer). Let's get started!\\
+Enter the directory of your downloaded game, and open a terminal. From there, type and execute the command:
+\begin{displayquote}
+	\texttt{npm install --production}
+\end{displayquote}
+\begin{center}
+	\includegraphics[width=1\linewidth]{umInclude/install}
+\end{center}
+This will pull all of the required dependencies for playing the game in from the internet. You are now ready to start the game up!\\
+\textit{NOTE: If you are unable to use the \texttt{npm} command, you may need to install Node.js: \url{https://nodejs.org}}
+
+\section{Starting the Game}
+
+Now that the game is downloaded and so are all the dependencies, it's time to start up BIG LEAGUE BASEBALL!\\
+From the same directory that you ran \texttt{npm install} from, run the following command:
+\begin{displayquote}
+	\texttt{npm run test}
+\end{displayquote}
+Once you have done this, open your favorite web browser (Chrome, Firefox, Vivaldi, etc.) and navigate to \href{http://localhost:3000}{\texttt{localhost:3000}}. There, the game should be up and waiting for you to play!
+
+\chapter{Playing the Game}
 
 \end{document}          

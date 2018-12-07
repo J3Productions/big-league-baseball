@@ -36,9 +36,9 @@ This software comes pre-packaged with a self-testing suite. To access the test s
 
 ### Software-Related
 
-- [Bug List]()
-- [User Manual]()
-- [Works Cited]()
+- [Bug List](https://github.com/J3Productions/big-league-baseball/blob/project4/docs/artifactsFolder/BUGLIST.md)
+- [User Manual](https://github.com/J3Productions/big-league-baseball/blob/project4/docs/artifactsFolder/userManual.pdf)
+- [Works Cited](https://github.com/J3Productions/big-league-baseball/blob/project4/docs/artifactsFolder/WORKSCITED.md)
 
 ### Development-Related
 
