@@ -46,6 +46,6 @@ This software comes pre-packaged with a self-testing suite. To access the test s
 * [Gantt Chart](https://github.com/J3Productions/big-league-baseball/blob/project4/docs/artifactsFolder/gantt-120518.png)
 * [Maintenance Plan](https://github.com/J3Productions/big-league-baseball/blob/project4/docs/artifactsFolder/Maintance%20plan.docx)
 * [Meeting Log and Retrospective](https://github.com/J3Productions/big-league-baseball/blob/project4/docs/artifactsFolder/Write-up.docx)
-* [Product Backlog]()
+* [Product Backlog](https://github.com/J3Productions/big-league-baseball/blob/project4/docs/artifactsFolder/backlog.pdf)
 * UML: [Class Diagram](https://github.com/J3Productions/big-league-baseball/blob/project4/docs/artifactsFolder/Flow_diagram.jpg), [State Diagram](https://github.com/J3Productions/big-league-baseball/blob/project4/docs/artifactsFolder/State%20Diagram.jpg), [Use-Case Diagram](https://github.com/J3Productions/big-league-baseball/blob/project4/docs/artifactsFolder/Use%20Case%20Diagram.jpg)
 
