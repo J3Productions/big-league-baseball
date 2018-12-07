@@ -42,7 +42,7 @@ This software comes pre-packaged with a self-testing suite. To access the test s
 
 ### Development-Related
 
-* [Deployment Plan]()
+* [Deployment Plan](https://github.com/J3Productions/big-league-baseball/blob/project4/docs/artifactsFolder/Big%20League%20Baseball%20Deployment%20Plan.docx)
 * [Gantt Chart](https://github.com/J3Productions/big-league-baseball/blob/project4/docs/artifactsFolder/gantt-120518.png)
 * [Maintenance Plan](https://github.com/J3Productions/big-league-baseball/blob/project4/docs/artifactsFolder/Maintance%20plan.docx)
 * [Meeting Log and Retrospective](https://github.com/J3Productions/big-league-baseball/blob/project4/docs/artifactsFolder/Write-up.docx)
