@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Big League Baseball</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Anton|Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="/main.css">
+</head>
+<body>
+
+<p class="title">Big League Baseball</p>
+
+<p class="head">Play as:</p>
+
+<iframe src="silence.mp3" allow="autoplay" id="audio" style="display:none"></iframe>
+<audio id="player" autoplay >
+	<source src="./soundFx/organMusic/organPlayBall.mp3" type="audio/mp3">
+</audio>
+
+<form action="/game" method="POST">
+	<input type="radio" name="location" value="home">&nbsp;Home &nbsp;<input type="radio" name="location" value="away">&nbsp;Away<br>
+	<input type="submit" value="Next"><br><br>
+	<a href="/test">Run Tests</a>
+</form>
+
+
+
+</body>
+
+
+</html>

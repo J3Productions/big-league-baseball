@@ -1,19 +1,30 @@
 const express = require('express');
 const app = express();
 const http = require('http').Server(app);
-const io = require('socket.io')(http);
+const bodyParser = require("body-parser");
+
+app.set('view engine', 'ejs');
+app.use(bodyParser.urlencoded({extended: false}));
 
 app.use(express.static('public'));
 app.use(express.static('src'));
 
 app.get('/', function(req, res){
-	res.sendFile('index.html');
+	res.render('index.ejs');
 });
 
-io.on('connection', function(socket) {
-	console.log("Connection achieved");
+app.get('/test', function(req, res){
+	res.render('testSuite.ejs');
+});
+
+app.post("/game", function(req, res) {
+	const location = req.body.location;
+	console.log(location);
+	res.render("game.ejs", {
+		location: location
+	});
 });
 
 http.listen(3000, function() {
-	console.log("Serving the site at localhost:3000");
+	console.log("Serving the site at http://localhost:3000");
 });

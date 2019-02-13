@@ -1,1 +1,288 @@
-[]
+[
+  {
+    "name": "SwitchSide",
+    "filePath": "src/Animation.js",
+    "lines": [
+      {
+        "lineNumber": 3,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 4,
+        "line": "* SwitchSide function is to swtich the side when the a new inning came out."
+      },
+      {
+        "lineNumber": 5,
+        "line": "* @param {string} it represented the side of img. Home will call blue, away will call red."
+      },
+      {
+        "lineNumber": 6,
+        "line": "*/"
+      },
+      {
+        "lineNumber": 7,
+        "line": "export function SwitchSide(side)"
+      }
+    ],
+    "codeParams": [
+      "side"
+    ],
+    "docParams": [
+      "it"
+    ]
+  },
+  {
+    "name": "SwitchSideOnload",
+    "filePath": "src/Animation.js",
+    "lines": [
+      {
+        "lineNumber": 78,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 79,
+        "line": "* SwitchSideOnload will make switchside been recalled for a period of time."
+      },
+      {
+        "lineNumber": 80,
+        "line": "* @param {string} it represented the side of img. Home will call blue, away will call red."
+      },
+      {
+        "lineNumber": 81,
+        "line": "*/"
+      },
+      {
+        "lineNumber": 82,
+        "line": "export function SwitchSideOnload(side)"
+      }
+    ],
+    "codeParams": [
+      "side"
+    ],
+    "docParams": [
+      "it"
+    ]
+  },
+  {
+    "name": "BackGround",
+    "filePath": "src/Animation.js",
+    "lines": [
+      {
+        "lineNumber": 90,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 91,
+        "line": "* BackGroud function will make the playground background move. It is a animation function."
+      },
+      {
+        "lineNumber": 92,
+        "line": "* @param {string} it represented the side of img. Home will call blue, away will call red."
+      },
+      {
+        "lineNumber": 93,
+        "line": "*/"
+      },
+      {
+        "lineNumber": 94,
+        "line": "export function BackGround(location)"
+      }
+    ],
+    "codeParams": [
+      "location"
+    ],
+    "docParams": [
+      "it"
+    ]
+  },
+  {
+    "name": "BackGroundOnload",
+    "filePath": "src/Animation.js",
+    "lines": [
+      {
+        "lineNumber": 129,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 130,
+        "line": "* BackGroundOnload, make the background moving when the game been played."
+      },
+      {
+        "lineNumber": 131,
+        "line": "* @param {string} it represented the side of img. Home will call blue, away will call red."
+      },
+      {
+        "lineNumber": 132,
+        "line": "*/"
+      },
+      {
+        "lineNumber": 133,
+        "line": "export function BackGroundOnload(location)"
+      }
+    ],
+    "codeParams": [
+      "location"
+    ],
+    "docParams": [
+      "it"
+    ]
+  },
+  {
+    "name": "drawPitchHit",
+    "filePath": "src/Animation.js",
+    "lines": [
+      {
+        "lineNumber": 140,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 141,
+        "line": "* drawPitchHit, this function is a control of stop the waiting animations and hidden the canvas to open the hit animation canvas."
+      },
+      {
+        "lineNumber": 142,
+        "line": "* @param {object} this is the object of the result of each action had been selected."
+      },
+      {
+        "lineNumber": 143,
+        "line": "*/"
+      },
+      {
+        "lineNumber": 144,
+        "line": "export function drawPitchHit(game)"
+      }
+    ],
+    "codeParams": [
+      "game"
+    ],
+    "docParams": [
+      "this"
+    ]
+  },
+  {
+    "name": "drawSwingStrike",
+    "filePath": "src/Animation.js",
+    "lines": [
+      {
+        "lineNumber": 860,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 861,
+        "line": "* This function is animation of strike."
+      },
+      {
+        "lineNumber": 862,
+        "line": "* @param {object} this is the object of the result of each action had been selected."
+      },
+      {
+        "lineNumber": 863,
+        "line": "*/"
+      },
+      {
+        "lineNumber": 864,
+        "line": "export function drawSwingStrike(game)"
+      }
+    ],
+    "codeParams": [
+      "game"
+    ],
+    "docParams": [
+      "this"
+    ]
+  },
+  {
+    "name": "drawSwingOut",
+    "filePath": "src/Animation.js",
+    "lines": [
+      {
+        "lineNumber": 910,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 911,
+        "line": "* This function is animation of swing but it is Out."
+      },
+      {
+        "lineNumber": 912,
+        "line": "* @param {object} this is the object of the result of each action had been selected."
+      },
+      {
+        "lineNumber": 913,
+        "line": "*/"
+      },
+      {
+        "lineNumber": 914,
+        "line": "export function drawSwingOut(game)"
+      }
+    ],
+    "codeParams": [
+      "game"
+    ],
+    "docParams": [
+      "this"
+    ]
+  },
+  {
+    "name": "drawTakeBall",
+    "filePath": "src/Animation.js",
+    "lines": [
+      {
+        "lineNumber": 960,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 961,
+        "line": "* This function is animation of batter decided take and it was a Ball"
+      },
+      {
+        "lineNumber": 962,
+        "line": "* @param {object} this is the object of the result of each action had been selected."
+      },
+      {
+        "lineNumber": 963,
+        "line": "*/"
+      },
+      {
+        "lineNumber": 964,
+        "line": "export function drawTakeBall(game)"
+      }
+    ],
+    "codeParams": [
+      "game"
+    ],
+    "docParams": [
+      "this"
+    ]
+  },
+  {
+    "name": "drawBatterSwingStrike",
+    "filePath": "src/Animation.js",
+    "lines": [
+      {
+        "lineNumber": 1013,
+        "line": "/**"
+      },
+      {
+        "lineNumber": 1014,
+        "line": "* This function is animation of strike when the pitcher pitch has been called"
+      },
+      {
+        "lineNumber": 1015,
+        "line": "* @param {object} this is the object of the result of each action had been selected."
+      },
+      {
+        "lineNumber": 1016,
+        "line": "*/"
+      },
+      {
+        "lineNumber": 1017,
+        "line": "function drawBatterSwingStrike()"
+      }
+    ],
+    "codeParams": [],
+    "docParams": [
+      "this"
+    ]
+  }
+]

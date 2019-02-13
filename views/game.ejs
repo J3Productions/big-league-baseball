@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Big League Baseball</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Anton|Roboto" rel="stylesheet">
+	<link rel="stylesheet" href="/main.css">
+</head>
+<body>
+		<canvas id="batterView" style="border:1px solid #d3d3d3;">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+		<canvas id="BatterWaitting">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+		<canvas id="PitcherWait">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+		<canvas id="BatterHit">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+		<canvas id="PitcherPitch">
+            Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+		<canvas id="Ball">
+             Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+		<canvas id="AboveView">
+             Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+		<canvas id="FirstBaseView">
+             Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+		<canvas id="SecondBaseView">
+             Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+		<canvas id="ThirdBaseView">
+             Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+		<canvas id="HomeBaseView">
+             Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+		<canvas id="SwSideView">
+             Your browser does not support the HTML5 canvas tag.
+        </canvas>
+
+        <img id="BallShaping" src="./assets/Ball_css_sprites.png" style="display: none;">
+		<img id="PitcherPitching" src="./assets/RedTeam_Pitcher_Pitch_css_sprites.png" style="display: none;">
+		<img id="BluePitcherPitching" src="./assets/BlueTeam_Pitcher_Pitch_css_sprites.png" style="display: none;">
+		<img id="BatterHitting" src="./assets/Batter_Left_Hit_css_sprites.png" style="display: none;">
+	    <img id="RedBatterHitting" src="./assets/RedTeam_Batter_Left_Hit_css_sprites.png" style="display: none;">
+		<img id="viewPic" src="./assets/RedTeam_BackGround_css_sprites.png" style="display: none;">
+		<img id="viewPic2" src="./assets/BlueTeam_BackGround_css_sprites.png" style="display: none;">
+		<img id="BatterWait" src="./assets/BatterWaitting_css_sprites.png" style="display: none;">
+		<img id="RedBatterWait" src="./assets/RedBatterWaitting_css_sprites.png" style="display: none;">
+		<img id="PitcherWaiting" src="./assets/RedTeam_Pitcher_Waiting_css_sprites.png" style="display: none;">
+		<img id="BluePitcherWaiting" src="./assets/BlueTeam_Pitcher_Waiting_css_sprites.png" style="display: none;">
+		<img id="AboveViewField" src="./assets/field_css_sprites.png" style="display: none;">
+		<img id="FirstBase" src="./assets/frist_base_css_sprites.png" style="display: none;">
+		<img id="SecondBase" src="./assets/second_base_css_sprites.png" style="display: none;">
+		<img id="ThirdBase" src="./assets/third_base_css_sprites.png" style="display: none;">
+		<img id="HomeBase" src="./assets/home_base_css_sprites.png" style="display: none;">
+		<img id="SwitchSide" src="./assets/Switch_Side_css_sprites.png" style="display: none;">
+
+<div class="split left split-vertical">
+	<div class="gameArea"></div>
+	<footer>
+		<div class="gridContainer" id="hitterMenu" style="display: none">
+			<div class="messageHeader">What will the hitter do?</div>
+			<div>
+				Swing expecting:<br>
+				<button id="ssSwing">Slowball Straight</button><br>
+				<button id="shSwing">Slowball High</button><br>
+				<button id="slSwing">Slowball Low</button><br>
+				<button id="siSwing">Slowball Inside</button><br>
+			</div>
+			<div>
+				&nbsp;<br>
+				<button id="fsSwing">Fastball Straight</button><br>
+				<button id="fhSwing">Fastball High</button><br>
+				<button id="flSwing">Fastball Low</button><br>
+				<button id="fiSwing">Fastball Inside</button><br>
+			</div>
+			<div>
+				&nbsp;<br>
+				<button id="coSwing">Curveball Outside</button><br>
+				<button id="chSwing">Curveball High</button><br>
+				<button id="clSwing">Curveball Low</button><br>
+				<button id="ciSwing">Curveball Inside</button><br>
+			</div>
+			<div>
+				Or take:<br>
+				<button id="takeSwing">Take Pitch</button><br>
+			</div>
+		</div>
+		<div class="gridContainer" id="pitcherMenu" style="display: none">
+			<div class="messageHeader">What will the pitcher do?</div>
+			<div>
+				Throw:<br>
+				<button id="ssPitch">Slowball Straight</button><br>
+				<button id="shPitch">Slowball High</button><br>
+				<button id="slPitch">Slowball Low</button><br>
+				<button id="siPitch">Slowball Inside</button><br>
+			</div>
+			<div>
+				&nbsp;<br>
+				<button id="fsPitch">Fastball Straight</button><br>
+				<button id="fhPitch">Fastball High</button><br>
+				<button id="flPitch">Fastball Low</button><br>
+				<button id="fiPitch">Fastball Inside</button><br>
+			</div>
+			<div>
+				&nbsp;<br>
+				<button id="coPitch">Curveball Outside</button><br>
+				<button id="chPitch">Curveball High</button><br>
+				<button id="clPitch">Curveball Low</button><br>
+				<button id="ciPitch">Curveball Inside</button><br>
+			</div>
+		</div>
+		<div class="gridContainer" id="gameLog" style="display: grid">
+			Status messages go here
+		</div>
+	</footer>
+</div>
+<div class="split right">
+	<div class="gridContainer" id="scoreGrid">
+		<div class="gridItem">Away</div>
+			<div class="score gridItem" id="score">0-0</div>
+		<div class="gridItem">Home</div>
+	</div>
+	<div class="gridContainer">
+		<table style="width: 100%">
+			<tr>
+				<th></th>
+				<th>1</th>
+				<th>2</th>
+				<th>3</th>
+				<th>4</th>
+				<th>5</th>
+				<th>6</th>
+				<th>7</th>
+				<th>8</th>
+				<th>9</th>
+				<th>R</th>
+			</tr>
+			<tr>
+				<th>Away</th>
+				<td id="a1">0</td>
+				<td id="a2">0</td>
+				<td id="a3">0</td>
+				<td id="a4">0</td>
+				<td id="a5">0</td>
+				<td id="a6">0</td>
+				<td id="a7">0</td>
+				<td id="a8">0</td>
+				<td id="a9">0</td>
+				<td id="ar">0</td>
+			</tr>
+			<tr>
+				<th>Home</th>
+				<td id="h1">0</td>
+				<td id="h2">0</td>
+				<td id="h3">0</td>
+				<td id="h4">0</td>
+				<td id="h5">0</td>
+				<td id="h6">0</td>
+				<td id="h7">0</td>
+				<td id="h8">0</td>
+				<td id="h9">0</td>
+				<td id="hr">0</td>
+			</tr>
+		</table>
+	</div>
+	<div class="gridContainer" id="scoreGrid">
+		<div class="gridItem" id="inning">
+			&#9650; 1
+		</div>
+		<p class="gridItem" id="count">
+			0-0<br>
+			0 Out
+		</p>
+		<div class="gridItem" id="bases">
+			<svg width="100%" height="100%">
+				<rect
+						id="firstBase"
+						width="33.277573"
+						height="33.277573"
+						x="-1.696068"
+						y="79.455223"
+						style="fill:#ebdc00;fill-opacity:0;stroke:#ffffff;stroke-width:1.46901;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+						transform="rotate(-45)" />
+				<rect
+						id="thirdBase"
+						width="33.277573"
+						height="33.277573"
+						x="-40.093128"
+						y="41.058174"
+						style="fill:#ebdc00;fill-opacity:0;stroke:#ffffff;stroke-width:1.46901;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+						transform="rotate(-45)" />
+				<rect
+						id="secondBase"
+						width="33.277573"
+						height="33.277573"
+						x="-1.4734662"
+						y="41.058174"
+						style="fill:#ebdc00;fill-opacity:0;stroke:#ffffff;stroke-width:1.46901;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1"
+						transform="rotate(-45)" />
+			</svg>
+		</div>
+	</div>
+	<div class="gridContainer" id="currentHitter">
+		At Bat:<br>
+		Player Name - Position<br>
+		Strengths: Pitches
+	</div>
+	<br>
+	<div class="gridContainer" id="currentPitcher">
+		Pitching:<br>
+		Player Name - Position<br>
+		Throws: Pitches
+	</div>
+
+
+	<audio id="c0" src="./soundFx/crowd/chatter1Loop.mp3" ></audio>
+	<audio id="c1" src="./soundFx/crowd/clap1.mp3"></audio>
+	<audio id="c2" src="./soundFx/crowd/clapChant.mp3"></audio>
+
+	<audio id="o1" src="./soundFx/organMusic/organ1.mp3"></audio>
+	<audio id="o2" src="./soundFx/organMusic/organ2.mp3"></audio>
+	<audio id="o3" src="./soundFx/organMusic/organGo.mp3"></audio>
+	<audio id="o4" src="./soundFx/organMusic/organLetsGo.mp3"></audio>
+	<audio id="7th" src="./soundFx/organMusic/7thInningMusic.mp3"></audio>
+
+	<audio id="uPlayBall" src="./soundFx/Umpire/playBall.mp3"></audio>
+	<audio id="uStrike" src="./soundFx/Umpire/strike.mp3"></audio>
+	<audio id="uOut" src="./soundFx/Umpire/you'reOut.mp3"></audio>
+
+	<audio id="hBall" src="./soundFx/homeHit/hBall.mp3"></audio>
+	<audio id="hFoul" src="./soundFx/homeHit/hFoul.mp3"></audio>
+	<audio id="hB1" src="./soundFx/homeHit/hBaseHit.mp3"></audio>
+	<audio id="hB2" src="./soundFx/homeHit/hDouble.mp3"></audio>
+	<audio id="hB3" src="./soundFx/homeHit/hTriple.mp3"></audio>
+	<audio id="hHomeRun" src="./soundFx/homeHit/hHomeRun.mp3"></audio>
+	<audio id="hHitOut" src="./soundFx/homeHit/hHitOut.mp3"></audio>
+	<audio id="hSwingStrike" src="./soundFx/homeHit/hSwingStrike.mp3"></audio>
+	<audio id="hTakeStrike" src="./soundFx/homeHit/hTakeStrike.mp3"></audio>
+
+	<audio id="vBall" src="./soundFx/visitorHit/vBall.mp3"></audio>
+	<audio id="vFoul" src="./soundFx/visitorHit/vFoul.mp3"></audio>
+	<audio id="vB1" src="./soundFx/visitorHit/vBaseHit.mp3"></audio>
+	<audio id="vB1Out" src="./soundFx/visitorHit/vBaseHitOut.mp3"></audio>
+	<audio id="vB2Out" src="./soundFx/visitorHit/vDoubleOut.mp3"></audio>
+	<audio id="vB3Out" src="./soundFx/visitorHit/vTripleOut.mp3"></audio>
+	<audio id="vHomeRun" src="./soundFx/visitorHit/vHomeRun.mp3"></audio>
+	<audio id="vSwingStrike" src="./soundFx/visitorHit/vSwingStrike.mp3"></audio>
+	<audio id="vTakeStrike" src="./soundFx/visitorHit/vTakeStrike.mp3"></audio>
+
+</div>
+
+<script src="/main.js" type="module"></script>
+<script type="module">
+
+	import {startGame, ssPit, shPit, slPit, siPit, fsPit, fhPit, flPit, fiPit, coPit, chPit, clPit, ciPit, ssHit, shHit, slHit, siHit, fsHit, fhHit, flHit, fiHit, coHit, chHit, clHit, ciHit, take} from "./main.js";
+	startGame("<%= location %>");
+
+	import { BatterWaitOnload, PitcherWaitOnload } from "./Animation.js";
+	window.addEventListener("load", BatterWaitOnload);
+    window.addEventListener("load", PitcherWaitOnload);
+
+	document.getElementById("ssPitch").addEventListener("click", ssPit);
+	document.getElementById("shPitch").addEventListener("click", shPit);
+	document.getElementById("slPitch").addEventListener("click", slPit);
+	document.getElementById("siPitch").addEventListener("click", siPit);
+	document.getElementById("fsPitch").addEventListener("click", fsPit);
+	document.getElementById("fhPitch").addEventListener("click", fhPit);
+	document.getElementById("flPitch").addEventListener("click", flPit);
+	document.getElementById("fiPitch").addEventListener("click", fiPit);
+	document.getElementById("coPitch").addEventListener("click", coPit);
+	document.getElementById("chPitch").addEventListener("click", chPit);
+	document.getElementById("clPitch").addEventListener("click", clPit);
+	document.getElementById("ciPitch").addEventListener("click", ciPit);
+	document.getElementById("ssSwing").addEventListener("click", ssHit);
+	document.getElementById("shSwing").addEventListener("click", shHit);
+	document.getElementById("slSwing").addEventListener("click", slHit);
+	document.getElementById("siSwing").addEventListener("click", siHit);
+	document.getElementById("fsSwing").addEventListener("click", fsHit);
+	document.getElementById("fhSwing").addEventListener("click", fhHit);
+	document.getElementById("flSwing").addEventListener("click", flHit);
+	document.getElementById("fiSwing").addEventListener("click", fiHit);
+	document.getElementById("coSwing").addEventListener("click", coHit);
+	document.getElementById("chSwing").addEventListener("click", chHit);
+	document.getElementById("clSwing").addEventListener("click", clHit);
+	document.getElementById("ciSwing").addEventListener("click", ciHit);
+	document.getElementById("takeSwing").addEventListener("click", take);
+
+</script>
+</body>
+</html>

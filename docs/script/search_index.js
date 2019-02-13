@@ -1,8 +1,92 @@
 window.esdocSearchIndex = [
   [
+    "big-league-baseball/src/animation.js~background",
+    "function/index.html#static-function-BackGround",
+    "<span>BackGround</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/animation.js~backgroundonload",
+    "function/index.html#static-function-BackGroundOnload",
+    "<span>BackGroundOnload</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/animation.js~ballbackonload",
+    "function/index.html#static-function-BallBackOnload",
+    "<span>BallBackOnload</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/animation.js~ballonload",
+    "function/index.html#static-function-BallOnload",
+    "<span>BallOnload</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/animation.js~basechangeonload",
+    "function/index.html#static-function-BaseChangeOnload",
+    "<span>BaseChangeOnload</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/animation.js~batterhitonload",
+    "function/index.html#static-function-BatterHitOnload",
+    "<span>BatterHitOnload</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/animation.js~batterswingoutonload",
+    "function/index.html#static-function-BatterSwingOutOnload",
+    "<span>BatterSwingOutOnload</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/animation.js~batterswingstrikeonload",
+    "function/index.html#static-function-BatterSwingStrikeOnload",
+    "<span>BatterSwingStrikeOnload</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/animation.js~battertakeonload",
+    "function/index.html#static-function-BatterTakeOnload",
+    "<span>BatterTakeOnload</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/animation.js~batterwaitonload",
+    "function/index.html#static-function-BatterWaitOnload",
+    "<span>BatterWaitOnload</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/catcher.js~catcher",
+    "class/src/Catcher.js~Catcher.html",
+    "<span>Catcher</span> <span class=\"search-result-import-path\">big-league-baseball/src/Catcher.js</span>",
+    "class"
+  ],
+  [
     "big-league-baseball/src/game.js~game",
     "class/src/Game.js~Game.html",
     "<span>Game</span> <span class=\"search-result-import-path\">big-league-baseball/src/Game.js</span>",
+    "class"
+  ],
+  [
+    "big-league-baseball/src/infielder.js~infielder",
+    "class/src/Infielder.js~Infielder.html",
+    "<span>Infielder</span> <span class=\"search-result-import-path\">big-league-baseball/src/Infielder.js</span>",
+    "class"
+  ],
+  [
+    "big-league-baseball/src/outfielder.js~outfielder",
+    "class/src/Outfielder.js~Outfielder.html",
+    "<span>Outfielder</span> <span class=\"search-result-import-path\">big-league-baseball/src/Outfielder.js</span>",
+    "class"
+  ],
+  [
+    "big-league-baseball/src/pinchhitter.js~pinchhitter",
+    "class/src/PinchHitter.js~PinchHitter.html",
+    "<span>PinchHitter</span> <span class=\"search-result-import-path\">big-league-baseball/src/PinchHitter.js</span>",
     "class"
   ],
   [
@@ -10,6 +94,18 @@ window.esdocSearchIndex = [
     "class/src/Pitcher.js~Pitcher.html",
     "<span>Pitcher</span> <span class=\"search-result-import-path\">big-league-baseball/src/Pitcher.js</span>",
     "class"
+  ],
+  [
+    "big-league-baseball/src/animation.js~pitcherpitchonload",
+    "function/index.html#static-function-PitcherPitchOnload",
+    "<span>PitcherPitchOnload</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/animation.js~pitcherwaitonload",
+    "function/index.html#static-function-PitcherWaitOnload",
+    "<span>PitcherWaitOnload</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
   ],
   [
     "big-league-baseball/src/player.js~player",
@@ -22,6 +118,264 @@ window.esdocSearchIndex = [
     "class/src/PositionPlayer.js~PositionPlayer.html",
     "<span>PositionPlayer</span> <span class=\"search-result-import-path\">big-league-baseball/src/PositionPlayer.js</span>",
     "class"
+  ],
+  [
+    "big-league-baseball/src/reliefpitcher.js~reliefpitcher",
+    "class/src/ReliefPitcher.js~ReliefPitcher.html",
+    "<span>ReliefPitcher</span> <span class=\"search-result-import-path\">big-league-baseball/src/ReliefPitcher.js</span>",
+    "class"
+  ],
+  [
+    "big-league-baseball/src/animation.js~switchside",
+    "function/index.html#static-function-SwitchSide",
+    "<span>SwitchSide</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/animation.js~switchsideonload",
+    "function/index.html#static-function-SwitchSideOnload",
+    "<span>SwitchSideOnload</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/team.js~team",
+    "class/src/Team.js~Team.html",
+    "<span>Team</span> <span class=\"search-result-import-path\">big-league-baseball/src/Team.js</span>",
+    "class"
+  ],
+  [
+    "big-league-baseball/src/utilityinfielder.js~utilityinfielder",
+    "class/src/UtilityInfielder.js~UtilityInfielder.html",
+    "<span>UtilityInfielder</span> <span class=\"search-result-import-path\">big-league-baseball/src/UtilityInfielder.js</span>",
+    "class"
+  ],
+  [
+    "big-league-baseball/src/utilityoutfielder.js~utilityoutfielder",
+    "class/src/UtilityOutfielder.js~UtilityOutfielder.html",
+    "<span>UtilityOutfielder</span> <span class=\"search-result-import-path\">big-league-baseball/src/UtilityOutfielder.js</span>",
+    "class"
+  ],
+  [
+    "big-league-baseball/src/animation.js~battersound",
+    "function/index.html#static-function-batterSound",
+    "<span>batterSound</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~chhit",
+    "function/index.html#static-function-chHit",
+    "<span>chHit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~chpit",
+    "function/index.html#static-function-chPit",
+    "<span>chPit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~cihit",
+    "function/index.html#static-function-ciHit",
+    "<span>ciHit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~cipit",
+    "function/index.html#static-function-ciPit",
+    "<span>ciPit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~clhit",
+    "function/index.html#static-function-clHit",
+    "<span>clHit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~clpit",
+    "function/index.html#static-function-clPit",
+    "<span>clPit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~cohit",
+    "function/index.html#static-function-coHit",
+    "<span>coHit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~copit",
+    "function/index.html#static-function-coPit",
+    "<span>coPit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/animation.js~drawpitchhit",
+    "function/index.html#static-function-drawPitchHit",
+    "<span>drawPitchHit</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/animation.js~drawswingout",
+    "function/index.html#static-function-drawSwingOut",
+    "<span>drawSwingOut</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/animation.js~drawswingstrike",
+    "function/index.html#static-function-drawSwingStrike",
+    "<span>drawSwingStrike</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/animation.js~drawtakeball",
+    "function/index.html#static-function-drawTakeBall",
+    "<span>drawTakeBall</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~fhhit",
+    "function/index.html#static-function-fhHit",
+    "<span>fhHit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~fhpit",
+    "function/index.html#static-function-fhPit",
+    "<span>fhPit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~fihit",
+    "function/index.html#static-function-fiHit",
+    "<span>fiHit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~fipit",
+    "function/index.html#static-function-fiPit",
+    "<span>fiPit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~flhit",
+    "function/index.html#static-function-flHit",
+    "<span>flHit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~flpit",
+    "function/index.html#static-function-flPit",
+    "<span>flPit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~fshit",
+    "function/index.html#static-function-fsHit",
+    "<span>fsHit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~fspit",
+    "function/index.html#static-function-fsPit",
+    "<span>fsPit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~initbatter",
+    "function/index.html#static-function-initBatter",
+    "<span>initBatter</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~initselectteam",
+    "function/index.html#static-function-initSelectTeam",
+    "<span>initSelectTeam</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~initstartpage",
+    "function/index.html#static-function-initStartPage",
+    "<span>initStartPage</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/testsuite.js~runtests",
+    "function/index.html#static-function-runTests",
+    "<span>runTests</span> <span class=\"search-result-import-path\">big-league-baseball/src/testSuite.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~seefiled",
+    "function/index.html#static-function-seeFiled",
+    "<span>seeFiled</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~shhit",
+    "function/index.html#static-function-shHit",
+    "<span>shHit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~shpit",
+    "function/index.html#static-function-shPit",
+    "<span>shPit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~sihit",
+    "function/index.html#static-function-siHit",
+    "<span>siHit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~sipit",
+    "function/index.html#static-function-siPit",
+    "<span>siPit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~slhit",
+    "function/index.html#static-function-slHit",
+    "<span>slHit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~slpit",
+    "function/index.html#static-function-slPit",
+    "<span>slPit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~sshit",
+    "function/index.html#static-function-ssHit",
+    "<span>ssHit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~sspit",
+    "function/index.html#static-function-ssPit",
+    "<span>ssPit</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~startgame",
+    "function/index.html#static-function-startGame",
+    "<span>startGame</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/animation.js~strikebackonload",
+    "function/index.html#static-function-strikeBackOnload",
+    "<span>strikeBackOnload</span> <span class=\"search-result-import-path\">big-league-baseball/src/Animation.js</span>",
+    "function"
+  ],
+  [
+    "big-league-baseball/src/main.js~take",
+    "function/index.html#static-function-take",
+    "<span>take</span> <span class=\"search-result-import-path\">big-league-baseball/src/main.js</span>",
+    "function"
   ],
   [
     "src/.external-ecmascript.js~array",
@@ -306,6 +660,24 @@ window.esdocSearchIndex = [
     "external"
   ],
   [
+    "src/animation.js",
+    "file/src/Animation.js.html",
+    "src/Animation.js",
+    "file"
+  ],
+  [
+    "src/catcher.js",
+    "file/src/Catcher.js.html",
+    "src/Catcher.js",
+    "file"
+  ],
+  [
+    "src/catcher.js~catcher#constructor",
+    "class/src/Catcher.js~Catcher.html#instance-constructor-constructor",
+    "src/Catcher.js~Catcher#constructor",
+    "method"
+  ],
+  [
     "src/game.js",
     "file/src/Game.js.html",
     "src/Game.js",
@@ -324,16 +696,10 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/game.js~game#blueab",
-    "class/src/Game.js~Game.html#instance-member-blueAB",
-    "src/Game.js~Game#blueAB",
-    "member"
-  ],
-  [
-    "src/game.js~game#blueteam",
-    "class/src/Game.js~Game.html#instance-member-blueTeam",
-    "src/Game.js~Game#blueTeam",
-    "member"
+    "src/game.js~game#calledstrike",
+    "class/src/Game.js~Game.html#instance-method-calledStrike",
+    "src/Game.js~Game#calledStrike",
+    "method"
   ],
   [
     "src/game.js~game#chpitch",
@@ -456,6 +822,12 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/game.js~game#gameover",
+    "class/src/Game.js~Game.html#instance-member-gameOver",
+    "src/Game.js~Game#gameOver",
+    "member"
+  ],
+  [
     "src/game.js~game#groundout",
     "class/src/Game.js~Game.html#instance-method-groundout",
     "src/Game.js~Game#groundout",
@@ -510,15 +882,63 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
+    "src/game.js~game#homeab",
+    "class/src/Game.js~Game.html#instance-member-homeAB",
+    "src/Game.js~Game#homeAB",
+    "member"
+  ],
+  [
     "src/game.js~game#homerun",
     "class/src/Game.js~Game.html#instance-method-homeRun",
     "src/Game.js~Game#homeRun",
     "method"
   ],
   [
+    "src/game.js~game#hometeam",
+    "class/src/Game.js~Game.html#instance-member-homeTeam",
+    "src/Game.js~Game#homeTeam",
+    "member"
+  ],
+  [
+    "src/game.js~game#inning",
+    "class/src/Game.js~Game.html#instance-member-inning",
+    "src/Game.js~Game#inning",
+    "member"
+  ],
+  [
+    "src/game.js~game#inningside",
+    "class/src/Game.js~Game.html#instance-member-inningSide",
+    "src/Game.js~Game#inningSide",
+    "member"
+  ],
+  [
+    "src/game.js~game#lastpitch",
+    "class/src/Game.js~Game.html#instance-member-lastPitch",
+    "src/Game.js~Game#lastPitch",
+    "member"
+  ],
+  [
     "src/game.js~game#lineoutdoubleplay",
     "class/src/Game.js~Game.html#instance-method-lineoutDoublePlay",
     "src/Game.js~Game#lineoutDoublePlay",
+    "method"
+  ],
+  [
+    "src/game.js~game#newab",
+    "class/src/Game.js~Game.html#instance-method-newAB",
+    "src/Game.js~Game#newAB",
+    "method"
+  ],
+  [
+    "src/game.js~game#newinning",
+    "class/src/Game.js~Game.html#instance-method-newInning",
+    "src/Game.js~Game#newInning",
+    "method"
+  ],
+  [
+    "src/game.js~game#out",
+    "class/src/Game.js~Game.html#instance-method-out",
+    "src/Game.js~Game#out",
     "method"
   ],
   [
@@ -528,9 +948,9 @@ window.esdocSearchIndex = [
     "member"
   ],
   [
-    "src/game.js~game#redab",
-    "class/src/Game.js~Game.html#instance-member-redAB",
-    "src/Game.js~Game#redAB",
+    "src/game.js~game#playerteam",
+    "class/src/Game.js~Game.html#instance-member-playerTeam",
+    "src/Game.js~Game#playerTeam",
     "member"
   ],
   [
@@ -582,16 +1002,22 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/game.js~game#strike",
-    "class/src/Game.js~Game.html#instance-method-strike",
-    "src/Game.js~Game#strike",
-    "method"
-  ],
-  [
     "src/game.js~game#strikes",
     "class/src/Game.js~Game.html#instance-member-strikes",
     "src/Game.js~Game#strikes",
     "member"
+  ],
+  [
+    "src/game.js~game#swingingstrike",
+    "class/src/Game.js~Game.html#instance-method-swingingStrike",
+    "src/Game.js~Game#swingingStrike",
+    "method"
+  ],
+  [
+    "src/game.js~game#teampointer",
+    "class/src/Game.js~Game.html#instance-method-teamPointer",
+    "src/Game.js~Game#teamPointer",
+    "method"
   ],
   [
     "src/game.js~game#third",
@@ -609,6 +1035,66 @@ window.esdocSearchIndex = [
     "src/game.js~game#tripleplay",
     "class/src/Game.js~Game.html#instance-method-triplePlay",
     "src/Game.js~Game#triplePlay",
+    "method"
+  ],
+  [
+    "src/game.js~game#visitab",
+    "class/src/Game.js~Game.html#instance-member-visitAB",
+    "src/Game.js~Game#visitAB",
+    "member"
+  ],
+  [
+    "src/game.js~game#visitteam",
+    "class/src/Game.js~Game.html#instance-member-visitTeam",
+    "src/Game.js~Game#visitTeam",
+    "member"
+  ],
+  [
+    "src/infielder.js",
+    "file/src/Infielder.js.html",
+    "src/Infielder.js",
+    "file"
+  ],
+  [
+    "src/infielder.js~infielder#constructor",
+    "class/src/Infielder.js~Infielder.html#instance-constructor-constructor",
+    "src/Infielder.js~Infielder#constructor",
+    "method"
+  ],
+  [
+    "src/outfielder.js",
+    "file/src/Outfielder.js.html",
+    "src/Outfielder.js",
+    "file"
+  ],
+  [
+    "src/outfielder.js~outfielder#constructor",
+    "class/src/Outfielder.js~Outfielder.html#instance-constructor-constructor",
+    "src/Outfielder.js~Outfielder#constructor",
+    "method"
+  ],
+  [
+    "src/pinchhitter.js",
+    "file/src/PinchHitter.js.html",
+    "src/PinchHitter.js",
+    "file"
+  ],
+  [
+    "src/pinchhitter.js~pinchhitter#batside",
+    "class/src/PinchHitter.js~PinchHitter.html#instance-member-batSide",
+    "src/PinchHitter.js~PinchHitter#batSide",
+    "member"
+  ],
+  [
+    "src/pinchhitter.js~pinchhitter#constructor",
+    "class/src/PinchHitter.js~PinchHitter.html#instance-constructor-constructor",
+    "src/PinchHitter.js~PinchHitter#constructor",
+    "method"
+  ],
+  [
+    "src/pinchhitter.js~pinchhitter#getbatside",
+    "class/src/PinchHitter.js~PinchHitter.html#instance-method-getBatSide",
+    "src/PinchHitter.js~PinchHitter#getBatSide",
     "method"
   ],
   [
@@ -636,15 +1122,15 @@ window.esdocSearchIndex = [
     "method"
   ],
   [
-    "src/pitcher.js~pitcher#getpitchertype",
-    "class/src/Pitcher.js~Pitcher.html#instance-method-getPitcherType",
-    "src/Pitcher.js~Pitcher#getPitcherType",
+    "src/pitcher.js~pitcher#getbatstrengths",
+    "class/src/Pitcher.js~Pitcher.html#instance-method-getBatStrengths",
+    "src/Pitcher.js~Pitcher#getBatStrengths",
     "method"
   ],
   [
-    "src/pitcher.js~pitcher#pitchertype",
-    "class/src/Pitcher.js~Pitcher.html#instance-member-pitcherType",
-    "src/Pitcher.js~Pitcher#pitcherType",
+    "src/pitcher.js~pitcher#pitchside",
+    "class/src/Pitcher.js~Pitcher.html#instance-member-pitchSide",
+    "src/Pitcher.js~Pitcher#pitchSide",
     "member"
   ],
   [
@@ -654,33 +1140,9 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
-    "src/player.js~player#basespeed",
-    "class/src/Player.js~Player.html#instance-member-baseSpeed",
-    "src/Player.js~Player#baseSpeed",
-    "member"
-  ],
-  [
-    "src/player.js~player#battstrengths",
-    "class/src/Player.js~Player.html#instance-member-battStrengths",
-    "src/Player.js~Player#battStrengths",
-    "member"
-  ],
-  [
     "src/player.js~player#constructor",
     "class/src/Player.js~Player.html#instance-constructor-constructor",
     "src/Player.js~Player#constructor",
-    "method"
-  ],
-  [
-    "src/player.js~player#getbasespeed",
-    "class/src/Player.js~Player.html#instance-method-getBaseSpeed",
-    "src/Player.js~Player#getBaseSpeed",
-    "method"
-  ],
-  [
-    "src/player.js~player#getbattstrengths",
-    "class/src/Player.js~Player.html#instance-method-getBattStrengths",
-    "src/Player.js~Player#getBattStrengths",
     "method"
   ],
   [
@@ -726,16 +1188,58 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/positionplayer.js~positionplayer#basespeed",
+    "class/src/PositionPlayer.js~PositionPlayer.html#instance-member-baseSpeed",
+    "src/PositionPlayer.js~PositionPlayer#baseSpeed",
+    "member"
+  ],
+  [
+    "src/positionplayer.js~positionplayer#batstrengths",
+    "class/src/PositionPlayer.js~PositionPlayer.html#instance-member-batStrengths",
+    "src/PositionPlayer.js~PositionPlayer#batStrengths",
+    "member"
+  ],
+  [
     "src/positionplayer.js~positionplayer#constructor",
     "class/src/PositionPlayer.js~PositionPlayer.html#instance-constructor-constructor",
     "src/PositionPlayer.js~PositionPlayer#constructor",
     "method"
   ],
   [
-    "src/positionplayer.js~positionplayer#positiontype",
-    "class/src/PositionPlayer.js~PositionPlayer.html#instance-member-positionType",
-    "src/PositionPlayer.js~PositionPlayer#positionType",
-    "member"
+    "src/positionplayer.js~positionplayer#getbasespeed",
+    "class/src/PositionPlayer.js~PositionPlayer.html#instance-method-getBaseSpeed",
+    "src/PositionPlayer.js~PositionPlayer#getBaseSpeed",
+    "method"
+  ],
+  [
+    "src/positionplayer.js~positionplayer#getbatstrengths",
+    "class/src/PositionPlayer.js~PositionPlayer.html#instance-method-getBatStrengths",
+    "src/PositionPlayer.js~PositionPlayer#getBatStrengths",
+    "method"
+  ],
+  [
+    "src/reliefpitcher.js",
+    "file/src/ReliefPitcher.js.html",
+    "src/ReliefPitcher.js",
+    "file"
+  ],
+  [
+    "src/reliefpitcher.js~reliefpitcher#constructor",
+    "class/src/ReliefPitcher.js~ReliefPitcher.html#instance-constructor-constructor",
+    "src/ReliefPitcher.js~ReliefPitcher#constructor",
+    "method"
+  ],
+  [
+    "src/reliefpitcher.js~reliefpitcher#getnuminningsleft",
+    "class/src/ReliefPitcher.js~ReliefPitcher.html#instance-method-getNumInningsLeft",
+    "src/ReliefPitcher.js~ReliefPitcher#getNumInningsLeft",
+    "method"
+  ],
+  [
+    "src/reliefpitcher.js~reliefpitcher#numinningsleft",
+    "class/src/ReliefPitcher.js~ReliefPitcher.html#instance-method-numInningsLeft",
+    "src/ReliefPitcher.js~ReliefPitcher#numInningsLeft",
+    "method"
   ],
   [
     "src/team.js",
@@ -744,9 +1248,93 @@ window.esdocSearchIndex = [
     "file"
   ],
   [
+    "src/team.js~team#arrofplayers",
+    "class/src/Team.js~Team.html#instance-member-arrOfPlayers",
+    "src/Team.js~Team#arrOfPlayers",
+    "member"
+  ],
+  [
+    "src/team.js~team#constructor",
+    "class/src/Team.js~Team.html#instance-constructor-constructor",
+    "src/Team.js~Team#constructor",
+    "method"
+  ],
+  [
+    "src/team.js~team#createplayers",
+    "class/src/Team.js~Team.html#instance-method-createPlayers",
+    "src/Team.js~Team#createPlayers",
+    "method"
+  ],
+  [
+    "src/team.js~team#getteam",
+    "class/src/Team.js~Team.html#instance-method-getTeam",
+    "src/Team.js~Team#getTeam",
+    "method"
+  ],
+  [
+    "src/team.js~team#lineup",
+    "class/src/Team.js~Team.html#instance-member-lineup",
+    "src/Team.js~Team#lineup",
+    "member"
+  ],
+  [
+    "src/team.js~team#pitcher",
+    "class/src/Team.js~Team.html#instance-member-pitcher",
+    "src/Team.js~Team#pitcher",
+    "member"
+  ],
+  [
+    "src/team.js~team#runs",
+    "class/src/Team.js~Team.html#instance-member-runs",
+    "src/Team.js~Team#runs",
+    "member"
+  ],
+  [
+    "src/team.js~team#score",
+    "class/src/Team.js~Team.html#instance-method-score",
+    "src/Team.js~Team#score",
+    "method"
+  ],
+  [
+    "src/team.js~team#team",
+    "class/src/Team.js~Team.html#instance-member-team",
+    "src/Team.js~Team#team",
+    "member"
+  ],
+  [
+    "src/utilityinfielder.js",
+    "file/src/UtilityInfielder.js.html",
+    "src/UtilityInfielder.js",
+    "file"
+  ],
+  [
+    "src/utilityinfielder.js~utilityinfielder#constructor",
+    "class/src/UtilityInfielder.js~UtilityInfielder.html#instance-constructor-constructor",
+    "src/UtilityInfielder.js~UtilityInfielder#constructor",
+    "method"
+  ],
+  [
+    "src/utilityoutfielder.js",
+    "file/src/UtilityOutfielder.js.html",
+    "src/UtilityOutfielder.js",
+    "file"
+  ],
+  [
+    "src/utilityoutfielder.js~utilityoutfielder#constructor",
+    "class/src/UtilityOutfielder.js~UtilityOutfielder.html#instance-constructor-constructor",
+    "src/UtilityOutfielder.js~UtilityOutfielder#constructor",
+    "method"
+  ],
+  [
     "src/main.js",
     "file/src/main.js.html",
     "src/main.js",
+    "file"
+  ],
+  [
+    "src/testsuite.js",
+    "file/src/testSuite.js.html",
+    "src/testSuite.js",
     "file"
   ]
 ]

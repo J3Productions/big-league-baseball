@@ -1,28 +1,28 @@
 {
   "type": "File",
   "start": 0,
-  "end": 1715,
+  "end": 1557,
   "loc": {
     "start": {
       "line": 1,
       "column": 0
     },
     "end": {
-      "line": 49,
+      "line": 47,
       "column": 0
     }
   },
   "program": {
     "type": "Program",
     "start": 0,
-    "end": 1715,
+    "end": 1557,
     "loc": {
       "start": {
         "line": 1,
         "column": 0
       },
       "end": {
-        "line": 49,
+        "line": 47,
         "column": 0
       }
     },
@@ -136,9 +136,9 @@
         "trailingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n * Pitcher class - stores information about name, position, batting strength, baserunning speed,whether they have been chosen on a team,pitcher type and pitching arsenal\n ",
+            "value": "*\n * Pitcher class - stores information about name,pitcher type, batting strength, baserunning speed,whether they have been chosen on a team and pitching arsenal\n ",
             "start": 84,
-            "end": 261,
+            "end": 251,
             "loc": {
               "start": {
                 "line": 6,
@@ -154,15 +154,15 @@
       },
       {
         "type": "ExportNamedDeclaration",
-        "start": 262,
-        "end": 1714,
+        "start": 252,
+        "end": 1556,
         "loc": {
           "start": {
             "line": 9,
             "column": 0
           },
           "end": {
-            "line": 48,
+            "line": 46,
             "column": 1
           }
         },
@@ -170,22 +170,22 @@
         "source": null,
         "declaration": {
           "type": "ClassDeclaration",
-          "start": 269,
-          "end": 1714,
+          "start": 259,
+          "end": 1556,
           "loc": {
             "start": {
               "line": 9,
               "column": 7
             },
             "end": {
-              "line": 48,
+              "line": 46,
               "column": 1
             }
           },
           "id": {
             "type": "Identifier",
-            "start": 275,
-            "end": 282,
+            "start": 265,
+            "end": 272,
             "loc": {
               "start": {
                 "line": 9,
@@ -202,8 +202,8 @@
           },
           "superClass": {
             "type": "Identifier",
-            "start": 291,
-            "end": 297,
+            "start": 281,
+            "end": 287,
             "loc": {
               "start": {
                 "line": 9,
@@ -219,30 +219,30 @@
           },
           "body": {
             "type": "ClassBody",
-            "start": 298,
-            "end": 1714,
+            "start": 288,
+            "end": 1556,
             "loc": {
               "start": {
                 "line": 9,
                 "column": 36
               },
               "end": {
-                "line": 48,
+                "line": 46,
                 "column": 1
               }
             },
             "body": [
               {
                 "type": "ClassMethod",
-                "start": 975,
-                "end": 1374,
+                "start": 931,
+                "end": 1242,
                 "loc": {
                   "start": {
                     "line": 17,
                     "column": 4
                   },
                   "end": {
-                    "line": 32,
+                    "line": 29,
                     "column": 5
                   }
                 },
@@ -250,8 +250,8 @@
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 975,
-                  "end": 986,
+                  "start": 931,
+                  "end": 942,
                   "loc": {
                     "start": {
                       "line": 17,
@@ -274,8 +274,8 @@
                 "params": [
                   {
                     "type": "Identifier",
-                    "start": 987,
-                    "end": 991,
+                    "start": 943,
+                    "end": 947,
                     "loc": {
                       "start": {
                         "line": 17,
@@ -291,8 +291,8 @@
                   },
                   {
                     "type": "Identifier",
-                    "start": 993,
-                    "end": 1001,
+                    "start": 949,
+                    "end": 957,
                     "loc": {
                       "start": {
                         "line": 17,
@@ -308,8 +308,8 @@
                   },
                   {
                     "type": "Identifier",
-                    "start": 1003,
-                    "end": 1016,
+                    "start": 959,
+                    "end": 971,
                     "loc": {
                       "start": {
                         "line": 17,
@@ -317,66 +317,83 @@
                       },
                       "end": {
                         "line": 17,
-                        "column": 45
+                        "column": 44
                       },
-                      "identifierName": "battStrengths"
+                      "identifierName": "batStrengths"
                     },
-                    "name": "battStrengths"
+                    "name": "batStrengths"
                   },
                   {
                     "type": "Identifier",
-                    "start": 1018,
-                    "end": 1025,
+                    "start": 973,
+                    "end": 982,
                     "loc": {
                       "start": {
                         "line": 17,
-                        "column": 47
+                        "column": 46
                       },
                       "end": {
                         "line": 17,
-                        "column": 54
+                        "column": 55
                       },
-                      "identifierName": "pitcher"
+                      "identifierName": "baseSpeed"
                     },
-                    "name": "pitcher"
+                    "name": "baseSpeed"
                   },
                   {
                     "type": "Identifier",
-                    "start": 1027,
-                    "end": 1034,
+                    "start": 984,
+                    "end": 991,
                     "loc": {
                       "start": {
                         "line": 17,
-                        "column": 56
+                        "column": 57
                       },
                       "end": {
                         "line": 17,
-                        "column": 63
+                        "column": 64
                       },
                       "identifierName": "pitches"
                     },
                     "name": "pitches"
+                  },
+                  {
+                    "type": "Identifier",
+                    "start": 993,
+                    "end": 1002,
+                    "loc": {
+                      "start": {
+                        "line": 17,
+                        "column": 66
+                      },
+                      "end": {
+                        "line": 17,
+                        "column": 75
+                      },
+                      "identifierName": "pitchSide"
+                    },
+                    "name": "pitchSide"
                   }
                 ],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 1035,
-                  "end": 1374,
+                  "start": 1003,
+                  "end": 1242,
                   "loc": {
                     "start": {
                       "line": 17,
-                      "column": 64
+                      "column": 76
                     },
                     "end": {
-                      "line": 32,
+                      "line": 29,
                       "column": 5
                     }
                   },
                   "body": [
                     {
                       "type": "ExpressionStatement",
-                      "start": 1101,
-                      "end": 1138,
+                      "start": 1069,
+                      "end": 1091,
                       "loc": {
                         "start": {
                           "line": 21,
@@ -384,13 +401,13 @@
                         },
                         "end": {
                           "line": 21,
-                          "column": 45
+                          "column": 30
                         }
                       },
                       "expression": {
                         "type": "CallExpression",
-                        "start": 1101,
-                        "end": 1137,
+                        "start": 1069,
+                        "end": 1090,
                         "loc": {
                           "start": {
                             "line": 21,
@@ -398,13 +415,13 @@
                           },
                           "end": {
                             "line": 21,
-                            "column": 44
+                            "column": 29
                           }
                         },
                         "callee": {
                           "type": "Super",
-                          "start": 1101,
-                          "end": 1106,
+                          "start": 1069,
+                          "end": 1074,
                           "loc": {
                             "start": {
                               "line": 21,
@@ -420,8 +437,8 @@
                         "arguments": [
                           {
                             "type": "Identifier",
-                            "start": 1107,
-                            "end": 1111,
+                            "start": 1075,
+                            "end": 1079,
                             "loc": {
                               "start": {
                                 "line": 21,
@@ -437,8 +454,8 @@
                           },
                           {
                             "type": "Identifier",
-                            "start": 1113,
-                            "end": 1121,
+                            "start": 1081,
+                            "end": 1089,
                             "loc": {
                               "start": {
                                 "line": 21,
@@ -451,23 +468,6 @@
                               "identifierName": "position"
                             },
                             "name": "position"
-                          },
-                          {
-                            "type": "Identifier",
-                            "start": 1123,
-                            "end": 1136,
-                            "loc": {
-                              "start": {
-                                "line": 21,
-                                "column": 30
-                              },
-                              "end": {
-                                "line": 21,
-                                "column": 43
-                              },
-                              "identifierName": "battStrengths"
-                            },
-                            "name": "battStrengths"
                           }
                         ],
                         "leadingComments": null
@@ -476,8 +476,8 @@
                         {
                           "type": "CommentBlock",
                           "value": "*\n        * @extends {PlayerClass}\n        ",
-                          "start": 1045,
-                          "end": 1092,
+                          "start": 1013,
+                          "end": 1060,
                           "loc": {
                             "start": {
                               "line": 18,
@@ -493,151 +493,16 @@
                       "trailingComments": [
                         {
                           "type": "CommentBlock",
-                          "value": "*\n\t\t* Pitcher is starter or reliever.\n     \t* @type {string}\n     \t",
-                          "start": 1147,
-                          "end": 1218,
-                          "loc": {
-                            "start": {
-                              "line": 22,
-                              "column": 8
-                            },
-                            "end": {
-                              "line": 25,
-                              "column": 8
-                            }
-                          }
-                        }
-                      ]
-                    },
-                    {
-                      "type": "ExpressionStatement",
-                      "start": 1227,
-                      "end": 1254,
-                      "loc": {
-                        "start": {
-                          "line": 26,
-                          "column": 8
-                        },
-                        "end": {
-                          "line": 26,
-                          "column": 35
-                        }
-                      },
-                      "expression": {
-                        "type": "AssignmentExpression",
-                        "start": 1227,
-                        "end": 1253,
-                        "loc": {
-                          "start": {
-                            "line": 26,
-                            "column": 8
-                          },
-                          "end": {
-                            "line": 26,
-                            "column": 34
-                          }
-                        },
-                        "operator": "=",
-                        "left": {
-                          "type": "MemberExpression",
-                          "start": 1227,
-                          "end": 1243,
-                          "loc": {
-                            "start": {
-                              "line": 26,
-                              "column": 8
-                            },
-                            "end": {
-                              "line": 26,
-                              "column": 24
-                            }
-                          },
-                          "object": {
-                            "type": "ThisExpression",
-                            "start": 1227,
-                            "end": 1231,
-                            "loc": {
-                              "start": {
-                                "line": 26,
-                                "column": 8
-                              },
-                              "end": {
-                                "line": 26,
-                                "column": 12
-                              }
-                            },
-                            "leadingComments": null
-                          },
-                          "property": {
-                            "type": "Identifier",
-                            "start": 1232,
-                            "end": 1243,
-                            "loc": {
-                              "start": {
-                                "line": 26,
-                                "column": 13
-                              },
-                              "end": {
-                                "line": 26,
-                                "column": 24
-                              },
-                              "identifierName": "pitcherType"
-                            },
-                            "name": "pitcherType"
-                          },
-                          "computed": false,
-                          "leadingComments": null
-                        },
-                        "right": {
-                          "type": "Identifier",
-                          "start": 1246,
-                          "end": 1253,
-                          "loc": {
-                            "start": {
-                              "line": 26,
-                              "column": 27
-                            },
-                            "end": {
-                              "line": 26,
-                              "column": 34
-                            },
-                            "identifierName": "pitcher"
-                          },
-                          "name": "pitcher"
-                        },
-                        "leadingComments": null
-                      },
-                      "leadingComments": [
-                        {
-                          "type": "CommentBlock",
-                          "value": "*\n\t\t* Pitcher is starter or reliever.\n     \t* @type {string}\n     \t",
-                          "start": 1147,
-                          "end": 1218,
-                          "loc": {
-                            "start": {
-                              "line": 22,
-                              "column": 8
-                            },
-                            "end": {
-                              "line": 25,
-                              "column": 8
-                            }
-                          }
-                        }
-                      ],
-                      "trailingComments": [
-                        {
-                          "type": "CommentBlock",
                           "value": "*\n\t\t* Pitches thrown by this picture.\n     \t* @type {string[]}\n     \t",
-                          "start": 1263,
-                          "end": 1336,
+                          "start": 1094,
+                          "end": 1167,
                           "loc": {
                             "start": {
-                              "line": 27,
-                              "column": 8
+                              "line": 22,
+                              "column": 2
                             },
                             "end": {
-                              "line": 30,
+                              "line": 25,
                               "column": 8
                             }
                           }
@@ -646,58 +511,58 @@
                     },
                     {
                       "type": "ExpressionStatement",
-                      "start": 1345,
-                      "end": 1368,
+                      "start": 1176,
+                      "end": 1199,
                       "loc": {
                         "start": {
-                          "line": 31,
+                          "line": 26,
                           "column": 8
                         },
                         "end": {
-                          "line": 31,
+                          "line": 26,
                           "column": 31
                         }
                       },
                       "expression": {
                         "type": "AssignmentExpression",
-                        "start": 1345,
-                        "end": 1367,
+                        "start": 1176,
+                        "end": 1198,
                         "loc": {
                           "start": {
-                            "line": 31,
+                            "line": 26,
                             "column": 8
                           },
                           "end": {
-                            "line": 31,
+                            "line": 26,
                             "column": 30
                           }
                         },
                         "operator": "=",
                         "left": {
                           "type": "MemberExpression",
-                          "start": 1345,
-                          "end": 1357,
+                          "start": 1176,
+                          "end": 1188,
                           "loc": {
                             "start": {
-                              "line": 31,
+                              "line": 26,
                               "column": 8
                             },
                             "end": {
-                              "line": 31,
+                              "line": 26,
                               "column": 20
                             }
                           },
                           "object": {
                             "type": "ThisExpression",
-                            "start": 1345,
-                            "end": 1349,
+                            "start": 1176,
+                            "end": 1180,
                             "loc": {
                               "start": {
-                                "line": 31,
+                                "line": 26,
                                 "column": 8
                               },
                               "end": {
-                                "line": 31,
+                                "line": 26,
                                 "column": 12
                               }
                             },
@@ -705,15 +570,15 @@
                           },
                           "property": {
                             "type": "Identifier",
-                            "start": 1350,
-                            "end": 1357,
+                            "start": 1181,
+                            "end": 1188,
                             "loc": {
                               "start": {
-                                "line": 31,
+                                "line": 26,
                                 "column": 13
                               },
                               "end": {
-                                "line": 31,
+                                "line": 26,
                                 "column": 20
                               },
                               "identifierName": "arsenal"
@@ -725,15 +590,15 @@
                         },
                         "right": {
                           "type": "Identifier",
-                          "start": 1360,
-                          "end": 1367,
+                          "start": 1191,
+                          "end": 1198,
                           "loc": {
                             "start": {
-                              "line": 31,
+                              "line": 26,
                               "column": 23
                             },
                             "end": {
-                              "line": 31,
+                              "line": 26,
                               "column": 30
                             },
                             "identifierName": "pitches"
@@ -746,20 +611,116 @@
                         {
                           "type": "CommentBlock",
                           "value": "*\n\t\t* Pitches thrown by this picture.\n     \t* @type {string[]}\n     \t",
-                          "start": 1263,
-                          "end": 1336,
+                          "start": 1094,
+                          "end": 1167,
                           "loc": {
                             "start": {
-                              "line": 27,
-                              "column": 8
+                              "line": 22,
+                              "column": 2
                             },
                             "end": {
-                              "line": 30,
+                              "line": 25,
                               "column": 8
                             }
                           }
                         }
                       ]
+                    },
+                    {
+                      "type": "ExpressionStatement",
+                      "start": 1209,
+                      "end": 1236,
+                      "loc": {
+                        "start": {
+                          "line": 28,
+                          "column": 8
+                        },
+                        "end": {
+                          "line": 28,
+                          "column": 35
+                        }
+                      },
+                      "expression": {
+                        "type": "AssignmentExpression",
+                        "start": 1209,
+                        "end": 1235,
+                        "loc": {
+                          "start": {
+                            "line": 28,
+                            "column": 8
+                          },
+                          "end": {
+                            "line": 28,
+                            "column": 34
+                          }
+                        },
+                        "operator": "=",
+                        "left": {
+                          "type": "MemberExpression",
+                          "start": 1209,
+                          "end": 1223,
+                          "loc": {
+                            "start": {
+                              "line": 28,
+                              "column": 8
+                            },
+                            "end": {
+                              "line": 28,
+                              "column": 22
+                            }
+                          },
+                          "object": {
+                            "type": "ThisExpression",
+                            "start": 1209,
+                            "end": 1213,
+                            "loc": {
+                              "start": {
+                                "line": 28,
+                                "column": 8
+                              },
+                              "end": {
+                                "line": 28,
+                                "column": 12
+                              }
+                            }
+                          },
+                          "property": {
+                            "type": "Identifier",
+                            "start": 1214,
+                            "end": 1223,
+                            "loc": {
+                              "start": {
+                                "line": 28,
+                                "column": 13
+                              },
+                              "end": {
+                                "line": 28,
+                                "column": 22
+                              },
+                              "identifierName": "pitchSide"
+                            },
+                            "name": "pitchSide"
+                          },
+                          "computed": false
+                        },
+                        "right": {
+                          "type": "Identifier",
+                          "start": 1226,
+                          "end": 1235,
+                          "loc": {
+                            "start": {
+                              "line": 28,
+                              "column": 25
+                            },
+                            "end": {
+                              "line": 28,
+                              "column": 34
+                            },
+                            "identifierName": "pitchSide"
+                          },
+                          "name": "pitchSide"
+                        }
+                      }
                     }
                   ],
                   "directives": [],
@@ -768,9 +729,9 @@
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\n    * Constructor creates a player that stores there name,position( pitcher or position player), hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also, type of pitcher they are, types of pitches they throw.\n    * POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values,  pitcher type and the pitcher arsenal all now have set values.\n        * @extends {PlayerClass}This class is a child of the player class.\n        * @param {string} pitcherType Type of pitcher.\n        * @param {array} arsenal The type of pitches the batter hits best.\n        ",
-                    "start": 304,
-                    "end": 970,
+                    "value": "*\n    * Constructor creates a player that stores there name,,pitcher type , hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also, type of pitcher they are, types of pitches they throw.\n    * POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values,  pitcher type and the pitcher arsenal all now have set values.\n        * @extends {PlayerClass}This class is a child of the player class.\n        * @param {string} position Type of pitcher.\n        * @param {string[]} arsenal The type of pitches he throws.\n        ",
+                    "start": 294,
+                    "end": 926,
                     "loc": {
                       "start": {
                         "line": 10,
@@ -786,192 +747,33 @@
                 "trailingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\n\t* Gets the type of pitcher they are \"starter or reliever\".\n\t* @return {string} pitcherType\n\t",
-                    "start": 1379,
-                    "end": 1478,
+                    "value": "*\n\t* Gets the baseball players pitches he throws.\n\t* @return {string[]} arsenal\n\t",
+                    "start": 1247,
+                    "end": 1332,
                     "loc": {
                       "start": {
+                        "line": 30,
+                        "column": 4
+                      },
+                      "end": {
                         "line": 33,
-                        "column": 4
-                      },
-                      "end": {
-                        "line": 36,
-                        "column": 3
-                      }
-                    }
-                  }
-                ]
-              },
-              {
-                "type": "ClassMethod",
-                "start": 1483,
-                "end": 1539,
-                "loc": {
-                  "start": {
-                    "line": 37,
-                    "column": 4
-                  },
-                  "end": {
-                    "line": 39,
-                    "column": 5
-                  }
-                },
-                "static": false,
-                "computed": false,
-                "key": {
-                  "type": "Identifier",
-                  "start": 1483,
-                  "end": 1497,
-                  "loc": {
-                    "start": {
-                      "line": 37,
-                      "column": 4
-                    },
-                    "end": {
-                      "line": 37,
-                      "column": 18
-                    },
-                    "identifierName": "getPitcherType"
-                  },
-                  "name": "getPitcherType",
-                  "leadingComments": null
-                },
-                "kind": "method",
-                "id": null,
-                "generator": false,
-                "expression": false,
-                "async": false,
-                "params": [],
-                "body": {
-                  "type": "BlockStatement",
-                  "start": 1499,
-                  "end": 1539,
-                  "loc": {
-                    "start": {
-                      "line": 37,
-                      "column": 20
-                    },
-                    "end": {
-                      "line": 39,
-                      "column": 5
-                    }
-                  },
-                  "body": [
-                    {
-                      "type": "ReturnStatement",
-                      "start": 1509,
-                      "end": 1533,
-                      "loc": {
-                        "start": {
-                          "line": 38,
-                          "column": 8
-                        },
-                        "end": {
-                          "line": 38,
-                          "column": 32
-                        }
-                      },
-                      "argument": {
-                        "type": "MemberExpression",
-                        "start": 1516,
-                        "end": 1532,
-                        "loc": {
-                          "start": {
-                            "line": 38,
-                            "column": 15
-                          },
-                          "end": {
-                            "line": 38,
-                            "column": 31
-                          }
-                        },
-                        "object": {
-                          "type": "ThisExpression",
-                          "start": 1516,
-                          "end": 1520,
-                          "loc": {
-                            "start": {
-                              "line": 38,
-                              "column": 15
-                            },
-                            "end": {
-                              "line": 38,
-                              "column": 19
-                            }
-                          }
-                        },
-                        "property": {
-                          "type": "Identifier",
-                          "start": 1521,
-                          "end": 1532,
-                          "loc": {
-                            "start": {
-                              "line": 38,
-                              "column": 20
-                            },
-                            "end": {
-                              "line": 38,
-                              "column": 31
-                            },
-                            "identifierName": "pitcherType"
-                          },
-                          "name": "pitcherType"
-                        },
-                        "computed": false
-                      }
-                    }
-                  ],
-                  "directives": [],
-                  "trailingComments": null
-                },
-                "leadingComments": [
-                  {
-                    "type": "CommentBlock",
-                    "value": "*\n\t* Gets the type of pitcher they are \"starter or reliever\".\n\t* @return {string} pitcherType\n\t",
-                    "start": 1379,
-                    "end": 1478,
-                    "loc": {
-                      "start": {
-                        "line": 33,
-                        "column": 4
-                      },
-                      "end": {
-                        "line": 36,
-                        "column": 3
-                      }
-                    }
-                  }
-                ],
-                "trailingComments": [
-                  {
-                    "type": "CommentBlock",
-                    "value": "*\n\t* Gets the baseball players name.\n\t* @return {array} arsenal\n\t",
-                    "start": 1544,
-                    "end": 1613,
-                    "loc": {
-                      "start": {
-                        "line": 40,
-                        "column": 4
-                      },
-                      "end": {
-                        "line": 43,
                         "column": 3
                       }
                     }
                   },
                   {
                     "type": "CommentLine",
-                    "value": "TODO//What do we want this class to do?",
-                    "start": 1618,
-                    "end": 1659,
+                    "value": "TODO",
+                    "start": 1337,
+                    "end": 1343,
                     "loc": {
                       "start": {
-                        "line": 44,
+                        "line": 34,
                         "column": 4
                       },
                       "end": {
-                        "line": 44,
-                        "column": 45
+                        "line": 34,
+                        "column": 10
                       }
                     }
                   }
@@ -979,15 +781,15 @@
               },
               {
                 "type": "ClassMethod",
-                "start": 1664,
-                "end": 1712,
+                "start": 1348,
+                "end": 1396,
                 "loc": {
                   "start": {
-                    "line": 45,
+                    "line": 35,
                     "column": 4
                   },
                   "end": {
-                    "line": 47,
+                    "line": 37,
                     "column": 5
                   }
                 },
@@ -995,15 +797,15 @@
                 "computed": false,
                 "key": {
                   "type": "Identifier",
-                  "start": 1664,
-                  "end": 1674,
+                  "start": 1348,
+                  "end": 1358,
                   "loc": {
                     "start": {
-                      "line": 45,
+                      "line": 35,
                       "column": 4
                     },
                     "end": {
-                      "line": 45,
+                      "line": 35,
                       "column": 14
                     },
                     "identifierName": "getArsenal"
@@ -1019,73 +821,73 @@
                 "params": [],
                 "body": {
                   "type": "BlockStatement",
-                  "start": 1676,
-                  "end": 1712,
+                  "start": 1360,
+                  "end": 1396,
                   "loc": {
                     "start": {
-                      "line": 45,
+                      "line": 35,
                       "column": 16
                     },
                     "end": {
-                      "line": 47,
+                      "line": 37,
                       "column": 5
                     }
                   },
                   "body": [
                     {
                       "type": "ReturnStatement",
-                      "start": 1686,
-                      "end": 1706,
+                      "start": 1370,
+                      "end": 1390,
                       "loc": {
                         "start": {
-                          "line": 46,
+                          "line": 36,
                           "column": 8
                         },
                         "end": {
-                          "line": 46,
+                          "line": 36,
                           "column": 28
                         }
                       },
                       "argument": {
                         "type": "MemberExpression",
-                        "start": 1693,
-                        "end": 1705,
+                        "start": 1377,
+                        "end": 1389,
                         "loc": {
                           "start": {
-                            "line": 46,
+                            "line": 36,
                             "column": 15
                           },
                           "end": {
-                            "line": 46,
+                            "line": 36,
                             "column": 27
                           }
                         },
                         "object": {
                           "type": "ThisExpression",
-                          "start": 1693,
-                          "end": 1697,
+                          "start": 1377,
+                          "end": 1381,
                           "loc": {
                             "start": {
-                              "line": 46,
+                              "line": 36,
                               "column": 15
                             },
                             "end": {
-                              "line": 46,
+                              "line": 36,
                               "column": 19
                             }
                           }
                         },
                         "property": {
                           "type": "Identifier",
-                          "start": 1698,
-                          "end": 1705,
+                          "start": 1382,
+                          "end": 1389,
                           "loc": {
                             "start": {
-                              "line": 46,
+                              "line": 36,
                               "column": 20
                             },
                             "end": {
-                              "line": 46,
+                              "line": 36,
                               "column": 27
                             },
                             "identifierName": "arsenal"
@@ -1096,38 +898,165 @@
                       }
                     }
                   ],
-                  "directives": []
+                  "directives": [],
+                  "trailingComments": null
                 },
                 "leadingComments": [
                   {
                     "type": "CommentBlock",
-                    "value": "*\n\t* Gets the baseball players name.\n\t* @return {array} arsenal\n\t",
-                    "start": 1544,
-                    "end": 1613,
+                    "value": "*\n\t* Gets the baseball players pitches he throws.\n\t* @return {string[]} arsenal\n\t",
+                    "start": 1247,
+                    "end": 1332,
                     "loc": {
                       "start": {
-                        "line": 40,
+                        "line": 30,
                         "column": 4
                       },
                       "end": {
-                        "line": 43,
+                        "line": 33,
                         "column": 3
                       }
                     }
                   },
                   {
                     "type": "CommentLine",
-                    "value": "TODO//What do we want this class to do?",
-                    "start": 1618,
-                    "end": 1659,
+                    "value": "TODO",
+                    "start": 1337,
+                    "end": 1343,
                     "loc": {
                       "start": {
-                        "line": 44,
+                        "line": 34,
                         "column": 4
                       },
                       "end": {
-                        "line": 44,
-                        "column": 45
+                        "line": 34,
+                        "column": 10
+                      }
+                    }
+                  }
+                ],
+                "trailingComments": [
+                  {
+                    "type": "CommentBlock",
+                    "value": "*\n\t * Gets the preferred pitches of the player (which, in a pitcher's case, is none)\n\t * @returns {Array}\n\t ",
+                    "start": 1399,
+                    "end": 1511,
+                    "loc": {
+                      "start": {
+                        "line": 39,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 42,
+                        "column": 4
+                      }
+                    }
+                  }
+                ]
+              },
+              {
+                "type": "ClassMethod",
+                "start": 1513,
+                "end": 1554,
+                "loc": {
+                  "start": {
+                    "line": 43,
+                    "column": 1
+                  },
+                  "end": {
+                    "line": 45,
+                    "column": 5
+                  }
+                },
+                "static": false,
+                "computed": false,
+                "key": {
+                  "type": "Identifier",
+                  "start": 1513,
+                  "end": 1528,
+                  "loc": {
+                    "start": {
+                      "line": 43,
+                      "column": 1
+                    },
+                    "end": {
+                      "line": 43,
+                      "column": 16
+                    },
+                    "identifierName": "getBatStrengths"
+                  },
+                  "name": "getBatStrengths",
+                  "leadingComments": null
+                },
+                "kind": "method",
+                "id": null,
+                "generator": false,
+                "expression": false,
+                "async": false,
+                "params": [],
+                "body": {
+                  "type": "BlockStatement",
+                  "start": 1531,
+                  "end": 1554,
+                  "loc": {
+                    "start": {
+                      "line": 43,
+                      "column": 19
+                    },
+                    "end": {
+                      "line": 45,
+                      "column": 5
+                    }
+                  },
+                  "body": [
+                    {
+                      "type": "ReturnStatement",
+                      "start": 1538,
+                      "end": 1548,
+                      "loc": {
+                        "start": {
+                          "line": 44,
+                          "column": 5
+                        },
+                        "end": {
+                          "line": 44,
+                          "column": 15
+                        }
+                      },
+                      "argument": {
+                        "type": "ArrayExpression",
+                        "start": 1545,
+                        "end": 1547,
+                        "loc": {
+                          "start": {
+                            "line": 44,
+                            "column": 12
+                          },
+                          "end": {
+                            "line": 44,
+                            "column": 14
+                          }
+                        },
+                        "elements": []
+                      }
+                    }
+                  ],
+                  "directives": []
+                },
+                "leadingComments": [
+                  {
+                    "type": "CommentBlock",
+                    "value": "*\n\t * Gets the preferred pitches of the player (which, in a pitcher's case, is none)\n\t * @returns {Array}\n\t ",
+                    "start": 1399,
+                    "end": 1511,
+                    "loc": {
+                      "start": {
+                        "line": 39,
+                        "column": 1
+                      },
+                      "end": {
+                        "line": 42,
+                        "column": 4
                       }
                     }
                   }
@@ -1138,9 +1067,9 @@
           "leadingComments": [
             {
               "type": "CommentBlock",
-              "value": "*\n * Pitcher class - stores information about name, position, batting strength, baserunning speed,whether they have been chosen on a team,pitcher type and pitching arsenal\n ",
+              "value": "*\n * Pitcher class - stores information about name,pitcher type, batting strength, baserunning speed,whether they have been chosen on a team and pitching arsenal\n ",
               "start": 84,
-              "end": 261,
+              "end": 251,
               "loc": {
                 "start": {
                   "line": 6,
@@ -1158,9 +1087,9 @@
         "leadingComments": [
           {
             "type": "CommentBlock",
-            "value": "*\n * Pitcher class - stores information about name, position, batting strength, baserunning speed,whether they have been chosen on a team,pitcher type and pitching arsenal\n ",
+            "value": "*\n * Pitcher class - stores information about name,pitcher type, batting strength, baserunning speed,whether they have been chosen on a team and pitching arsenal\n ",
             "start": 84,
-            "end": 261,
+            "end": 251,
             "loc": {
               "start": {
                 "line": 6,
@@ -1251,9 +1180,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n * Pitcher class - stores information about name, position, batting strength, baserunning speed,whether they have been chosen on a team,pitcher type and pitching arsenal\n ",
+      "value": "*\n * Pitcher class - stores information about name,pitcher type, batting strength, baserunning speed,whether they have been chosen on a team and pitching arsenal\n ",
       "start": 84,
-      "end": 261,
+      "end": 251,
       "loc": {
         "start": {
           "line": 6,
@@ -1267,9 +1196,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n    * Constructor creates a player that stores there name,position( pitcher or position player), hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also, type of pitcher they are, types of pitches they throw.\n    * POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values,  pitcher type and the pitcher arsenal all now have set values.\n        * @extends {PlayerClass}This class is a child of the player class.\n        * @param {string} pitcherType Type of pitcher.\n        * @param {array} arsenal The type of pitches the batter hits best.\n        ",
-      "start": 304,
-      "end": 970,
+      "value": "*\n    * Constructor creates a player that stores there name,,pitcher type , hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also, type of pitcher they are, types of pitches they throw.\n    * POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values,  pitcher type and the pitcher arsenal all now have set values.\n        * @extends {PlayerClass}This class is a child of the player class.\n        * @param {string} position Type of pitcher.\n        * @param {string[]} arsenal The type of pitches he throws.\n        ",
+      "start": 294,
+      "end": 926,
       "loc": {
         "start": {
           "line": 10,
@@ -1284,8 +1213,8 @@
     {
       "type": "CommentBlock",
       "value": "*\n        * @extends {PlayerClass}\n        ",
-      "start": 1045,
-      "end": 1092,
+      "start": 1013,
+      "end": 1060,
       "loc": {
         "start": {
           "line": 18,
@@ -1299,13 +1228,13 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n\t\t* Pitcher is starter or reliever.\n     \t* @type {string}\n     \t",
-      "start": 1147,
-      "end": 1218,
+      "value": "*\n\t\t* Pitches thrown by this picture.\n     \t* @type {string[]}\n     \t",
+      "start": 1094,
+      "end": 1167,
       "loc": {
         "start": {
           "line": 22,
-          "column": 8
+          "column": 2
         },
         "end": {
           "line": 25,
@@ -1315,65 +1244,49 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n\t\t* Pitches thrown by this picture.\n     \t* @type {string[]}\n     \t",
-      "start": 1263,
-      "end": 1336,
+      "value": "*\n\t* Gets the baseball players pitches he throws.\n\t* @return {string[]} arsenal\n\t",
+      "start": 1247,
+      "end": 1332,
       "loc": {
         "start": {
-          "line": 27,
-          "column": 8
-        },
-        "end": {
           "line": 30,
-          "column": 8
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "*\n\t* Gets the type of pitcher they are \"starter or reliever\".\n\t* @return {string} pitcherType\n\t",
-      "start": 1379,
-      "end": 1478,
-      "loc": {
-        "start": {
+          "column": 4
+        },
+        "end": {
           "line": 33,
-          "column": 4
-        },
-        "end": {
-          "line": 36,
-          "column": 3
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "*\n\t* Gets the baseball players name.\n\t* @return {array} arsenal\n\t",
-      "start": 1544,
-      "end": 1613,
-      "loc": {
-        "start": {
-          "line": 40,
-          "column": 4
-        },
-        "end": {
-          "line": 43,
           "column": 3
         }
       }
     },
     {
       "type": "CommentLine",
-      "value": "TODO//What do we want this class to do?",
-      "start": 1618,
-      "end": 1659,
+      "value": "TODO",
+      "start": 1337,
+      "end": 1343,
       "loc": {
         "start": {
-          "line": 44,
+          "line": 34,
           "column": 4
         },
         "end": {
-          "line": 44,
-          "column": 45
+          "line": 34,
+          "column": 10
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n\t * Gets the preferred pitches of the player (which, in a pitcher's case, is none)\n\t * @returns {Array}\n\t ",
+      "start": 1399,
+      "end": 1511,
+      "loc": {
+        "start": {
+          "line": 39,
+          "column": 1
+        },
+        "end": {
+          "line": 42,
+          "column": 4
         }
       }
     }
@@ -1633,9 +1546,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n * Pitcher class - stores information about name, position, batting strength, baserunning speed,whether they have been chosen on a team,pitcher type and pitching arsenal\n ",
+      "value": "*\n * Pitcher class - stores information about name,pitcher type, batting strength, baserunning speed,whether they have been chosen on a team and pitching arsenal\n ",
       "start": 84,
-      "end": 261,
+      "end": 251,
       "loc": {
         "start": {
           "line": 6,
@@ -1662,8 +1575,8 @@
         "updateContext": null
       },
       "value": "export",
-      "start": 262,
-      "end": 268,
+      "start": 252,
+      "end": 258,
       "loc": {
         "start": {
           "line": 9,
@@ -1690,8 +1603,8 @@
         "updateContext": null
       },
       "value": "class",
-      "start": 269,
-      "end": 274,
+      "start": 259,
+      "end": 264,
       "loc": {
         "start": {
           "line": 9,
@@ -1716,8 +1629,8 @@
         "binop": null
       },
       "value": "Pitcher",
-      "start": 275,
-      "end": 282,
+      "start": 265,
+      "end": 272,
       "loc": {
         "start": {
           "line": 9,
@@ -1744,8 +1657,8 @@
         "updateContext": null
       },
       "value": "extends",
-      "start": 283,
-      "end": 290,
+      "start": 273,
+      "end": 280,
       "loc": {
         "start": {
           "line": 9,
@@ -1770,8 +1683,8 @@
         "binop": null
       },
       "value": "Player",
-      "start": 291,
-      "end": 297,
+      "start": 281,
+      "end": 287,
       "loc": {
         "start": {
           "line": 9,
@@ -1795,8 +1708,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 298,
-      "end": 299,
+      "start": 288,
+      "end": 289,
       "loc": {
         "start": {
           "line": 9,
@@ -1810,9 +1723,9 @@
     },
     {
       "type": "CommentBlock",
-      "value": "*\n    * Constructor creates a player that stores there name,position( pitcher or position player), hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also, type of pitcher they are, types of pitches they throw.\n    * POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values,  pitcher type and the pitcher arsenal all now have set values.\n        * @extends {PlayerClass}This class is a child of the player class.\n        * @param {string} pitcherType Type of pitcher.\n        * @param {array} arsenal The type of pitches the batter hits best.\n        ",
-      "start": 304,
-      "end": 970,
+      "value": "*\n    * Constructor creates a player that stores there name,,pitcher type , hitting stats, baserunning speed and whether the player is on a team using functions inherited from the Player class. Also, type of pitcher they are, types of pitches they throw.\n    * POSTCONDITION: name, position, hitting stats, baserunning speed and inLineup all now have set values,  pitcher type and the pitcher arsenal all now have set values.\n        * @extends {PlayerClass}This class is a child of the player class.\n        * @param {string} position Type of pitcher.\n        * @param {string[]} arsenal The type of pitches he throws.\n        ",
+      "start": 294,
+      "end": 926,
       "loc": {
         "start": {
           "line": 10,
@@ -1837,8 +1750,8 @@
         "binop": null
       },
       "value": "constructor",
-      "start": 975,
-      "end": 986,
+      "start": 931,
+      "end": 942,
       "loc": {
         "start": {
           "line": 17,
@@ -1862,8 +1775,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 986,
-      "end": 987,
+      "start": 942,
+      "end": 943,
       "loc": {
         "start": {
           "line": 17,
@@ -1888,8 +1801,8 @@
         "binop": null
       },
       "value": "name",
-      "start": 987,
-      "end": 991,
+      "start": 943,
+      "end": 947,
       "loc": {
         "start": {
           "line": 17,
@@ -1914,8 +1827,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 991,
-      "end": 992,
+      "start": 947,
+      "end": 948,
       "loc": {
         "start": {
           "line": 17,
@@ -1940,8 +1853,8 @@
         "binop": null
       },
       "value": "position",
-      "start": 993,
-      "end": 1001,
+      "start": 949,
+      "end": 957,
       "loc": {
         "start": {
           "line": 17,
@@ -1966,8 +1879,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1001,
-      "end": 1002,
+      "start": 957,
+      "end": 958,
       "loc": {
         "start": {
           "line": 17,
@@ -1991,9 +1904,9 @@
         "postfix": false,
         "binop": null
       },
-      "value": "battStrengths",
-      "start": 1003,
-      "end": 1016,
+      "value": "batStrengths",
+      "start": 959,
+      "end": 971,
       "loc": {
         "start": {
           "line": 17,
@@ -2001,7 +1914,7 @@
         },
         "end": {
           "line": 17,
-          "column": 45
+          "column": 44
         }
       }
     },
@@ -2018,16 +1931,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1016,
-      "end": 1017,
+      "start": 971,
+      "end": 972,
       "loc": {
         "start": {
           "line": 17,
-          "column": 45
+          "column": 44
         },
         "end": {
           "line": 17,
-          "column": 46
+          "column": 45
         }
       }
     },
@@ -2043,17 +1956,17 @@
         "postfix": false,
         "binop": null
       },
-      "value": "pitcher",
-      "start": 1018,
-      "end": 1025,
+      "value": "baseSpeed",
+      "start": 973,
+      "end": 982,
       "loc": {
         "start": {
           "line": 17,
-          "column": 47
+          "column": 46
         },
         "end": {
           "line": 17,
-          "column": 54
+          "column": 55
         }
       }
     },
@@ -2070,16 +1983,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1025,
-      "end": 1026,
+      "start": 982,
+      "end": 983,
       "loc": {
         "start": {
           "line": 17,
-          "column": 54
+          "column": 55
         },
         "end": {
           "line": 17,
-          "column": 55
+          "column": 56
         }
       }
     },
@@ -2096,16 +2009,68 @@
         "binop": null
       },
       "value": "pitches",
-      "start": 1027,
-      "end": 1034,
+      "start": 984,
+      "end": 991,
       "loc": {
         "start": {
           "line": 17,
-          "column": 56
+          "column": 57
         },
         "end": {
           "line": 17,
-          "column": 63
+          "column": 64
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ",",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 991,
+      "end": 992,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 64
+        },
+        "end": {
+          "line": 17,
+          "column": 65
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "pitchSide",
+      "start": 993,
+      "end": 1002,
+      "loc": {
+        "start": {
+          "line": 17,
+          "column": 66
+        },
+        "end": {
+          "line": 17,
+          "column": 75
         }
       }
     },
@@ -2121,16 +2086,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1034,
-      "end": 1035,
+      "start": 1002,
+      "end": 1003,
       "loc": {
         "start": {
           "line": 17,
-          "column": 63
+          "column": 75
         },
         "end": {
           "line": 17,
-          "column": 64
+          "column": 76
         }
       }
     },
@@ -2146,24 +2111,24 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1035,
-      "end": 1036,
+      "start": 1003,
+      "end": 1004,
       "loc": {
         "start": {
           "line": 17,
-          "column": 64
+          "column": 76
         },
         "end": {
           "line": 17,
-          "column": 65
+          "column": 77
         }
       }
     },
     {
       "type": "CommentBlock",
       "value": "*\n        * @extends {PlayerClass}\n        ",
-      "start": 1045,
-      "end": 1092,
+      "start": 1013,
+      "end": 1060,
       "loc": {
         "start": {
           "line": 18,
@@ -2190,8 +2155,8 @@
         "updateContext": null
       },
       "value": "super",
-      "start": 1101,
-      "end": 1106,
+      "start": 1069,
+      "end": 1074,
       "loc": {
         "start": {
           "line": 21,
@@ -2215,8 +2180,8 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1106,
-      "end": 1107,
+      "start": 1074,
+      "end": 1075,
       "loc": {
         "start": {
           "line": 21,
@@ -2241,8 +2206,8 @@
         "binop": null
       },
       "value": "name",
-      "start": 1107,
-      "end": 1111,
+      "start": 1075,
+      "end": 1079,
       "loc": {
         "start": {
           "line": 21,
@@ -2267,8 +2232,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1111,
-      "end": 1112,
+      "start": 1079,
+      "end": 1080,
       "loc": {
         "start": {
           "line": 21,
@@ -2293,8 +2258,8 @@
         "binop": null
       },
       "value": "position",
-      "start": 1113,
-      "end": 1121,
+      "start": 1081,
+      "end": 1089,
       "loc": {
         "start": {
           "line": 21,
@@ -2303,58 +2268,6 @@
         "end": {
           "line": 21,
           "column": 28
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ",",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 1121,
-      "end": 1122,
-      "loc": {
-        "start": {
-          "line": 21,
-          "column": 28
-        },
-        "end": {
-          "line": 21,
-          "column": 29
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "battStrengths",
-      "start": 1123,
-      "end": 1136,
-      "loc": {
-        "start": {
-          "line": 21,
-          "column": 30
-        },
-        "end": {
-          "line": 21,
-          "column": 43
         }
       }
     },
@@ -2370,16 +2283,16 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1136,
-      "end": 1137,
+      "start": 1089,
+      "end": 1090,
       "loc": {
         "start": {
           "line": 21,
-          "column": 43
+          "column": 28
         },
         "end": {
           "line": 21,
-          "column": 44
+          "column": 29
         }
       }
     },
@@ -2396,28 +2309,28 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1137,
-      "end": 1138,
+      "start": 1090,
+      "end": 1091,
       "loc": {
         "start": {
           "line": 21,
-          "column": 44
+          "column": 29
         },
         "end": {
           "line": 21,
-          "column": 45
+          "column": 30
         }
       }
     },
     {
       "type": "CommentBlock",
-      "value": "*\n\t\t* Pitcher is starter or reliever.\n     \t* @type {string}\n     \t",
-      "start": 1147,
-      "end": 1218,
+      "value": "*\n\t\t* Pitches thrown by this picture.\n     \t* @type {string[]}\n     \t",
+      "start": 1094,
+      "end": 1167,
       "loc": {
         "start": {
           "line": 22,
-          "column": 8
+          "column": 2
         },
         "end": {
           "line": 25,
@@ -2440,8 +2353,8 @@
         "updateContext": null
       },
       "value": "this",
-      "start": 1227,
-      "end": 1231,
+      "start": 1176,
+      "end": 1180,
       "loc": {
         "start": {
           "line": 26,
@@ -2466,8 +2379,8 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1231,
-      "end": 1232,
+      "start": 1180,
+      "end": 1181,
       "loc": {
         "start": {
           "line": 26,
@@ -2475,181 +2388,6 @@
         },
         "end": {
           "line": 26,
-          "column": 13
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "pitcherType",
-      "start": 1232,
-      "end": 1243,
-      "loc": {
-        "start": {
-          "line": 26,
-          "column": 13
-        },
-        "end": {
-          "line": 26,
-          "column": 24
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "=",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": true,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "=",
-      "start": 1244,
-      "end": 1245,
-      "loc": {
-        "start": {
-          "line": 26,
-          "column": 25
-        },
-        "end": {
-          "line": 26,
-          "column": 26
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "pitcher",
-      "start": 1246,
-      "end": 1253,
-      "loc": {
-        "start": {
-          "line": 26,
-          "column": 27
-        },
-        "end": {
-          "line": 26,
-          "column": 34
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ";",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 1253,
-      "end": 1254,
-      "loc": {
-        "start": {
-          "line": 26,
-          "column": 34
-        },
-        "end": {
-          "line": 26,
-          "column": 35
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "*\n\t\t* Pitches thrown by this picture.\n     \t* @type {string[]}\n     \t",
-      "start": 1263,
-      "end": 1336,
-      "loc": {
-        "start": {
-          "line": 27,
-          "column": 8
-        },
-        "end": {
-          "line": 30,
-          "column": 8
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "this",
-        "keyword": "this",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "this",
-      "start": 1345,
-      "end": 1349,
-      "loc": {
-        "start": {
-          "line": 31,
-          "column": 8
-        },
-        "end": {
-          "line": 31,
-          "column": 12
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ".",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "start": 1349,
-      "end": 1350,
-      "loc": {
-        "start": {
-          "line": 31,
-          "column": 12
-        },
-        "end": {
-          "line": 31,
           "column": 13
         }
       }
@@ -2667,15 +2405,15 @@
         "binop": null
       },
       "value": "arsenal",
-      "start": 1350,
-      "end": 1357,
+      "start": 1181,
+      "end": 1188,
       "loc": {
         "start": {
-          "line": 31,
+          "line": 26,
           "column": 13
         },
         "end": {
-          "line": 31,
+          "line": 26,
           "column": 20
         }
       }
@@ -2694,15 +2432,15 @@
         "updateContext": null
       },
       "value": "=",
-      "start": 1358,
-      "end": 1359,
+      "start": 1189,
+      "end": 1190,
       "loc": {
         "start": {
-          "line": 31,
+          "line": 26,
           "column": 21
         },
         "end": {
-          "line": 31,
+          "line": 26,
           "column": 22
         }
       }
@@ -2720,15 +2458,15 @@
         "binop": null
       },
       "value": "pitches",
-      "start": 1360,
-      "end": 1367,
+      "start": 1191,
+      "end": 1198,
       "loc": {
         "start": {
-          "line": 31,
+          "line": 26,
           "column": 23
         },
         "end": {
-          "line": 31,
+          "line": 26,
           "column": 30
         }
       }
@@ -2746,186 +2484,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1367,
-      "end": 1368,
+      "start": 1198,
+      "end": 1199,
       "loc": {
         "start": {
-          "line": 31,
+          "line": 26,
           "column": 30
         },
         "end": {
-          "line": 31,
+          "line": 26,
           "column": 31
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "}",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 1373,
-      "end": 1374,
-      "loc": {
-        "start": {
-          "line": 32,
-          "column": 4
-        },
-        "end": {
-          "line": 32,
-          "column": 5
-        }
-      }
-    },
-    {
-      "type": "CommentBlock",
-      "value": "*\n\t* Gets the type of pitcher they are \"starter or reliever\".\n\t* @return {string} pitcherType\n\t",
-      "start": 1379,
-      "end": 1478,
-      "loc": {
-        "start": {
-          "line": 33,
-          "column": 4
-        },
-        "end": {
-          "line": 36,
-          "column": 3
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "name",
-        "beforeExpr": false,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "value": "getPitcherType",
-      "start": 1483,
-      "end": 1497,
-      "loc": {
-        "start": {
-          "line": 37,
-          "column": 4
-        },
-        "end": {
-          "line": 37,
-          "column": 18
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "(",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 1497,
-      "end": 1498,
-      "loc": {
-        "start": {
-          "line": 37,
-          "column": 18
-        },
-        "end": {
-          "line": 37,
-          "column": 19
-        }
-      }
-    },
-    {
-      "type": {
-        "label": ")",
-        "beforeExpr": false,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 1498,
-      "end": 1499,
-      "loc": {
-        "start": {
-          "line": 37,
-          "column": 19
-        },
-        "end": {
-          "line": 37,
-          "column": 20
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "{",
-        "beforeExpr": true,
-        "startsExpr": true,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null
-      },
-      "start": 1499,
-      "end": 1500,
-      "loc": {
-        "start": {
-          "line": 37,
-          "column": 20
-        },
-        "end": {
-          "line": 37,
-          "column": 21
-        }
-      }
-    },
-    {
-      "type": {
-        "label": "return",
-        "keyword": "return",
-        "beforeExpr": true,
-        "startsExpr": false,
-        "rightAssociative": false,
-        "isLoop": false,
-        "isAssign": false,
-        "prefix": false,
-        "postfix": false,
-        "binop": null,
-        "updateContext": null
-      },
-      "value": "return",
-      "start": 1509,
-      "end": 1515,
-      "loc": {
-        "start": {
-          "line": 38,
-          "column": 8
-        },
-        "end": {
-          "line": 38,
-          "column": 14
         }
       }
     },
@@ -2944,16 +2512,16 @@
         "updateContext": null
       },
       "value": "this",
-      "start": 1516,
-      "end": 1520,
+      "start": 1209,
+      "end": 1213,
       "loc": {
         "start": {
-          "line": 38,
-          "column": 15
+          "line": 28,
+          "column": 8
         },
         "end": {
-          "line": 38,
-          "column": 19
+          "line": 28,
+          "column": 12
         }
       }
     },
@@ -2970,16 +2538,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1520,
-      "end": 1521,
+      "start": 1213,
+      "end": 1214,
       "loc": {
         "start": {
-          "line": 38,
-          "column": 19
+          "line": 28,
+          "column": 12
         },
         "end": {
-          "line": 38,
-          "column": 20
+          "line": 28,
+          "column": 13
         }
       }
     },
@@ -2995,17 +2563,70 @@
         "postfix": false,
         "binop": null
       },
-      "value": "pitcherType",
-      "start": 1521,
-      "end": 1532,
+      "value": "pitchSide",
+      "start": 1214,
+      "end": 1223,
       "loc": {
         "start": {
-          "line": 38,
-          "column": 20
+          "line": 28,
+          "column": 13
         },
         "end": {
-          "line": 38,
-          "column": 31
+          "line": 28,
+          "column": 22
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "=",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": true,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "=",
+      "start": 1224,
+      "end": 1225,
+      "loc": {
+        "start": {
+          "line": 28,
+          "column": 23
+        },
+        "end": {
+          "line": 28,
+          "column": 24
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "pitchSide",
+      "start": 1226,
+      "end": 1235,
+      "loc": {
+        "start": {
+          "line": 28,
+          "column": 25
+        },
+        "end": {
+          "line": 28,
+          "column": 34
         }
       }
     },
@@ -3022,16 +2643,16 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1532,
-      "end": 1533,
+      "start": 1235,
+      "end": 1236,
       "loc": {
         "start": {
-          "line": 38,
-          "column": 31
+          "line": 28,
+          "column": 34
         },
         "end": {
-          "line": 38,
-          "column": 32
+          "line": 28,
+          "column": 35
         }
       }
     },
@@ -3047,48 +2668,48 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1538,
-      "end": 1539,
+      "start": 1241,
+      "end": 1242,
       "loc": {
         "start": {
-          "line": 39,
+          "line": 29,
           "column": 4
         },
         "end": {
-          "line": 39,
+          "line": 29,
           "column": 5
         }
       }
     },
     {
       "type": "CommentBlock",
-      "value": "*\n\t* Gets the baseball players name.\n\t* @return {array} arsenal\n\t",
-      "start": 1544,
-      "end": 1613,
+      "value": "*\n\t* Gets the baseball players pitches he throws.\n\t* @return {string[]} arsenal\n\t",
+      "start": 1247,
+      "end": 1332,
       "loc": {
         "start": {
-          "line": 40,
+          "line": 30,
           "column": 4
         },
         "end": {
-          "line": 43,
+          "line": 33,
           "column": 3
         }
       }
     },
     {
       "type": "CommentLine",
-      "value": "TODO//What do we want this class to do?",
-      "start": 1618,
-      "end": 1659,
+      "value": "TODO",
+      "start": 1337,
+      "end": 1343,
       "loc": {
         "start": {
-          "line": 44,
+          "line": 34,
           "column": 4
         },
         "end": {
-          "line": 44,
-          "column": 45
+          "line": 34,
+          "column": 10
         }
       }
     },
@@ -3105,15 +2726,15 @@
         "binop": null
       },
       "value": "getArsenal",
-      "start": 1664,
-      "end": 1674,
+      "start": 1348,
+      "end": 1358,
       "loc": {
         "start": {
-          "line": 45,
+          "line": 35,
           "column": 4
         },
         "end": {
-          "line": 45,
+          "line": 35,
           "column": 14
         }
       }
@@ -3130,15 +2751,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1674,
-      "end": 1675,
+      "start": 1358,
+      "end": 1359,
       "loc": {
         "start": {
-          "line": 45,
+          "line": 35,
           "column": 14
         },
         "end": {
-          "line": 45,
+          "line": 35,
           "column": 15
         }
       }
@@ -3155,15 +2776,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1675,
-      "end": 1676,
+      "start": 1359,
+      "end": 1360,
       "loc": {
         "start": {
-          "line": 45,
+          "line": 35,
           "column": 15
         },
         "end": {
-          "line": 45,
+          "line": 35,
           "column": 16
         }
       }
@@ -3180,15 +2801,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1676,
-      "end": 1677,
+      "start": 1360,
+      "end": 1361,
       "loc": {
         "start": {
-          "line": 45,
+          "line": 35,
           "column": 16
         },
         "end": {
-          "line": 45,
+          "line": 35,
           "column": 17
         }
       }
@@ -3208,15 +2829,15 @@
         "updateContext": null
       },
       "value": "return",
-      "start": 1686,
-      "end": 1692,
+      "start": 1370,
+      "end": 1376,
       "loc": {
         "start": {
-          "line": 46,
+          "line": 36,
           "column": 8
         },
         "end": {
-          "line": 46,
+          "line": 36,
           "column": 14
         }
       }
@@ -3236,15 +2857,15 @@
         "updateContext": null
       },
       "value": "this",
-      "start": 1693,
-      "end": 1697,
+      "start": 1377,
+      "end": 1381,
       "loc": {
         "start": {
-          "line": 46,
+          "line": 36,
           "column": 15
         },
         "end": {
-          "line": 46,
+          "line": 36,
           "column": 19
         }
       }
@@ -3262,15 +2883,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1697,
-      "end": 1698,
+      "start": 1381,
+      "end": 1382,
       "loc": {
         "start": {
-          "line": 46,
+          "line": 36,
           "column": 19
         },
         "end": {
-          "line": 46,
+          "line": 36,
           "column": 20
         }
       }
@@ -3288,15 +2909,15 @@
         "binop": null
       },
       "value": "arsenal",
-      "start": 1698,
-      "end": 1705,
+      "start": 1382,
+      "end": 1389,
       "loc": {
         "start": {
-          "line": 46,
+          "line": 36,
           "column": 20
         },
         "end": {
-          "line": 46,
+          "line": 36,
           "column": 27
         }
       }
@@ -3314,15 +2935,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1705,
-      "end": 1706,
+      "start": 1389,
+      "end": 1390,
       "loc": {
         "start": {
-          "line": 46,
+          "line": 36,
           "column": 27
         },
         "end": {
-          "line": 46,
+          "line": 36,
           "column": 28
         }
       }
@@ -3339,15 +2960,263 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1711,
-      "end": 1712,
+      "start": 1395,
+      "end": 1396,
       "loc": {
         "start": {
-          "line": 47,
+          "line": 37,
           "column": 4
         },
         "end": {
-          "line": 47,
+          "line": 37,
+          "column": 5
+        }
+      }
+    },
+    {
+      "type": "CommentBlock",
+      "value": "*\n\t * Gets the preferred pitches of the player (which, in a pitcher's case, is none)\n\t * @returns {Array}\n\t ",
+      "start": 1399,
+      "end": 1511,
+      "loc": {
+        "start": {
+          "line": 39,
+          "column": 1
+        },
+        "end": {
+          "line": 42,
+          "column": 4
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "name",
+        "beforeExpr": false,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "value": "getBatStrengths",
+      "start": 1513,
+      "end": 1528,
+      "loc": {
+        "start": {
+          "line": 43,
+          "column": 1
+        },
+        "end": {
+          "line": 43,
+          "column": 16
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "(",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 1528,
+      "end": 1529,
+      "loc": {
+        "start": {
+          "line": 43,
+          "column": 16
+        },
+        "end": {
+          "line": 43,
+          "column": 17
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ")",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 1529,
+      "end": 1530,
+      "loc": {
+        "start": {
+          "line": 43,
+          "column": 17
+        },
+        "end": {
+          "line": 43,
+          "column": 18
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "{",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 1531,
+      "end": 1532,
+      "loc": {
+        "start": {
+          "line": 43,
+          "column": 19
+        },
+        "end": {
+          "line": 43,
+          "column": 20
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "return",
+        "keyword": "return",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "value": "return",
+      "start": 1538,
+      "end": 1544,
+      "loc": {
+        "start": {
+          "line": 44,
+          "column": 5
+        },
+        "end": {
+          "line": 44,
+          "column": 11
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "[",
+        "beforeExpr": true,
+        "startsExpr": true,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 1545,
+      "end": 1546,
+      "loc": {
+        "start": {
+          "line": 44,
+          "column": 12
+        },
+        "end": {
+          "line": 44,
+          "column": 13
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "]",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 1546,
+      "end": 1547,
+      "loc": {
+        "start": {
+          "line": 44,
+          "column": 13
+        },
+        "end": {
+          "line": 44,
+          "column": 14
+        }
+      }
+    },
+    {
+      "type": {
+        "label": ";",
+        "beforeExpr": true,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null,
+        "updateContext": null
+      },
+      "start": 1547,
+      "end": 1548,
+      "loc": {
+        "start": {
+          "line": 44,
+          "column": 14
+        },
+        "end": {
+          "line": 44,
+          "column": 15
+        }
+      }
+    },
+    {
+      "type": {
+        "label": "}",
+        "beforeExpr": false,
+        "startsExpr": false,
+        "rightAssociative": false,
+        "isLoop": false,
+        "isAssign": false,
+        "prefix": false,
+        "postfix": false,
+        "binop": null
+      },
+      "start": 1553,
+      "end": 1554,
+      "loc": {
+        "start": {
+          "line": 45,
+          "column": 4
+        },
+        "end": {
+          "line": 45,
           "column": 5
         }
       }
@@ -3364,15 +3233,15 @@
         "postfix": false,
         "binop": null
       },
-      "start": 1713,
-      "end": 1714,
+      "start": 1555,
+      "end": 1556,
       "loc": {
         "start": {
-          "line": 48,
+          "line": 46,
           "column": 0
         },
         "end": {
-          "line": 48,
+          "line": 46,
           "column": 1
         }
       }
@@ -3390,15 +3259,15 @@
         "binop": null,
         "updateContext": null
       },
-      "start": 1715,
-      "end": 1715,
+      "start": 1557,
+      "end": 1557,
       "loc": {
         "start": {
-          "line": 49,
+          "line": 47,
           "column": 0
         },
         "end": {
-          "line": 49,
+          "line": 47,
           "column": 0
         }
       }
