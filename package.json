@@ -24,7 +24,7 @@
   "devDependencies": {
     "esdoc": "^1.1.0",
     "esdoc-standard-plugin": "^1.0.0",
-    "lodash": ">=4.17.13",
+    "lodash": ">=4.17.21",
     "lodash.merge": ">=4.6.2",
     "marked": ">=0.6.2"
   }
