@@ -2,7 +2,7 @@
 
 A browser-based baseball board game! Can you bash your way to the big leagues? Written in Javascript and HTML.
 
-Based on *[Big Leage Baseball](https://boardgamegeek.com/boardgame/8502/big-league-baseball)* by 3M Sports. Ported by **[J3 Productions](https://github.com/J3Productions)** - [Jielong Cong](https://github.com/JielongCong), [Jacob Parnell](https://github.com/compoundfraxure), [Jason Purinton](https://github.com/JasonPurinton)
+Based on *[Big Leage Baseball](https://boardgamegeek.com/boardgame/8502/big-league-baseball)* by 3M Sports. Ported by **[J3 Productions](https://github.com/J3Productions)** - [Jielong Cong](https://github.com/JielongCong), [Jacob Parnell](https://github.com/jake-penguins), [Jason Purinton](https://github.com/JasonPurinton)
 
 *This is a free port. Big League Baseball is Copyright © 1967 by 3M Co. No copyright infringement intended.*
 
